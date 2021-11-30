@@ -55,11 +55,11 @@ class RockPhysicsResult
 
     public $spatial = [];
 
-    public $location = [];
+    public $locations = [];
 
-    public $coveredPeriod = [];
+    public $coveredPeriods = [];
 
-    public $collectionPeriod = [];
+    public $collectionPeriods = [];
 
     public $maintainer = "";
 
@@ -217,7 +217,7 @@ class RockPhysicsResult
             if(count($data['msl_geolocations']) > 0) {
                 foreach ($data['msl_geolocations'] as $geoLocationData) {
                     if(isset($geoLocationData['msl_geolocation_place'])) {
-                        $this->location[] = $geoLocationData['msl_geolocation_place'];
+                        $this->locations[] = $geoLocationData['msl_geolocation_place'];
                     }
                 }
             }
@@ -226,7 +226,7 @@ class RockPhysicsResult
         if(isset($data['msl_covered_period'])) {
             if(count($data['msl_covered_period']) > 0) {
                 foreach ($data['msl_covered_period'] as $coveredPeriodData) {
-                    $this->coveredPeriod[] = new CoveredPeriod($coveredPeriodData);
+                    $this->coveredPeriods[] = new CoveredPeriod($coveredPeriodData);
                 }
             }
         }
@@ -234,7 +234,7 @@ class RockPhysicsResult
         if(isset($data['msl_collection_period'])) {
             if(count($data['msl_collection_period']) > 0) {
                 foreach ($data['msl_collection_period'] as $collectionPeriodData) {
-                    $this->collectionPeriod[] = new CollectionPeriod($collectionPeriodData);
+                    $this->collectionPeriods[] = new CollectionPeriod($collectionPeriodData);
                 }
             }
         }
