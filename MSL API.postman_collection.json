@@ -10,7 +10,35 @@
 			"request": {
 				"method": "GET",
 				"header": [],
-				"url": null
+				"url": {
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/rock_physics?rows=8&start=0&query=Concrete",
+					"protocol": "http",
+					"host": [
+						"dev",
+						"epos-msl",
+						"uu",
+						"nl"
+					],
+					"path": [
+						"webservice",
+						"api",
+						"rock_physics"
+					],
+					"query": [
+						{
+							"key": "rows",
+							"value": "8"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "query",
+							"value": "Concrete"
+						}
+					]
+				}
 			},
 			"response": []
 		}
