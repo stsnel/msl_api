@@ -17,6 +17,6 @@ class SourceDatasetIdentifier extends Model
     }
     
     public function source_dataset() {
-        return $this->hasMany(SourceDataset::class);
+        return $this->hasOne(SourceDataset::class);
     }
 }

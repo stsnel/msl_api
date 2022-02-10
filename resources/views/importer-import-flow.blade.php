@@ -4,9 +4,18 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-        <h1>Import status per found repository dataset</h1>
+        
+        <ul class="nav nav-tabs">
+          <li class="nav-item">
+            <a class="nav-link active" href="#">Datasets</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="{{ route('importer-imports-log', ['importer_id' => $importer_id, 'import_id' => $import_id]) }}">Mapping log</a>
+          </li>          
+        </ul>
+        
             <div class="card">
-                <div class="card-header">Import status</div>
+                
                 <div class="card-body">
 					@if($sourceDatasetIdentifiers->count() > 0)
 						<table class="table">
@@ -31,18 +40,44 @@
 									</td>
 									<td>
 										{{ $sourceDatasetIdentifier->identifier }}
+									</td>									
+									
+									<td>
+										@if($sourceDatasetIdentifier->response_code == 200)
+											<p class="text-success">success</p>
+										@elseif(is_null($sourceDatasetIdentifier->response_code))
+											<p class="text-primary">in queue</p>
+										@else
+											<p class="text-danger">error</p>
+										@endif
 									</td>
 									
-									<!-- 
-									<td></td>
-									<td></td>
-									<td></td>
-									-->
-									<td colspan="3">
-										<div class="progress">
-  											<div class="progress-bar bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
-										</div>
+									<?php $sourceDataset = $sourceDatasetIdentifier->source_dataset ?>
+									<td>
+										@if($sourceDataset)
+											@if($sourceDataset->status == 'succes')
+    											<p class="text-success">success</p>
+    										@elseif(is_null($sourceDataset->status))
+    											<p class="text-primary">in queue</p>
+    										@else
+    											<p class="text-danger">error</p>
+    										@endif
+										@endif										
 									</td>
+									
+									<?php if($sourceDataset) { $datasetCreate = $sourceDataset->dataset_create; } ?>
+									<td>
+										@if($datasetCreate)
+											@if($datasetCreate->response_code == 200)
+    											<p class="text-success">success</p>
+    										@elseif(is_null($datasetCreate->response_code))
+    											<p class="text-primary">in queue</p>
+    										@else
+    											<p class="text-danger">error</p>
+    										@endif
+										@endif
+									</td>
+									
 									<td>{{ $sourceDatasetIdentifier->created_at }}</td>
 								</tr>
 								<tr class="collapse accordion-collapse" id="r-{{ $loop->iteration }}">

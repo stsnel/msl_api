@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateDataRepositoriesTable extends Migration
+class CreatePoreFluidKeywordsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,10 +13,11 @@ class CreateDataRepositoriesTable extends Migration
      */
     public function up()
     {
-        Schema::create('data_repositories', function (Blueprint $table) {
+        Schema::create('pore_fluid_keywords', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('ckan_name');
+            $table->unsignedBigInteger('parent_id')->nullable();
+            $table->string('value');
+            $table->string('searchvalue');
             $table->timestamps();
         });
     }
@@ -28,6 +29,6 @@ class CreateDataRepositoriesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('data_repositories');
+        Schema::dropIfExists('pore_fluid_keywords');
     }
 }

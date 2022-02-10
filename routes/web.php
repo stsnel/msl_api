@@ -43,6 +43,12 @@ Route::get('/delete-actions', [HomeController::class, 'deleteActions'])->name('d
 Route::get('/importers', [HomeController::class, 'importers'])->name('importers');
 Route::get('/importer/{id}/imports', [HomeController::class, 'importerImports'])->name('importer-imports');
 Route::get('/importer/{importer_id}/imports/{import_id}/flow', [HomeController::class, 'importerImportsFlow'])->name('importer-imports-flow');
+Route::get('/importer/{importer_id}/imports/{import_id}/log', [HomeController::class, 'importerImportsLog'])->name('importer-imports-log');
+Route::get('/importer/{importer_id}/imports/{import_id}/log-export', [HomeController::class, 'exportImportLog'])->name('importer-imports-log-export');
+
+Route::get('tools/convert-keywords', [HomeController::class, 'convertKeywords'])->name('convert-keywords');
+Route::post('tools/convert-keywords', [HomeController::class, 'processMaterialsFile'])->name('process-materials-file');
+Route::post('tools/convert-rockphysics', [HomeController::class, 'processRockPhysicsFile'])->name('process-rockphysics-file');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
 Route::get('/imports', [HomeController::class, 'imports'])->name('imports');

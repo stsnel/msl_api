@@ -50,10 +50,12 @@ class ProcessImport implements ShouldQueue
         if($results->getTotalRecordCount() > 0) {            
             $counter = 0;
             foreach($results as $item) {
+                
                 $counter++;
-                if($counter > 4) {
-                    break;
+                if($counter > 10) {
+                    //break;
                 }
+                
                 $identifier = SourceDatasetIdentifier::create([
                     'import_id' => $this->import->id,
                     'identifier' => (string)$item->identifier

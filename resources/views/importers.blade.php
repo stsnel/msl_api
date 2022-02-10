@@ -50,6 +50,10 @@
                       				<td>{{ $importer->data_repository->name }}</td>
                       			</tr>
                       			<tr>
+                      				<td>Data repository ckan name:</td>
+                      				<td>{{ $importer->data_repository->ckan_name }}</td>
+                      			</tr>
+                      			<tr>
                       				<td>Type:</td>
                       				<td>{{ $importer->type }}</td>
                       			</tr>

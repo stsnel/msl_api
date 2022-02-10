@@ -3,6 +3,8 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
+use Maatwebsite\Excel\Facades\Excel;
 use Phpoaipmh\Endpoint;
 use App\Ckan\Request\PackageSearch;
 use App\Models\DatasetDelete;
@@ -18,6 +20,16 @@ use App\Ckan\Request\PackageCreate;
 use App\Ckan\Request\PackageShow;
 use App\Ckan\Response\PackageShowResponse;
 use App\Ckan\Request\PackageUpdate;
+use App\Ckan\Request\OrganizationList;
+use App\Ckan\Response\OrganizationListResponse;
+use App\Models\MappingLog;
+use App\Ckan\Response\PackageSearchResponse;
+use App\Mappers\Helpers\DataciteCitationHelper;
+use App\Converters\MaterialsConverter;
+use App\Exports\MappingLogsExport;
+use Database\Seeders\MaterialKeywordsSeeder;
+use App\Models\MaterialKeyword;
+use App\Converters\RockPhysicsConverter;
 
 class HomeController extends Controller
 {
@@ -43,7 +55,21 @@ class HomeController extends Controller
     
     public function removeDataset()
     {
-        return view('remove-dataset');
+        $client = new \GuzzleHttp\Client();
+        $OrganizationListrequest = new OrganizationList();
+        
+        try {
+            $response = $client->request($OrganizationListrequest->method,
+                $OrganizationListrequest->endPoint,
+                $OrganizationListrequest->getPayloadAsArray());
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        
+        $organizationListResponse =  new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
+        $organizations = $organizationListResponse->getOrganizations();
+        
+        return view('remove-dataset', ['organizations' => $organizations]);
     }
     
     public function removeDatasetConfirm(Request $request)
@@ -78,7 +104,7 @@ class HomeController extends Controller
                 
                 $searchRequest = new PackageSearch();
                 $searchRequest->rows = 1000;
-                $searchRequest->query = 'maintainer:' . $datasetSource;
+                $searchRequest->query = 'owner_org:' . $datasetSource;
                 try {
                     $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
                 } catch (\Exception $e) {
@@ -148,7 +174,19 @@ class HomeController extends Controller
     {
         $sourceDatasetidentifiers = SourceDatasetIdentifier::where('import_id', $importId)->get();
         
-        return view('importer-import-flow', ['sourceDatasetIdentifiers' => $sourceDatasetidentifiers]);
+        return view('importer-import-flow', ['sourceDatasetIdentifiers' => $sourceDatasetidentifiers, 'importer_id' => $id, 'import_id' => $importId]);
+    }
+    
+    public function importerImportsLog($id, $importId)
+    {
+        $logs = MappingLog::where('import_id', $importId)->get();
+        
+        return view('importer-import-log', ['logs' => $logs, 'importer_id' => $id, 'import_id' => $importId]);
+    }
+    
+    public function exportImportLog($id, $importId)
+    {
+        return Excel::download(new MappingLogsExport($importId), 'log.xlsx');
     }
     
     public function createimport(Request $request)
@@ -222,8 +260,344 @@ class HomeController extends Controller
         abort(404, 'DatasetCreate not found');
     }
     
+    public function convertKeywords()
+    {
+        
+        return view('convert-keywords');
+    }
+    
+    public function processMaterialsFile(Request $request)
+    {
+        $request->validate([
+            'materials-file' => 'required'
+        ]);
+                        
+        if($request->hasFile('materials-file')) {
+            $converter = new MaterialsConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('materials-file'));
+            }, 'materials.json');
+                        
+        }
+        
+        return back()
+            ->with('status','Error');
+    }
+    
+    public function processRockPhysicsFile(Request $request)
+    {        
+        $request->validate([
+            'rockphysics-file' => 'required',
+            'sheet' => 'required'
+        ]);
+        
+        if($request->hasFile('rockphysics-file')) {
+            $converter = new RockPhysicsConverter();            
+            $fullSheetName = '';
+            
+            switch ($request->input('sheet')) {
+                case 'apparatus':
+                    $fullSheetName = 'Apparatus';
+                    break;
+                    
+                case 'ancillary':
+                    $fullSheetName = 'Ancillary equipment';
+                    break;
+                    
+                case 'pore':
+                    $fullSheetName = 'Pore fluid';
+                    break;
+                    
+                case 'measured':
+                    $fullSheetName = 'Measured property';
+                    break;
+                    
+                case 'inferred':
+                    $fullSheetName = 'Inferred deformation behavior';
+                    break;
+            }
+            
+            
+            return response()->streamDownload(function () use($converter, $request, $fullSheetName) {
+                echo $converter->ExcelToJson($request->file('rockphysics-file'), $fullSheetName);
+            }, $fullSheetName . '.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
     public function test()
     {
+        //test gfz mapper alterations
+        $sourceDataset = SourceDataset::where('id', 113)->first();
+        $mapper = new GfzMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
+        
+        dd($dataset);
+        
+        
+        $keyword = MaterialKeyword::where('id', '2')->first();
+        
+        $ancestors = $keyword->getAncestors();
+        
+        dd($keyword->getAncestorsValues());
+        
+        $values = [];
+        foreach ($ancestors as $ancestor) {
+            $values[] = $ancestor->value;
+        }
+        
+        dd($values);
+        dd($keyword->getAncestors());
+        
+        dd('test');
+        
+        $seeder = new MaterialKeywordsSeeder();
+        $seeder->run();
+        
+        
+        $test = new \DateTime('2019-08-30');
+        $result = $test->format('Y-m-d H:i:s');
+        
+        $test2 = new \DateTime('2016-01');
+        $result2 = $test2->format('Y-m-d H:i:s');
+        
+        //2016-01
+        dd($result, $result2);
+        
+        
+        //test gfz mapper alterations
+        $sourceDataset = SourceDataset::where('id', 113)->first();
+        $mapper = new GfzMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
+        
+        dd($dataset);
+        
+        // test ftp listing
+        // sample result from xml = ftp://datapub.gfz-potsdam.de/download/10.5880.FID.2018.008"
+        
+        $ftpHost = "datapub.gfz-potsdam.de";
+        $ftpUser = "anonymous";
+        $ftpPassword = "";
+        
+        $ftp = ftp_connect($ftpHost) or die("Couldn't connect to $ftpHost");
+        
+        //$mode = ftp_pasv($ftp, true);
+        
+        if (@ftp_login($ftp, $ftpUser, $ftpPassword)) {
+            echo "Current directory: " . ftp_pwd($ftp) . "\n";
+            $mode = ftp_pasv($ftp, true);
+            
+            try {
+                //$test = "/download/10.5880.FID.2018.008";
+                $test = "/download/10.5880.GFZ.4.1.2017.001/";
+                
+                ftp_chdir($ftp, $test);
+            } catch (\Exception $e) {
+                ftp_close($ftp);
+                dd('JAJA');
+            }
+                                    
+            //$contents = ftp_rawlist($ftp, "*");
+            //$contents = ftp_rawlist($ftp, "*");
+            
+            echo "Current directory: " . ftp_pwd($ftp) . "\n";
+            
+            $contents = ftp_mlsd($ftp, "/download/10.5880.GFZ.4.1.2017.001");
+            if($mode) {
+                echo 'ja';
+            } else {
+                echo 'nee';
+            }
+            //$contents = ftp_nlist($ftp, '*');
+            //dd($contents);
+            
+        } else {
+            echo "Couldn't connect as $ftpUser\n";
+        }
+        
+        
+        
+        // close the connection
+        ftp_close($ftp);
+        dd($contents);
+        
+        dd('jajaja');
+        
+        
+        
+        
+        $converter = new MaterialsConverter();                
+        dd($converter->ExcelToJson('../storage/app/keywords/MSL 2021 material_V9.xlsx'));
+        
+        //test Excel reading
+        //$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
+        //$spreadsheet = $reader->load("../storage/app/keywords/MSL 2021 material_V9.xlsx");                
+        $inputFileName = '../storage/app/keywords/MSL 2021 material_V9.xlsx';
+        
+        //Storage::disk()->exists('neenee.xls');
+        dd(Storage::disk()->exists("/keywords/MSL 2021 material_V9.xlsx"));
+        
+        /** Load $inputFileName to a Spreadsheet Object  **/
+        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
+        $worksheet = $spreadsheet->getActiveSheet();
+        
+        //dd($worksheet->calculateWorksheetDataDimension());
+        //dd($worksheet->getHighestDataRow());
+        
+        $nodes = [];
+        
+        foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {
+            
+            $cellIterator = $row->getCellIterator('A', 'E');
+            $cellIterator->setIterateOnlyExistingCells(FALSE); // This loops through all cells,
+
+            foreach ($cellIterator as $cell) {
+                if($cell->getValue()) {
+                    if($cell->getValue() !== "") {
+                        $node = [
+                            'value' => '',
+                            'hyperlink' => '',
+                            'level' => null
+                        ];
+                        
+                        $node['value'] = $cell->getValue();
+                        if($cell->hasHyperlink()) {
+                            $node['hyperlink'] = $cell->getHyperlink()->getUrl();
+                        }
+                        $node['level'] = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($cell->getColumn());
+                        
+                        $nodes[] = $node;
+                    }
+                }
+            }                            
+        }
+        
+        dd($nodes);
+        
+        dd($spreadsheet);
+                        
+        
+        dd('jaja');
+        
+        
+        
+        // test get formatted text citation
+        $DataciteHelper = new DataciteCitationHelper();
+        dd($DataciteHelper->getCitationString("10.1038/s41598-018-22889-3"));
+        
+        
+        
+        $client = new \GuzzleHttp\Client();
+        
+        $response = $client->request(
+            'GET', 
+            'https://doi.org/doi:10.1016/j.tecto.2017.11.018',
+            ['headers' => [
+                'Accept' => 'text/x-bibliography; style=apa'
+            ]]);
+        
+        //dd($response->getStatusCode());
+        //dd(json_decode($response->getBody(), true));
+        dd((string)$response->getBody());
+        
+        
+        
+        // test ftp listing
+        // sample result from xml = ftp://datapub.gfz-potsdam.de/download/10.5880.FID.2018.008"
+        
+        $ftpHost = "datapub.gfz-potsdam.de";
+        $ftpUser = "anonymous";
+        $ftpPassword = "";
+        
+        $ftp = ftp_connect($ftpHost) or die("Couldn't connect to $ftpHost"); 
+        
+        if (@ftp_login($ftp, $ftpUser, $ftpPassword)) {
+            echo "Current directory: " . ftp_pwd($ftp) . "\n";
+            
+            
+            if (ftp_chdir($ftp, "/download/10.5880.FID.2018.008")) {
+                echo "Current directory is now: " . ftp_pwd($ftp) . "\n";
+            } else {
+                echo "Couldn't change directory\n";
+            }
+            
+            
+        } else {
+            echo "Couldn't connect as $ftpUser\n";
+        }
+        
+        // close the connection
+        ftp_close($ftp);  
+        
+        dd('jaja');
+        
+        //test gfz mapper alterations
+        $sourceDataset = SourceDataset::where('id', 122)->first();
+        $mapper = new GfzMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
+        
+        dd($dataset);
+        
+        // test get labs ids
+        $client = new \GuzzleHttp\Client();
+        $searchRequest = new PackageSearch();
+        
+        $searchRequest->rows = 1000;
+        $searchRequest->query = 'type: lab';
+        try {
+            $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+        } catch (\Exception $e) {
+            
+        }
+        
+        $packageSearchResponse = new PackageSearchResponse(json_decode($response->getBody(), true), $response->getStatusCode());
+        
+        dd($packageSearchResponse->getNameList());
+        
+        
+        
+        $content = json_decode($response->getBody(), true);
+        dd($content);
+        $results = $content['result']['results'];
+        
+        
+        
+        
+        
+        //test gfz mapper alterations
+        $sourceDataset = SourceDataset::where('id', 122)->first();
+        $mapper = new GfzMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
+        
+        dd($dataset);
+        
+        
+        //test new organization list ckan request
+        $client = new \GuzzleHttp\Client();        
+        $OrganizationListrequest = new OrganizationList();
+        
+        try {
+            $response = $client->request($OrganizationListrequest->method,
+                $OrganizationListrequest->endPoint,
+                $OrganizationListrequest->getPayloadAsArray());
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        
+        $organizationListResponse =  new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
+        $organizations = $organizationListResponse->getOrganizations();
+        
+        dd($organizations);
+        
+        
         //test chaining
         $sourceDataset = SourceDataset::where('id', 1)->first();
         dd($sourceDataset->source_dataset_identifier->import->id);
@@ -234,18 +608,6 @@ class HomeController extends Controller
         
         
         dd($sourceDataset);
-        
-        
-        
-        
-        //test gfz mapper alterations
-        $sourceDataset = SourceDataset::where('id', 1)->first();        
-        $mapper = new GfzMapper();
-        
-        $dataset = $mapper->map($sourceDataset);
-        
-        dd($dataset);
-        
         
         
         

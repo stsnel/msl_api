@@ -16,7 +16,8 @@ class ImportingSeeder extends Seeder
     public function run()
     {
         $gfz = DataRepository::create([
-           'name' => 'GFZ Potsdam' 
+            'name' => 'GFZ Potsdam',
+            'ckan_name' => 'gfz-potsdam'
         ]);
         
         Importer::create([

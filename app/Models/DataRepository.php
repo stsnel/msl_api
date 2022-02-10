@@ -8,7 +8,8 @@ class DataRepository extends Model
 {
     
     protected $fillable = [
-        'name'
+        'name',
+        'ckan_name'
     ];
     
     public function importer() {

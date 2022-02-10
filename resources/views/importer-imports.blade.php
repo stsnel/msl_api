@@ -22,11 +22,12 @@
 							</thead>
 							<tbody>
 								@foreach($imports as $import)
+								<?php $stats = $import->getStatsOverview(); ?>
 								<tr>
-									<td>{{ $import->id }}</td>
-									<td>4/4</td>
-									<td>3/4</td>
-									<td>3/4</td>
+									<td>{{ $import->id }}</td>									
+									<td>{{ $stats['step_1_success'] }}/{{ $stats['step_1_total'] }}</td>
+									<td>{{ $stats['step_2_success'] }}/{{ $stats['step_2_total'] }}</td>
+									<td>{{ $stats['step_3_success'] }}/{{ $stats['step_3_total'] }}</td>
 									<td>{{ $import->created_at }}</td>
 									<td><a href="{{ route('importer-imports-flow', ['importer_id' => $importer->id, 'import_id' => $import->id]) }}">View flow in detail</a></td>
 								</tr>
@@ -34,7 +35,7 @@
 							</tbody>
 						</table>
 					@else
-						<p>No imports in queue.</p>
+						<p>No imports found for this importer.</p>
 					@endif
                 </div>
             </div>                                    

@@ -17,6 +17,11 @@ class SourceDataset extends Model
         return $this->belongsTo(SourceDatasetIdentifier::class);
     }
     
+    public function dataset_create()
+    {
+        return $this->hasOne(DatasetCreate::class);
+    }
+    
     public function mapping_logs()
     {
         return $this->hasMany(MappingLog::class);
