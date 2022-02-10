@@ -107,7 +107,7 @@ class GfzMapper
         $ftp = ftp_connect($ftpHost);
         
         if(!$ftp) {
-            $this->log('ERROR', 'Could not connect to ftphost ' . $ftpHost, $sourceDataset);
+            $this->log('ERROR', 'Could not connect to ftphost: "' . $ftpHost . '"', $sourceDataset);
             return [];
         }
         
@@ -117,7 +117,7 @@ class GfzMapper
             try {
                 ftp_chdir($ftp, $path);
             } catch (\Exception $e) {
-                $this->log('ERROR', 'Path: ' . $path . 'could not be found on ftp server.', $sourceDataset);
+                $this->log('ERROR', 'Path: "' . $path . '"could not be found on ftp server.', $sourceDataset);
                 ftp_close($ftp);
                 return [];
             }                        
@@ -136,7 +136,7 @@ class GfzMapper
             return $files;
             
         } else {
-            $this->log('ERROR', 'Could not connect to ftphost as user' . $ftpUser, $sourceDataset);
+            $this->log('ERROR', 'Could not connect to ftphost as user: "' . $ftpUser . '"', $sourceDataset);
             return [];
         }
     }
@@ -385,7 +385,13 @@ class GfzMapper
         
         //set owner_org
         $dataset->owner_org = $sourceDataset->source_dataset_identifier->import->importer->data_repository->ckan_name;
-                                
+        
+        //extract publisher
+        $result = $xmlDocument->xpath("/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:citedResponsibleParty/gmd:CI_ResponsibleParty[./gmd:role/gmd:CI_RoleCode='publisher']/gmd:organisationName/gco:CharacterString/node()");
+        if(isset($result[0])) {
+            $dataset->msl_publisher = (string)$result[0];
+        }
+        
         //extract title
         $result = $xmlDocument->xpath('/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString/node()');
         if(isset($result[0])) {
@@ -504,10 +510,10 @@ class GfzMapper
                     
                     // check if lab id is present in ckan                    
                     if(!in_array($lab['msl_lab_id'], $this->getLabNames())) {
-                        $this->log('WARNING', "LabId: " . $lab['msl_lab_id'] . " not found in ckan.", $sourceDataset);
+                        $this->log('WARNING', "LabId: \"" . $lab['msl_lab_id'] . "\" not found in ckan.", $sourceDataset);
                     }                    
                 } else {
-                    $this->log('WARNING', "Lab with name: " . $lab['msl_lab_name'] . " has no id.", $sourceDataset);
+                    $this->log('WARNING', "Lab with name: \"" . $lab['msl_lab_name'] . "\" has no id.", $sourceDataset);
                 }
                 
                 $dataset->msl_laboratories[] = $lab;
@@ -523,16 +529,6 @@ class GfzMapper
             }
             
             $dataset = $this->processKeywords($dataset, $keywords);
-            /*
-            foreach ($results as $result) {
-                $keyword = preg_replace("/[^A-Za-z0-9 ]/", '', (string)$result[0]);
-                if(strlen($keyword) >= 100) {
-                    $keyword = substr($keyword, 0, 95);
-                    $keyword = $keyword . "...";
-                }
-                $dataset->tag_string[] = $keyword;
-            }
-            */
         }                                       
         
         //extract spatial coordinates

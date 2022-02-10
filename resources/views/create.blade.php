@@ -27,7 +27,11 @@
 								<tr>
 									<td>importer:</td>
 									<td>{{ $datasetCreate->source_dataset->source_dataset_identifier->import->importer->name }}</td>
-								</tr>															
+								</tr>
+								<tr>
+									<td>dataset type (class):</td>
+									<td>{{ $datasetCreate->dataset_type }}</td>
+								</tr>														
 								<tr>
 									<td>created:</td>
 									<td>{{ $datasetCreate->created_at }}</td>

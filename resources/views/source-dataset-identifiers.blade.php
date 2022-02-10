@@ -51,6 +51,10 @@
 								@endforeach
 							</tbody>
 						</table>
+						
+						<div class="d-flex justify-content-center">
+							{{ $identifiers->links() }}
+						</div>
 					@else
 						<p>No identifier data found.</p>
 					@endif

@@ -18,18 +18,6 @@ use App\Models\User;
 |
 */
 
-Route::get('/admin', function () {
-    User::all();
-    
-    try {
-        DB::connection()->getPDO();
-        echo DB::connection()->getDatabaseName();
-    } catch (\Exception $e) {
-        echo 'None';
-    }
-    
-    return 'Hello World';
-});
 
 Auth::routes(['register' => false]);
 

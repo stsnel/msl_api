@@ -57,6 +57,10 @@
 								@endforeach
 							</tbody>
 						</table>
+						
+						<div class="d-flex justify-content-center">
+							{{ $createActions->links() }}
+						</div>
 					@else
 						<p>No create data found.</p>
 					@endif

@@ -37,10 +37,10 @@ class ProcessSourceDataset implements ShouldQueue
     public function handle()
     {
         $mapper = new GfzMapper();
-        $dataset = $mapper->map($this->sourceDataset);
+        $dataset = $mapper->map($this->sourceDataset);                
         
         $datasetCreate = DatasetCreate::create([
-            'dataset_type' => 'rockphysics',
+            'dataset_type' => $dataset::class,
             'dataset' => (array)$dataset,
             'source_dataset_id' => $this->sourceDataset->id
         ]);

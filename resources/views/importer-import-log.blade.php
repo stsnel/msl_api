@@ -22,6 +22,7 @@
 							<thead>
 								<tr>
 									<th>identifier</th>
+									<th>doi</th>
 									<th>type</th>
 									<th>message</th>
 									<th>created_at</th>
@@ -40,7 +41,14 @@
 											@break
 										@endswitch
 									>
+																		
 										<td>{{ $log->source_dataset->source_dataset_identifier->identifier }}</td>
+										<td>
+											<?php $doi = $log->getDatasetDOI(); ?>
+											@if($doi !== "")
+												<a href="https://dx.doi.org/{{ $log->getDatasetDOI() }}">{{ $log->getDatasetDOI() }}</a>
+											@endif										
+										</td>
 										<td>{{ $log->type }}</td>
 										<td>{{ $log->message }}</td>
 										<td>{{ $log->created_at }}</td>
@@ -48,6 +56,10 @@
 								@endforeach
 							</tbody>
 						</table>
+						
+						<div class="d-flex justify-content-center">
+							{{ $logs->links() }}
+						</div>
 						
 						<a href="{{ route('importer-imports-log-export', ['importer_id' => $importer_id, 'import_id' => $import_id]) }}" class="btn btn-success">Download as xlsx</a>
 					@else

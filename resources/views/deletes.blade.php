@@ -49,8 +49,11 @@
 								@endforeach
 							</tbody>
 						</table>
+						<div class="d-flex justify-content-center">
+							{{ $deletes->links() }}
+						</div>
 					@else
-						<p>No deletes in queue.</p>
+						<p>No deletes found.</p>
 					@endif
                 </div>
             </div>                                    

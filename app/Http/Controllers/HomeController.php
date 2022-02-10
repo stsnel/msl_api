@@ -50,6 +50,8 @@ class HomeController extends Controller
      */
     public function index()
     {
+        
+        
         return view('home');
     }
     
@@ -150,7 +152,7 @@ class HomeController extends Controller
     
     public function deleteActions()
     {
-        $deletes = DatasetDelete::all();
+        $deletes = DatasetDelete::paginate(50);
         
         return view('deletes', ['deletes' => $deletes]);
     }
@@ -172,14 +174,14 @@ class HomeController extends Controller
     
     public function importerImportsFlow($id, $importId)
     {
-        $sourceDatasetidentifiers = SourceDatasetIdentifier::where('import_id', $importId)->get();
+        $sourceDatasetidentifiers = SourceDatasetIdentifier::where('import_id', $importId)->paginate(50);
         
         return view('importer-import-flow', ['sourceDatasetIdentifiers' => $sourceDatasetidentifiers, 'importer_id' => $id, 'import_id' => $importId]);
     }
     
     public function importerImportsLog($id, $importId)
     {
-        $logs = MappingLog::where('import_id', $importId)->get();
+        $logs = MappingLog::where('import_id', $importId)->paginate(50);
         
         return view('importer-import-log', ['logs' => $logs, 'importer_id' => $id, 'import_id' => $importId]);
     }
@@ -208,21 +210,21 @@ class HomeController extends Controller
     
     public function imports()
     {
-        $imports = Import::all();
+        $imports = Import::paginate(50);
         
         return view('imports', ['imports' => $imports]);
     }
     
     public function sourceDatasetIdentifiers()
     {
-        $identifiers = SourceDatasetIdentifier::all();
+        $identifiers = SourceDatasetIdentifier::paginate(50);
         
         return view('source-dataset-identifiers', ['identifiers' => $identifiers]);
     }
     
     public function sourceDatasets()
     {
-        $sourceDatasets = SourceDataset::all();
+        $sourceDatasets = SourceDataset::paginate(50);
         
         return view('source-datasets', ['sourceDatasets' => $sourceDatasets]);
     }
@@ -242,7 +244,7 @@ class HomeController extends Controller
     
     public function createActions()
     {
-        $createActions = DatasetCreate::all();
+        $createActions = DatasetCreate::paginate(50);
         
         return view('creates', ['createActions' => $createActions]);
     }
@@ -332,10 +334,25 @@ class HomeController extends Controller
     public function test()
     {
         //test gfz mapper alterations
-        $sourceDataset = SourceDataset::where('id', 113)->first();
+        $sourceDataset = SourceDataset::where('id', 104)->first();
+        
+        //the DatasetCreate has to actually exist. The dataset property is always avialable but might be NULL.
+        //in theory msl_source might also contain invalid information. However this is not crucial for these display purposes.
+        //if instead the DOI value should be extracted from the msl_pids multi-valued field more checks are required as
+        //multiple msl_pids might be present. These might also not be of type DOI or multiple DOIs might exists within
+        //all available msl_pids.
+        $datasetCreate = $sourceDataset->dataset_create->dataset['msl_source'];
+        
+        //below should resolve msl_pids fields even when empty.
+        $datasetCreate = $sourceDataset->dataset_create->dataset['msl_pids'];
+        
+        dd($datasetCreate);
+        
         $mapper = new GfzMapper();
         
         $dataset = $mapper->map($sourceDataset);
+        
+        dd($dataset::class);
         
         dd($dataset);
         

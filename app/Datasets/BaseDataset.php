@@ -36,5 +36,7 @@ class BaseDataset
     public $msl_downloads = [];
     
     public $msl_materials = [];
+    
+    public $msl_publisher;
 }
 

@@ -51,6 +51,9 @@
 								@endforeach
 							</tbody>
 						</table>
+						<div class="d-flex justify-content-center">
+							{{ $imports->links() }}
+						</div>
 					@else
 						<p>No imports in queue.</p>
 					@endif

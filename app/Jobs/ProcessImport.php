@@ -52,8 +52,8 @@ class ProcessImport implements ShouldQueue
             foreach($results as $item) {
                 
                 $counter++;
-                if($counter > 10) {
-                    //break;
+                if($counter > 3) {
+                    break;
                 }
                 
                 $identifier = SourceDatasetIdentifier::create([

@@ -22,4 +22,22 @@ class MappingLog extends Model
     {
         return $this->belongsTo(SourceDataset::class);
     }
+    
+    public function getDatasetDOI()
+    {
+        if($this->source_dataset->dataset_create) {
+            $dataset = $this->source_dataset->dataset_create->dataset;
+            
+            if(isset($dataset['msl_pids'])) {
+                foreach ($dataset['msl_pids'] as $pid) {
+                    if($pid['msl_identifier_type'] == 'doi') {
+                        return $pid['msl_pid'];
+                    }
+                }
+            }
+            
+        }
+        
+        return '';
+    }
 }

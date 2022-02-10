@@ -29,6 +29,7 @@ class MappingLogsExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             'identifier',
+            'doi',
             'type',
             'message',
             'created_at'
@@ -38,6 +39,7 @@ class MappingLogsExport implements FromCollection, WithHeadings, WithMapping
     {
         return [
             $mappingLog->source_dataset->source_dataset_identifier->identifier,
+            $mappingLog->getDatasetDOI(),
             $mappingLog->type,
             $mappingLog->message,
             $mappingLog->created_at
