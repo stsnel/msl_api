@@ -191,6 +191,17 @@ class HomeController extends Controller
         return Excel::download(new MappingLogsExport($importId), 'log.xlsx');
     }
     
+    public function importerImportsDetail($importerid, $importId, $sourceDatasetIdentifierId)
+    {
+        $sourceDatasetIdentifier = SourceDatasetIdentifier::where('id', $sourceDatasetIdentifierId)->first();
+        
+        if($sourceDatasetIdentifier) {
+            return view('importer-import-detail', ['sourceDatasetIdentifier' => $sourceDatasetIdentifier, 'importer_id' => $importerid, 'import_id' => $importId]);
+        }
+        
+        abort(404, 'Invalid data requested');
+    }
+    
     public function createimport(Request $request)
     {
         if($request->has('importer-id')) {

@@ -33,6 +33,8 @@ Route::get('/importer/{id}/imports', [HomeController::class, 'importerImports'])
 Route::get('/importer/{importer_id}/imports/{import_id}/flow', [HomeController::class, 'importerImportsFlow'])->name('importer-imports-flow');
 Route::get('/importer/{importer_id}/imports/{import_id}/log', [HomeController::class, 'importerImportsLog'])->name('importer-imports-log');
 Route::get('/importer/{importer_id}/imports/{import_id}/log-export', [HomeController::class, 'exportImportLog'])->name('importer-imports-log-export');
+Route::get('/importer/{importer_id}/imports/{import_id}/detail/{source_dataset_identifier_id}', [HomeController::class, 'importerImportsDetail'])->name('importer-imports-detail');
+
 
 Route::get('tools/convert-keywords', [HomeController::class, 'convertKeywords'])->name('convert-keywords');
 Route::post('tools/convert-keywords', [HomeController::class, 'processMaterialsFile'])->name('process-materials-file');

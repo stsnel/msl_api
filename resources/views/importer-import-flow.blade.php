@@ -27,6 +27,7 @@
 									<th>source dataset</th>
 									<th>create</th>
 									<th>created_at</th>
+									<th></th>
 								</tr>
 							</thead>
 							<tbody>
@@ -76,6 +77,9 @@
 									</td>
 									
 									<td>{{ $sourceDatasetIdentifier->created_at }}</td>
+									<td>
+										<a href="{{ route('importer-imports-detail', ['importer_id' => $importer_id, 'import_id' => $import_id, 'source_dataset_identifier_id' => $sourceDatasetIdentifier->id]) }}" title="view details">view</a>
+									</td>
 								</tr>								
 								@endforeach
 							</tbody>
@@ -84,8 +88,10 @@
 						<div class="d-flex justify-content-center">
 							{{ $sourceDatasetIdentifiers->links() }}
 						</div>
+						
+
 					@else
-						<p>No sourcedata identifiers found.</p>
+						<p>No data found.</p>
 					@endif
                 </div>
             </div>                                    
