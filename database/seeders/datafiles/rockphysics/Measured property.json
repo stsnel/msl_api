@@ -1,0 +1,864 @@
+[
+    {
+        "value": "strength ",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "unconfined compressive strength (UCS) \/ uniaxial compressive strength (UCS)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "tensile strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "true tension strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "hydrostatic compressive strength (s1=s2=s3)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "triaxial compressive strength (s1>s2=s3)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "true triaxial strength (s1>s2>s3)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "yield strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "shear strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "torsion strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "residual strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "plastic flow strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "fracture and crack toughness",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "linear-elastic (critical stress intensity factor KIC)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "plastic-elastic fracture toughness (JIC)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "friction - controlled slip rate ",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "peak friction coefficient",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "kinetic friction coefficient",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "steady state friction coefficient",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "rate and state friction (RSF) parameters",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "slip weakening parameters",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "stress drop",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "friction drop"
+                ],
+                "subTerms": []
+            },
+            {
+                "value": "frictional strength",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "frictional strength recovery",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "cohesion",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "dilatancy parameter",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "Linker-Dieterich parameter",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "friction - controlled stress ",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "slip rate",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "strain",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "elastic strain",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "anelastic strain",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "inelastic strain",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "plastic strain",
+                    "permanent strain"
+                ],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "strain rate - creep (constant stress)",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": []
+    },
+    {
+        "value": "stress relaxation",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": []
+    },
+    {
+        "value": "pore fluid pressure ",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": []
+    },
+    {
+        "value": "coupled  mechanical-chemical effects",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "force of crystallization (FOC)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "volume change",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "fluid-rock interaction",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "coupled mechanical-hydrological effects",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": []
+    },
+    {
+        "value": "temperature change",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "endothermic reaction",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "exothermic reaction",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "frictional heating",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "elasticity",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "Young's modulus",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "bulk modulus",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "shear modulus",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "Poisson ratio",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "Biot coefficient",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "axial compressibility",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "bulk compressibility",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "Lam\u00e9 parameter",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "indentation modulus",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "modulus dispersion",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "modulus attenuation",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "elastic wave velocity",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "P-wave",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "S-wave",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "S1-wave",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "S2-wave",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "wave attenuation",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "acoustic emission (AE)",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "acoustic emission (AE) energy",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "acoustic emission (AE) count",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "acoustic emission (AE) location",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "permeability",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "absolute permeability",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "intrinsic permeability",
+                    "specific permeability"
+                ],
+                "subTerms": []
+            },
+            {
+                "value": "relative permeability",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "fracture permeability",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "bulk sample permeability",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "storativity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "Klinkenberg constant",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "capillary effects",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "fluid hold-up",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "thermal properties",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "heat capacity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "thermal conductivity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "electrical properties",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "electrical conductivity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "electrical resistivity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "electrical capacity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "spontaneous potential"
+                ],
+                "subTerms": []
+            },
+            {
+                "value": "frequency dependent conductivity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "anisotropy ",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "strength anisotropy",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "elastic anisotropy",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "permeability anisotropy",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "seismic anisotropy",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "roughness",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "grain surface roughness",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "rock surface roughness",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "Slake durability",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": []
+    }
+]

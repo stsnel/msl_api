@@ -4,6 +4,8 @@ namespace App\Ckan\Request;
 
 class PackageSearch
 {
+    public $endPoint;
+    
     public $method = 'GET';
 
     public $query = '';
@@ -13,6 +15,10 @@ class PackageSearch
     public $rows;
 
     public $start;
+    
+    public function __construct() {
+        $this->endPoint = config('ckan.ckan_api_url') . 'action/package_search';
+    }
 
     public function getAsQueryArray() {
         return [
@@ -31,7 +37,7 @@ class PackageSearch
             $this->rows = 10;
         }
 
-        $this->start =  (int)$request->get('start');
+        $this->start = (int)$request->get('start');
         if($this->start < 0) {
             $this->start = 0;
         }
