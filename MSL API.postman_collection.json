@@ -11,7 +11,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://dev.epos-msl.uu.nl/webservice/api/rock_physics?rows=8&start=0&query=Concrete",
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/rock_physics?rows=8&start=0&authorName=Montanaro&labName=Munich&title=Variability",
 					"protocol": "http",
 					"host": [
 						"dev",
@@ -35,7 +35,25 @@
 						},
 						{
 							"key": "query",
-							"value": "Concrete"
+							"value": "calcite",
+							"disabled": true
+						},
+						{
+							"key": "authorName",
+							"value": "Montanaro"
+						},
+						{
+							"key": "labName",
+							"value": "Munich"
+						},
+						{
+							"key": "title",
+							"value": "Variability"
+						},
+						{
+							"key": "tags",
+							"value": "EPOS",
+							"disabled": true
 						}
 					]
 				}
