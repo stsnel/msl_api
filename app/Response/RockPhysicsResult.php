@@ -5,7 +5,7 @@ namespace App\Response;
 use App\Response\Elements\CollectionPeriod;
 use App\Response\Elements\Contributor;
 use App\Response\Elements\CoveredPeriod;
-use App\Response\Elements\Creator;
+use App\Response\Elements\Author;
 use App\Response\Elements\Download;
 use App\Response\Elements\Pid;
 use App\Response\Elements\Reference;
@@ -14,6 +14,10 @@ use App\Response\Elements\Spatial;
 class RockPhysicsResult
 {
     public $title = "";
+    
+    public $name = "";
+    
+    public $portalLink = "";
 
     public $pid = [];
 
@@ -70,10 +74,15 @@ class RockPhysicsResult
         if(isset($data['title'])) {
             $this->title = $data['title'];
         }
+        
+        if(isset($data['name'])) {
+            $this->name = $data['name'];
+            $this->portalLink = config('ckan.ckan_root_url') . 'rockphysics/' . $data['name'];
+        }
 
-        if(isset($data['pid'])) {
-            if(count($data['pid']) > 0) {
-                foreach ($data['pid'] as $pidData) {
+        if(isset($data['msl_pids'])) {
+            if(count($data['msl_pids']) > 0) {
+                foreach ($data['msl_pids'] as $pidData) {
                     $this->pid[] = new Pid($pidData);
                 }
             }
@@ -111,10 +120,10 @@ class RockPhysicsResult
             $this->citation = $data['msl_citation'];
         }
 
-        if(isset($data['msl_creators'])) {
-            if(count($data['msl_creators']) > 0) {
-                foreach ($data['msl_creators'] as $creatorData) {
-                    $this->creators[] = new Creator($creatorData);
+        if(isset($data['msl_authors'])) {
+            if(count($data['msl_authors']) > 0) {
+                foreach ($data['msl_authors'] as $authorData) {
+                    $this->creators[] = new Author($authorData);
                 }
             }
         }

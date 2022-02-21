@@ -31,7 +31,7 @@ class PackageSearch
         ];
     }
 
-    public function setbyRequest($request) {
+    public function setbyRequest($request, $processedQuery = '') {
         $this->rows = (int)$request->get('rows');
         if($this->rows < 1) {
             $this->rows = 10;
@@ -42,7 +42,12 @@ class PackageSearch
             $this->start = 0;
         }
 
-        $this->query = $request->get('query');
+        if($processedQuery !== '') {
+            $this->query = $processedQuery;
+        } else {
+            $this->query = $request->get('query');        
+        }
+        
         if(!$this->query) {
             $this->query = "";
         }

@@ -9,7 +9,13 @@ use Illuminate\Http\Request;
 
 class RockPhysicsController extends Controller
 {
-
+    private $queryMappings = [
+        'tags' => 'tags',
+        'title' => 'title',
+        'authorName' => 'msl_author_name_text',
+        'labName' => 'msl_lab_name_text',
+    ];
+    
     public function index(Request $request) {
         $action = 'action/package_search';
         $endpoint = config('ckan.ckan_api_url') . $action;
@@ -17,10 +23,13 @@ class RockPhysicsController extends Controller
         $client = new \GuzzleHttp\Client();
 
         $searchRequest = new PackageSearch();
-        $searchRequest->setbyRequest($request);
+        
+        
+        
+        $searchRequest->setbyRequest($request, $this->buildQuery($request));
         $searchRequest->filterQuery = 'type:rockphysics';
 
-        $identifier = $request->get('identifier');
+        //dd($searchRequest->getAsQueryArray());
 
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
@@ -43,5 +52,30 @@ class RockPhysicsController extends Controller
 
         //return response object
         return $rockPhysicsResponse->getAsLaravelResponse();
+    }
+    
+    
+    private function buildQuery(Request $request)
+    {
+        $queryParts = [];
+        
+        foreach ($this->queryMappings as $key => $value)
+        {
+            if($request->filled($key)) {
+                $queryParts[] = $value . ':' . $request->get($key);
+            }
+        }
+        
+        if(count($queryParts) > 0) {
+            if($request->filled('query')) {
+                $queryParts[] = $request->get('query');
+            }
+        }
+        
+        if(count($queryParts) > 0) {
+            return implode(' AND ', $queryParts);
+        }                
+        
+        return '';
     }
 }
