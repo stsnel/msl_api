@@ -2,7 +2,7 @@
 
 namespace App\Response;
 
-class RockPhysicsResponse
+class MainResponse
 {
     public $success = true;
 
@@ -18,7 +18,6 @@ class RockPhysicsResponse
         $content = json_decode($response->getBody(), true);
         $this->success = (boolean)$content['success'];
         $this->result->setByCkanResponse($content);
-        //dd($content);
     }
 
     public function getAsLaravelResponse() {
@@ -30,10 +29,4 @@ class RockPhysicsResponse
     }
 
 
-    /**
-     * $response->result->count = 14;
-     * $response->result->resultCount = 10;
-     * $response->result->results
-     *
-     */
 }

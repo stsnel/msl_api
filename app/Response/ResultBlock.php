@@ -19,7 +19,13 @@ class ResultBlock
             $this->resultCount = count($response['result']['results']);
 
             foreach ($response['result']['results'] as $result) {
-                $this->results[] = new RockPhysicsResult($result);
+                if($result['type'] == "rockphysics") {
+                    $this->results[] = new RockPhysicsResult($result);
+                } elseif($result['type'] == "analogue") {
+                    $this->results[] = new AnalogueResult($result);
+                } elseif($result['type'] == "paleomagnetic") {
+                    $this->results[] = new PaleoResult($result);
+                }
             }
         }
     }
@@ -27,4 +33,6 @@ class ResultBlock
     public function getAsArray() {
         return (array)$this;
     }
+    
+        
 }

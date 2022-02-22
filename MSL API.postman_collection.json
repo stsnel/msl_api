@@ -59,6 +59,116 @@
 				}
 			},
 			"response": []
+		},
+		{
+			"name": "analogue",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/analogue?rows=8&start=0&authorName=Rosenau&labName=GFZ&title=Tectonic",
+					"protocol": "http",
+					"host": [
+						"dev",
+						"epos-msl",
+						"uu",
+						"nl"
+					],
+					"path": [
+						"webservice",
+						"api",
+						"analogue"
+					],
+					"query": [
+						{
+							"key": "rows",
+							"value": "8"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "query",
+							"value": "Francisca",
+							"disabled": true
+						},
+						{
+							"key": "authorName",
+							"value": "Rosenau"
+						},
+						{
+							"key": "labName",
+							"value": "GFZ"
+						},
+						{
+							"key": "title",
+							"value": "Tectonic"
+						},
+						{
+							"key": "tags",
+							"value": "EPOS",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "paleo",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/paleo?rows=8&start=0&authorName=Monika&labName=Utrecht&title=Pannonian",
+					"protocol": "http",
+					"host": [
+						"dev",
+						"epos-msl",
+						"uu",
+						"nl"
+					],
+					"path": [
+						"webservice",
+						"api",
+						"paleo"
+					],
+					"query": [
+						{
+							"key": "rows",
+							"value": "8"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "query",
+							"value": "Fortran",
+							"disabled": true
+						},
+						{
+							"key": "authorName",
+							"value": "Monika"
+						},
+						{
+							"key": "labName",
+							"value": "Utrecht"
+						},
+						{
+							"key": "title",
+							"value": "Pannonian"
+						},
+						{
+							"key": "tags",
+							"value": "EPOS",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
 		}
 	]
 }
