@@ -10,6 +10,7 @@ use App\Response\MainResponse;
 class ApiController extends Controller
 {
     private $queryMappings = [
+        'query' => 'text',
         'tags' => 'tags',
         'title' => 'title',
         'authorName' => 'msl_author_name_text',
@@ -133,13 +134,7 @@ class ApiController extends Controller
                 $queryParts[] = $value . ':' . $request->get($key);
             }
         }
-        
-        if(count($queryParts) > 0) {
-            if($request->filled('query')) {
-                $queryParts[] = $request->get('query');
-            }
-        }
-        
+                
         if(count($queryParts) > 0) {
             return implode(' AND ', $queryParts);
         }                
