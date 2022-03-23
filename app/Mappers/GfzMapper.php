@@ -15,6 +15,7 @@ use App\Models\AncillaryEquipmentKeyword;
 use App\Models\PoreFluidKeyword;
 use App\Models\MeasuredPropertyKeyword;
 use App\Models\InferredDeformationBehaviorKeyword;
+use App\Datasets\BaseDataset;
 
 class GfzMapper
 {
@@ -64,6 +65,33 @@ class GfzMapper
             throw new \Exception('Multiple dataset types matched');
         }
                        
+    }
+    
+    private function getSubDomains($xml, $sourceDataset) {
+        $xmlResults = $xml->xpath("//*/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString[(./node()='analogue models of geologic processes') or (./node()='rock and melt physical properties') or (./node()='paleomagnetic and magnetic data' )]/node()");
+        $results = [];
+        
+        foreach ($xmlResults as $xmlResult) {
+            switch ((string)$xmlResult) {
+                case 'analogue models of geologic processes':
+                    $results[] = ['msl_subdomain' => 'analogue'];
+                    break;
+                    
+                case 'rock and melt physical properties':
+                    $results[] = ['msl_subdomain' => 'rock_physics'];
+                    break;
+                    
+                case 'paleomagnetic and magnetic data':
+                    $results[] = ['msl_subdomain' => 'paleomagnetic'];
+                    break;
+            }            
+        }
+             
+        if(count($results) == 0) {
+            $this->log('WARNING', 'No keyword found to set subdomain', $sourceDataset);
+        }
+        
+        return $results;
     }
     
     private function log($severity, $text, $sourceDataset)
@@ -220,120 +248,118 @@ class GfzMapper
         }
         
         //process rockphysics specific keywords
-        if($dataset->type == "rockphysics") {
-            $apparatusKeywords = [];
-            $ancillaryEquipmentKeywords = [];
-            $poreFluidKeywords = [];
-            $measuredPropertyKeywords = [];
-            $inferredDeformationKeywords = [];
+        $apparatusKeywords = [];
+        $ancillaryEquipmentKeywords = [];
+        $poreFluidKeywords = [];
+        $measuredPropertyKeywords = [];
+        $inferredDeformationKeywords = [];
+        
+        //apparatus keywords
+        foreach ($basekeyWords as $key => $basekeyWord) {
+            $apparatusKeyword = ApparatusKeyword::where('searchvalue', strtolower($basekeyWord))->first();
             
-            //apparatus keywords
-            foreach ($basekeyWords as $key => $basekeyWord) {
-                $apparatusKeyword = ApparatusKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-                
-                if($apparatusKeyword) {
-                    $apparatusKeywords[] = $apparatusKeyword->value;
-                    $ancestorsValues = $apparatusKeyword->getAncestorsValues();
-                    foreach ($ancestorsValues as $ancestorsValue) {
-                        $apparatusKeywords[] = $ancestorsValue;
-                    }
-                    
-                    
-                    unset($basekeyWords[$key]);
+            if($apparatusKeyword) {
+                $apparatusKeywords[] = $apparatusKeyword->value;
+                $ancestorsValues = $apparatusKeyword->getAncestorsValues();
+                foreach ($ancestorsValues as $ancestorsValue) {
+                    $apparatusKeywords[] = $ancestorsValue;
                 }
-            }
-            
-            //ancillary equipment keywords
-            foreach ($basekeyWords as $key => $basekeyWord) {
-                $ancillaryEquipmentKeyword = AncillaryEquipmentKeyword::where('searchvalue', strtolower($basekeyWord))->first();
                 
-                if($ancillaryEquipmentKeyword) {
-                    $ancillaryEquipmentKeywords[] = $ancillaryEquipmentKeyword->value;
-                    $ancestorsValues = $ancillaryEquipmentKeyword->getAncestorsValues();
-                    foreach ($ancestorsValues as $ancestorsValue) {
-                        $ancillaryEquipmentKeywords[] = $ancestorsValue;
-                    }
-                    
-                    
-                    unset($basekeyWords[$key]);
-                }
-            }
-            
-            //pore fluid keywords
-            foreach ($basekeyWords as $key => $basekeyWord) {
-                $poreFluidKeyword = PoreFluidKeyword::where('searchvalue', strtolower($basekeyWord))->first();
                 
-                if($poreFluidKeyword) {
-                    $poreFluidKeywords[] = $poreFluidKeyword->value;
-                    $ancestorsValues = $poreFluidKeyword->getAncestorsValues();
-                    foreach ($ancestorsValues as $ancestorsValue) {
-                        $poreFluidKeywords[] = $ancestorsValue;
-                    }
-                    
-                    
-                    unset($basekeyWords[$key]);
-                }
+                unset($basekeyWords[$key]);
             }
-            
-            //measured property keywords
-            foreach ($basekeyWords as $key => $basekeyWord) {
-                $measuredPropertyKeyword = MeasuredPropertyKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-                
-                if($measuredPropertyKeyword) {
-                    $measuredPropertyKeywords[] = $measuredPropertyKeyword->value;
-                    $ancestorsValues = $measuredPropertyKeyword->getAncestorsValues();
-                    foreach ($ancestorsValues as $ancestorsValue) {
-                        $measuredPropertyKeywords[] = $ancestorsValue;
-                    }
-                    
-                    
-                    unset($basekeyWords[$key]);
-                }
-            }
-            
-            //infered deformation keywords
-            foreach ($basekeyWords as $key => $basekeyWord) {
-                $inferredDeformationKeyword = InferredDeformationBehaviorKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-                
-                if($inferredDeformationKeyword) {
-                    $inferredDeformationKeywords[] = $inferredDeformationKeyword->value;
-                    $ancestorsValues = $inferredDeformationKeyword->getAncestorsValues();
-                    foreach ($ancestorsValues as $ancestorsValue) {
-                        $inferredDeformationKeywords[] = $ancestorsValue;
-                    }
-                    
-                    
-                    unset($basekeyWords[$key]);
-                }
-            }
-            
-            $apparatusKeywords = array_unique($apparatusKeywords);
-            $ancillaryEquipmentKeywords = array_unique($ancillaryEquipmentKeywords);
-            $poreFluidKeywords = array_unique($poreFluidKeywords);
-            $measuredPropertyKeywords = array_unique($measuredPropertyKeywords);
-            $inferredDeformationKeywords = array_unique($inferredDeformationKeywords);
-                        
-            foreach ($apparatusKeywords as $apparatusKeyword) {
-                $dataset->msl_rock_apparatusses[] = ['msl_rock_apparatus' => $apparatusKeyword];
-            }
-            
-            foreach ($ancillaryEquipmentKeywords as $ancillaryEquipmentKeyword) {
-                $dataset->msl_rock_ancillary_equipments[] = ['msl_rock_ancillary_equipment' => $ancillaryEquipmentKeyword];
-            }
-            
-            foreach ($poreFluidKeywords as $poreFluidKeyword) {
-                $dataset->msl_rock_pore_fluids[] = ['msl_rock_pore_fluid' => $poreFluidKeyword];
-            }
-            
-            foreach ($measuredPropertyKeywords as $measuredPropertyKeyword) {
-                $dataset->msl_rock_measured_properties[] = ['msl_rock_measured_property' => $measuredPropertyKeyword];
-            }
-            
-            foreach ($inferredDeformationKeywords as $inferredDeformationKeyword) {
-                $dataset->msl_rock_inferred_deformation_behaviors[] = ['msl_rock_inferred_deformation_behavior' => $inferredDeformationKeyword];
-            }
-            
         }
+        
+        //ancillary equipment keywords
+        foreach ($basekeyWords as $key => $basekeyWord) {
+            $ancillaryEquipmentKeyword = AncillaryEquipmentKeyword::where('searchvalue', strtolower($basekeyWord))->first();
+            
+            if($ancillaryEquipmentKeyword) {
+                $ancillaryEquipmentKeywords[] = $ancillaryEquipmentKeyword->value;
+                $ancestorsValues = $ancillaryEquipmentKeyword->getAncestorsValues();
+                foreach ($ancestorsValues as $ancestorsValue) {
+                    $ancillaryEquipmentKeywords[] = $ancestorsValue;
+                }
+                
+                
+                unset($basekeyWords[$key]);
+            }
+        }
+        
+        //pore fluid keywords
+        foreach ($basekeyWords as $key => $basekeyWord) {
+            $poreFluidKeyword = PoreFluidKeyword::where('searchvalue', strtolower($basekeyWord))->first();
+            
+            if($poreFluidKeyword) {
+                $poreFluidKeywords[] = $poreFluidKeyword->value;
+                $ancestorsValues = $poreFluidKeyword->getAncestorsValues();
+                foreach ($ancestorsValues as $ancestorsValue) {
+                    $poreFluidKeywords[] = $ancestorsValue;
+                }
+                
+                
+                unset($basekeyWords[$key]);
+            }
+        }
+        
+        //measured property keywords
+        foreach ($basekeyWords as $key => $basekeyWord) {
+            $measuredPropertyKeyword = MeasuredPropertyKeyword::where('searchvalue', strtolower($basekeyWord))->first();
+            
+            if($measuredPropertyKeyword) {
+                $measuredPropertyKeywords[] = $measuredPropertyKeyword->value;
+                $ancestorsValues = $measuredPropertyKeyword->getAncestorsValues();
+                foreach ($ancestorsValues as $ancestorsValue) {
+                    $measuredPropertyKeywords[] = $ancestorsValue;
+                }
+                
+                
+                unset($basekeyWords[$key]);
+            }
+        }
+        
+        //infered deformation keywords
+        foreach ($basekeyWords as $key => $basekeyWord) {
+            $inferredDeformationKeyword = InferredDeformationBehaviorKeyword::where('searchvalue', strtolower($basekeyWord))->first();
+            
+            if($inferredDeformationKeyword) {
+                $inferredDeformationKeywords[] = $inferredDeformationKeyword->value;
+                $ancestorsValues = $inferredDeformationKeyword->getAncestorsValues();
+                foreach ($ancestorsValues as $ancestorsValue) {
+                    $inferredDeformationKeywords[] = $ancestorsValue;
+                }
+                
+                
+                unset($basekeyWords[$key]);
+            }
+        }
+        
+        $apparatusKeywords = array_unique($apparatusKeywords);
+        $ancillaryEquipmentKeywords = array_unique($ancillaryEquipmentKeywords);
+        $poreFluidKeywords = array_unique($poreFluidKeywords);
+        $measuredPropertyKeywords = array_unique($measuredPropertyKeywords);
+        $inferredDeformationKeywords = array_unique($inferredDeformationKeywords);
+                    
+        foreach ($apparatusKeywords as $apparatusKeyword) {
+            $dataset->msl_rock_apparatusses[] = ['msl_rock_apparatus' => $apparatusKeyword];
+        }
+        
+        foreach ($ancillaryEquipmentKeywords as $ancillaryEquipmentKeyword) {
+            $dataset->msl_rock_ancillary_equipments[] = ['msl_rock_ancillary_equipment' => $ancillaryEquipmentKeyword];
+        }
+        
+        foreach ($poreFluidKeywords as $poreFluidKeyword) {
+            $dataset->msl_rock_pore_fluids[] = ['msl_rock_pore_fluid' => $poreFluidKeyword];
+        }
+        
+        foreach ($measuredPropertyKeywords as $measuredPropertyKeyword) {
+            $dataset->msl_rock_measured_properties[] = ['msl_rock_measured_property' => $measuredPropertyKeyword];
+        }
+        
+        foreach ($inferredDeformationKeywords as $inferredDeformationKeyword) {
+            $dataset->msl_rock_inferred_deformation_behaviors[] = ['msl_rock_inferred_deformation_behavior' => $inferredDeformationKeyword];
+        }
+            
 
         //make sure lists are unique
         $basekeyWords = array_unique($basekeyWords);
@@ -363,25 +389,11 @@ class GfzMapper
         $xmlDocument->registerXPathNamespace('gmd', 'http://www.isotc211.org/2005/gmd');
         $xmlDocument->registerXPathNamespace('gco', 'http://www.isotc211.org/2005/gco');
         $xmlDocument->registerXPathNamespace('xlink', 'http://www.w3.org/1999/xlink');
+                                
+        $dataset = new BaseDataset();
         
-        //getDatasetType
-        $datasetType = $this->getDatasetType($xmlDocument, $sourceDataset);
-        
-        $dataset = null;;
-        switch ($datasetType) {
-            case 'analogue':
-                $dataset = new AnalogueModelingDataset();
-                break;
-                
-            case 'rockphysics':
-                $dataset = new RockPhysicsDataset();
-                break;
-                
-            case 'paleomagnetic':
-                $dataset = new PaleoMagneticDataset();
-                break;
-        }
-               
+        // set subdomains
+        $dataset->msl_subdomains = $this->getSubDomains($xmlDocument, $sourceDataset);
         
         //set owner_org
         $dataset->owner_org = $sourceDataset->source_dataset_identifier->import->importer->data_repository->ckan_name;

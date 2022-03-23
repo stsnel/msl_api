@@ -5,6 +5,10 @@ class BaseDataset
 {
     public $title;
     
+    public $type = 'data-publication';
+    
+    public $msl_subdomains = [];
+    
     public $msl_source;
     
     public $name;

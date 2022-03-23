@@ -38,25 +38,28 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
     {
         $importer = $this->sourceDatasetIdentifier->import->importer;
         
-        $endPoint = Endpoint::build($importer->options['endpoint']);
-        
-        $result = $endPoint->getRecord($this->sourceDatasetIdentifier->identifier, $importer->options['metadataPrefix']);
-        
-        if($result) {
-            $SourceDataset = SourceDataset::create([
-                'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
-                'source_dataset' => $result->asXML()
-            ]);
+        if($importer->options['identifierProcessor']['type'] == 'oaiRetrieval') {        
+            $endPoint = Endpoint::build($importer->options['identifierProcessor']['options']['oaiEndpoint']);
             
-            ProcessSourceDataset::dispatch($SourceDataset);
+            $result = $endPoint->getRecord($this->sourceDatasetIdentifier->identifier, $importer->options['identifierProcessor']['options']['metadataPrefix']);
             
-            $this->sourceDatasetIdentifier->response_code = 200;
-            $this->sourceDatasetIdentifier->save();
+            if($result) {
+                $SourceDataset = SourceDataset::create([
+                    'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'source_dataset' => $result->asXML()
+                ]);
+                
+                ProcessSourceDataset::dispatch($SourceDataset);
+                
+                $this->sourceDatasetIdentifier->response_code = 200;
+                $this->sourceDatasetIdentifier->save();
+            } else {
+                $this->sourceDatasetIdentifier->response_code = 404;
+                $this->sourceDatasetIdentifier->save();
+            }
         } else {
-            $this->sourceDatasetIdentifier->response_code = 404;
-            $this->sourceDatasetIdentifier->save();
+            throw new \Exception('Invalid identifierProcessor definined in importer config.');
         }
-        
         
     }
 }

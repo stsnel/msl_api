@@ -26,7 +26,7 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();
                 
         $searchRequest->setbyRequest($request, $this->buildQuery($request));
-        $searchRequest->filterQuery = 'type:rockphysics';
+        $searchRequest->filterQuery = 'msl_subdomain:"rock_physics"';
 
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
@@ -61,7 +61,7 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();               
         
         $searchRequest->setbyRequest($request, $this->buildQuery($request));
-        $searchRequest->filterQuery = 'type:analogue';
+        $searchRequest->filterQuery = 'msl_subdomain:"analogue"';
         
         
         try {
@@ -97,7 +97,7 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();
         
         $searchRequest->setbyRequest($request, $this->buildQuery($request));
-        $searchRequest->filterQuery = 'type:paleomagnetic';
+        $searchRequest->filterQuery = 'msl_subdomain:"paleomagnetic"';
         
         
         try {

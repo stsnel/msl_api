@@ -38,34 +38,42 @@ class ProcessImport implements ShouldQueue
     {
         $importer = $this->import->importer;
         
-        $endPoint = Endpoint::build($importer->options['endpoint']);        
-        
-        try {
-            $results = $endPoint->listIdentifiers($importer->options['metadataPrefix'], null, null, $importer->options['setDefinition']);
-        } catch (\Exception $e) {
-            $this->import->response_code = 404;
-            $this->import->save();
-        }
-        
-        if($results->getTotalRecordCount() > 0) {            
-            $counter = 0;
-            foreach($results as $item) {
-                
-                $counter++;
-                if($counter > 3) {
-                    //break;
-                }
-                
-                $identifier = SourceDatasetIdentifier::create([
-                    'import_id' => $this->import->id,
-                    'identifier' => (string)$item->identifier
-                ]);
-                
-                ProcessSourceDatasetIdentifier::dispatch($identifier);
+        if($importer->options['importProcessor']['type'] == 'oaiListing') {
+            $endPoint = Endpoint::build($importer->options['importProcessor']['options']['oaiEndpoint']);
+            
+            try {
+                $results = $endPoint->listIdentifiers($importer->options['importProcessor']['options']['metadataPrefix'], null, null, $importer->options['importProcessor']['options']['setDefinition']);
+            } catch (\Exception $e) {
+                $this->import->response_code = 404;
+                $this->import->save();
             }
+            
+            if($results->getTotalRecordCount() > 0) {
+                $counter = 0;
+                foreach($results as $item) {
+                    /*
+                     $counter++;
+                     if($counter > 1) {
+                        break;
+                     }
+                     */
+                    
+                    $identifier = SourceDatasetIdentifier::create([
+                        'import_id' => $this->import->id,
+                        'identifier' => (string)$item->identifier
+                    ]);
+                    
+                    ProcessSourceDatasetIdentifier::dispatch($identifier);
+                }
+            }
+            
+            $this->import->response_code = 200;
+            $this->import->save();
+        } else {
+            throw new \Exception('Invalid importProcessor defined in importer config.');
         }
         
-        $this->import->response_code = 200;
-        $this->import->save();
+        
+        
     }
 }

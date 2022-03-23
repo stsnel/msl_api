@@ -25,9 +25,25 @@ class ImportingSeeder extends Seeder
             'description' => 'import GFZ Potsdam data using OAI',
             'type' => 'OAI',
             'options' => [
-                "endpoint" => "https://doidb.wdc-terra.org/oaip/oai" ,
-                "metadataPrefix" => "iso19139",
-                "setDefinition" => "~P3E9c3ViamVjdCUzQSUyMm11bHRpLXNjYWxlK2xhYm9yYXRvcmllcyUyMg"
+                'importProcessor' => [
+                    'type' => 'oaiListing',
+                    'options' => [
+                        'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
+                        'metadataPrefix' => 'iso19139',
+                        'setDefinition' => '~P3E9c3ViamVjdCUzQSUyMm11bHRpLXNjYWxlK2xhYm9yYXRvcmllcyUyMg'
+                    ]
+                ],
+                'identifierProcessor' => [
+                    'type' => 'oaiRetrieval',
+                    'options' => [
+                        'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
+                        'metadataPrefix' => 'iso19139',
+                    ]
+                ],
+                'sourceDatasetProcessor' => [
+                    'type' => 'gfzMapper',
+                    'options' => []
+                ]      
             ],
             'data_repository_id' => $gfz->id
         ]);

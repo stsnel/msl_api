@@ -62,9 +62,9 @@
                       				<td>
                       					@if(is_array($importer->options))
                       					<ul>
-                      					@foreach ($importer->options as $key => $value)
-                      						<li>{{ $key }}: {{ $value }}</li>
-                      					@endforeach
+                      					
+                      					<pre><code>{{ json_encode($importer->options, JSON_PRETTY_PRINT) }}</code></pre>
+                      					
                       					</ul>
                       					@else
                   						{{ $importer->options }}

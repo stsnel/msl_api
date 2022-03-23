@@ -344,6 +344,74 @@ class HomeController extends Controller
     
     public function test()
     {
+        //update options for gfz importer while testing
+        $importer = Importer::where('id', 1)->first();
+        
+        dd($importer->options['importProcessor']['type']);                
+        
+        $newOptions = [
+            'importProcessor' => [
+                'type' => 'oaiListing',
+                'options' => [
+                    'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
+                    'metadataPrefix' => 'iso19139',
+                    'setDefinition' => '~P3E9c3ViamVjdCUzQSUyMm11bHRpLXNjYWxlK2xhYm9yYXRvcmllcyUyMg'
+                ]
+            ],
+            'identifierProcessor' => [
+                'type' => 'oaiRetrieval',
+                'options' => [
+                    'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
+                    'metadataPrefix' => 'iso19139',
+                ]
+            ],
+            'sourceDatasetProcessor' => [
+                'type' => 'gfzMapper',
+                'options' => []
+            ]            
+        ];
+        
+        $importer->options = $newOptions;
+        $importer->save();
+        
+        dd($importer->options);
+        
+        
+        //???        
+        $client = new \GuzzleHttp\Client();
+        $datasetCreate = DatasetCreate::where('id', 123)->first();
+        
+        //check if package is already in ckan
+        $packageShowRequest = new PackageShow();
+        $packageShowRequest->id = $datasetCreate->dataset['name'];
+        
+        dd($packageShowRequest);
+        
+        try {
+            $response = $client->request(
+                $packageShowRequest->method,
+                $packageShowRequest->endPoint,
+                $packageShowRequest->getPayloadAsArray()
+                );
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        
+        dd(json_decode($response->getBody(), true));
+        dd($response);
+        
+        
+        //test GFZ mapping subdomain detection
+        $sourceDataset = SourceDataset::where('id', 118)->first();
+        
+        $mapper = new GfzMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
+        
+        dd($dataset);
+        
+        
+        
         //test gfz mapper alterations
         $sourceDataset = SourceDataset::where('id', 104)->first();
         
