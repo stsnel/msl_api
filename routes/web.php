@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\User;
+use App\Http\Controllers\ToolsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,9 +37,12 @@ Route::get('/importer/{importer_id}/imports/{import_id}/log-export', [HomeContro
 Route::get('/importer/{importer_id}/imports/{import_id}/detail/{source_dataset_identifier_id}', [HomeController::class, 'importerImportsDetail'])->name('importer-imports-detail');
 
 
-Route::get('tools/convert-keywords', [HomeController::class, 'convertKeywords'])->name('convert-keywords');
-Route::post('tools/convert-keywords', [HomeController::class, 'processMaterialsFile'])->name('process-materials-file');
-Route::post('tools/convert-rockphysics', [HomeController::class, 'processRockPhysicsFile'])->name('process-rockphysics-file');
+Route::get('tools/convert-keywords', [ToolsController::class, 'convertKeywords'])->name('convert-keywords');
+Route::post('tools/convert-keywords', [ToolsController::class, 'processMaterialsFile'])->name('process-materials-file');
+Route::post('tools/convert-rockphysics', [ToolsController::class, 'processRockPhysicsFile'])->name('process-rockphysics-file');
+
+Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
+Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
 Route::get('/imports', [HomeController::class, 'imports'])->name('imports');

@@ -36,7 +36,14 @@ class ProcessSourceDataset implements ShouldQueue
      */
     public function handle()
     {
-        $mapper = new GfzMapper();
+        $importer = $this->sourceDataset->source_dataset_identifier->import->importer;
+        
+        if($importer->options['sourceDatasetProcessor']['type'] == 'gfzMapper') {
+            $mapper = new GfzMapper();
+        } else {
+            throw new \Exception('Invalid sourceDatasetProcessor defined in importer config.');
+        }                                
+        
         $dataset = $mapper->map($this->sourceDataset);                
         
         $datasetCreate = DatasetCreate::create([
