@@ -60,6 +60,10 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownTools">
                                     <a class="dropdown-item" href="{{ route('convert-keywords') }}">                                                                              
                                         Convert keyword file
+                                    </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('convert-excel') }}">                                                                              
+                                        Convert excel file
                                     </a>                                    
                                 </div>
                             </li>
