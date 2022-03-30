@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/9049</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/194002</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Palomeras, I., Ayarza, P., Carbonell, R., Juvenal, A., Afonso, J.C., and Diaz, J. (2016). Origin of subcrustal reflectivity in SW Iberia: Evidences from wide-angle seismic experiments. 17th International Seismix Symposium: 120. 	http://hdl.handle.net/10261/150500</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Ayarza, P., Carbonell,  R., Palomeras, I., Ehsan, S. A., Afonso, J. C., and Diaz, J. (2015). Mapping the Hales discontinuity in southwestern Spain. International Union of Geodesy and Geophysics. http://hdl.handle.net/10261/148566</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Ehsan, S. A.,Carbonell,  R., Ayarza, P.,  Martí, D., Martínez Poyatos, D., Simancas, J. F., Azor, A., Marzan, I., Mansilla, L., and Pérez-Estaún, A. (2014). Crustal Deformation Styles Along the Reprocessed Deep SeismicReflection Transect of the Central Iberian Zone (Iberian Peninsula). Geophysical Research Abstracts, vol. 16, EGU2014-3327. http://dx.doi.org/10.1016/j.tecto.2014.02.014</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">García-Lobón, J.L., Rey-Moral, C., Ayala, C., Martín-Parra, L.M., Matas, J., and Reguera, M.I. (2014). Regional structure of the southern segment of Central Iberian Zone (Spanish Variscan Belt) interpreted from potential field images and 2.5 D modelling of Alcudia gravity transect. Tectonophysics 614, 185-202. http://dx.doi.org/10.1016/j.tecto.2013.12.005</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Carbonell,  R., Ehsan, S. A., Ayarza, P., Martínez Poyatos, D., Simancas, J. F., Azor, A.,  and Pérez-Estaún, A. (2014). From the Surface Topography to the Upper Mantle Beneath Central-Iberian-Zone. the Alcudia Seismic Experiments. American Geophysical Union, Fall Meeting. abstract id. T23B-4672. 2014AGUFM.T23B4672C</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Carbonell, R., Levander, A., and Kind, R. (2013).The Mohorovičić discontinuity beneath the continental crust: An overview of seismic constraints. Tectonophysics 609, 353-376. http://dx.doi.org/10.1016/j.tecto.2013.08.037</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Gaite, B., Palomeras, I., and Carbonell, R.  (2008). Deep seismic reflection transects within the iberian peninsula: A geophysical data base. The 33rd International Geological Congress, Oslo, Norway, August 2008.</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Carbonell, R., Simancas, F., Martinez-Poyatos, D., Ayarza, P., Gonzalez, P., Tejero, R.;,Martín-Parra, L., Matas, J., Gonzalez-Lodeiro, F., Pérez-Estaún, A., García-Lobon, J., Mansilla, L., and Palomeras, I. (2007). Seismic Reflection Transect across the Central Iberian Zone (Iberian Massif): The ALCUDIA project. American Geophysical Union, Fall Meeting, abstract id.T31B-0479</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Martínez Poyatos, D.]]></contributor></contributors>	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Carbonell, Ramón]]></contributor></contributors>	
+	<contributors><contributor contributorType="researcher"><![CDATA[Pérez-Estaún, Andrés]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Simancas, José Fernando]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[González-Lodeiro, Francisco]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Ayarza, P.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Azor, Antonio]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Pérez-Estaún, Andrés]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Simancas, José Fernando]]></creatorName></creator>
+		<creator><creatorName><![CDATA[González-Lodeiro, Francisco]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Ayarza, P.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Azor, Antonio]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Martínez Poyatos, D.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Carbonell, Ramón]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Deep seismic reflection profile (ALCUDIA Normal Incidence transect) ]]></title>
+	</titles>
+
+	<date dateType="Issued">2019-11-05</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>Field</subject></subjects>
+	<subjects><subject>Seismic:Active:MCS</subject></subjects>
+	<subjects><subject>DigitalSeg</subject></subjects>
+	<subjects><subject>SEGY</subject></subjects>
+	<subjects><subject>SEGD</subject></subjects>
+	<subjects><subject>Seismic:Reflection</subject></subjects>
+	<subjects><subject>Seismometer_SingleFrequency</subject></subjects>
+	<subjects><subject>SeismicSource_VibroseisTruck</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[ALCUDIA Normal Incidence (ALCUDIA-NI) is a NE-SW oriented vertical incidence deep seismic reflection transect in the SW of Spain that aimed to image the Variscan Iberian Massif. This transect sampled the Central Iberian Zone and was designed to be the northward continuation of the IBERSEIS-NI seismic profile. The processed image shows a weakly reflective upper crust, a thick, highly reflective and laminated lower crust, and a flat Moho located at 10 s TWTT (30 km depth). The transect can be divided into three segments with different structural styles in the lower crust. In the central segment, the lower crust is imaged by regular, horizontal and parallel reflectors, whereas in the northern and southern segments it displays oblique reflectors interpreted as an important thrust (north) and tectonic wedging involving the mantle (south). The ALCUDIA-NI shows that in an intracontinental orogenic crust, far from the suture zones, the upper and lower crust may react differently to shortening in different sectors, which is taken as evidence for decoupling. The interpreted structures, as deduced from surface geology and the seismic image, show that deformation was distributed homogeneously in the upper crust, whereas it was concentrated in wedge/thrust structures at specific sectors in the lower crust.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[The ALCUDIA transect is a 230 km long, vertical incidence deep seismic reflection profile acquired in 2007. The acquisition parameters, 35 m station spacing, 70 m Vibration Point spacing resulted in a 60-90 fold high resolution seismic reflection image. A 20 s long Vibroseis sweep with frequencies between 8-80 Hz was recorded by a 400 station recording cable and 14 km long split spread configuration.]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Ciencia e Innovación (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Ministerio de Economía y Competitividad (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>European Commission</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Junta de Comunidades de Castilla-La Mancha</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[Seismic line from Toledo, Castilla-la Mancha (https://www.geonames.org/6361703/casasbuenas.html) to Argallón, Andalucía (https://www.geonames.org/2521624/argallon.html) coordenates: start at pointLongitude=-4.0927 pointLatitude=39.7655; end at pointLongitude=-5.4813 pointLatitude=38.2031]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

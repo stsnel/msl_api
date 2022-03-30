@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/10527</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/197644</alternateIdentifier></alternateIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+		
+	<creators>
+		<creator><creatorName><![CDATA[Fernandez-Turiel, J. L.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Perez-Torrado, F. J.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Saavedra, J.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rejas, M.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rodriguez-Gonzalez, A.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Aulinas, M.]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Dataset of whole-rock, glass and mineral geochemical data of recent shoshonitic volcanism of Puna, Central Volcanic Zone of Andes: San Jerónimo and Negro de Chorrillos volcanoes ]]></title>
+	</titles>
+
+	<date dateType="Issued">2020-01-10</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>shoshonite</subject></subjects>
+	<subjects><subject>phlogopite</subject></subjects>
+	<subjects><subject>dusty plagioclase</subject></subjects>
+	<subjects><subject>glass</subject></subjects>
+	<subjects><subject>Central Volcanic Zone</subject></subjects>
+	<subjects><subject>Andes</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[This dataset contains analytical data of whole rock as well as of mineral macrocrysts and microcrysts, and glasses of the Pleistocene shoshonitic San Jerónimo and Negro de Chorrillos volcanoes in the Puna, Central Volcanic Zone of Andes (NW Argentina). Whole rock major and some trace elements (Ba, Cr, Ni, Rb, Sr, V, Y, Zn and Zr) were determined by X-ray fluorescence (XRF) spectrometry at the Scientific and Technological Centers of the University of Barcelona (CCiTUB). Additional trace elements (Nb, Ta, Cs, Hf, Pb, Th, U and the rare Earth elements or REE) were analysed by High Resolution-Inductively Coupled Plasma-Mass Spectrometry (HR-ICP- MS) at the Laboratory of Geochemistry labGEOTOP (ICTJA, CSIC, Barcelona). The major composition of olivine, pyroxenes, phlogopite, feldspars, spinel, and apatite as well as of glasses were analysed in situ at the CCiTUB using an electron microprobe analyser (EMPA). The dataset contains also a compilation of whole-rock major and trace elements concentrations, and isotope ratios of San Jerónimo and Negro de Chorrillos volcanoes and other shoshonitic centres of the Puna from published data.]]></description></descriptions>	                            
+	<fundingReferences><fundingReferences><funderName>Ministerio de Economía y Competitividad (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[name=Puna, NW Argentina; geonames=https://www.geonames.org/3840007/puna.html; westBoundLongitude=-67.6000; eastBoundLongitude=-65.9000; southBoundLatitude=-26.3000; northBoundLatitude=-23.9000]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

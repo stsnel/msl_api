@@ -182,7 +182,7 @@ class GfzMapper
         return '';        
     }
     
-    private function extractExtenstion($filename)
+    private function extractExtension($filename)
     {
         $fileInfo = pathinfo($filename);
         if(isset($fileInfo['extension'])) {
@@ -192,9 +192,42 @@ class GfzMapper
         return '';
     }
     
+    private function getYear($date)
+    {
+        $datetime = new \DateTime($date);
+        $result = $datetime->format('Y');
+        
+        if($result) {
+            return $result;
+        }
+        return '';
+    }
+    
+    private function getMonth($date)
+    {
+        $datetime = new \DateTime($date);
+        $result = $datetime->format('m');
+        
+        if($result) {
+            return $result;
+        }
+        return '';
+    }
+    
+    private function getDay($date)
+    {
+        $datetime = new \DateTime($date);
+        $result = $datetime->format('d');
+        
+        if($result) {
+            return $result;
+        }
+        return '';
+    }
+    
     private function formatDate($date)
     {
-        $datetime = new \DateTime('2019-08-30');
+        $datetime = new \DateTime($date);
         $result = $datetime->format('Y-m-d');
         
         if($result) {
@@ -425,11 +458,26 @@ class GfzMapper
             ];
         }
         
+        $result = $xmlDocument->xpath('/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata/gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString/node()');
+        if(isset($result[0])) {
+            $doi = $result[0];
+            if(str_contains($doi, 'doi:')) {
+                $doi = str_replace('doi:', '', $doi);
+            }
+            
+            $citationString = $this->dataciteHelper->getCitationString($doi);
+            if(strlen($citationString > 0)) {
+                $dataset->msl_citation = $citationString;
+            }
+        }
+        
         //extract msl_publication_date        
         $result = $xmlDocument->xpath('/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date[1]/node()');
         if(isset($result[0])) {
-            $dataset->msl_publication_date = $this->formatDate((string)$result[0]);
-        }        
+            $dataset->msl_publication_day = $this->getDay((string)$result[0]);
+            $dataset->msl_publication_month = $this->getMonth((string)$result[0]);
+            $dataset->msl_publication_year = $this->getYear((string)$result[0]);                        
+        }
         
         //extract authors
         $authorsResult = $xmlDocument->xpath("/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata[1]/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:citedResponsibleParty[./gmd:CI_ResponsibleParty/gmd:role/gmd:CI_RoleCode='author']");
@@ -628,7 +676,7 @@ class GfzMapper
                         $file = [
                             'msl_file_name' => $fileResult['name'],
                             'msl_download_link' => (string)$result[0] . '/' . $fileResult['name'],
-                            'msl_extension' => $this->extractExtenstion($fileResult['name']),
+                            'msl_extension' => $this->extractExtension($fileResult['name']),
                             'msl_timestamp' => $fileResult['modify']
                         ];
                         

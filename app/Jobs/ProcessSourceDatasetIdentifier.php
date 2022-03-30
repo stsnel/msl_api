@@ -8,9 +8,11 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Storage;
 use Phpoaipmh\Endpoint;
 use App\Models\SourceDatasetIdentifier;
 use App\Models\SourceDataset;
+use App\Datacite\Datacite;
 
 class ProcessSourceDatasetIdentifier implements ShouldQueue
 {
@@ -57,6 +59,45 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                 $this->sourceDatasetIdentifier->response_code = 404;
                 $this->sourceDatasetIdentifier->save();
             }
+        } elseif ($importer->options['identifierProcessor']['type'] == 'dataciteXmlRetrieval') {
+            $datacite = new Datacite();
+            
+            $result = $datacite->doisRequest($this->sourceDatasetIdentifier->identifier, true);
+            
+            if($result->response_code == 200) {
+                $xml = base64_decode($result->response_body['data']['attributes']['xml']);
+                
+                $SourceDataset = SourceDataset::create([
+                    'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'source_dataset' => $xml
+                ]);
+                
+                ProcessSourceDataset::dispatch($SourceDataset);
+                
+                $this->sourceDatasetIdentifier->response_code = 200;
+                $this->sourceDatasetIdentifier->save();                
+            } else {
+                
+                
+                $this->sourceDatasetIdentifier->response_code = 404;
+                $this->sourceDatasetIdentifier->save();
+            }
+        } elseif ($importer->options['identifierProcessor']['type'] == 'fileRetrieval') {
+            if(Storage::disk()->exists($this->sourceDatasetIdentifier->identifier)) {
+                $fileContent = Storage::get($this->sourceDatasetIdentifier->identifier);
+                
+                $SourceDataset = SourceDataset::create([
+                    'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'source_dataset' => $fileContent
+                ]);
+                
+                $this->sourceDatasetIdentifier->response_code = 200;
+                $this->sourceDatasetIdentifier->save();
+            } else {
+                $this->sourceDatasetIdentifier->response_code = 404;
+                $this->sourceDatasetIdentifier->save();
+            }
+            
         } else {
             throw new \Exception('Invalid identifierProcessor definined in importer config.');
         }

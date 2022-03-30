@@ -9,6 +9,7 @@ use Phpoaipmh\Endpoint;
 use App\Ckan\Request\PackageSearch;
 use App\Models\DatasetDelete;
 use App\Jobs\ProcessDatasetDelete;
+use App\Models\DataRepository;
 use App\Models\Importer;
 use App\Models\Import;
 use App\Jobs\ProcessImport;
@@ -30,6 +31,8 @@ use App\Exports\MappingLogsExport;
 use Database\Seeders\MaterialKeywordsSeeder;
 use App\Models\MaterialKeyword;
 use App\Converters\RockPhysicsConverter;
+use App\Datacite\Datacite;
+use App\Mappers\YodaMapper;
 
 class HomeController extends Controller
 {
@@ -275,99 +278,211 @@ class HomeController extends Controller
         
     public function test()
     {
+        //test specific datacite record retrieval
+        $datacite = new Datacite();        
+        $result = $datacite->doisRequest('10.24416/UU01-A8BLMR');
+        
+        dd($result);
+        
+        /*
+        $sourceDataset = SourceDataset::where('id', 1)->first();
+        
+        $mapper = new GfzMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
+        dd($dataset);
+        */
+        
+        $sourceDataset = SourceDataset::where('id', 714)->first();
+        
+        $mapper = new YodaMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
+        dd($dataset);
+        
+        dd('jaja');
         
         
-        //test conversion of yoda excel file to json file
-        $inputfile = "../storage/app/import-data/yoda/Datapublicaties_EPOS_v02.xlsx";
-        //dd(Storage::disk()->exists("/import-data/yoda/Datapublicaties_EPOS_v02.xlsx"));
+        $importer = Importer::where('id', 3)->first();
+        $importer->options = [
+            'importProcessor' => [
+                'type' => 'directoryListing',
+                'options' => [
+                    'directoryPath' => '/import-data/csic/files/',
+                    'recursive' => 'true',
+                ]
+            ],
+            'identifierProcessor' => [
+                'type' => 'fileRetrieval',
+                'options' => []
+            ],
+            'sourceDatasetProcessor' => [
+                'type' => 'CsicMapper',
+                'options' => []
+            ]
+        ];
+        $importer->save();
+        dd('jaja');
         
-        /** Load $inputFileName to a Spreadsheet Object  **/
-        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputfile);
-        $worksheet = $spreadsheet->getActiveSheet();
+        
+        Importer::create([
+            'name' => 'CSIC importer',
+            'description' => 'imports csic data using directory listing and datacite',
+            'type' => 'datacite',
+            'options' => [
+                'importProcessor' => [
+                    'type' => 'directoryListing',
+                    'options' => [
+                        'directoryPath' => '/import-data/csic/files/',
+                        'recursive' => 'true',
+                    ]
+                ],
+                'identifierProcessor' => [
+                    'type' => 'fileRetrieval',
+                    'options' => []
+                ],
+                'sourceDatasetProcessor' => [
+                    'type' => 'CsicMapper',
+                    'options' => []
+                ]
+            ],
+            'data_repository_id' => $csic->id
+        ]);
+        
+        dd('jaja');
+        //test map listing
+        $filelist = Storage::disk()->files("/import-data/csic/files/", true);
+        dd($filelist);
+        
+        //test yoda mapping
+        $sourceDataset = SourceDataset::where('id', 461)->first();
+        
+        //the DatasetCreate has to actually exist. The dataset property is always avialable but might be NULL.
+        //in theory msl_source might also contain invalid information. However this is not crucial for these display purposes.
+        //if instead the DOI value should be extracted from the msl_pids multi-valued field more checks are required as
+        //multiple msl_pids might be present. These might also not be of type DOI or multiple DOIs might exists within
+        //all available msl_pids.
+                                
+        $mapper = new YodaMapper();
+        
+        $dataset = $mapper->map($sourceDataset);
         
         
-        $fields = [];
-        $observations = [];
-        foreach ($worksheet->getRowIterator() as $row) {            
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE);
-                        
-            $observation = [];
-
-            foreach ($cellIterator as $cell) {
-                if($row->getRowIndex() == 1) {
-                    $fields[$cell->getColumn()] = $cell->getValue();
-                } else {
-                    $observation[$fields[$cell->getColumn()]] = $cell->getValue();                     
-                }                    
-            }
-            if(count($observation) > 0) {
-                $observations[] = $observation;
-            }            
+        dd('jaja');
+        
+        //test datacite class
+        /*
+        $datacite = new Datacite();
+        $doi = "10.24416/UU01-575EWU";
+        
+        $result = $datacite->doisRequest($doi);
+        
+        //dd($result)
+        dd(base64_decode($result->response_body['data']['attributes']['xml']));
+        
+        
+        dd('jaja');
+        */
+        
+        //adjust importer for testing
+        
+        $importer = Importer::where('id', 2)->first();
+        $options = [
+            'importProcessor' => [
+                'type' => 'jsonListing',
+                'options' => [
+                    'filePath' => '/import-data/yoda/converted.json',
+                    'identifierKey' => 'DOI'
+                ],
+                'extra_data_loader' => [
+                    'type' => 'jsonLoader',
+                    'options' => [
+                        'filePath' => '/import-data/yoda/converted.json',
+                        'dataKeyMapping' => [
+                            'Subdomain' => 'subDomain',
+                        ]
+                    ]
+                ]
+            ],
+            'identifierProcessor' => [
+                'type' => 'dataciteXmlRetrieval',
+                'options' => []
+            ],
+            'sourceDatasetProcessor' => [
+                'type' => 'yodaMapper',
+                'options' => []
+            ]
+        ];
+        
+        $importer->options = $options;
+        $importer->save();
+        
+        dd($importer);
+        
+        
+        
+        //seed importer
+        $yoda = DataRepository::create([
+            'name' => 'YoDa',
+            'ckan_name' => 'yoda'
+        ]);
+        
+        Importer::create([
+            'name' => 'YoDa importer',
+            'description' => 'imports yoda data using fixed JSON list and datacite',
+            'type' => 'datacite',
+            'options' => [
+                'importProcessor' => [
+                    'type' => 'jsonListing',
+                    'options' => [
+                        'filePath' => '/import-data/yoda/converted.json',
+                        'identifierKey' => 'DOI'
+                    ],
+                    'extra_data_loader' => [
+                        'type' => 'jsonLoader',
+                        'options' => [
+                            'filePath' => '/import-data/yoda/converted.json',
+                            'dataKeyMapping' => [
+                                'Subdomain' => 'subdomain'
+                            ]
+                        ]
+                    ]
+                ],
+                'identifierProcessor' => [
+                    'type' => 'oaiRetrieval',
+                    'options' => [
+                        'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
+                        'metadataPrefix' => 'iso19139',
+                    ]
+                ],
+                'sourceDatasetProcessor' => [
+                    'type' => 'gfzMapper',
+                    'options' => []
+                ]
+            ],
+            'data_repository_id' => $yoda->id
+        ]);
+        
+        dd('importer created');
+        
+        //test loading of json file from disk for importer
+        if(Storage::disk()->exists("/import-data/yoda/converted.json")) {
+            $jsonEntries = json_decode(Storage::get("/import-data/yoda/converted.json"));
+            
+            dd($jsonEntries);
         }
         
-        dd(json_encode($observations, JSON_PRETTY_PRINT));        
-        
-        
-        
-        
-        foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {
-            
-            $cellIterator = $row->getCellIterator('A', 'E');
-            $cellIterator->setIterateOnlyExistingCells(FALSE); // This loops through all cells,
-            
-            foreach ($cellIterator as $cell) {
-                if($cell->getValue()) {
-                    if($cell->getValue() !== "") {
-                        $node = [
-                            'value' => '',
-                            'hyperlink' => '',
-                            'level' => null
-                        ];
-                        
-                        $node['value'] = $cell->getValue();
-                        if($cell->hasHyperlink()) {
-                            $node['hyperlink'] = $cell->getHyperlink()->getUrl();
-                        }
-                        $node['level'] = \PhpOffice\PhpSpreadsheet\Cell\Coordinate::columnIndexFromString($cell->getColumn());
-                        
-                        $nodes[] = $node;
-                    }
-                }
-            }
-        }
-        
-        
-        
-        
-        
-        
-        $converter = new MaterialsConverter();
-        dd($converter->ExcelToJson('../storage/app/keywords/MSL 2021 material_V9.xlsx'));
-        
-        //test Excel reading
-        //$reader = new \PhpOffice\PhpSpreadsheet\Reader\Xlsx();
-        //$spreadsheet = $reader->load("../storage/app/keywords/MSL 2021 material_V9.xlsx");
-        $inputFileName = '../storage/app/keywords/MSL 2021 material_V9.xlsx';
-        
-        //Storage::disk()->exists('neenee.xls');
-        dd(Storage::disk()->exists("/keywords/MSL 2021 material_V9.xlsx"));
-        
-        /** Load $inputFileName to a Spreadsheet Object  **/
-        $spreadsheet = \PhpOffice\PhpSpreadsheet\IOFactory::load($inputFileName);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        
-        
+        dd('neenee');
         
         //test datacite xml extraction
         //doi #1: 10.7288/V4/MAGIC/16834
         //doi #2: 10.24416/UU01-575EWU
+        //doi #3: 10.24416/UU01-VM3Z6I
         
         
         $client = new \GuzzleHttp\Client();
         
-        $response = $client->request('GET', 'https://api.datacite.org/dois/10.24416%2FUU01-575EWU', [
+        $response = $client->request('GET', 'https://api.datacite.org/dois/10.24416%2FUU01-VM3Z6I', [
             'headers' => [
                 'Accept' => 'application/vnd.api+json',
             ],

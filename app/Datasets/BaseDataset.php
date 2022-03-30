@@ -19,17 +19,25 @@ class BaseDataset
     
     public $notes;
     
-    public $msl_pids = [];
+    public $msl_pids = [];    
     
-    public $msl_publication_date;
+    public $msl_publication_day;
+    
+    public $msl_publication_month;
+    
+    public $msl_publication_year;
     
     public $msl_authors = [];
+    
+    public $msl_contributors = [];
     
     public $msl_references = [];
     
     public $tag_string = [];
     
     public $msl_spatial_coordinates = [];
+    
+    public $msl_geolocations = [];
     
     public $license_id;
     
@@ -42,5 +50,9 @@ class BaseDataset
     public $msl_materials = [];
     
     public $msl_publisher;
+    
+    public $msl_citation;
+    
+    public $msl_collection_period = [];
 }
 

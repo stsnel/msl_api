@@ -8,7 +8,12 @@ class SourceDatasetIdentifier extends Model
 {
     protected $fillable = [
         'import_id',
-        'identifier'
+        'identifier',
+        'extra_payload'
+    ];
+    
+    protected $casts = [
+        'extra_payload' => 'array'
     ];
     
     public function import()

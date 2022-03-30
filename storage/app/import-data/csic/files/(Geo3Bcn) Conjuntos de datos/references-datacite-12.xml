@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/8554</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/167764</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Fernandez-Turiel, J.-L.; Saavedra, J.; Perez-Torrado, F. J.; Rodriguez-Gonzalez, A.; Carracedo, J. C., Osterrieth, M., Carrizo, J. I.; Esteban, G. The largest holocene eruption of the Central Andes found. AGU Fall Meeting, San Francisco, USA. December 9-13, 2013. Control ID:  1787188. Poster V13D-2639. Session V13D. Geochronology, Correlation, and Climatic Significance of Widespread Volcanic Ash Layers II Posters (cosponsored by EGU-GMPV. http://hdl.handle.net/10261/84582</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Fernandez-Turiel, J.-L.; Saavedra, J.; Perez-Torrado, F. J.; Rodriguez-Gonzalez, A.; Carracedo, J. C.; Lobo, A.; Rejas, M.; Gallardo, J. F.; Osterrieth, M.; Carrizo, J. I.; Esteban, G.; Martínez, L. D.; Gil, R. A.; Ratto, N.; Baez, W. The ash deposits of the 4200 BP Cerro Blanco eruption: the largest Holocene eruption of the Central Andes. EGU General Assembly 2015, 12-17 April, Vienna, Austria. Geophysical Research Abstracts, 2015, Vol. 17, EGU2015-3392. http://hdl.handle.net/10261/130983</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Fernandez-Turiel, J. L.]]></contributor></contributors>
+	<contributors><contributor contributorType="hostingInstitution"><![CDATA[Laboratory of X-ray Diffraction CSIC-ICTJA]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Fernandez-Turiel, J. L.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Rejas, Marta]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Pérez Torrado, Francisco José]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Saavedra Alonso, Julio]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Fernandez-Turiel, J. L.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rejas, Marta]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Pérez Torrado, Francisco José]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Saavedra Alonso, Julio]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rodriguez-Gonzalez, Alejandro]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Dataset of particle size distribution data of Holocene volcanic ashes of NW Argentina ]]></title>
+	</titles>
+
+	<date dateType="Issued">2018-07-20</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>in situ - mineral or glass analysis</subject></subjects>
+	<subjects><subject>major oxides</subject></subjects>
+	<subjects><subject>EMP</subject></subjects>
+	<subjects><subject>glass</subject></subjects>
+	<subjects><subject>mineral</subject></subjects>
+	<subjects><subject>igneous rock</subject></subjects>
+	<subjects><subject>rhyolite</subject></subjects>
+	<subjects><subject>K-feldspar</subject></subjects>
+	<subjects><subject>Plagioclase</subject></subjects>
+	<subjects><subject>Biotite</subject></subjects>
+	<subjects><subject>Magnetite</subject></subjects>
+	<subjects><subject>Ilmenite</subject></subjects>
+	<subjects><subject>land section</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[This dataset includes particle size distribution data of volcanic ashes of Southern Puna and neighbouring areas (NW Argentina). The content of particles of 0.1–1000 μm was determined by lasser diffraction. The studied volcanic materials are mainly associated with the 4.2 ka cal BP eruption of the Cerro Blanco Volcanic Complex. Some samples area related to the Cueros de Purulla volcano.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[Grain size distributions were determined in volcanic ash samples using a Malvern Mastersizer 2000 particle analyser, equipped with a laser diffractometer (ultrasonic water disaggregation: Hydro MU system; absorption: 0.1; refractive index: 1.52; measurement time: 20 s; obscuration: 10–20%; and pump speed: 2500 rpm, 3 measures), following the recommended procedures of the International Volcanic Health Hazard Network (IVHHN, www.ivhhn.org). This technique measures particles of 0.1–1000 μm using the Mie Theory; due to this limitation, only distal ash samples with maximum grain sizes of < 1 mm for the complete deposit (not grain fractionated) were analysed. The particle-size abundance is reported as the volume percentage of equivalent spherical diameter. Contact person: Fernandez-Turiel, J. L., jlfernandez@ictja.csic.es]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Economía y Competitividad (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[name=Southern Puna, NW Argentina; geonames= http://www.geonames.org/3864153/cerrito-blanco.html; lat=min -25.7500, max -28.0000; long=min -64.0000, max -68.9000]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

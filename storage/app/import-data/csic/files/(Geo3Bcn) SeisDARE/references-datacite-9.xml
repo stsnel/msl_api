@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/9937</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/196885</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Viñas Gaza, M. (2017). Tectonic structure and formation kinematics of the Western Mediterranean basins. PhD Thesis, Universitat de Barcelona. 	http://hdl.handle.net/10261/158663</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Carballo, A., Fernandez, M., Torne, M., Jiménez-Munt, I., and Villaseñor, A. (2015). Thermal and petrophysical characterization of the lithospheric mantle along the northeastern Iberia geo-transect. Gondwana Research 27, 1430-1445. http://dx.doi.org/10.1016/j.gr.2013.12.012</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Vidal, N., Gallart, J., and Dañobeitia, J.J. (1997). Contribution of the ESCI-València Trough wide-angle data to a crustal transect in the NE Iberian margin. Revista de la Sociedad Geológica de España, 8 (4), 1995: 417-429. http://www.sociedadgeologica.es/archivos/REV/8(4)/Art10.pdf</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Sàbat, F., Roca, E., Muñoz, J.A., Vergés, J., Santanach, P., Sans, M., Masana, E., Estévez, A., and Santisteban, C. (1997). Role of extension and compression in the evolution of the eastern margin of Iberia: the ESCI-València Trough seismic profile. Revista de la Sociedad Geológica de España, 8 (4), 1995: 431-448. http://www.sociedadgeologica.es/archivos/REV/8(4)/Art11.pdf</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Gallart Muset, Josep]]></contributor></contributors>	
+	<contributors><contributor contributorType="researcher"><![CDATA[Vidal, Neus]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Dañobeitia, Juan José]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Sàbat, F.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Pous, J.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Suriñach, Emma]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Estévez, A.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Santisteban, C.]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Gallart Muset, Josep]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Vidal, Neus]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Dañobeitia, Juan José]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Sàbat, F.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Pous, J.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Suriñach, Emma]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Estévez, A.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Santisteban, C.]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Seismic Study of the Iberian Crust, ESCI Valencia Trough survey ]]></title>
+	</titles>
+
+	<date dateType="Issued">2019-12-17</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[The ESCI-Valencia Trough deep vertical reflection profile extends the crustal image of the ECORS-Pyrenees profile to the Mediterranean coast and provides a crustal transect of the NE Iberian margin. It is a 450 km lenght profile in a NW-SE direction between the Tarragona coast and the SE of Mallorca.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[The acquisition parameters of ESCI-Valencia Trough are: streamer 4500 m, 180 channels, group interval 25 m, sample rate 4 ms.]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Comisión Interministerial de Ciencia y Tecnología, CICYT (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[NWpointLongitude= 3.3830 NWpointLatitude= 37.7214 SEpointLongitude= 1.1147 SEpointLatitude= 41.0456]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>
