@@ -63,7 +63,7 @@
 										@endif										
 									</td>
 									
-									<?php if($sourceDataset) { $datasetCreate = $sourceDataset->dataset_create; } ?>
+									<?php if($sourceDataset) { $datasetCreate = $sourceDataset->dataset_create; } else { $datasetCreate = null; } ?>
 									<td>
 										@if($datasetCreate)
 											@if($datasetCreate->response_code == 200)

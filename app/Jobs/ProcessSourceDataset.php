@@ -11,6 +11,7 @@ use Illuminate\Queue\SerializesModels;
 use App\Models\DatasetCreate;
 use App\Models\SourceDataset;
 use App\Mappers\GfzMapper;
+use App\Mappers\YodaMapper;
 
 class ProcessSourceDataset implements ShouldQueue
 {
@@ -40,6 +41,8 @@ class ProcessSourceDataset implements ShouldQueue
         
         if($importer->options['sourceDatasetProcessor']['type'] == 'gfzMapper') {
             $mapper = new GfzMapper();
+        } elseif($importer->options['sourceDatasetProcessor']['type'] == 'yodaMapper') {
+            $mapper = new YodaMapper();
         } else {
             throw new \Exception('Invalid sourceDatasetProcessor defined in importer config.');
         }                                

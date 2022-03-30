@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20351/29HE20030619</identifier>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/231899</alternateIdentifier></alternateIdentifiers>
+	
+	
+		
+	<creators>
+		<creator><creatorName><![CDATA[Ercilla, Gemma]]></creatorName></creator>
+		<creator><creatorName><![CDATA[CSIC - Unidad de Tecnología Marina (UTM)]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ RG1 Cruise, RV Hespérides ]]></title>
+	</titles>
+
+	<date dateType="Issued">2003</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[The purpose of the Special Action is to identify and assess the geo-environmental risks in the sinking area of ​​the Prestige vessel, through the integrated study of morphology, stratigraphy and sedimentary facies, bottom types, tectonic structures, fluid migration, seismicity and physical properties. geochemical and geotechnical features that characterize the sediment of the bottom and sub-seabed; It also has the purpose of determining the possible contamination by the fuel of the sea bottom and sub-fund and the geochemical processes acting in said area in order to assess the environmental impact. Before the activity that is going to be carried out on the wrecks, a study like the present one is fundamental, which will allow to know the characteristics of the seabed that this activity has to support and the possible impact that can be exerted on the environment and the interaction resulting between the marine environment and the activity carried out. The institutions participating in the study are: Institute of Marine Sciences (ICM-CSIC), Marine Technology Unit (UTM-CSIC), University of Vigo, University of Cádiz, Geological and Mining Institute of Spain, University of Barcelona, ​​Institute of Sciences of the Earth Jaime Almera (ICTJA-CSIC) and Universidad Complutense de Madrid. The results of this study will be transferable in the short term to the sectors of Government, Industry, Civil Defense and Insurance Companies, to organize what are called prevention and preparation activities, and will help to establish the technical conditions to increase the safety of persons and civil works that may be affected by the Prestige ship spill. The work methodology consisted in the study of bathymetric data obtained with the multibeam probe system EM-12, profiles of high seismic (air cannons) and very high (TOPAS) resolution, and sediment cores of up to 4 m length obtained in three campaigns carried out aboard the ship Hespérides. Various analyzes have been carried out on the sediment samples and include the following types: granulometric analysis, analysis of sand fraction components, determination of carbonate content, X-ray analysis, analysis of physical properties (P waves, magnetic susceptibility, natural radioactivity). ), optical petrographic study -SEM, TEM, DRX-, elemental analysis, organic constituents and radiometric dates. Likewise, seismic networks were installed on land and sea. In the land campaigns (March to October) a terrestrial earthquake intervention network has been deployed in the NW Peninsular, in the area between Ferrol and Vila Nova de Gaia in Portugal. A total of 12 portable stations have been set up to supplement the registration stations with respect to the existing ones permanently, belonging to the national network operated by the National Geographic Institute. On the other hand, to control the local seismic activity around the Prestige, a network of 10 ocean-floor seismometers (OBS) was installed around the wrecks, which remained anchored for almost a month]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[RG1 Cruise (29HE20030619) carried out on the Research Vessel Hespérides in 2003]]></description></descriptions>                    
+
+</resource>

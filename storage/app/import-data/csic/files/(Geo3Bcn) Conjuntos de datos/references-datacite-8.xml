@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/8966</identifier>
+	<rightsList><rights rightsURI="http://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/192082</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Associated article "Fault reactivation by gas injection at an underground gas storage off the east coast of Spain", Solid Earth Discussion http://dx.doi.org/10.5194/se-2019-113</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Fault reactivation by gas injection at an underground gas storage off the east coast of Spain. Solid Earth 11: 63-74 (2020) https://doi.org/10.5194/se-11-63-2020</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Villaseñor, Antonio]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Villaseñor, Antonio]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Herrmann, Robert B.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Gaite, Beatriz]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Ugalde  Aguirre, Arantzazu]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Villaseñor, Antonio]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Herrmann, Robert B.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Gaite, Beatriz]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Ugalde, Arantza]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Regional centroid moment tensors for earthquakes in the 2013 CASTOR gas storage seismic crisis ]]></title>
+	</titles>
+
+	<date dateType="Issued">2019-09</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>Castor Underground Gas Storage</subject></subjects>
+	<subjects><subject>Induced seismicity</subject></subjects>
+	<subjects><subject>Regional moment tensors</subject></subjects>
+	<subjects><subject>Focal mechanism</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[Data files and modelling results of regional centroid moment tensors obtained for earthquakes in the 2013 CASTOR gas storage seismic crisis, and presented in the article "Fault reactivation by gas injection at an underground gas storage off the east coast of Spain”, by Antonio Villaseñor et al. During September-October of 2013 an intense swarm of earthquakes occurred off the east coast of Spain associated with the injection of the base gas in an offshore underground gas storage. Two weeks after the end of the injection operations, three moderate-sized earthquakes (Mw 4.0-4.1) occurred near the storage. These events were widely felt by the nearby population, leading to the indefinite shut-down of the facility. Here we investigate the source parameters (focal depth and mechanism) of the largest earthquakes in the sequence in order to identify the faults reactivated by the gas injection, and to help understand the processes that caused the earthquakes. Our waveform modeling results indicate that the largest earthquakes occurred at depths of 6-8 km beneath the sea floor, significantly deeper than the injection depth (~ 1800 m). Although we cannot undoubtedly discriminate the fault plane from the two nodal planes of the mechanisms, most evidence seems to favor a NW-SE striking fault plane. We propose that the gas injection reactivated unmapped faults in the Paleozoic basement, with regional orientation possibly inherited from the opening of the Valencia Trough.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[The dataset consists of 14 directories, one for each earthquake analyzed, including raw data and results. A README.txt file describes the contents of the directories.]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Economía, Industria y Competitividad (España)</funderName></fundingReferences></fundingReferences>
+
+</resource>

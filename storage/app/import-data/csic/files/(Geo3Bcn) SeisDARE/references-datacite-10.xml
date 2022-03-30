@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/9925</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/196317</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Comas, M.C., Dañobeitia, J.J., Álvarez-Marrón, J., and Soto, J.I. (1997). Crustal reflections and structure in the Alborán basin: preliminary results of the ESCI-Alborán survey. Rev. Soc. Geol. España, 8(4): 529-542. https://dialnet.unirioja.es/servlet/articulo?codigo=7287389</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Carbonell, R., Torné, M., García Dueñas, V., Moya, R., and Banda, E. (1997). The ESCI-Béticas: a seismic reflection image of the Betics orogen. Rev. Soc. Geol. España 8(4): 503-512. https://dialnet.unirioja.es/servlet/articulo?codigo=7287386</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Vegas, R., Vázquez, J. T., Medialdea, T., and Suriñach, E. (1997). Seismic and teetonic interpretation of the ESCI -Béticas and ESCI-Alborán deep seismie refleetion profiles: strueture of the erust and geodynamic implieations. Rev. Soc. Geol. España 8(4): 449-460</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[García-Dueñas, Víctor]]></contributor></contributors>	
+	<contributors><contributor contributorType="researcher"><![CDATA[Banda, E.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Torné, Montserrat]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Córdoba, Diego]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Comas, M. C.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[González-Lodeiro, Francisco]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Maldonado, Andrés]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Muñoz, M.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Orozco Fernández, Miguel]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Sanz de Galdeano, Carlos]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Suriñach, Emma]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Tubía, José]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Vegas, R.]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[García-Dueñas, Víctor]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Banda, E.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Torné, Montserrat]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Córdoba, Diego]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Comas, M. C.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[González-Lodeiro, Francisco]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Maldonado, Andrés]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Muñoz, M.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Orozco Fernández, Miguel]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Sanz de Galdeano, Carlos]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Suriñach, Emma]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Tubía, José]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Vegas, Ramón]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Seismic Study of the Iberian Crust, ESCI-Betics survey ]]></title>
+	</titles>
+
+	<date dateType="Issued">2019-12-10</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[Two land seismic profiles across the Betic Chain imaged the deep structure of the crust belonging to two different crustal domains. To the  north, one profile samples the crust of the Variscan Iberian Massif that underlies the sedimentary cover of both the Guadalquivir foreland basin and the South Iberian crustal domain. A second profile crosses the Alpine metamorphic complexes of the Betics.]]></description></descriptions>	                            
+	<fundingReferences><fundingReferences><funderName>Comisión Interministerial de Ciencia y Tecnología, CICYT (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Dirección General de Investigación Científica y Técnica, DGICT (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[ESCI Betics 1: northwestBoundLongitud=-3.2355; northwestBoundLatitude=38.0183; southeastBoundLongitud=-2.6792; southeastBoundLatitude=37.3761; ESCI Betics 2: northeastBoundLongitud=-2.6126; northeastBoundLatitude=37.5544; southwestBoundLongitud=-3.1859; southwestBoundLatitude=36.7359]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

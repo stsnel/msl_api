@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/8553</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/167757</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Fernandez-Turiel, J.-L.; Saavedra, J.; Perez-Torrado, F. J.; Rodriguez-Gonzalez, A.; Carracedo, J. C., Osterrieth, M., Carrizo, J. I.; Esteban, G. The largest holocene eruption of the Central Andes found. AGU Fall Meeting, San Francisco, USA. December 9-13, 2013. Control ID:  1787188. Poster V13D-2639. Session V13D. Geochronology, Correlation, and Climatic Significance of Widespread Volcanic Ash Layers II Posters (cosponsored by EGU-GMPV. http://hdl.handle.net/10261/84582</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Fernandez-Turiel, J.-L.; Saavedra, J.; Perez-Torrado, F. J.; Rodriguez-Gonzalez, A.; Carracedo, J. C.; Lobo, A.; Rejas, M.; Gallardo, J. F.; Osterrieth, M.; Carrizo, J. I.; Esteban, G.; Martínez, L. D.; Gil, R. A.; Ratto, N.; Baez, W. The ash deposits of the 4200 BP Cerro Blanco eruption: the largest Holocene eruption of the Central Andes. EGU General Assembly 2015, 12-17 April, Vienna, Austria. Geophysical Research Abstracts, 2015, Vol. 17, EGU2015-3392. http://hdl.handle.net/10261/130983</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Fernandez-Turiel, J. L.]]></contributor></contributors>
+	<contributors><contributor contributorType="hostingInstitution"><![CDATA[Laboratory of Geochemistry labGEOTOP CSIC-ICTJA]]></contributor></contributors>
+	<contributors><contributor contributorType="hostingInstitution"><![CDATA[Laboratorios Analíticos de Geología Universitat de Barcelona]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Fernandez-Turiel, J. L.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Rejas, Marta]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Pérez Torrado, Francisco José]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Saavedra Alonso, Julio]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Fernandez-Turiel, J. L.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rejas, Marta]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Pérez Torrado, Francisco José]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Saavedra Alonso, Julio]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rodriguez-Gonzalez, Alejandro]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Dataset of glass and mineral geochemical data of Holocene volcanic ashes of NW Argentina ]]></title>
+	</titles>
+
+	<date dateType="Issued">2018-07-20</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>in situ - mineral or glass analysis</subject></subjects>
+	<subjects><subject>major oxides</subject></subjects>
+	<subjects><subject>EMP</subject></subjects>
+	<subjects><subject>glass</subject></subjects>
+	<subjects><subject>mineral</subject></subjects>
+	<subjects><subject>igneous rock</subject></subjects>
+	<subjects><subject>rhyolite</subject></subjects>
+	<subjects><subject>Dacites</subject></subjects>
+	<subjects><subject>K-feldspar</subject></subjects>
+	<subjects><subject>Plagioclase</subject></subjects>
+	<subjects><subject>Biotite</subject></subjects>
+	<subjects><subject>Magnetite</subject></subjects>
+	<subjects><subject>Ilmenite</subject></subjects>
+	<subjects><subject>Pyroxene</subject></subjects>
+	<subjects><subject>Amphibole</subject></subjects>
+	<subjects><subject>land section</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[Groundmass glass, phenocrysts, microphenocrysts, and microlites of glass shards (1011 analyses at single points), feldspars (568), biotites (183), Fe–Ti oxides (101), amphiboles (30), and pyroxenes (14) were analysed on polished thin sections of Holocene volcanic ashes, ignimbrites and lava domes of Southern Puna and neighbouring areas (NW Argentina) by electron probe microanalyser (EPMA). The quality of mineral analyses was reviewed, verifying that the structural formula gave a correct stoichiometry with specific measuring programs for feldspars, biotite, Fe–Ti oxides, pyroxene, and amphibole. Geothermobarometry was constrained using the chemistry of feldspars, Fe–Ti oxides, clinopyroxene, and amphibole. The studied volcanic materials are mainly associated with the 4.2 ka cal BP eruption of the Cerro Blanco Volcanic Complex.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[Analytical results were determined by a CAMECA SX-50 and a JEOL JXA-8230 electron probe microanalysers (EPMA) at the EPMA Laboratory of the CCiT services of the University of Barcelona. The instruments were calibrated using primary natural and synthetic standards. The quality of mineral analyses was reviewed, verifying that the structural formula gave a correct stoichiometry, with specific measuring programs for feldspars, biotite, Fe–Ti oxides, pyroxene, and amphibole.Contact person: Fernandez-Turiel, J. L., jlfernandez@ictja.csic.es]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Economía y Competitividad (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[name=Southern Puna, NW Argentina; geonames= http://www.geonames.org/3864153/cerrito-blanco.html; lat=min -25.7500, max -28.0000; long=min -64.0000, max -68.9000]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

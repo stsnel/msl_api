@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/9894</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/194540</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Teixell, A., Labaume, P., Ayarza, P., Espurt, N., de Saint Blanquat, M., and Lagabrielle, Y. (2018). Crustal structure and evolution of the Pyrenean-Cantabrian belt: A review and new interpretations from recent concepts and data. Tectonophysics 724-725, 146-170. https://doi.org/10.1016/j.tecto.2018.01.009</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Gallastegui, J., Pulgar, J.A., and Gallart, J. (2016). Alpine tectonic wedging and crustal delamination in the Cantabrian Mountains (NW Spain). Solid Earth, 7, 1043–1057. http://dx.doi.org/10.5194/se-7-1043-2016</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Díaz, J., Gallart, J., Pulgar, J.A., Ruiz, M., and Pedreira, P. (2009). Crustal structure beneath North-West Iberia imaged using receiver functions. Tectonophysics 478, 175-183. https://doi.org/10.1016/j.tecto.2009.08.003</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Martínez Catalán, J.R., Ayarza, P., and Pulgar, J,.A. (2004). La estructura profunda de la zona asturoccidental-leonesa deducida del perfil sísmico ESCI-N3.3. Geología de España, 60-63</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Fernández-Viejo, G., Gallart, J., Pulgar, J.A., Gallastegui, J., Dañobeitia, J.J., and Córdoba, D. (1998). Crustal transition between  continental and oceanic domains  along the North Iberian margin from  wide angle seismic and gravity data. Geophysical Research Letters, vol. 25, no. 23, 4249-4252 p. http://dx.doi.org/10.1029/1998GL900149</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Pérez-Estaún, A., Pulgar, J.A., Alvarez-Marron, J., and ESCI-N Research Group (1997). Crustal structure of the Cantabrian Zone: seismic image of a Variscan foreland thrust and fold belt (NW Spain). Revista de la Sociedad Geológica de España 8 (4), 1995: 307-319. http://www.sociedadgeologica.es/archivos/REV/8(4)/Art01.pdf</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Martínez Catalán, J.R., Ayarza Arribas, P., Pulgar, J.A., Pérez-Estaún, A., Gallart, J., Marcos, A., Bastida, F.,  Álvarez-Marrón, J., González-Lodeiro, F., Aller, J., Dañobeitia, J.J., Banda, E., Córdoba, D., and Comas, M.C. (1997). Results from the ESCI-N3.3 marine deep seismic profile along the Cantabrian continental margin. Revista de la Sociedad Geológica de España 8 (4), 1995: 341-354. http://hdl.handle.net/10261/171610</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Gallart, J., Fernández- Viejo, G., Díaz, J., Vidal,  N. and Pulgar, J.A. (1997). Deep structure of the transition between the Cantabrian Mountains and the North Iberian Margin from wide-angle ESCI-N data. Revista de la Sociedad Geológica de España 8 (4), 1995: 365- 382. http://www.sociedadgeologica.es/archivos/REV/8(4)/Art06.pdf</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Pulgar, J.A., Pérez-Estaún, A., Gallart,  J., Álvarez-Marrón, J., Gallastegui, J., Alonso, J.L., and ESCIN Group (1997). The ESCI-N2 deep seismic reflection profile: a traverse across the Cantabrian Mountains and adjacent Duero basin.  Revista de la Sociedad Geológica de España 8 (4), 1995: 383-394. http://hdl.handle.net/10261/172054</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Pérez-Estaún, Andrés]]></contributor></contributors>	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Gallart Muset, Josep]]></contributor></contributors>	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Pulgar, J. A.]]></contributor></contributors>	
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Alvarez-Marrón, Joaquina]]></contributor></contributors>	
+		
+	<creators>
+		<creator><creatorName><![CDATA[Pérez-Estaún, Andrés]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Gallart Muset, Josep]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Pulgar, J. A.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Alvarez-Marrón, Joaquina]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Seismic Study of the Iberian Crust, ESCI-North survey ]]></title>
+	</titles>
+
+	<date dateType="Issued">2019-11-13</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>Field</subject></subjects>
+	<subjects><subject>Seismic:Active:MCS</subject></subjects>
+	<subjects><subject>DigitalSeg</subject></subjects>
+	<subjects><subject>SEGY</subject></subjects>
+	<subjects><subject>Seismic:Reflection</subject></subjects>
+	<subjects><subject>Seismometer_SingleFrequency</subject></subjects>
+	<subjects><subject>Hydrophone_Streamer</subject></subjects>
+	<subjects><subject>SeismicSource_Explosive</subject></subjects>
+	<subjects><subject>SeismicSource_Gun_Air</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[The ESCI-N project in Northwestern Spain was a subprogram of the ESCI Program (Estudios Sísmicos de la Corteza Ibérica). It is formed by four seismic experiments both on and offshore. This project aimed to image the Cantabrian Zone, West Asturian-Leonese Zone and the northern Iberian margin, thus characterizing the crustal structure resulted from the Variscan and Alpine orogenies and the Mesozoic extension related to the opening of the Bay of Biscay.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[Two onshore profiles were acquired in E-W and N-S directions through the Variscan and Alpine domains of 140 and 65 km length, ESCI-N1 and ESCI-N2 respectively. Also two offshore profiles ESCI-N3 and ESCI-N4 were obtained with a streamer of 4500 m having 360 channels with a 12.5 m gap between them and a 40 l airgun capacity. ESCI-N3 follows a swerved line in a mainly E-W direction crossing the Variscan structures. ESCI-N4 is a N-S direction profile that crosses both the Cantabrian margin and Le Danois bank Alpine structures. Techincal specifications of offshore profiles: streamer length 4,500 m, 360 channels, group interval 12,5 m and sample rate 4 ms.]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Comisión Interministerial de Ciencia y Tecnología, CICYT (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Fundación para el Fomento en Asturias de la Investigación Científica Aplicada y la Tecnología</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>European Commission</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[4 seismic lines. ESCIN-1: start at pointLongitude=-5.3989 pointLatitude=43.0443; end at pointLongitude=43.2567 pointLatitude=-6.8196; ESCIN-2: start at pointLongitude=-4.6039 pointLatitude=43.1278; end at pointLongitude=-4.6805 pointLatitude=42.5705; ESCIN-3-1: start at pointLongitude=-10.5 pointLatitude=44; end at pointLongitude=-8.8375 pointLatitude=43.5928; ESCIN-3-2: start at pointLongitude=-8.8665 pointLatitude=43.5997; end at pointLongitude=-7.75 pointLatitude=43.95; ESCIN-3-3: start at pointLongitude=-7.75 pointLatitude=43.95; end at pointLongitude=-6.0712 pointLatitude=43.6788; ESCIN-4: start at pointLongitude=-5.1667 pointLatitude=43.5333; end at pointLongitude=-5.0827 pointLatitude=44.8833.]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/12623</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/219766</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Díaz, J., Hirn, A., Gallart, J.,  and Abalos, B. (1996). Upper-mantle anisotropy in SW Iberia from long-range seismic profiles and teleseismic shear-wave data. Physics of the Earth and Planetary Interiors 95, 153-166 https://doi.org/10.1016/0031-9201(95)03127-8.</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Díaz, J., Gallart, J., Córdoba, D., Senos, L., Matias, L., Suriñach, E., Hirn, A., and Maguire, P. (1993). A deep seismic sounding investigation of lithospheric heterogeneity and anisotropy beneath the Iberian Peninsula. Tectonophysics, 221, 35-51. https://doi.org/10.1016/0040-1951(93)90026-G</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Diaz, J.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Diaz, J.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Gallart Muset, Josep]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Córdoba, Diego]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Senos, L.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Matias, L.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Suriñach, Emma]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Hirn, A.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Maguire, P.]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Diaz, J.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Gallart Muset, Josep]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Córdoba, Diego]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Senos, L.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Matias, L.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Suriñach, Emma]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Hirn, A.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Maguire, P.]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ The ILIHA deep seismic sounding experiment (Iberian LIthosphere Heterogeneity and Anisotropy) ]]></title>
+	</titles>
+
+	<date dateType="Issued">2020-09-17</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[The ILIHA (Iberian Lithosphere Heterogeneity and Anisotropy) Project was designed to be a large-scale test for vertical and lateral heterogeneity and seismic anisotropy in the subcrustal lithosphere over the Variscan domain of the Iberian Peninsula. It consists of a star-shaped arrangement of six long-range deep seismic sounding profiles, acquired in 1989.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[Ten shots were fired offshore with charges between 500 and 1000 kg. Five land shot (lang quarry blasts) were fired in two points (G and P).]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>European Commission</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>European Science Foundation</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Swiss National Science Foundation</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[Shot B: -8.99167; 41.7517 / Shot C: -8.88333; 38.3133 / Shot D: -8.18; 36.925 / Shot E: 0.0025; 38.4458 / Shot  F: 1.62667; 41.1 / Shot G: -3.64972; 39.9358 / Shot P: -4.16861; 38.6611 / Shot X: -4.84278; 36.4422]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

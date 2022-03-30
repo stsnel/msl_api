@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/8643</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/184251</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">DeFelipe, I., Pedreira, D., Pulgar, J. A., van der Beek, P., Bernet, M., and Pik, R. (2019). Alpine exhumation history of the eastern Basque-Cantabrian Zone - western Pyrenees from low-temperature thermochronology. EGU2019-16670</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[DeFelipe, Irene]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[DeFelipe, Irene]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Pedreira, D.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Pulgar, J.A.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[van der Beek, P.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Bernet, M.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Pik, R.]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[DeFelipe, Irene]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Pedreira, D.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Pulgar, J. A.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[van der Beek, P.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Bernet, M.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Pik, R.]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Apatite fission track and zircon (U-Th)/He dataset in the eastern Basque-Cantabrian Zone - western Pyrenees ]]></title>
+	</titles>
+
+	<date dateType="Issued">2019-06-17</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[Low-temperature thermochronology studies have increased our knowledge of the orogenic processes along the Pyrenean-Cantabrian mountain belt by placing time constraints on the exhumation history of its rocks. However, a significant gap of data existed between the Pyrenees and the Cantabrian Mountains, hampering a comprehensive view of the tectonothermal evolution along the belt. Thus, we present a new apatite fission-track (AFT) and zircon (U-Th)/He (ZHe) dataset for the eastern Basque-Cantabrian zone and western Pyrenees. AFT central ages cluster in the Eocene-Oligocene. According to their ZHe age-eU correlations, samples can be separated into two groups: group 1 depicts clustered ZHe ages-eU concentrations (Cinco Villas Massif) and group 2 depicts dispersed ZHe ages-eU concentration (Alduides Massif and a Paleozoic rock pinned along the Leiza thrust sheet). A sample from the Oroz-Betelu Massif shows an intermediate behavior. Our results agree with previous data in the Pyrenean-Cantabrian mountain belt, supporting a Cenozoic cooling of the hinterlands of this part of the belt.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[Apatite fission track and zircon (U-Th)/He]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>European Commission</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Ministerio de Ciencia, Innovación y Universidades (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Ministerio de Ciencia e Innovación (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Banco Santander</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Fundación para el Fomento en Asturias de la Investigación Científica Aplicada y la Tecnología</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>European Science Foundation</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Principado de Asturias</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Centre National de la Recherche Scientifique (France)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Research Council of Norway</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Statoil</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Netherlands Research Center for Integrated Solid Earth Science</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[The dataset was collected in the NW of Navarra and NE of the Basque Country (N of Spain); bounding box (westBoundLongitude=-1.9439; eastBoundLongitude= -1.1515; southBoundLatitude= 42.8261; northBoundLatitude= 43.2277).]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/12531</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/214595</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Gil, A., J. Gallart, J. Diaz, R. Carbonell, M. Torne, A. Levander, and M. Harnafi (2014), Crustal structure beneath the Rif Cordillera, North Morocco, from the RIFSIS wide-angle reflection seismic experiment, Geochem. Geophys. Geosyst., 15, 4712–4733, https://doi.org/10.1002/2014GC005485.</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Carbonell, R., P. Ayarza, J. Gallart, J. Diaz, M. Harnafi, A. Levander, and A. Teixell (2014), From the Atlas to the Rif a Crustal seismic image across Morocco: The SIMA & RIFSEIS control source wide-angle seismic reflection data, paper presented at EGU General Assembly, Eur. Geosci. Union, Vienna, Vol. 16, EGU2014-6303, 2014</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Carbonell, R., Gallart, J., Díaz, J., Gil, A., Harnafi, M., Ouraini, F., Ayarza, P., Teixell, A., Arboleya, M. L., Palomeras, I., and Levander, A. (2013). A 700 km long crustal transect across northern Morocco, Geophysical Research Abstracts, vol. 15, EGU2013-8313</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Carbonell, Ramón]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Gallart Muset, Josep]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Diaz, J.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Carbonell, Ramón]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Gallart Muset, Josep]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Diaz, J.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Carbonell, Ramón]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ The RIFSIS wide-angle reflection experiment through the Rif Cordillera (N Morocco) ]]></title>
+	</titles>
+
+	<date dateType="Issued">2020-06-17</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[The RIFSIS experiment provided the first well-resolved P-wave velocity crustal models of the Rif Cordillera and its southern continuation toward the Atlas made using controlled-source seismic data. Two 300+ km-long wide-angle reflection profiles crossed the Rif along NS and EW trends. The profiles recorded simultaneously five land explosions of 1Tn each using 850 high frequency seismometers.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[In October 2011, we acquired a 330 km-long and a 430 km-long wide-angle seismic reflection profiles oriented, approximately, EW and NS. Each of the 5 sources consisted of 1Tn of chemical explosives in 2 boreholes and was recorded by 845 digital seismographs with one-component 4.5 Hz geophones (Reftek RF125 IRIS-PASSCAL Texans). The average receiver spacing was 750 m. Shots R1 through R3 where located along the NS line, and R3–R5 were along the EW line. Shot R3 is at the intersection of the two profiles. All shots were recorded by all the stations producing fan shots for 3-D control on deep structure. Up to 402 seismographs were deployed along the EW profile and 443 along the NS profile including 35 in Spain. T]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Ciencia e Innovación (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Ministerio de Educación y Ciencia (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Comisión Interministerial de Ciencia y Tecnología, CICYT (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>National Science Foundation (US)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[Seismic line N-S (northPointLongitud= -5.522; northPointLatitude=36.671; southPointLongitud= -5.211; southPointLatitude=32.925)]]></geoLocationPlace></geoLocation></geoLocations>	
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[Seismic line E-W (westPointLongitud= -5,65; westPointLatitude=34,324; eastPointLongitud= -2.139; eastPointLatitude=35.077)]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>
