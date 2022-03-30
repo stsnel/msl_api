@@ -275,7 +275,33 @@ class HomeController extends Controller
         
     public function test()
     {
+        $importer = Importer::where('id', 1)->first();
         
+        $newOptions = [
+            'importProcessor' => [
+                'type' => 'oaiListing',
+                'options' => [
+                    'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
+                    'metadataPrefix' => 'iso19139',
+                    'setDefinition' => '~P3E9c3ViamVjdCUzQSUyMm11bHRpLXNjYWxlK2xhYm9yYXRvcmllcyUyMg'
+                ]
+            ],
+            'identifierProcessor' => [
+                'type' => 'oaiRetrieval',
+                'options' => [
+                    'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
+                    'metadataPrefix' => 'iso19139',
+                ]
+            ],
+            'sourceDatasetProcessor' => [
+                'type' => 'gfzMapper',
+                'options' => []
+            ]
+        ];
+        
+        $importer->options = $newOptions;
+        $importer->save();
+        dd('ja');
         
         //test conversion of yoda excel file to json file
         $inputfile = "../storage/app/import-data/yoda/Datapublicaties_EPOS_v02.xlsx";
