@@ -278,6 +278,11 @@ class HomeController extends Controller
         
     public function test()
     {
+        $repository = DataRepository::where('id', 2)->first();
+        $repository->ckan_name = 'yoda-repository';
+        $repository->save();
+        dd('ja');
+        
         $importer = Importer::where('id', 1)->first();
         
         $newOptions = [

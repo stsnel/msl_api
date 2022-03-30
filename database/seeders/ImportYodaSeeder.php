@@ -17,7 +17,7 @@ class ImportYodaSeeder extends Seeder
     {
         $yoda = DataRepository::create([
             'name' => 'YoDa',
-            'ckan_name' => 'yoda'
+            'ckan_name' => 'yoda-repository'
         ]);
         
         Importer::create([
