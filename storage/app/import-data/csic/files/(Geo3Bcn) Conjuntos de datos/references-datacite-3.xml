@@ -1,0 +1,58 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/14026</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by-nc-nd/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/254934</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isversionof">Publisher's version</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Ayala, C.]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCollector"><![CDATA[Rey-Moral, C.]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCollector"><![CDATA[Llorente, José M.]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCollector"><![CDATA[González, Agustín]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCollector"><![CDATA[Bellmunt, Fabian]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCollector"><![CDATA[Gabàs, Anna]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCollector"><![CDATA[Macau, Albert]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCurator"><![CDATA[Rubio, F.]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCurator"><![CDATA[Martín León, Juliana]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Ayala, C.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rey-Moral, C.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Rubio, F.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Martín León, Juliana]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Llorente, José M.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[González, Agustín]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Bellmunt, Fabian]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Gabàs, Anna]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Macau, Albert]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Gravity data from the GeoPiri3D project (2.5D and 3D characterization of the crustal structure of the Catalan Pyrenees with special attention to granitic bodies and Permocarboniferous volcano-sedimentary basins ]]></title>
+	</titles>
+
+	<date dateType="Issued">2021-11</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>Residual anomaly</subject></subjects>
+	<subjects><subject>Central Pyrenees</subject></subjects>
+	<subjects><subject>Free air anomaly</subject></subjects>
+	<subjects><subject>Bouguer anomaly</subject></subjects>
+	<subjects><subject>Gravity</subject></subjects>
+	<subjects><subject>Topographic correction</subject></subjects>
+	<subjects><subject>Observed gravity</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[This database corresponds to the new Bouguer and residual Bouguer anomaly gravity data of the Central Pyrenees calculated from 3588 stations, of which 1140 are new observations acquired from surveys performed between 2018 and 2019. 
+The processing, calculations and interpretations can be found in Gravity data on the Central Pyrenees: a step forward to help a better understanding of the Pyrenean structures (Ayala et al., 2020, DOI … ). 
+Please note that there is a difference of one data from this database respect the number that appears on the paper. This is due to the identification of a duplicated point after the publication of the paper. The duplicated point has been deleted from this database.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[Gravity data on the Central Pyrenees: a step forward to help a better understanding of the Pyrenean structures http://hdl.handle.net/10261/256413]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Ciencia e Innovación (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[Name= Pyrenees; https://www.geonames.org/3112616/pyrenees.html ; Central Pyrenees in an area whose coordinates (in UTM 31N in m, ETRS89 datum) are: Xmin: 285000 / Xmax: 425000 / Ymin: 4653000 / Ymax: 4740000  3112616
+T MTS mountains]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

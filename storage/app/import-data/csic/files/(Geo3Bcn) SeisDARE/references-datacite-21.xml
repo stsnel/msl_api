@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">10.20350/digitalCSIC/8632</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/179734</alternateIdentifier></alternateIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Ardanaz, O., Dávila, L., Teixidó, T., Martí, D., Martí, A., Queralt, P., Rodríguez Escudero, E., Camacho, J., Martínez-Díaz. J.J., and Carbonell, R. (2018). Caracterización geofísica de la falla de Alhama de Murcia en el sector de la Torrecilla. Iberfault, Alicante, 07/2018. Resúmenes de la III Reunión Ibérica sobre Fallas Activas y Paleosismología. In: Una aproximación multidisciplinar al estudio de las fallas activas, los terremotos y el riesgo sísmico. Ed.: Canora Catalán, C., Martín González, F., Masana, E., Pérez-López, R., and Ortuño, M., ISBN 978-84-09-02473-5, https://iberfault.org/wp-content/uploads/2018/11/volumen-comiunicaciones-IF18_web.pdf</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Gascón, R. (2016). Seismic Reflection imaging of the Alhama de Murcia Fault (Epicentral area of the Lorca 2011 Earthquake). Master Thesis. Universitat de Barcelona</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Canora, C., Roca, C., Martínez-Díaz, J.J., Insua-Arévalo, J.M., Martín-González, F., Alonso-Henar, J., Gómez-Ortiz, D., Martínez-Pagan, P., Masana, E., Ortuño, M., Ferrater, M. & Medialdea, A. (2016). Nuevos datos de actividad paleosísmica de la falla de Alhama de Murcia en el abanico de La salud (segmento Lorca-Totana), Béticas orientales. GeoTemas, 16(2), 563-566.ISSN 1576-5172. http://www.sociedadgeologica.es/publicaciones_geotemas_realizadas.html</relatedIdentifier></relatedIdentifiers>
+	<relatedIdentifiers><relatedIdentifier relatedIdentifierType="isreferencedby">Gascón, R., Martí, D., Martínez‐Díaz, J.J., Teixidó, T., Camacho, J.P., Marzán, I. and Carbonell, R. (2016). Caracterización sísmica de la falla de Alhama de Murcia. GeoTemas 16(1), 515-518. ISSN 1576-5172. http://www.sociedadgeologica.es/publicaciones_geotemas_realizadas.html</relatedIdentifier></relatedIdentifiers>
+	<publisher><![CDATA[DIGITAL.CSIC]]></publisher>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Martínez-Díaz, J.]]></contributor></contributors>
+	<contributors><contributor contributorType="projectLeader"><![CDATA[Martínez-Díaz, J.]]></contributor></contributors>	
+	<contributors><contributor contributorType="researcher"><![CDATA[Martí, David]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Teixidó, T.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Ardanaz, O.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Dávila, L.]]></contributor></contributors>
+	<contributors><contributor contributorType="researcher"><![CDATA[Carbonell, Ramón]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[Martí, David]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Teixidó, T.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Ardanaz, O.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Dávila, L.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Martínez-Díaz, J. J.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Mendes, M.]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Carbonell, Ramón]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ Characterization of the 3D internal structure of the Alhama de Murcia Fault (FAM) in the segments Goñar-Lorca, Lorca-Totana and Totana-Alhama ]]></title>
+	</titles>
+
+	<date dateType="Issued">2015-11-13</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>Field</subject></subjects>
+	<subjects><subject>Seismic:Active:MCS</subject></subjects>
+	<subjects><subject>DigitalSeg</subject></subjects>
+	<subjects><subject>SEGY</subject></subjects>
+	<subjects><subject>Seismic:Reflection</subject></subjects>
+	<subjects><subject>Seismometer_SingleFrequency</subject></subjects>
+	<subjects><subject>SeismicSource_Accelerated weight drop</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[This work is part of the research project: “InterGeo”. One of the main objectives of this project is to understand the seismogenetic behavior of the Alhama de Murcia Fault (FAM) located in the Betic Cordillera (Spain). In this study several intersegment areas were defined. Some structural and paleoseismic studies and geophysical surveys have been carried out on these zones.]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[The data acquisition contract was funded by the "Programa estatal de fomento de la investigación científica y técnica de excelencia-subprograma estatal de generación de conocimiento" of the Ministry of economy and competitiveness and took place in 2015. Seismic data was successfully collected in Alhama de Murcia (Spain). The total amount of seismic reflection data collected was 13.2 km in 6 profiles NW-SE oriented. Technical specifications of the profiles: Receiver number: 240, Receiver interval: 2 m, Source: accelerated weightdrop 250 kg, Source interval: 6 m, Sample rate: 1 ms, Record time: 4 s. Contact people: Martínez-Díaz, J.; jmdiaz@geo.ucm.es and Carbonell, R.; rcarbo@ictja.csic.es]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Economía y Competitividad (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[Name= Alhama de Murcia (Murcia, Spain); https://www.geonames.org/6359513/alhama-de-murcia.html; Longitude= -1.38508; Latitude=37.85735]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>

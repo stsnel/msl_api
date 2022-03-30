@@ -139,7 +139,7 @@
                 </div>            
                 @endif
                 
-                <?php if($sourceDataset) { $datasetCreate = $sourceDataset->dataset_create; } ?>
+                <?php if($sourceDataset) { $datasetCreate = $sourceDataset->dataset_create; } else { $datasetCreate = null; } ?>
                 @if($datasetCreate)
             	<div class="card mt-3">
             		<div class="card-header">
