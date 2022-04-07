@@ -15,9 +15,7 @@ class DatabaseSeeder extends Seeder
     {
         $this->call([
             AdminUserSeeder::class,
-            ImportingSeeder::class,
-            MaterialKeywordsSeeder::class,
-            RockPhysicsKeywordsSeeder::class
+            ImportingSeeder::class
         ]);
     }
 }
