@@ -15,33 +15,43 @@ class ImportCsicSeeder extends Seeder
      */
     public function run()
     {
-        $csic = DataRepository::create([
-            'name' => 'CSIC',
-            'ckan_name' => 'csic'
-        ]);
-        
-        Importer::create([
-            'name' => 'CSIC importer',
-            'description' => 'imports csic data using directory listing and datacite',
-            'type' => 'datacite',
-            'options' => [
-                'importProcessor' => [
-                    'type' => 'directoryListing',
-                    'options' => [
-                        'directoryPath' => '/import-data/yoda/converted.json',
-                        'recursive' => 'true',
-                    ]                    
-                ],
-                'identifierProcessor' => [
-                    'type' => 'fileRetrieval',
-                    'options' => []
-                ],
-                'sourceDatasetProcessor' => [
-                    'type' => 'CsicMapper',
-                    'options' => []
-                ]
+        $csic = DataRepository::updateOrCreate(
+            [
+                'name' => 'CSIC'
             ],
-            'data_repository_id' => $csic->id
-        ]);
+            [
+                'name' => 'CSIC',
+                'ckan_name' => 'csic'
+            ]
+        );
+        
+        Importer::updateOrCreate(
+            [
+                'name' => 'CSIC importer'
+            ],
+            [
+                'name' => 'CSIC importer',
+                'description' => 'imports csic data using directory listing and datacite',
+                'type' => 'datacite',
+                'options' => [
+                    'importProcessor' => [
+                        'type' => 'directoryListing',
+                        'options' => [
+                            'directoryPath' => '/import-data/yoda/converted.json',
+                            'recursive' => 'true',
+                        ]                    
+                    ],
+                    'identifierProcessor' => [
+                        'type' => 'fileRetrieval',
+                        'options' => []
+                    ],
+                    'sourceDatasetProcessor' => [
+                        'type' => 'CsicMapper',
+                        'options' => []
+                    ]
+                ],
+                'data_repository_id' => $csic->id
+            ]
+        );
     }
 }
