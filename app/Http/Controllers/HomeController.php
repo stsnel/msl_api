@@ -33,6 +33,8 @@ use App\Models\MaterialKeyword;
 use App\Converters\RockPhysicsConverter;
 use App\Datacite\Datacite;
 use App\Mappers\YodaMapper;
+use App\Models\Keyword;
+use App\Exports\FilterTreeExport;
 
 class HomeController extends Controller
 {
@@ -278,56 +280,38 @@ class HomeController extends Controller
         
     public function test()
     {
-        $repository = DataRepository::where('id', 2)->first();
-        $repository->ckan_name = 'yoda-repository';
-        $repository->save();
-        dd('ja');
+        $exporter = new FilterTreeExport();
         
-        $importer = Importer::where('id', 1)->first();
         
-        $newOptions = [
-            'importProcessor' => [
-                'type' => 'oaiListing',
-                'options' => [
-                    'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
-                    'metadataPrefix' => 'iso19139',
-                    'setDefinition' => '~P3E9c3ViamVjdCUzQSUyMm11bHRpLXNjYWxlK2xhYm9yYXRvcmllcyUyMg'
-                ]
-            ],
-            'identifierProcessor' => [
-                'type' => 'oaiRetrieval',
-                'options' => [
-                    'oaiEndpoint' => 'https://doidb.wdc-terra.org/oaip/oai',
-                    'metadataPrefix' => 'iso19139',
-                ]
-            ],
-            'sourceDatasetProcessor' => [
-                'type' => 'gfzMapper',
-                'options' => []
-            ]
-        ];
+        return response()->streamDownload(function () use($exporter) {
+            echo $exporter->export();
+        }, 'test.json');
         
-        $importer->options = $newOptions;
-        $importer->save();
-        dd('ja');
-        //test specific datacite record retrieval
-        $datacite = new Datacite();        
-        $result = $datacite->doisRequest('10.24416/UU01-A8BLMR');
+        exit();
+      
         
-        dd($result);
+       
         
-        /*
+        dd('jaja');
+        
+        $firstNode = Keyword::where('id', 1)->first();
+        dd($firstNode->getChildren());
+        
+        $topNodes = Keyword::where(['vocabulary_id' => 1, 'level' => 1])->get();
+       
+        
+        
+        
+        
+        $topKeywords = Keyword::where(['vocabulary_id' => 1, 'level' => 1])->get();
+        dd($topKeywords);
+        
+        
+        dd('test');
+        
         $sourceDataset = SourceDataset::where('id', 1)->first();
         
         $mapper = new GfzMapper();
-        
-        $dataset = $mapper->map($sourceDataset);
-        dd($dataset);
-        */
-        
-        $sourceDataset = SourceDataset::where('id', 714)->first();
-        
-        $mapper = new YodaMapper();
         
         $dataset = $mapper->map($sourceDataset);
         dd($dataset);

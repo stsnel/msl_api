@@ -64,6 +64,10 @@
                                     
                                     <a class="dropdown-item" href="{{ route('convert-excel') }}">                                                                              
                                         Convert excel file
+                                    </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('filter-tree') }}">                                                                              
+                                        Download filter tree export
                                     </a>                                    
                                 </div>
                             </li>

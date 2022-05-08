@@ -16,6 +16,7 @@ use App\Models\PoreFluidKeyword;
 use App\Models\MeasuredPropertyKeyword;
 use App\Models\InferredDeformationBehaviorKeyword;
 use App\Datasets\BaseDataset;
+use App\Mappers\Helpers\KeywordHelper;
 
 class GfzMapper
 {
@@ -23,10 +24,13 @@ class GfzMapper
     
     protected $dataciteHelper;
     
+    protected $keywordHelper;
+    
     public function __construct()
     {
         $this->client = new \GuzzleHttp\Client();
         $this->dataciteHelper = new DataciteCitationHelper();
+        $this->keywordHelper = new KeywordHelper();
     }
     
     private function createDatasetNameFromDoi($doiString) 
@@ -265,6 +269,7 @@ class GfzMapper
         }
         
         //check if keywords are present in materials keywords and process
+        /*
         foreach ($basekeyWords as $key => $basekeyWord) {
             $materialKeyword = MaterialKeyword::where('searchvalue', strtolower($basekeyWord))->first();
             
@@ -279,6 +284,7 @@ class GfzMapper
                 unset($basekeyWords[$key]);                    
             }
         }
+        */
         
         //process rockphysics specific keywords
         $apparatusKeywords = [];
@@ -583,12 +589,14 @@ class GfzMapper
         //extract tags/keywords
         $results = $xmlDocument->xpath('/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString/node()');
         if(count($results) > 0) {
+            
             $keywords = [];
             foreach ($results as $result) {
                 $keywords[] = (string)$result[0];
-            }
+            }            
             
-            $dataset = $this->processKeywords($dataset, $keywords);
+            $dataset = $this->processKeywords($dataset, $keywords);            
+            $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords, true, '>');
         }                                       
         
         //extract spatial coordinates

@@ -10,7 +10,9 @@ class Keyword extends Model
         'parent_id',
         'value',
         'uri',
-        'vocubulary_id'
+        'vocubulary_id',
+        'level',
+        'hyperlink'
     ];
  
     public function parent()
@@ -21,6 +23,11 @@ class Keyword extends Model
     public function vocabulary()
     {
         return $this->belongsTo(Vocabulary::class, 'vocabulary_id');
+    }
+    
+    public function getChildren()
+    {
+        return Keyword::where('parent_id', $this->id)->get();                
     }
     
     public function getAncestors()
@@ -34,6 +41,27 @@ class Keyword extends Model
         }
         
         return $parents;
+    }
+    
+    public function getFullPath($delimiter = '>')
+    {
+        $keywords = $this->getFullHierarchy();
+        $parts = [];
+        
+        foreach ($keywords as $keyword) {
+           $parts[] = $keyword->value;
+        }
+        
+        return implode($delimiter, $parts);
+    }
+    
+    public function getFullHierarchy()
+    {
+        $ancestors = $this->getAncestors();
+        $ancestors->prepend($this);        
+        $ancestors = $ancestors->reverse();
+        
+        return $ancestors;
     }
     
     public function getAncestorsValues()

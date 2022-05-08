@@ -40,9 +40,10 @@ Route::get('/importer/{importer_id}/imports/{import_id}/detail/{source_dataset_i
 Route::get('tools/convert-keywords', [ToolsController::class, 'convertKeywords'])->name('convert-keywords');
 Route::post('tools/convert-keywords', [ToolsController::class, 'processMaterialsFile'])->name('process-materials-file');
 Route::post('tools/convert-rockphysics', [ToolsController::class, 'processRockPhysicsFile'])->name('process-rockphysics-file');
-
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
+Route::get('tools/filtertree', [ToolsController::class, 'filterTree'])->name('filter-tree');
+Route::get('tools/filtertreedownload', [ToolsController::class, 'filterTreeDownload'])->name('filter-tree-download');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
 Route::get('/imports', [HomeController::class, 'imports'])->name('imports');

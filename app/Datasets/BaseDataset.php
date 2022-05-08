@@ -53,6 +53,6 @@ class BaseDataset
     
     public $msl_citation;
     
-    public $msl_collection_period = [];
+    public $msl_collection_period = [];        
 }
 

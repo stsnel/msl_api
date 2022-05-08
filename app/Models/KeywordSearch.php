@@ -11,6 +11,8 @@ class KeywordSearch extends Model
         'value',
         'is_synonym'
     ];
+    
+    protected $table = 'keywords_search';
  
     public function keyword()
     {

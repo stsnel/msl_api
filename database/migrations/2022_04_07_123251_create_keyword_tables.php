@@ -15,10 +15,12 @@ class CreateKeywordTables extends Migration
     {
         Schema::create('keywords', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('parent_id');
+            $table->unsignedBigInteger('parent_id')->nullable();
             $table->unsignedBigInteger('vocabulary_id');
             $table->string('value');
             $table->string('uri');
+            $table->integer('level');
+            $table->string('hyperlink');
             $table->timestamps();
         });
         
