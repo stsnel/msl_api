@@ -35,10 +35,23 @@ class KeywordHelper
                     
                     $dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
                 }
+            } else {
+                $dataset->tag_string[] = $this->cleanKeyword($keyword);
             }
         }
                         
         return $dataset;
+    }
+    
+    private function cleanKeyword($string)
+    {
+        $keyword = preg_replace("/[^A-Za-z0-9 ]/", '', $string);
+        if(strlen($keyword) >= 100) {
+            $keyword = substr($keyword, 0, 95);
+            $keyword = $keyword . "...";
+        }
+        
+        return trim($keyword);
     }
     
     
