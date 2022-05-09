@@ -32,6 +32,8 @@ use App\Models\MaterialKeyword;
 use App\Converters\RockPhysicsConverter;
 use App\Converters\ExcelToJsonConverter;
 use App\Exports\FilterTreeExport;
+use App\Converters\PorefluidsConverter;
+use App\Converters\AnalogueModellingConverter;
 
 class ToolsController extends Controller
 {
@@ -69,43 +71,57 @@ class ToolsController extends Controller
             ->with('status','Error');
     }
     
+    public function processPoreFluidsFile(Request $request)
+    {
+        $request->validate([
+            'porefluids-file' => 'required'
+        ]);
+        
+        if($request->hasFile('porefluids-file')) {
+            $converter = new PorefluidsConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('porefluids-file'));
+            }, 'porefluids.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    
     public function processRockPhysicsFile(Request $request)
     {        
         $request->validate([
-            'rockphysics-file' => 'required',
-            'sheet' => 'required'
+            'rockphysics-file' => 'required'
         ]);
         
         if($request->hasFile('rockphysics-file')) {
             $converter = new RockPhysicsConverter();            
-            $fullSheetName = '';
+                        
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('rockphysics-file'));
+            }, 'rockphysics.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processAnalogueModellingFile(Request $request)
+    {
+        $request->validate([
+            'analogue-file' => 'required'
+        ]);
+        
+        if($request->hasFile('analogue-file')) {
+            $converter = new AnalogueModellingConverter();
             
-            switch ($request->input('sheet')) {
-                case 'apparatus':
-                    $fullSheetName = 'Apparatus';
-                    break;
-                    
-                case 'ancillary':
-                    $fullSheetName = 'Ancillary equipment';
-                    break;
-                    
-                case 'pore':
-                    $fullSheetName = 'Pore fluid';
-                    break;
-                    
-                case 'measured':
-                    $fullSheetName = 'Measured property';
-                    break;
-                    
-                case 'inferred':
-                    $fullSheetName = 'Inferred deformation behavior';
-                    break;
-            }
-            
-            
-            return response()->streamDownload(function () use($converter, $request, $fullSheetName) {
-                echo $converter->ExcelToJson($request->file('rockphysics-file'), $fullSheetName);
-            }, $fullSheetName . '.json');
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('analogue-file'));
+            }, 'analogue.json');
                 
         }
         

@@ -1,0 +1,2276 @@
+[
+    {
+        "value": "Apparatus",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "deformation testing",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "compression testing",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "confining pressure vessel ",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "biaxial apparatus",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "triaxial (conventional) apparatus - compression",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "conventional triaxial apparatus - compression"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "triaxial (true) apparatus - compression",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "true triaxial apparatus - compression"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "uniaxial (oedometer) apparatus",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "oedometer"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "uniaxial (unconfined) apparatus - compression",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "diamond anvil cell",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "deformation-DIA",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "multi-anvil",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "Brazilian testing setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "flexural testing machine",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "load stamp",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "Chevron-notch test setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "nanoindenter",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "micropillar ",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "microcantilever",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "Vickers hardness test setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "plate bearing test setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "point load test setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "split Hopkinson pressure bar - compression",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "extension testing",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "triaxial (conventional) apparatus - extension",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "conventional triaxial apparatus - extension"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "uniaxial (unconfined) apparatus - extension",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "direct tension rig",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "pull test rig",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "split Hopkinson pressure bar - extension",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "dilatometer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "shear testing",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "biaxial apparatus: direct shear ",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "rotary shear apparatus ",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "triaxial (conventional) apparatus: direct shear setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "conventional triaxial apparatus: direct shear setup"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "triaxial (conventional) apparatus: saw-cut setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "conventional triaxial apparatus: saw-cut setup"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "triaxial (true) apparatus - shear",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "true triaxial apparatus"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "shear box",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "torsion testing",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "triaxial (conventional) apparatus - torsion",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "conventional triaxial apparatus - torsion"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "uniaxial (unconfined) apparatus - torsion",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "double torsion apparatus",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "split Hopkinson pressure bar - torsion",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "value": "fluid transport testing",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "permeability testing",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "permeameter - steady state flow method",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "permeameter - pore pressure oscillation method",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "permeameter - pressure transient pulse decay method",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "permeameter",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "fluid rheology testing",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "rheometer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "viscometer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "multi-phase flow test apparatus",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "value": "environmental control",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "temperature control",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "cryostat",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "furnace",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "incubator",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "humidity control",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "humidity controlled chamber",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "value": "general sample characterization",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "general sample characterisation"
+                ],
+                "subTerms": [
+                    {
+                        "value": "porosity and density determination",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "mass balance",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "porosity meter: Archimedes method ",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "porosity meter: mercury porosimeter",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "pycnometer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "size and shape analysis",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "particle analyser",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "particle analyzer"
+                                ],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "profilometer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "roughness testing equipment",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "electrical property determination",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "conductivity cell ",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "contact resistivity cell",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "electric resistivity meter",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "tensiometer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "thermal property determination",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "calorimeter",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "differential thermal analysis setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "thermal conductivity test setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "thermal diffusivity test setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "mechanical property determination",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "Cherchar equipment",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "core scratcher",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "Schmidt hammer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "sclerometer",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "Slake durability setup",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "value": "Ancillary equipment",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "syn-deformation imaging",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "photo camera",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "video camera",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "X-ray tomograph",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "X-ray computed tomograph (CT)",
+                            "CT scanner"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "neutron tomograph",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "infrared spectroscope",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "photoelastic setup",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "acoustic measurement - active source",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "accelerometer",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "laser vibrometer",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "ultrasonic imaging equipment",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "ultrasound monitoring equipment ",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "acoustic measurement - passive",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "acoustic emission (AE) monitoring equipment - triggered",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "acoustic emission (AE) monitoring equipment - continuous",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "distributed fibre sensing",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "distributed fiber sensing"
+                ],
+                "subTerms": [
+                    {
+                        "value": "distributed acoustic sensing (DAS) system",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "distributed strain sensing (DSS) system",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "distributed temperature sensing (DTS) system",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "in-line fluid property measurement ",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "in-line pH meter",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "flow meter ",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "Coriolis meter ",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "relative humidity meter",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
+        "value": "Measured property",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "strength ",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "unconfined compressive strength (UCS) \/ uniaxial compressive strength (UCS)",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "tensile strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "true tension strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "hydrostatic compressive strength (s1=s2=s3)",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "triaxial compressive strength (s1>s2=s3)",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "true triaxial strength (s1>s2>s3)",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "yield strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "shear strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "torsion strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "residual strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "plastic flow strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "plastic flow law stress exponent",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "fracture and crack toughness",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "linear-elastic (critical stress intensity factor KIC)",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "plastic-elastic fracture toughness (JIC)",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "friction - controlled slip rate ",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "friction coefficient",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "rate and state friction (RSF) parameters",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "rate-and-state-friction (RSF) parameters",
+                            "rate-state-friction"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "slip weakening parameters",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "stress drop",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "friction drop"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "frictional strength",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "cohesion",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "dilatancy parameter",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "Linker-Dieterich parameter",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "friction - controlled stress ",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "slip rate",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "strain",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "elastic strain",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "anelastic strain",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "inelastic strain",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "plastic strain",
+                            "permanent strain"
+                        ],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "strain rate - creep (constant stress)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "stress relaxation",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "pore fluid pressure ",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "coupled  mechanical-chemical effects",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "force of crystallization (FOC)",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "volume change",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "fluid-rock interaction",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "coupled mechanical-hydrological effects",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            },
+            {
+                "value": "temperature change",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "endothermic reaction",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "exothermic reaction",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "frictional heating",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "elasticity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "Young's modulus",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "bulk modulus",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "shear modulus",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "Poisson ratio",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "Biot coefficient",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "axial compressibility",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "bulk compressibility",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "Lam\u00e9 parameter",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "indentation modulus",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "modulus dispersion",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "modulus attenuation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "elastic wave velocity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "P-wave",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "S-wave",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "S1-wave",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "S2-wave",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "wave attenuation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "acoustic emission (AE)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "acoustic emission (AE) energy",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "acoustic emission (AE) count",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "acoustic emission (AE) location",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "permeability",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "absolute permeability",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "intrinsic permeability",
+                            "specific permeability"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "relative permeability",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "fracture permeability",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "bulk sample permeability",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "storativity",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "storage coefficient"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "Klinkenberg constant",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "capillary effects",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "fluid hold-up",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "thermal properties",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "heat capacity",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "thermal conductivity",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "electrical properties",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "electrical conductivity",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "electrical resistivity",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "electrical capacity",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "spontaneous potential"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "frequency dependent conductivity",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "anisotropy ",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "strength anisotropy",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "elastic anisotropy",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "permeability anisotropy",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "seismic anisotropy",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "roughness",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": [
+                    {
+                        "value": "grain surface roughness",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "rock surface roughness",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "Slake durability",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [],
+                "subTerms": []
+            }
+        ]
+    },
+    {
+        "value": "Inferred deformation behavior",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [],
+        "subTerms": [
+            {
+                "value": "deformation behaviour",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "deformation behavior"
+                ],
+                "subTerms": [
+                    {
+                        "value": "poroelastic deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "(poro)elastic deformation",
+                            "poro-elastic deformation"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "anelastic deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "inelastic deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "hysteresis",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "brittle deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "frictional deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "ductile deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "brittle-ductile deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "semi-brittle deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "cataclastic deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "brittle-plastic deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "brittle-viscous deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "viscous deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "plastic deformation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "microphysical deformation mechanism",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "microphysical process",
+                    "micro-physical",
+                    "microphysics"
+                ],
+                "subTerms": [
+                    {
+                        "value": "intragranular cracking",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "intergranular cracking",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "transgranular cracking",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "intergranular slip",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "granular flow"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "sub-critical crack growth",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "stress corrosion cracking",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "pressure dissolution",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "fluid desorption",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "fluid expulsion"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "fluid adsorption",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "fluid absorption",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "crystal plasticity - dislocation creep",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "diffusion creep",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "frictional heating",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "flash heating"
+                        ],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "localization feature",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "localisation feature",
+                    "localized feature",
+                    "localised feature"
+                ],
+                "subTerms": [
+                    {
+                        "value": "shear failure",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "shear fracturing"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "compaction band",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "stylolite",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "shear band",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "boundary shear",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "Riedel shear",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "boudinage",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "chemical reaction zonation",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            }
+        ]
+    }
+]

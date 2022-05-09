@@ -41,7 +41,69 @@ class VocabularySeeder extends Seeder
         foreach ($vocabData as $topNode) {
             $this->processNode($topNode, $vocabulary);
         }
-                                       
+        
+        //create porefluids vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'porefluids'
+                
+            ],
+            [
+                'name' => 'porefluids',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/porefluids/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/porefluids.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
+        
+        //create rockphysics vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'rockphysics'
+                
+            ],
+            [
+                'name' => 'rockphysics',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/rockphysics/'
+            ]
+            );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/rockphysics.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
+        
+        //create analogue modelling vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'analogue'
+                
+            ],
+            [
+                'name' => 'analogue',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/analoguemodelling/'
+            ]
+            );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/analogue.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
     }
     
     private function processNode($node, $vocabulary, $parentId = null)

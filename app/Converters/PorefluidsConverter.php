@@ -4,88 +4,27 @@ namespace App\Converters;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
-class RockPhysicsConverter
+class PorefluidsConverter
 {
     
     public function ExcelToJson($filepath)
     {
+        
         $spreadsheet = IOFactory::load($filepath);
-        
-        $data = [
-            [
-                'value' => 'Apparatus',
-                'level' => 1,
-                'hyperlink' => '',
-                'vocabUri' => '',
-                'uri' => '',
-                'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Apparatus', 2)
-            ],
-            [
-                'value' => 'Ancillary equipment',
-                'level' => 1,
-                'hyperlink' => '',
-                'vocabUri' => '',
-                'uri' => '',
-                'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Ancillary equipment', 2)
-            ],
-            [
-                'value' => 'Measured property',
-                'level' => 1,
-                'hyperlink' => '',
-                'vocabUri' => '',
-                'uri' => '',
-                'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Measured property', 2)
-            ],
-            [
-                'value' => 'Inferred deformation behavior',
-                'level' => 1,
-                'hyperlink' => '',
-                'vocabUri' => '',
-                'uri' => '',
-                'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Inferred deformation behavior', 2)
-            ]
-        ];
-        
-        return json_encode($data, JSON_PRETTY_PRINT);
-    }
-        
-    
-    private function getBySheet($spreadsheet, $sheetName, $baseLevel = 1) {
-        $worksheet = $spreadsheet->getSheetByName($sheetName);
+        $worksheet = $spreadsheet->getActiveSheet();
         
         $nodes = [];
         
         $counter = 0;
-        foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {
-            switch ($sheetName) {
-                case 'Apparatus':
-                    $cellIterator = $row->getCellIterator('A', 'C');
-                    break;
-                    
-                case 'Ancillary equipment':
-                    $cellIterator = $row->getCellIterator('A', 'B');
-                    break;
-                    
-                case 'Measured property':
-                    $cellIterator = $row->getCellIterator('A', 'B');
-                    break;
-                    
-                case 'Inferred deformation behavior':
-                    $cellIterator = $row->getCellIterator('A', 'B');
-                    break;
-            }
-            
-            $cellIterator->setIterateOnlyExistingCells(false);
-            
-            foreach ($cellIterator as $cell) {
+        foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {            
+            $cellIterator = $row->getCellIterator('A', 'C');
+            $cellIterator->setIterateOnlyExistingCells(false);            
+                                    
+            foreach ($cellIterator as $cell) {                                  
                 if($cell->getValue()) {
                     if($cell->getValue() !== "") {
                         $node = $this->createSimpleNode();
-                        
+                                                                       
                         $node['value'] = $this->cleanValue($cell->getValue());
                         
                         
@@ -95,9 +34,8 @@ class RockPhysicsConverter
                             $node['vocabUri'] = $this->extractVocabUri($node['hyperlink']);
                         }
                         
-                        $node['level'] = Coordinate::columnIndexFromString($cell->getColumn()) + ($baseLevel - 1);
+                        $node['level'] = Coordinate::columnIndexFromString($cell->getColumn());                                                                        
                         $node['synonyms'] = $this->extractSynonyms($cell->getValue());
-                        
                         
                         $nodes[] = $node;
                     }
@@ -105,21 +43,21 @@ class RockPhysicsConverter
             }
             $counter++;
         }
-        
+                        
         $nestedNodes = [];
         for ($i = 0; $i < count($nodes); $i++) {
-            if($nodes[$i]['level'] == $baseLevel) {
+            if($nodes[$i]['level'] == 1) {
                 $node = $nodes[$i];
                 $node['subTerms'] = $this->getChildren($i, $nodes);
                 $nestedNodes[] = $node;
-            }
+            }                                                 
         }
         
         
-        return $nestedNodes;
+        return json_encode($nestedNodes, JSON_PRETTY_PRINT);
     }
     
-    
+    //http://cgi.vocabs.ga.gov.au/object?vocab_uri=http://resource.geosciml.org/classifierScheme/cgi/2016.01/simplelithology&uri=http%3A//resource.geosciml.org/classifier/cgi/lithology/igneous_rock
     private function isGovAuUrl($url)
     {
         if(str_contains($url, 'cgi.vocabs.ga.gov.au')) {

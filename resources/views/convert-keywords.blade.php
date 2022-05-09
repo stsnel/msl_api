@@ -27,7 +27,22 @@
                 </div>
             </div>
             
-            <div class="card mt-5">
+            <div class="card mt-3">
+                <div class="card-header">Upload porefluids file</div>
+                <div class="card-body">
+					<form action="{{ route('process-porefluids-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">Porefluids xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="porefluids-file">
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
                 <div class="card-header">Upload rock physics file</div>
                 <div class="card-body">
 					<form action="{{ route('process-rockphysics-file') }}" method="POST" enctype="multipart/form-data">
@@ -36,15 +51,19 @@
                         	<label for="formFile" class="form-label">Rockphysics xlsx file</label>
                         	<input class="form-control" type="file" id="formFile" name="rockphysics-file">
                         </div>
-                        <div class="mb-3">
-                        	<label for="sheet" class="form-label">Select sheet to export</label>
-                        	<select class="form-select" aria-label="Default select example" id="sheet" name="sheet">  								
-                          		<option value="apparatus">Apparatus</option>
-                          		<option value="ancillary">Ancillary equipment</option>
-                          		<option value="pore">Pore fluid</option>
-                          		<option value="measured">Measured property</option>
-                          		<option value="inferred">Inferred deformation behavior</option>
-							</select>
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">Upload analogue modelling file</div>
+                <div class="card-body">
+					<form action="{{ route('process-analogue-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">Analogue modelling xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="analogue-file">
                         </div>
                         <button type="submit" class="btn btn-primary">Upload file</button>
 					</form>

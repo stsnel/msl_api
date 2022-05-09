@@ -8,38 +8,88 @@ class FilterTreeExport
     
     
     public function export() {
-        $tree = [[
-            'text' => 'Material',
-            'state' => [
-                'opened' => false,
-                'disabled' => false,
-                'selected' => false,
-                'checked' => false
-            ],            
-            'extra' => [
-                'type' => 'node',
-                'url' => '',
-                'filterName' => '',
-                'filterValue' => ''
+        $tree = [
+            [
+                'text' => 'Material',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],            
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(1, 'msl_material_')
             ],
-            'children' => $this->getVocabAsFilters(1, 'msl_material_')
-        ],
-        [
-            'text' => 'Geological age',
-            'state' => [
-                'opened' => false,
-                'disabled' => false,
-                'selected' => false,
-                'checked' => false
+            [
+                'text' => 'Geological age',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => []
             ],
-            'extra' => [
-                'type' => 'node',
-                'url' => '',
-                'filterName' => '',
-                'filterValue' => ''
+            [
+                'text' => 'Pore fluid',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(2, 'msl_porefluid_')
             ],
-            'children' => []
-        ]];
+            [
+                'text' => 'Analogue modelling of geological processes',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(4, 'msl_analogue_')
+            ],
+            [
+                'text' => 'Rock and melt physics',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(3, 'msl_rockphysic_')
+            ]
+        ];
                 
         return (json_encode($tree, JSON_PRETTY_PRINT));
     }

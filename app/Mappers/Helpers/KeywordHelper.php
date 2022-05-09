@@ -7,7 +7,10 @@ use App\Datasets\Keywords\KeywordFactory;
 class KeywordHelper
 {
     private $vocabularyMapping = [
-        'materials' => 'msl_materials'        
+        'materials' => 'msl_materials',
+        'porefluids' => 'msl_porefluids',
+        'rockphysics' => 'msl_rockphysics',
+        'analogue' => 'msl_analogue'
     ];
     
     
@@ -20,6 +23,8 @@ class KeywordHelper
                     $keyword = end($splitKeywords);
                 }
             }
+            
+            $keyword = trim($keyword);
             
             $searchKeywords = KeywordSearch::where('search_value', strtolower($keyword))->get();
             

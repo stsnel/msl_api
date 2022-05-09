@@ -4,7 +4,7 @@ namespace App\Converters;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
-class RockPhysicsConverter
+class AnalogueModellingConverter
 {
     
     public function ExcelToJson($filepath)
@@ -13,13 +13,31 @@ class RockPhysicsConverter
         
         $data = [
             [
+                'value' => 'Modeled structure',
+                'level' => 1,
+                'hyperlink' => '',
+                'vocabUri' => '',
+                'uri' => '',
+                'synonyms' => [],
+                'subTerms' => $this->getBySheet($spreadsheet, 'modelled structure', 2)
+            ],
+            [
+                'value' => 'Modeled geomorphological feature',
+                'level' => 1,
+                'hyperlink' => '',
+                'vocabUri' => '',
+                'uri' => '',
+                'synonyms' => [],
+                'subTerms' => $this->getBySheet($spreadsheet, 'modelled geomorphological featu', 2)
+            ],
+            [
                 'value' => 'Apparatus',
                 'level' => 1,
                 'hyperlink' => '',
                 'vocabUri' => '',
                 'uri' => '',
                 'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Apparatus', 2)
+                'subTerms' => $this->getBySheet($spreadsheet, 'apparatus', 2)
             ],
             [
                 'value' => 'Ancillary equipment',
@@ -28,7 +46,7 @@ class RockPhysicsConverter
                 'vocabUri' => '',
                 'uri' => '',
                 'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Ancillary equipment', 2)
+                'subTerms' => $this->getBySheet($spreadsheet, 'ancillary equipment', 2)
             ],
             [
                 'value' => 'Measured property',
@@ -37,16 +55,16 @@ class RockPhysicsConverter
                 'vocabUri' => '',
                 'uri' => '',
                 'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Measured property', 2)
+                'subTerms' => $this->getBySheet($spreadsheet, 'measured property', 2)
             ],
             [
-                'value' => 'Inferred deformation behavior',
+                'value' => 'Software',
                 'level' => 1,
                 'hyperlink' => '',
                 'vocabUri' => '',
                 'uri' => '',
                 'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Inferred deformation behavior', 2)
+                'subTerms' => $this->getBySheet($spreadsheet, 'software', 2)
             ]
         ];
         
@@ -62,19 +80,27 @@ class RockPhysicsConverter
         $counter = 0;
         foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {
             switch ($sheetName) {
-                case 'Apparatus':
+                case 'modelled structure':
                     $cellIterator = $row->getCellIterator('A', 'C');
                     break;
                     
-                case 'Ancillary equipment':
-                    $cellIterator = $row->getCellIterator('A', 'B');
+                case 'modelled geomorphological featu':
+                    $cellIterator = $row->getCellIterator('A', 'C');
                     break;
                     
-                case 'Measured property':
-                    $cellIterator = $row->getCellIterator('A', 'B');
+                case 'apparatus':
+                    $cellIterator = $row->getCellIterator('A', 'D');
                     break;
                     
-                case 'Inferred deformation behavior':
+                case 'ancillary equipment':
+                    $cellIterator = $row->getCellIterator('A', 'C');
+                    break;
+                    
+                case 'measured property':
+                    $cellIterator = $row->getCellIterator('A', 'C');
+                    break;
+                    
+                case 'software':
                     $cellIterator = $row->getCellIterator('A', 'B');
                     break;
             }

@@ -49,6 +49,12 @@ class BaseDataset
     
     public $msl_materials = [];
     
+    public $msl_porefluids = [];
+    
+    public $msl_rockphysics = [];
+    
+    public $msl_analogue = [];
+    
     public $msl_publisher;
     
     public $msl_citation;
