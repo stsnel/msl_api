@@ -16,6 +16,7 @@ use App\Models\PoreFluidKeyword;
 use App\Models\MeasuredPropertyKeyword;
 use App\Models\InferredDeformationBehaviorKeyword;
 use App\Datasets\BaseDataset;
+use App\Mappers\Helpers\KeywordHelper;
 
 class YodaMapper
 {
@@ -23,10 +24,13 @@ class YodaMapper
     
     protected $dataciteHelper;
     
+    protected $keywordHelper;
+    
     public function __construct()
     {
         $this->client = new \GuzzleHttp\Client();
         $this->dataciteHelper = new DataciteCitationHelper();
+        $this->keywordHelper = new KeywordHelper();
     }
     
     private function getSubDomains($sourceDataset)
@@ -137,170 +141,7 @@ class YodaMapper
         
         return trim($keyword);
     }
-    
-    private function processKeywords($dataset, $keywords)
-    {
-        $basekeyWords = [];
-        $materialKeywords = [];
-        
-        //split keywords with > into seperate keywords
-        foreach($keywords as $keyword) {
-            if(str_contains($keyword, '>')) {
-                $splits = explode('>', $keyword);
-                foreach ($splits as $split) {
-                    $basekeyWords[] = trim($split);
-                }
-            } else {
-                $basekeyWords[] = trim($keyword);
-            }            
-        }
-        
-        //check if keywords are present in materials keywords and process
-        foreach ($basekeyWords as $key => $basekeyWord) {
-            $materialKeyword = MaterialKeyword::where('searchvalue', strtolower($basekeyWord))->first();
             
-            if($materialKeyword) {
-                $materialKeywords[] = $materialKeyword->value;
-                $ancestorsValues = $materialKeyword->getAncestorsValues();
-                foreach ($ancestorsValues as $ancestorsValue) {
-                    $materialKeywords[] = $ancestorsValue;
-                }
-                
-                
-                unset($basekeyWords[$key]);                    
-            }
-        }
-        
-        //process rockphysics specific keywords
-        $apparatusKeywords = [];
-        $ancillaryEquipmentKeywords = [];
-        $poreFluidKeywords = [];
-        $measuredPropertyKeywords = [];
-        $inferredDeformationKeywords = [];
-        
-        //apparatus keywords
-        foreach ($basekeyWords as $key => $basekeyWord) {
-            $apparatusKeyword = ApparatusKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-            
-            if($apparatusKeyword) {
-                $apparatusKeywords[] = $apparatusKeyword->value;
-                $ancestorsValues = $apparatusKeyword->getAncestorsValues();
-                foreach ($ancestorsValues as $ancestorsValue) {
-                    $apparatusKeywords[] = $ancestorsValue;
-                }
-                
-                
-                unset($basekeyWords[$key]);
-            }
-        }
-        
-        //ancillary equipment keywords
-        foreach ($basekeyWords as $key => $basekeyWord) {
-            $ancillaryEquipmentKeyword = AncillaryEquipmentKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-            
-            if($ancillaryEquipmentKeyword) {
-                $ancillaryEquipmentKeywords[] = $ancillaryEquipmentKeyword->value;
-                $ancestorsValues = $ancillaryEquipmentKeyword->getAncestorsValues();
-                foreach ($ancestorsValues as $ancestorsValue) {
-                    $ancillaryEquipmentKeywords[] = $ancestorsValue;
-                }
-                
-                
-                unset($basekeyWords[$key]);
-            }
-        }
-        
-        //pore fluid keywords
-        foreach ($basekeyWords as $key => $basekeyWord) {
-            $poreFluidKeyword = PoreFluidKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-            
-            if($poreFluidKeyword) {
-                $poreFluidKeywords[] = $poreFluidKeyword->value;
-                $ancestorsValues = $poreFluidKeyword->getAncestorsValues();
-                foreach ($ancestorsValues as $ancestorsValue) {
-                    $poreFluidKeywords[] = $ancestorsValue;
-                }
-                
-                
-                unset($basekeyWords[$key]);
-            }
-        }
-        
-        //measured property keywords
-        foreach ($basekeyWords as $key => $basekeyWord) {
-            $measuredPropertyKeyword = MeasuredPropertyKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-            
-            if($measuredPropertyKeyword) {
-                $measuredPropertyKeywords[] = $measuredPropertyKeyword->value;
-                $ancestorsValues = $measuredPropertyKeyword->getAncestorsValues();
-                foreach ($ancestorsValues as $ancestorsValue) {
-                    $measuredPropertyKeywords[] = $ancestorsValue;
-                }
-                
-                
-                unset($basekeyWords[$key]);
-            }
-        }
-        
-        //infered deformation keywords
-        foreach ($basekeyWords as $key => $basekeyWord) {
-            $inferredDeformationKeyword = InferredDeformationBehaviorKeyword::where('searchvalue', strtolower($basekeyWord))->first();
-            
-            if($inferredDeformationKeyword) {
-                $inferredDeformationKeywords[] = $inferredDeformationKeyword->value;
-                $ancestorsValues = $inferredDeformationKeyword->getAncestorsValues();
-                foreach ($ancestorsValues as $ancestorsValue) {
-                    $inferredDeformationKeywords[] = $ancestorsValue;
-                }
-                
-                
-                unset($basekeyWords[$key]);
-            }
-        }
-        
-        $apparatusKeywords = array_unique($apparatusKeywords);
-        $ancillaryEquipmentKeywords = array_unique($ancillaryEquipmentKeywords);
-        $poreFluidKeywords = array_unique($poreFluidKeywords);
-        $measuredPropertyKeywords = array_unique($measuredPropertyKeywords);
-        $inferredDeformationKeywords = array_unique($inferredDeformationKeywords);
-                    
-        foreach ($apparatusKeywords as $apparatusKeyword) {
-            $dataset->msl_rock_apparatusses[] = ['msl_rock_apparatus' => $apparatusKeyword];
-        }
-        
-        foreach ($ancillaryEquipmentKeywords as $ancillaryEquipmentKeyword) {
-            $dataset->msl_rock_ancillary_equipments[] = ['msl_rock_ancillary_equipment' => $ancillaryEquipmentKeyword];
-        }
-        
-        foreach ($poreFluidKeywords as $poreFluidKeyword) {
-            $dataset->msl_rock_pore_fluids[] = ['msl_rock_pore_fluid' => $poreFluidKeyword];
-        }
-        
-        foreach ($measuredPropertyKeywords as $measuredPropertyKeyword) {
-            $dataset->msl_rock_measured_properties[] = ['msl_rock_measured_property' => $measuredPropertyKeyword];
-        }
-        
-        foreach ($inferredDeformationKeywords as $inferredDeformationKeyword) {
-            $dataset->msl_rock_inferred_deformation_behaviors[] = ['msl_rock_inferred_deformation_behavior' => $inferredDeformationKeyword];
-        }
-            
-
-        //make sure lists are unique
-        $basekeyWords = array_unique($basekeyWords);
-        $materialKeywords = array_unique($materialKeywords);
-        
-        foreach ($basekeyWords as $basekeyWord)
-        {
-            $dataset->tag_string[] = $this->cleanKeyword($basekeyWord);
-        }
-                
-        foreach ($materialKeywords as $materialKeyword) {
-            $dataset->msl_materials[] = ['msl_material' => $materialKeyword]; 
-        }
-        
-        return $dataset;
-    }
-    
     public function map(SourceDataset $sourceDataset)
     {
         //load xml file
@@ -603,7 +444,8 @@ class YodaMapper
                 $keywords[] = (string)$result[0];
             }
             
-            $dataset = $this->processKeywords($dataset, $keywords);
+            
+            $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords, true, '>');            
         }
         
         //add downloadlinks from extra_payload
