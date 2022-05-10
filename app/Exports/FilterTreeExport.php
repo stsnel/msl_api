@@ -24,23 +24,7 @@ class FilterTreeExport
                     'filterValue' => ''
                 ],
                 'children' => $this->getVocabAsFilters(1, 'msl_material_')
-            ],
-            [
-                'text' => 'Geological age',
-                'state' => [
-                    'opened' => false,
-                    'disabled' => false,
-                    'selected' => false,
-                    'checked' => false
-                ],
-                'extra' => [
-                    'type' => 'node',
-                    'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
-                ],
-                'children' => []
-            ],
+            ],            
             [
                 'text' => 'Pore fluid',
                 'state' => [
@@ -88,7 +72,39 @@ class FilterTreeExport
                     'filterValue' => ''
                 ],
                 'children' => $this->getVocabAsFilters(3, 'msl_rockphysic_')
-            ]
+            ],
+            [
+                'text' => 'Research Institute',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'facet',
+                    'url' => '',
+                    'filterName' => 'msl_lab_name',
+                    'filterValue' => ''
+                ],
+                'children' => []
+            ],
+            [
+                'text' => 'Data repository',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'facet',
+                    'url' => '',
+                    'filterName' => 'organization',
+                    'filterValue' => ''
+                ],
+                'children' => []
+            ],
         ];
                 
         return (json_encode($tree, JSON_PRETTY_PRINT));
