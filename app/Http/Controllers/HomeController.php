@@ -35,6 +35,7 @@ use App\Datacite\Datacite;
 use App\Mappers\YodaMapper;
 use App\Models\Keyword;
 use App\Exports\FilterTreeExport;
+use App\Datasets\BaseDataset;
 
 class HomeController extends Controller
 {
@@ -280,6 +281,29 @@ class HomeController extends Controller
         
     public function test()
     {
+        $vocabularySubDomainMapping = [
+            'rockphysics' => 'rock and melt physics',
+            'analogue' => 'analogue modelling of geologic processes'
+        ];
+        
+        //dd($vocabularySubDomainMapping);
+        //dd(isset($vocabularySubDomainMapping['rockphysics']));
+        dd($vocabularySubDomainMapping['rockphysics']);
+        exit();
+        
+        
+        $dataset = new BaseDataset();
+        $dataset->addSubDomain('rock and melt physics');
+        $dataset->addSubDomain('rock and melt physics');
+        $dataset->addSubDomain('paleomagnetism');
+        $dataset->addSubDomain('rock and melt physics');
+        $dataset->addSubDomain('paleomagnetism');
+        $dataset->addSubDomain('rock and melt physics');
+        $dataset->addSubDomain('rock and melt physics');
+        //$dataset->addSubDomain('123');
+        dd($dataset);
+        exit();
+        
         $exporter = new FilterTreeExport();
         
         

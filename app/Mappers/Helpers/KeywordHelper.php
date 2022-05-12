@@ -3,6 +3,7 @@ namespace App\Mappers\Helpers;
 
 use App\Models\KeywordSearch;
 use App\Datasets\Keywords\KeywordFactory;
+use App\Datasets\BaseDataset;
 
 class KeywordHelper
 {
@@ -13,8 +14,14 @@ class KeywordHelper
         'analogue' => 'msl_analogue'
     ];
     
+    private $vocabularySubDomainMapping = [
+        'rockphysics' => 'rock and melt physics',
+        'analogue' => 'analogue modelling of geologic processes'
+    ];       
     
-    public function mapKeywords($dataset, $keywords, $extractLastTerm = false, $lastTermDelimiter = '>')
+    
+    
+    public function mapKeywords(BaseDataset $dataset, $keywords, $extractLastTerm = false, $lastTermDelimiter = '>')
     {                
         foreach ($keywords as $keyword) {
             if($extractLastTerm) {
@@ -34,6 +41,11 @@ class KeywordHelper
                     $datasetKeyword = KeywordFactory::create($keyword);
                     
                     $dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
+                    
+                    //add subdomain to dataset if keyword from specified vocabulary
+                    if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
+                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name]);
+                    }
                 }
             } else {
                 $dataset->tag_string[] = $this->cleanKeyword($keyword);

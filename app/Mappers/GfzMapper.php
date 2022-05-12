@@ -37,65 +37,36 @@ class GfzMapper
     {        
         return md5($doiString);
     }
-    
-    private function getDatasetType($xml, $sourceDataset) {
-        $result = $xml->xpath("//*/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString[(./node()='analogue models of geologic processes') or (./node()='rock and melt physical properties') or (./node()='paleomagnetic and magnetic data' )]/node()");
         
-        $resultCount = count($result);
-        if($resultCount == 0) {
-            $sourceDataset->status = 'error';
-            $sourceDataset->save();
-            $this->log('ERROR', 'No keyword found to match dataset type', $sourceDataset);
-            throw new \Exception('No keyword found to match dataset type');
-        } elseif ($resultCount == 1) {
-            $typeKeyword = (string)$result[0];
-            switch ($typeKeyword) {
-                case 'analogue models of geologic processes':
-                    return 'analogue';
-                    break;
-                                   
-                case 'rock and melt physical properties':
-                    return 'rockphysics';
-                    break;
-                    
-                case 'paleomagnetic and magnetic data':
-                    return 'paleomagnetic';
-                    break;
-            }
-        } elseif ($resultCount > 1) {
-            $sourceDataset->status = 'error';
-            $sourceDataset->save();
-            $this->log('ERROR', 'Multiple keywords indicating dataset found', $sourceDataset);
-            throw new \Exception('Multiple dataset types matched');
-        }
-                       
-    }
     
-    private function getSubDomains($xml, $sourceDataset) {
+    private function getSubDomains(BaseDataset $dataset, $xml, $sourceDataset) {
         $xmlResults = $xml->xpath("//*/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString[(./node()='analogue models of geologic processes') or (./node()='rock and melt physical properties') or (./node()='paleomagnetic and magnetic data' )]/node()");
-        $results = [];
+        $results = 0;
         
         foreach ($xmlResults as $xmlResult) {
             switch ((string)$xmlResult) {
                 case 'analogue models of geologic processes':
-                    $results[] = ['msl_subdomain' => 'analogue'];
+                    $dataset->addSubDomain('analogue modelling of geologic processes');
+                    $results++;
                     break;
                     
                 case 'rock and melt physical properties':
-                    $results[] = ['msl_subdomain' => 'rock_physics'];
+                    $dataset->addSubDomain('rock and melt physics');
+                    $results++;
                     break;
                     
                 case 'paleomagnetic and magnetic data':
-                    $results[] = ['msl_subdomain' => 'paleomagnetic'];
+                    $dataset->addSubDomain('paleomagnetism');
+                    $results++;
                     break;
             }            
         }
              
-        if(count($results) == 0) {
+        if($results == 0) {
             $this->log('WARNING', 'No keyword found to set subdomain', $sourceDataset);
         }
         
-        return $results;
+        return $dataset;
     }
     
     private function log($severity, $text, $sourceDataset)
@@ -267,7 +238,7 @@ class GfzMapper
         $dataset = new BaseDataset();
         
         // set subdomains
-        $dataset->msl_subdomains = $this->getSubDomains($xmlDocument, $sourceDataset);
+        $dataset = $this->getSubDomains($dataset, $xmlDocument, $sourceDataset);
         
         //set owner_org
         $dataset->owner_org = $sourceDataset->source_dataset_identifier->import->importer->data_repository->ckan_name;

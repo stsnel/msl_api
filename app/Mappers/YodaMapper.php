@@ -33,7 +33,7 @@ class YodaMapper
         $this->keywordHelper = new KeywordHelper();
     }
     
-    private function getSubDomains($sourceDataset)
+    private function getSubDomains(BaseDataset $dataset, $sourceDataset)
     {
         $sourceIdentifier = $sourceDataset->source_dataset_identifier;
         
@@ -42,16 +42,20 @@ class YodaMapper
         if(isset($extraPayload['subDomain'])) {
             switch ($extraPayload['subDomain']) {
                 case 'Rock physics':
-                    return ['msl_subdomain' => 'rock_physics'];
+                    $dataset->addSubDomain('rock and melt physics');
+                    return $dataset;
                     
                 case 'Analogue modelling':
-                    return ['msl_subdomain' => 'analogue'];
+                    $dataset->addSubDomain('analogue modelling of geologic processes');
+                    return $dataset;
                     
                 case 'Paleomagnetism':
-                    return ['msl_subdomain' => 'paleomagnetic'];
+                    $dataset->addSubDomain('paleomagnetism');                    
+                    return $dataset;                    
                     
                 case 'Microscopy data':
-                    return ['msl_subdomain' => 'microscopy'];
+                    $dataset->addSubDomain('microscopy and tomography');
+                    return $dataset;                    
                     
                 default:
                     $sourceDataset->status = 'error';
@@ -157,7 +161,7 @@ class YodaMapper
         $dataset = new BaseDataset();                                
         
         // set subdomains
-        $dataset->msl_subdomains[] = $this->getSubDomains($sourceDataset);
+        $dataset = $this->getSubDomains($dataset, $sourceDataset);
         
         //extract title
         $result = $xmlDocument->xpath('/dc:resource/dc:titles[1]/dc:title[1]/node()[1]');
