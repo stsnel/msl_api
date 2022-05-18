@@ -78,7 +78,7 @@ class BaseResult
         
         if(isset($data['name'])) {
             $this->name = $data['name'];
-            $this->portalLink = config('ckan.ckan_root_url') . 'rockphysics/' . $data['name'];
+            $this->portalLink = config('ckan.ckan_root_url') . 'data-publication/' . $data['name'];
         }
 
         if(isset($data['msl_pids'])) {
