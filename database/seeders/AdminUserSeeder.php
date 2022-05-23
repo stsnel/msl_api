@@ -21,7 +21,7 @@ class AdminUserSeeder extends Seeder
             [
                 'name' => 'Laurens',
                 'email' => 'l.samshuijzen@uu.nl',
-                'password' => bcrypt('123456')
+                'password' => 'dlsnclksdmcklsmdkclmsdklcmskldmcsdkldscsdcsdcsdc'
             ]
         );
         
@@ -32,7 +32,7 @@ class AdminUserSeeder extends Seeder
             [
                 'name' => 'Otto',
                 'email' => 'o.a.lange@uu.nl',
-                'password' => bcrypt('123456abc')
+                'password' => 'skjdcnsdncjksdncjksndjkcnsdjkncjksdsdcsdcsdvewvs'
             ]
         );
     }
