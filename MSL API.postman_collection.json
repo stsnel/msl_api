@@ -121,7 +121,7 @@
 				"method": "GET",
 				"header": [],
 				"url": {
-					"raw": "http://dev.epos-msl.uu.nl/webservice/api/paleo?rows=8&start=0&authorName=Monika&labName=Utrecht&title=Pannonian",
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/paleo?rows=8&start=0&title=Pannonian",
 					"protocol": "http",
 					"host": [
 						"dev",
@@ -150,7 +150,65 @@
 						},
 						{
 							"key": "authorName",
-							"value": "Monika"
+							"value": "Monika",
+							"disabled": true
+						},
+						{
+							"key": "labName",
+							"value": "Utrecht",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "Pannonian"
+						},
+						{
+							"key": "tags",
+							"value": "EPOS",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "microscopy",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/microscopy?rows=8&start=0&labName=Utrecht&title=microstructural data",
+					"protocol": "http",
+					"host": [
+						"dev",
+						"epos-msl",
+						"uu",
+						"nl"
+					],
+					"path": [
+						"webservice",
+						"api",
+						"microscopy"
+					],
+					"query": [
+						{
+							"key": "rows",
+							"value": "8"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "query",
+							"value": "Fortran",
+							"disabled": true
+						},
+						{
+							"key": "authorName",
+							"value": "Monika",
+							"disabled": true
 						},
 						{
 							"key": "labName",
@@ -158,7 +216,127 @@
 						},
 						{
 							"key": "title",
-							"value": "Pannonian"
+							"value": "microstructural data"
+						},
+						{
+							"key": "tags",
+							"value": "EPOS",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "geochemistry",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/geochemistry?rows=8&start=0",
+					"protocol": "http",
+					"host": [
+						"dev",
+						"epos-msl",
+						"uu",
+						"nl"
+					],
+					"path": [
+						"webservice",
+						"api",
+						"geochemistry"
+					],
+					"query": [
+						{
+							"key": "rows",
+							"value": "8"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "query",
+							"value": "Fortran",
+							"disabled": true
+						},
+						{
+							"key": "authorName",
+							"value": "Monika",
+							"disabled": true
+						},
+						{
+							"key": "labName",
+							"value": "Utrecht",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "microstructural data",
+							"disabled": true
+						},
+						{
+							"key": "tags",
+							"value": "EPOS",
+							"disabled": true
+						}
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "all",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://dev.epos-msl.uu.nl/webservice/api/all?rows=8&start=0&query=Fortran",
+					"protocol": "http",
+					"host": [
+						"dev",
+						"epos-msl",
+						"uu",
+						"nl"
+					],
+					"path": [
+						"webservice",
+						"api",
+						"all"
+					],
+					"query": [
+						{
+							"key": "rows",
+							"value": "8"
+						},
+						{
+							"key": "start",
+							"value": "0"
+						},
+						{
+							"key": "query",
+							"value": "Fortran"
+						},
+						{
+							"key": "subDomain",
+							"value": "analogue modelling of geologic processes",
+							"disabled": true
+						},
+						{
+							"key": "authorName",
+							"value": "Monika",
+							"disabled": true
+						},
+						{
+							"key": "labName",
+							"value": "Utrecht",
+							"disabled": true
+						},
+						{
+							"key": "title",
+							"value": "microstructural data",
+							"disabled": true
 						},
 						{
 							"key": "tags",
