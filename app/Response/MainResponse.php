@@ -14,10 +14,10 @@ class MainResponse
         $this->result = new ResultBlock();
     }
 
-    public function setByCkanResponse($response) {
+    public function setByCkanResponse($response, $context) {
         $content = json_decode($response->getBody(), true);
         $this->success = (boolean)$content['success'];
-        $this->result->setByCkanResponse($content);
+        $this->result->setByCkanResponse($content, $context);
     }
 
     public function getAsLaravelResponse() {

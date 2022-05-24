@@ -29,7 +29,7 @@ class BaseResult
 
     public $publisher = "";
 
-    public $subdomain = "";
+    public $subdomain = [];
 
     public $description = "";
 
@@ -59,19 +59,11 @@ class BaseResult
 
     public $downloads = [];
     
+    public $researchAspects = [];
     
-    public $measuredProperties = [];
-    
-    public $apparatus = [];
-    
-    public $ancillaryEquipment = [];
-    
-    public $poreFluids = [];
-    
-    public $inferredDeformationBehaviour = [];
 
 
-    public function __construct($data) {
+    public function __construct($data, $context) {        
         if(isset($data['title'])) {
             $this->title = $data['title'];
         }
@@ -105,6 +97,14 @@ class BaseResult
             $this->publisher = $data['owner_org'];
         }
 
+        if(isset($data['msl_subdomains'])) {
+            if(count($data['msl_subdomains']) > 0) {
+                foreach ($data['msl_subdomains'] as $subDomainDataValue) {
+                    $this->subdomain[] = $subDomainDataValue['msl_subdomain'];
+                }
+            }
+        }        
+        
         if(isset($data['group'])) {
             $this->subdomain = $data['group'];
         }
@@ -158,11 +158,12 @@ class BaseResult
         if(isset($data['msl_materials'])) {
             if(count($data['msl_materials']) > 0) {
                 foreach ($data['msl_materials'] as $materialData) {
-                    if(isset($materialData['msl_material'])) {
-                        $this->materials[] = $materialData['msl_material'];
+                    if(isset($materialData['msl_material_combined'])) {
+                        $this->materials[] = $this->extractEndTerm($materialData['msl_material_combined']);
                     }
                 }
             }
+            $this->materials = array_values(array_unique($this->materials));
         }        
 
         if(isset($data['msl_spatial_coordinates'])) {
@@ -211,55 +212,92 @@ class BaseResult
             }
         }
         
+        //set researchaspects based on context(calling api function)
+        switch ($context) {
+            case 'rockPhysics':
+                $this->researchAspects = $this->getRockPhysicsKeywords($data);              
+                break;            
+            case 'analogue':
+                $this->researchAspects = $this->getAnalogueKeywords($data);
+                break;
+            case 'paleo':
+                
+                break;
+            case 'microscopy':
+                
+                break;
+            case 'geochemistry':
+                
+                break;
+            case 'all':
+                $keywords = [];
+                
+                $keywords = array_merge($keywords, $this->getRockPhysicsKeywords($data));
+                $keywords = array_merge($keywords, $this->getAnalogueKeywords($data));
+                $keywords = array_values(array_unique($keywords));
+                
+                $this->researchAspects = $keywords;                                
+                break;
+        }        
+
+    }
+    
+    private function getRockPhysicsKeywords($data) {        
+        $topNodes = ['Measured property', 'Inferred deformation behavior'];
+        $keywords = [];                
         
-        if(isset($data['msl_rock_measured_properties'])) {
-            if(count($data['msl_rock_measured_properties']) > 0) {
-                foreach ($data['msl_rock_measured_properties'] as $measuredPropertyData) {
-                    if(isset($measuredPropertyData['msl_rock_measured_property'])) {
-                        $this->measuredProperties[] = $measuredPropertyData['msl_rock_measured_property'];
+        if(isset($data['msl_rockphysics'])) {
+            if(count($data['msl_rockphysics']) > 0) {                
+                foreach ($data['msl_rockphysics'] as $keywordData) {                        
+                    if(isset($keywordData['msl_rockphysic_combined'])) {
+                        $term = $keywordData['msl_rockphysic_combined'];
+                        
+                        if(str_contains($term, '>')) {
+                            $terms = explode('>', $term);
+                            if(in_array($terms[0], $topNodes)) {
+                                $keywords[] = trim($terms[count($terms) - 1]);
+                            }                            
+                        }                        
                     }
                 }
             }
+            $keywords = array_values(array_unique($keywords));
         }
         
-        if(isset($data['msl_rock_apparatusses'])) {
-            if(count($data['msl_rock_apparatusses']) > 0) {
-                foreach ($data['msl_rock_apparatusses'] as $apparatusData) {
-                    if(isset($apparatusData['msl_rock_apparatus'])) {
-                        $this->apparatus[] = $apparatusData['msl_rock_apparatus'];
+        return $keywords;
+    }
+    
+    private function getAnalogueKeywords($data) {
+        $topNodes = ['Modeled structure', 'Modeled geomorphological feature', 'Measured property'];
+        $keywords = [];
+        
+        if(isset($data['msl_analogue'])) {
+            if(count($data['msl_analogue']) > 0) {                
+                foreach ($data['msl_analogue'] as $keywordData) {
+                    if(isset($keywordData['msl_analogue_combined'])) {
+                        $term = $keywordData['msl_analogue_combined'];
+                        
+                        if(str_contains($term, '>')) {
+                            $terms = explode('>', $term);
+                            if(in_array($terms[0], $topNodes)) {
+                                $keywords[] = trim($terms[count($terms) - 1]);
+                            }
+                        }
                     }
                 }
             }
+            $keywords = array_values(array_unique($keywords));
         }
         
-        if(isset($data['msl_rock_ancillary_equipments'])) {
-            if(count($data['msl_rock_ancillary_equipments']) > 0) {
-                foreach ($data['msl_rock_ancillary_equipments'] as $ancillaryEquipmentData) {
-                    if(isset($ancillaryEquipmentData['msl_rock_ancillary_equipment'])) {
-                        $this->ancillaryEquipment[] = $ancillaryEquipmentData['msl_rock_ancillary_equipment'];
-                    }
-                }
-            }
+        return $keywords;
+    }
+    
+    
+    private function extractEndTerm($term) {
+        if(str_contains($term, '>')) {
+            $terms = explode('>', $term);
+            return trim($terms[count($terms) - 1]);
         }
-        
-        if(isset($data['msl_rock_pore_fluids'])) {
-            if(count($data['msl_rock_pore_fluids']) > 0) {
-                foreach ($data['msl_rock_pore_fluids'] as $poreFluidData) {
-                    if(isset($poreFluidData['msl_rock_pore_fluid'])) {
-                        $this->poreFluids[] = $poreFluidData['msl_rock_pore_fluid'];
-                    }
-                }
-            }
-        }
-        
-        if(isset($data['msl_rock_inferred_deformation_behaviors'])) {
-            if(count($data['msl_rock_inferred_deformation_behaviors']) > 0) {
-                foreach ($data['msl_rock_inferred_deformation_behaviors'] as $inferredDeformationBehaviorData) {
-                    if(isset($inferredDeformationBehaviorData['msl_rock_inferred_deformation_behavior'])) {
-                        $this->inferredDeformationBehaviour[] = $inferredDeformationBehaviorData['msl_rock_inferred_deformation_behavior'];
-                    }
-                }
-            }
-        }
+        return $term;
     }
 }

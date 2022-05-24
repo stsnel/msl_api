@@ -11,15 +11,15 @@ class ResultBlock
     public $results = [];
 
 
-    public function setByCkanResponse($response) {
+    public function setByCkanResponse($response, $context) {
         if(isset($response['result']['count'])) {
             $this->count = $response['result']['count'];
         }
         if(isset($response['result']['results'])) {
             $this->resultCount = count($response['result']['results']);
 
-            foreach ($response['result']['results'] as $result) {
-                $this->results[] = new BaseResult($result);                
+            foreach ($response['result']['results'] as $result) {               
+                $this->results[] = new BaseResult($result, $context);                
             }
         }
     }

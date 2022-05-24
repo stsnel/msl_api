@@ -22,4 +22,7 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 Route::get('/rock_physics', [ApiController::class, 'rockPhysics']);
 Route::get('/analogue', [ApiController::class, 'analogue']);
 Route::get('/paleo', [ApiController::class, 'paleo']);
+Route::get('/microscopy', [ApiController::class, 'microscopy']);
+Route::get('/geochemistry', [ApiController::class, 'geochemistry']);
+Route::get('/all', [ApiController::class, 'all']);
 
