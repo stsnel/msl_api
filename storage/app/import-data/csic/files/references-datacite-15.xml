@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<resource xmlns="http://datacite.org/schema/kernel-4" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://datacite.org/schema/kernel-4 http://schema.datacite.org/meta/kernel-4.1/metadata.xsd">
+		
+	<identifier identifierType="DOI">https://doi.org/10.20350/digitalCSIC/14586</identifier>
+	<rightsList><rights rightsURI="https://creativecommons.org/licenses/by/4.0/"/></rightsList>
+	<alternateIdentifiers><alternateIdentifier alternateIdentifierType="Handle">http://hdl.handle.net/10261/266163</alternateIdentifier></alternateIdentifiers>
+	
+	
+	<contributors><contributor contributorType="contactPerson"><![CDATA[Alcalde, Juan]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCollector"><![CDATA[González-Esvertit, Eloi]]></contributor></contributors>
+	<contributors><contributor contributorType="dataCurator"><![CDATA[Gomez-Rivas, Enrique]]></contributor></contributors>
+		
+	<creators>
+		<creator><creatorName><![CDATA[González-Esvertit, Eloi]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Alcalde, Juan]]></creatorName></creator>
+		<creator><creatorName><![CDATA[Gomez-Rivas, Enrique]]></creatorName></creator>
+	</creators>
+	<titles>
+		<title><![CDATA[ IESDB - The Iberian Evaporite Structures DataBase. An interactive atlas of evaporite structures in Iberia ]]></title>
+	</titles>
+
+	<date dateType="Issued">2022-04</date>
+	
+	<resourceType resourceTypeGeneral="dataset"/>
+	
+	<language>eng</language>
+	
+	<subjects><subject>Evaporite structure</subject></subjects>
+	<subjects><subject>Iberia</subject></subjects>
+	<subjects><subject>Energy storage</subject></subjects>
+	<subjects><subject>Database</subject></subjects>
+	<subjects><subject>Structural geology</subject></subjects>
+	<subjects><subject>Economic geology</subject></subjects>
+	<subjects><subject>Stratigraphy</subject></subjects>
+	
+	<descriptions><description descriptionType="Abstract"><![CDATA[The Iberian Evaporite Structure Database (IESDB) is the first overall assessment of evaporite structures developed in any region of the world. The IESDB is sourced from six different databases and more than 1,500 published and unpublished references, and includes information and figures for each of the 150 inventoried evaporite structures and their surrounding rocks. The database targets outcropping and buried diapirs, undeformed to slightly deformed evaporite successions, evaporite-cored anticlines, evaporite-detached thrusts, and allochthonous evaporite bodies. Compiled data include information about the stratigraphy, structure, event chronology, subsurface data availability, mining activity, and key bibliographic references of each indexed structure. The IESDB follows the FAIR principles of database management (Findable, Accessible, Interoperable and Reusable) and is presented as an open access webpage (https://ub.edu/IESDB).]]></description></descriptions>	                            
+	<descriptions><description descriptionType="Description"><![CDATA[DATA & FILE OVERVIEW
+
+1. File List: 
+
+00_IESDB_Readme
+IESDB_Dataset1_Generic-Data
+IESDB_Dataset2_Mining-Data
+IESDB_Dataset3_Well-and-Seismic-Data
+IESDB_Dataset4_Geographic-Data
+IESDB_Dataset5_Quantitative-Data
+IESDB_Dataset6_Reference-Data
+IESDB_Dataset7_Image-Data
+IESDB_Summarized-Index-Cards]]></description></descriptions>                    
+	<fundingReferences><fundingReferences><funderName>Ministerio de Ciencia, Innovación y Universidades (España)</funderName></fundingReferences></fundingReferences>
+	<fundingReferences><fundingReferences><funderName>Agencia Estatal de Investigación (España)</funderName></fundingReferences></fundingReferences>
+
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[dc.coverage.spatial: http://www.geonames.org/2521384/balearic-islands.html]]></geoLocationPlace></geoLocation></geoLocations>	
+	<geoLocations><geoLocation><geoLocationPlace><![CDATA[Iberian Peninsula and Balearic Islands  Boundaries in WGS 84: Latitude: 36.0ºN - 43.8ºN Longitude 9.4ºW - 4.3ºE]]></geoLocationPlace></geoLocation></geoLocations>	
+</resource>
