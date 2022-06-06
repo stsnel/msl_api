@@ -45,7 +45,7 @@ This endpoint gives access to all data-publications available that are marked as
 <details>
   <summary>view response</summary>
   
-  <code>
+```json
   {
     "success": true,
     "message": "",
@@ -1018,5 +1018,8 @@ This endpoint gives access to all data-publications available that are marked as
         ]
     }
 }
-  </code>
-</details>		
+```
+
+</details>
+
+## test
