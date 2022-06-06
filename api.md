@@ -3,7 +3,7 @@ The EPOS MSL API offers access to data available within our CKAN portal. This do
 A Postman collection file is available [here](../master/MSL%20API.postman_collection.json).
 
 ## Available resources
-The API offers 5 domain specific endpoints and 1 endpoint offering access to all data-publications available. All data is open accesable, no authorization is required.
+The API offers 5 domain specific endpoints and 1 endpoint offering access to all data-publications available. All data is open accessible, no authorization is required.
 + [rock_physics](#rock_physics)
 + [analogue](#analogue)
 + [paleo](#paleo)
