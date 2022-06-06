@@ -1,9 +1,8 @@
 # EPOS MSL API
 The EPOS MSL API offers access to data available within our CKAN portal. This document describes the API per available endpoint.
-A Postman collection file is available at (link to postman collection)
+A Postman collection file is available [here](../blob/master/MSL API.postman_collection.json).
 
 todo
-+ mention base url
 + add postman link
 + add all endpoints
 + add anchor links
@@ -11,12 +10,20 @@ todo
 
 ## Available resources
 The API offers 5 domain specific endpoints and 1 endpoint offering access to all data-publications available. All data is open accesable, no authorization is required.
-+ rock_physics
++ [rock_physics](#rock_physics)
 + analogue
 + paleo
 + microscopy
 + geochemistry
 + all
+
+## Base url
+
+The base url for the API:
+
+```
+https://epos-msl.uu.nl/webservice/api
+```
 
 # /rock_physics
 This endpoint gives access to all data-publications available that are marked as belonging to the rock physics (sub)domain. 
@@ -1022,4 +1029,4 @@ This endpoint gives access to all data-publications available that are marked as
 
 </details>
 
-## test
+# 
