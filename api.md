@@ -1,6 +1,6 @@
 # EPOS MSL API
 The EPOS MSL API offers access to data available within our CKAN portal. This document describes the API per available endpoint.
-A Postman collection file is available [here](../blob/master/MSL-API.postman_collection.json).
+A Postman collection file is available [here](../blob/master/MSL%20API.postman_collection.json).
 
 todo
 + add postman link
