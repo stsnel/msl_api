@@ -2,20 +2,14 @@
 The EPOS MSL API offers access to data available within our CKAN portal. This document describes the API per available endpoint.
 A Postman collection file is available [here](../master/MSL%20API.postman_collection.json).
 
-todo
-+ add postman link
-+ add all endpoints
-+ add anchor links
-+ spellingcheck
-
 ## Available resources
 The API offers 5 domain specific endpoints and 1 endpoint offering access to all data-publications available. All data is open accesable, no authorization is required.
 + [rock_physics](#rock_physics)
-+ analogue
-+ paleo
-+ microscopy
-+ geochemistry
-+ all
++ [analogue](#analogue)
++ [paleo](#paleo)
++ [microscopy](#microscopy)
++ [geochemistry](#geochemistry)
++ [all](#all)
 
 ## Base url
 
@@ -1029,4 +1023,1562 @@ This endpoint gives access to all data-publications available that are marked as
 
 </details>
 
-# 
+# /analogue
+This endpoint gives access to all data-publications available that are marked as belonging to the rock physics (sub)domain. 
+
+## Search all analogue modelling data-publications [GET]
++ Parameters
+
+    + rows (number, optional) - The number of results to return.
+        + Default: `10`
+    + start (number, optional) - The number to start results from. 
+        + Default: `0`
+    + query (text, optional) - Words to search for. 
+        + Default: ``
+    + authorName (text, optional) - Author names to search for. 
+        + Default: ``
+    + labName (text, optional) - Lab names to search for. 
+        + Default: ``
+    + title (text, optional) - Title to search for. 
+        + Default: ``
+    + tags (text, optional) - Tags to search for. 
+        + Default: ``
+
+        
++ Response 200 (application/json)
+
+<details>
+  <summary>view response</summary>
+  
+```json
+  {
+    "success": true,
+    "message": "",
+    "result": {
+        "count": 99,
+        "resultCount": 4,
+        "results": [
+            {
+                "title": "Digital image correlation data from laboratory subduction megathrust models",
+                "name": "4bb18f7b6c615156f095e2cbd1bcbd0e",
+                "portalLink": "https://epos-msl.uu.nl/data-publication/4bb18f7b6c615156f095e2cbd1bcbd0e",
+                "pid": [
+                    {
+                        "identifier": "10.5880/fidgeo.2022.015",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/fidgeo.2022.015",
+                "publisher": "1ad19b41-9e16-4350-af3d-aee38be4dd5a",
+                "subdomain": [
+                    "analogue modelling of geologic processes"
+                ],
+                "description": "This data set includes digital image correlation data from analog earthquakes experiments. The data consists of grids of surface strain and time series of surface displacement (horizontal and vertical) and strain. The data have been derived using a stereo camera setup and processed with LaVision Davis 10 software. Detailed descriptions of the experiments and results regarding the surface pattern of the strain can be found in Kosari et al. (2022), to which this data set is supplementary. \n\nWe use an analog seismotectonic scale model approach (Rosenau et al., 2019 and 2017) to generate a catalog of analog megathrust earthquakes (Table 1). The presented experimental setup is modified from the 3D setup used in Rosenau et al. (2019) and Kosari et al. ( 2020). The subduction forearc model wedge is set up in a glass-sided box (1000 mm across strike, 800mm along strike, and 300 mm deep) with a dipping, elastic basal conveyor belt and a rigid backwall. An elastoplastic sand-rubber mixture (50 vol.% quartz sandG12: 50 vol.% EPDM rubber) is sieved into the setup representing a 240 km long forearc segment from the trench to the volcanic arc. The shallow part of the wedge includes a basal layer of sticky rice grains characterized by unstable stick-slip sliding representing the seismogenic zone. Stick-slip sliding in rice is governed by a rate-and-state dependent friction law similar to natural rocks. According to Coulomb wedge theory (Dahlen et al., 1984), two types of wedge configurations have been designed: a “compressional” configuration represents an interseismically compressional and coseismically stable wedge (compressional configuration), and a “critical” configuration, which is interseismically stable (close to critically compressional) and may reach a critical extensional state coseismically (critical configuration). In the compressional configuration, a flat-top (surface slope α=0) wedge overlies a single large rectangular in map view stick-slip patch (Width*Length=200*800 mm) over a 15-degree dipping basal thrust. In the critical configuration, the surface angle of the elastoplastic wedge varies from the coastal segment onshore (α=10) to the inner-wedge offshore (α=15) segments over a 5-degree dipping basal thrust. Slow continuous compression of the wedge by moving the basal conveyor belt at a speed velocity of 0.05 mm/s simulates plate convergence and results in the quasi-periodic nucleation of quasi-periodic stick-slip events (analog earthquakes) within the rice layer. The wedge responds elastically to these basal slip events, similar to crustal rebound during natural subduction megathrust earthquakes. ",
+                "publicationDate": "",
+                "citation": "Kosari, E., Rosenau, M., &amp; Oncken, O. (2022). <i>Digital image correlation data from laboratory subduction megathrust models</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/FIDGEO.2022.015",
+                "creators": [
+                    {
+                        "authorName": "Kosari, Ehsan",
+                        "authorIdentifier": "http://orcid.org/0000-0002-1052-4997",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Rosenau, Matthias",
+                        "authorIdentifier": "http://orcid.org/0000-0003-1134-5381",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Oncken, Onno",
+                        "authorIdentifier": "http://orcid.org/0000-0002-2894-480X",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.1029/2021TC007099",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kosari, E., Rosenau, M., & Oncken, O. (2022). Strain Signals Governed by Frictional‐Elastoplastic Interaction of the Upper Plate and Shallow Subduction Megathrust Interface Over Seismic Cycles. Tectonics, 41(5). Portico. https://doi.org/10.1029/2021tc007099\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.jsg.2004.08.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Adam, J., Urai, J. L., Wieneke, B., Oncken, O., Pfeiffer, K., Kukowski, N., Lohrmann, J., Hoth, S., van der Zee, W., & Schmatz, J. (2005). Shear localisation and strain distribution during tectonic faulting—new insights from granular-flow experiments and high-resolution optical image correlation techniques. Journal of Structural Geology, 27(2), 283–301. https://doi.org/10.1016/j.jsg.2004.08.008\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2020GL088266",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kosari, E., Rosenau, M., Bedford, J., Rudolf, M., & Oncken, O. (2020). On the Relationship Between Offshore Geodetic Coverage and Slip Model Uncertainty: Analog Megathrust Earthquake Case Studies. Geophysical Research Letters, 47(15). Portico. https://doi.org/10.1029/2020gl088266\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.5194/se-8-597-2017",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Corbi, F., & Dominguez, S. (2017). Analogue earthquakes and seismic cycles: experimental modelling across timescales. Solid Earth, 8(3), 597–635. https://doi.org/10.5194/se-8-597-2017\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2018JB016597",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Horenko, I., Corbi, F., Rudolf, M., Kornhuber, R., & Oncken, O. (2019). Synchronization of Great Subduction Megathrust Earthquakes: Insights From Scale Model Analysis. Journal of Geophysical Research: Solid Earth, 124(4), 3646–3661. Portico. https://doi.org/10.1029/2018jb016597\n",
+                        "referenceType": "Cites"
+                    }
+                ],
+                "laboratories": [
+                    "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                ],
+                "materials": [
+                    "quartz sand"
+                ],
+                "spatial": [],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": []
+            },
+            {
+                "title": "Digital image correlation data from analogue subduction megathrust earthquakes addressing the control of geodetic coverage on coseismic slip inversion",
+                "name": "c2ff095fe535552d736e356ab0112e14",
+                "portalLink": "https://epos-msl.uu.nl/data-publication/c2ff095fe535552d736e356ab0112e14",
+                "pid": [
+                    {
+                        "identifier": "10.5880/GFZ.4.1.2020.003",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/GFZ.4.1.2020.003",
+                "publisher": "1ad19b41-9e16-4350-af3d-aee38be4dd5a",
+                "subdomain": [
+                    "analogue modelling of geologic processes"
+                ],
+                "description": "This data set includes digital image correlation data from thirteen analogue earthquakes generated by means of an analogue seismotectonic scale model approach. The data consists of grids of 3D static coseismic surface displacements. The data have been derived using a stereo camera setup and processed with LaVision Davis 8 software. Detailed descriptions of the experiments and results regarding the control of geodetic coverage on the slip inversion problem can be found in Kosari et al. (2020) to which this data set is supplementary material.\n       \nWe use an analogue seismotectonic scale model approach (Rosenau et al., 2017) to generate a catalogue of analogue megathrust earthquakes (Table 1). The presented experimental setup is modified from the 3D setup used in Rosenau et al. (2019).\n\nTo monitor surface deformation of the wedge analogue model a stereoscopic set of two CCD cameras (LaVision Imager pro X 11MPx, 14 bit) monitors images the wedge surface continuously at 2.5 Hz. To derive observational data similar to those from geodetic techniques, i.e. velocities at the location on the surface, we use digital image correlation (DIC, Adam et al., 2005) to derive the 3D incremental surface displacement (or velocity) at high spatial resolution (< 0.1 mm). The time series of incremental surface displacement data was calculated using LaVision Davis 8 software. The result is an evenly spaced grid of vectors per time step, oriented parallel with respect to the principal dimensions of the box.",
+                "publicationDate": "",
+                "citation": "Kosari, E., Rosenau, M., Bedford, J., Rudolf, M., &amp; Oncken, O. (2020). <i>Digital image correlation data from analogue subduction megathrust earthquakes addressing the control of geodetic coverage on coseismic slip inversion</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.1.2020.003",
+                "creators": [
+                    {
+                        "authorName": "Kosari, Ehsan",
+                        "authorIdentifier": "http://orcid.org/0000-0002-1052-4997",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Rosenau, Matthias",
+                        "authorIdentifier": "http://orcid.org/0000-0003-1134-5381",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Bedford, Jonathan",
+                        "authorIdentifier": "http://orcid.org/0000-0002-8954-4367",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Rudolf, Michael",
+                        "authorIdentifier": "http://orcid.org/0000-0002-5077-5221",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Oncken, Onno",
+                        "authorIdentifier": "http://orcid.org/0000-0002-2894-480X",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.1029/2020GL088266",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kosari, E., Rosenau, M., Bedford, J., Rudolf, M., & Oncken, O. (2020). On the Relationship Between Offshore Geodetic Coverage and Slip Model Uncertainty: Analog Megathrust Earthquake Case Studies. Geophysical Research Letters, 47(15). Portico. https://doi.org/10.1029/2020gl088266\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.jsg.2004.08.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Adam, J., Urai, J. L., Wieneke, B., Oncken, O., Pfeiffer, K., Kukowski, N., Lohrmann, J., Hoth, S., van der Zee, W., & Schmatz, J. (2005). Shear localisation and strain distribution during tectonic faulting—new insights from granular-flow experiments and high-resolution optical image correlation techniques. Journal of Structural Geology, 27(2), 283–301. https://doi.org/10.1016/j.jsg.2004.08.008\n",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5194/se-8-597-2017",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Corbi, F., & Dominguez, S. (2017). Analogue earthquakes and seismic cycles: experimental modelling across timescales. Solid Earth, 8(3), 597–635. https://doi.org/10.5194/se-8-597-2017\n",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2018JB016597",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Horenko, I., Corbi, F., Rudolf, M., Kornhuber, R., & Oncken, O. (2019). Synchronization of Great Subduction Megathrust Earthquakes: Insights From Scale Model Analysis. Journal of Geophysical Research: Solid Earth, 124(4), 3646–3661. Portico. https://doi.org/10.1029/2018jb016597\n",
+                        "referenceType": "References"
+                    }
+                ],
+                "laboratories": [
+                    "GFZ German Research Centre for Geosciences, Potsdam, Germany",
+                    "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                ],
+                "materials": [
+                    "quartz sand"
+                ],
+                "spatial": [],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": []
+            },
+            {
+                "title": "Electrical measurements of explosive volcanic eruptions from Stromboli Volcano, Italy",
+                "name": "505abe9ae6c4c27cc7a5f33b67e29fff",
+                "portalLink": "https://epos-msl.uu.nl/data-publication/505abe9ae6c4c27cc7a5f33b67e29fff",
+                "pid": [
+                    {
+                        "identifier": "10.5880/fidgeo.2022.005",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/fidgeo.2022.005",
+                "publisher": "1ad19b41-9e16-4350-af3d-aee38be4dd5a",
+                "subdomain": [
+                    "rock and melt physics",
+                    "analogue modelling of geologic processes"
+                ],
+                "description": "These data files contain short periods of electrical data recorded at Stromboli volcano, Italy, in 2019 and 2020 using a prototype version of the Biral Thunderstorm Detector BTD-200. This sensor consists of two antennas, the primary and secondary antenna, which detect slow variations in the electrostatic field resulting from charge neutralisation due to electrical discharges.\nThe sensor recorded at three different locations: BTD1 (38.79551°N, 15.21518°E), BTD2 (38.80738°N, 15.21355°E) and BTD3 (38.79668°N, 15.21622°E).\n\n Electrical data of the following explosions is provided (each in a separate data file):\n- Three Strombolian explosions on 12 June 2019 at 12:46:53, 12:49:27 and 12:56:10 UTC, respectively.\n- A major explosion on 25 June 2019 at 23:03:08 UTC.\n- A major explosion on 19 July 2020 at 03:00:42 UTC.\n- A major explosion on 16 November 2020 at 09:17:45 UTC.\n- A paroxysmal event at 3 July 2019 at 14:45:43 UTC.\n\nEach filename indicates the location of the BTD, the starting date and time of the file in UTC, and a short description of the three data columns inside the file (unixtime, primary, secondary). The first column provides the Unix timestamp of each data point, which is the time in seconds since 01/01/1970. All time is provided in UTC.  The second column provides the measured voltage [V] recorded by the primary antenna. The third column provides the measured voltage [V] recorded by the secondary antenna.",
+                "publicationDate": "",
+                "citation": "Vossen, C., &amp; Cimarelli, C. (2022). <i>Electrical measurements of explosive volcanic eruptions from Stromboli Volcano, Italy</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/FIDGEO.2022.005",
+                "creators": [
+                    {
+                        "authorName": "Vossen, Caron",
+                        "authorIdentifier": "http://orcid.org/0000-0001-7090-1857",
+                        "authorAffiliation": "Ludwig-Maximilians-Universität München, Munich, Germany"
+                    },
+                    {
+                        "authorName": "Cimarelli, Corrado",
+                        "authorIdentifier": "http://orcid.org/0000-0002-5707-5930",
+                        "authorAffiliation": "Ludwig-Maximilians-Universität München, Munich, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "DOI of paper when available",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "",
+                        "referenceType": "IsSupplementTo"
+                    }
+                ],
+                "laboratories": [],
+                "materials": [],
+                "spatial": [
+                    {
+                        "eLong": "15.2152",
+                        "nLat": "38.7955",
+                        "sLate": "38.7955",
+                        "wLong": "15.2152"
+                    },
+                    {
+                        "eLong": "15.2135",
+                        "nLat": "38.8074",
+                        "sLate": "38.8074",
+                        "wLong": "15.2135"
+                    },
+                    {
+                        "eLong": "15.2162",
+                        "nLat": "38.7967",
+                        "sLate": "38.7967",
+                        "wLong": "15.2162"
+                    }
+                ],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": [
+                    "volcano"
+                ]
+            },
+            {
+                "title": "Ring-shear test data of wheat flour used for analogue experiments in the laboratory of the Institute of Geophysics of the Czech Academy of Science, Prague",
+                "name": "910c9d3a3321ec6e83f62c84bcde7aa4",
+                "portalLink": "https://epos-msl.uu.nl/data-publication/910c9d3a3321ec6e83f62c84bcde7aa4",
+                "pid": [
+                    {
+                        "identifier": "10.5880/fidgeo.2022.016",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/fidgeo.2022.016",
+                "publisher": "1ad19b41-9e16-4350-af3d-aee38be4dd5a",
+                "subdomain": [
+                    "analogue modelling of geologic processes",
+                    "rock and melt physics"
+                ],
+                "description": "This dataset provides friction data from ring-shear tests (RST) for wheat flour used as a fine-grained, cohesive analogue material for simulating brittle upper crustal rocks in the analogue labor-atory of the Institute of Geophysics of the Czech Academy of Science (IGCAS). It is characterized by means of internal friction coefficients µ and cohesion C.\n According to our analysis the materials show a Mohr-Coulomb behaviour characterized by a linear failure envelope. Peak friction coefficients µP of the tested material is ~0.72, dynamic friction coeffi-cients µD is ~0.67 and reactivation friction coefficients µR is ~0.70. Cohesions of the material range between 27 and 50 Pa. The material shows a minor rate-weakening of ~1.5% per ten-fold change in shear velocity v and a stick-slip behaviour at low shear velocities.\n ",
+                "publicationDate": "",
+                "citation": "Warsitzka, M., Zavada, P., &amp; Rosenau, M. (2022). <i>Ring-shear test data of wheat flour used for analogue experiments in the laboratory of the Institute of Geophysics of the Czech Academy of Science, Prague</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/FIDGEO.2022.016",
+                "creators": [
+                    {
+                        "authorName": "Warsitzka, Michael",
+                        "authorIdentifier": "http://orcid.org/0000-0003-1774-5888",
+                        "authorAffiliation": "Institute of Geophysics, Czech Academy of Sciences, Prague, Czech Republic"
+                    },
+                    {
+                        "authorName": "Zavada, Prokop",
+                        "authorIdentifier": "http://orcid.org/0000-0003-1702-3770",
+                        "authorAffiliation": "Institute of Geophysics, Czech Academy of Sciences, Prague, Czech Republic"
+                    },
+                    {
+                        "authorName": "Rosenau, Matthias",
+                        "authorIdentifier": "http://orcid.org/0000-0003-1134-5381",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.1016/j.tecto.2016.01.017",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Klinkmüller, M., Schreurs, G., Rosenau, M., & Kemnitz, H. (2016). Properties of granular analogue model materials: A community wide survey. Tectonophysics, 684, 23–38. https://doi.org/10.1016/j.tecto.2016.01.017\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1002/2016JB012915",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Ritter, M. C., Leever, K., Rosenau, M., & Oncken, O. (2016). Scaling the sandbox-Mechanical (dis) similarities of granular materials and brittle rock. Journal of Geophysical Research: Solid Earth, 121(9), 6863–6879. Portico. https://doi.org/10.1002/2016jb012915\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.jsg.2015.03.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Santimano, T., Rosenau, M., & Oncken, O. (2015). Intrinsic versus extrinsic variability of analogue sand-box experiments – Insights from statistical analysis of repeated accretionary sand wedge experiments. Journal of Structural Geology, 75, 80–100. https://doi.org/10.1016/j.jsg.2015.03.008\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1002/ceat.200303112",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Schulze, D. (2003). Time- and Velocity-Dependent Properties of Powders Effecting Slip-Stick Oscillations. Chemical Engineering &amp; Technology, 26(10), 1047–1051. https://doi.org/10.1002/ceat.200303112\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1007/978-3-540-73768-1",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Powders and Bulk Solids. (2007). https://doi.org/10.1007/978-3-540-73768-1\n",
+                        "referenceType": "Cites"
+                    }
+                ],
+                "laboratories": [
+                    "Institute of Geophysics of the Czech Academy of Sciences, Czech Republic",
+                    "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                ],
+                "materials": [
+                    "quartz sand"
+                ],
+                "spatial": [],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": [
+                    "cohesion",
+                    "friction coefficient",
+                    "fault"
+                ]
+            }
+        ]
+    }
+}
+```
+
+</details>
+
+# /paleo
+This endpoint gives access to all data-publications available that are marked as belonging to the rock physics (sub)domain. 
+
+## Search all paleomagnetism data-publications [GET]
++ Parameters
+
+    + rows (number, optional) - The number of results to return.
+        + Default: `10`
+    + start (number, optional) - The number to start results from. 
+        + Default: `0`
+    + query (text, optional) - Words to search for. 
+        + Default: ``
+    + authorName (text, optional) - Author names to search for. 
+        + Default: ``
+    + labName (text, optional) - Lab names to search for. 
+        + Default: ``
+    + title (text, optional) - Title to search for. 
+        + Default: ``
+    + tags (text, optional) - Tags to search for. 
+        + Default: ``
+
+        
++ Response 200 (application/json)
+
+<details>
+  <summary>view response</summary>
+  
+```json
+  {
+    "success": true,
+    "message": "",
+    "result": {
+        "count": 13,
+        "resultCount": 4,
+        "results": [
+            {
+                "title": "LSMOD.2 - Global paleomagnetic field model for 50 -- 30 ka BP",
+                "name": "73daa7c03e341fd56f13d171b68c55fd",
+                "portalLink": "http://dev.epos-msl.uu.nl/data-publication/73daa7c03e341fd56f13d171b68c55fd",
+                "pid": [
+                    {
+                        "identifier": "doi:10.5880/GFZ.2.3.2019.001",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://dx.doi.org/doi:10.5880/GFZ.2.3.2019.001",
+                "publisher": "b30f86a0-c80e-4ad3-9616-89309245fdf2",
+                "subdomain": [
+                    "paleomagnetism"
+                ],
+                "description": "Global spherical harmonic paleomagnetic field model LSMOD.2 describes the magnetic field evolution from 50 to 30 ka BP based on published paleomagnetic sediment records and volcanic data. It is an update of LSMOD.1, with the only difference being a correction to the geographic locations of one of the underlying datasets. The time interval includes the Laschamp (~41 ka BP) and Mono Lake (~34 ka BP) excursions. The model is given with Fortran source code to obtain spherical harmonic magnetic field coefficients for individual epochs and to obtain time series of magnetic declination, inclination and field intensity from 49.95 to 30 ka BP for any location on Earth. For details see M. Korte, M. Brown, S. Panovska and I. Wardinski (2019): Robust characteristics of the Laschamp and Mono lake geomagnetic excursions: results from global field models. Submitted to Frontiers in Earth Sciences\n\n\n\nFile overview:\n\n\n\nLSMOD.2 -- ASCII file containing the time-dependent model by a list of spline basis knot points and spherical harmonic coefficients for these knot points.\n\nLSfield.f -- Fortran source code to obtain time series predictions of declination, inclination and intensity from the model file.\n\nLScoefs.f -- Fortran source code to obtain the spherical harmonic coefficients for an individual age from the time-dependent model file.\n\n\n\nThe data are licenced under the Creative Commons Attribution 4.0 International Licence (CC BY 4.0) and the Fortran Codes under the Apache License, Version 2.0.\n\n\n\nThe Fortran source code should work with any standard Fortran 77 or higher compiler. Each of the two program files can be compiled separately, all required subroutines are included in the files. The model file, LSMOD.1 or LSMOD.2, is read in by the executable program and has to be in the same directory. The programs work with interactive input, which will be requested when running the program.\n\n\n\n",
+                "publicationDate": "",
+                "citation": "Korte, M., &amp; Brown, M. (2019). <i>LSMOD.2 - Global paleomagnetic field model for 50 -- 30 ka BP</i> (Version 2). GFZ Data Services. https://doi.org/10.5880/GFZ.2.3.2019.001",
+                "creators": [
+                    {
+                        "authorName": "Korte, Monika",
+                        "authorIdentifier": "http://orcid.org/0000-0003-2970-9075",
+                        "authorAffiliation": "GFZ German Research Cenntre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Brown, Maxwell",
+                        "authorIdentifier": "http://orcid.org/0000-0003-0753-397X",
+                        "authorAffiliation": "University of Iceland, Reykjavík, Iceland"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.2.3.2018.002",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Brown, M., Korte, M., Holme, R., Wardinski, I., &amp; Gunnarson, S. (2018). <i>Compilation of palaeomagnetic data from sediments and volcanic rocks spanning 30,000 to 50,000 years ago used to create the temporally continuous global spherical harmonic geomagnetic field model LSMOD.1</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.2.3.2018.002",
+                        "referenceType": "IsDerivedFrom"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.2.3.2018.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Korte, M., Brown, M., &amp; Gunnarson, S. (2018). <i>LSMOD.1 - Global paleomagnetic field model for 50 -- 30 ka BP</i>. GFZ Data Services. https://doi.org/10.5880/GFZ.2.3.2018.008",
+                        "referenceType": "Continues"
+                    },
+                    {
+                        "referenceIdentifier": "10.3389/feart.2019.00086",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Korte, M., Brown, M. C., Panovska, S., & Wardinski, I. (2019). Robust Characteristics of the Laschamp and Mono Lake Geomagnetic Excursions: Results From Global Field Models. Frontiers in Earth Science, 7. https://doi.org/10.3389/feart.2019.00086\n",
+                        "referenceType": "IsSupplementTo"
+                    }
+                ],
+                "laboratories": [],
+                "materials": [],
+                "spatial": [
+                    {
+                        "eLong": "180",
+                        "nLat": "90",
+                        "sLate": "-90",
+                        "wLong": "-180"
+                    }
+                ],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [
+                    {
+                        "fileName": "LSMOD2.zip",
+                        "downloadLink": "ftp://datapub.gfz-potsdam.de/download/10.5880.GFZ.2.3.2019.001/LSMOD2.zip"
+                    }
+                ],
+                "researchAspects": []
+            },
+            {
+                "title": "Paleomagnetic dataset of the marine Badenian reference section Ugljevik in Bosnia-Herzegovina (Middle Miocene, Pannonian basin, Central Paratethys)",
+                "name": "415f2fbd320ddee86d9b2bf799625b0d",
+                "portalLink": "http://dev.epos-msl.uu.nl/data-publication/415f2fbd320ddee86d9b2bf799625b0d",
+                "pid": [
+                    {
+                        "identifier": "doi:10.5880/fidgeo.2018.014",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://dx.doi.org/doi:10.5880/fidgeo.2018.014",
+                "publisher": "b30f86a0-c80e-4ad3-9616-89309245fdf2",
+                "subdomain": [
+                    "paleomagnetism"
+                ],
+                "description": "This dataset contains paleomagnetic data used to create the magnetostratigraphy of the Ugljevik section in Bosnia and Herzegovina (thesis by Karin Sant, 2018). It is the only outcrop known with the early, middle and upper Badenian sediments exposed in a continuous section.\n\n\n\nThe dataset includes thermal demagnetization (.th files) and alternating field demagnetization (.af files) data from several partial sections (UG08, UG11 and UG13) together forming the full section (correlation figure is attached). The measurements took place at the Paleomagnetic Laboratory Fort Hoofddijk in Utrecht University, The Netherlands. The displayed AF measurements were performed in the per component setting. For further details about the methodology the reader is referred to the methodology in the thesis of K. Sant (2018).\n\n\n\nThe .th and .af. files can be viewed with Notepad or similar programs, and analyzed via the Open Source platform Paleomagnetism.org: http://paleomagnetism.org/ (Koymans et al., 2016). An overview of the data files, abbreviation and sample codes is provided in the data description file.\n\n\n\n",
+                "publicationDate": "",
+                "citation": "Sant, K., Mandic, O., de Leeuw, A., &amp; Krijgsman, W. (2018). <i>Paleomagnetic dataset of the marine Badenian reference section Ugljevik in Bosnia-Herzegovina (Middle Miocene, Pannonian basin, Central Paratethys)</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/FIDGEO.2018.014",
+                "creators": [
+                    {
+                        "authorName": "Sant, Karin",
+                        "authorIdentifier": "http://orcid.org/0000-0002-1508-3959",
+                        "authorAffiliation": "Utrecht University, Utrecht, The Netherlands"
+                    },
+                    {
+                        "authorName": "Mandic, Oleg",
+                        "authorIdentifier": "https://www.scopus.com/authid/detail.uri?authorId=6602229581",
+                        "authorAffiliation": "Natural History Museum Vienna, Vienna, Austria"
+                    },
+                    {
+                        "authorName": "de Leeuw, Arjan",
+                        "authorIdentifier": "http://orcid.org/0000-0002-8878-2785",
+                        "authorAffiliation": "Université Grenoble Alpes, Grenoble, France"
+                    },
+                    {
+                        "authorName": "Krijgsman, Wout",
+                        "authorIdentifier": "https://www.scopus.com/authid/detail.uri?authorId=7003956416",
+                        "authorAffiliation": "Utrecht University, Utrecht, The Netherlands"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.2478/geoca-2013-0006",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kapsiotis, A. (2014). Composition and alteration of Cr-spinels from Milia and Pefki serpentinized mantle peridotites (Pindos Ophiolite Complex, Greece). Geologica Carpathica, 65(1), 83–95. https://doi.org/10.2478/geoca-2013-0006\n",
+                        "referenceType": "Documents"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.cageo.2016.05.007",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Koymans, M. R., Langereis, C. G., Pastor-Galán, D., & van Hinsbergen, D. J. J. (2016). Paleomagnetism.org: An online multi-platform open source environment for paleomagnetic data analysis. Computers &amp; Geosciences, 93, 127–137. https://doi.org/10.1016/j.cageo.2016.05.007\n",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.gloplacha.2018.10.010",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Mandic, O., Sant, K., Kallanxhi, M.-E., Ćorić, S., Theobalt, D., Grunert, P., de Leeuw, A., & Krijgsman, W. (2019). Integrated bio-magnetostratigraphy of the Badenian reference section Ugljevik in southern Pannonian Basin - implications for the Paratethys history (middle Miocene, Central Europe). Global and Planetary Change, 172, 374–395. https://doi.org/10.1016/j.gloplacha.2018.10.010\n",
+                        "referenceType": "IsSupplementTo"
+                    }
+                ],
+                "laboratories": [
+                    "Paleomagnetic Laboratory Fort Hoofddijk (Utrecht University, The Netherlands)"
+                ],
+                "materials": [
+                    "silt",
+                    "clay"
+                ],
+                "spatial": [
+                    {
+                        "eLong": "18.982309498631707",
+                        "nLat": "44.667445151876294",
+                        "sLate": "44.667445151876294",
+                        "wLong": "18.982309498631707"
+                    }
+                ],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [
+                    {
+                        "fileName": "2018-014_Sant_Ugljevik_Data-Description.pdf",
+                        "downloadLink": "ftp://datapub.gfz-potsdam.de/download/10.5880.FIDGEO.2018.014/2018-014_Sant_Ugljevik_Data-Description.pdf"
+                    },
+                    {
+                        "fileName": "2018-014_Sant_Ugljevik.zip",
+                        "downloadLink": "ftp://datapub.gfz-potsdam.de/download/10.5880.FIDGEO.2018.014/2018-014_Sant_Ugljevik.zip"
+                    }
+                ],
+                "researchAspects": []
+            },
+            {
+                "title": "Rock magnetic data from sediments from the Arkhangelsky Ridge, SE Black Sea, II - cores from expedition MSM33, German RV Maria S. Merian, 2013",
+                "name": "ad111f78ddda2bde5f94d5c3f4de947c",
+                "portalLink": "http://dev.epos-msl.uu.nl/data-publication/ad111f78ddda2bde5f94d5c3f4de947c",
+                "pid": [
+                    {
+                        "identifier": "10.5880/GFZ.4.3.2021.003",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/GFZ.4.3.2021.003",
+                "publisher": "b30f86a0-c80e-4ad3-9616-89309245fdf2",
+                "subdomain": [
+                    "paleomagnetism"
+                ],
+                "description": "This data publication includes standard rock magnetic data related to concentration, coercivity and magneto-mineralogy versus depth from twelve sediment cores recovered from the Arkhangelsky Ridge in the Southeastern Black Sea, German RV Maria S. Merian expedition MSM33 in 2013: MSM33-51-3, MSM33-52-1, MSM33-53-1, MSM33-54-3, MSM33-55-1, MSM33-56-1, MSM33-57-1, MSM33-60-1, MSM33-61-1, MSM33-62-2, MSM33-63-1, MSM33-64-1. The data are related to publications by Liu et al. (2018, 2019, 2020), Liu (2019) and Nowaczyk et al. (2012, 2013, 2018, 2021a, b).       \n \nSediment cores were recovered  using gravitiy and piston corers. For paleo- and rock magnetic analyses clear plastic boxes of 20×20×15 mm were pressed into the split halves of the generally 1 m long sections of the sediment cores.       \n\nData are provided as 12 ASCII files (.dat, one for each core) with metadata header and are decribed in the associated data description file (pdf).  ",
+                "publicationDate": "",
+                "citation": "Nowaczyk, N. R., Liu, J., &amp; Arz, H. W. (2021). <i>Rock magnetic data from sediments from the Arkhangelsky Ridge, SE Black Sea, II - cores from expedition MSM33, German RV Maria S. Merian, 2013</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2021.003",
+                "creators": [
+                    {
+                        "authorName": "Nowaczyk, Norbert R.",
+                        "authorIdentifier": "http://orcid.org/0000-0002-3362-0578",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Liu, Jiabo",
+                        "authorIdentifier": "http://orcid.org/0000-0002-6150-1322",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Arz, Helge W. ",
+                        "authorIdentifier": "http://orcid.org/0000-0002-1997-1718",
+                        "authorAffiliation": "Leibnitz Institute for Baltic Sea Research Warnemünde, Rostock, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.1016/j.epsl.2018.04.014",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J., Nowaczyk, N. R., Frank, U., & Arz, H. W. (2018). A 20–15 ka high-resolution paleomagnetic secular variation record from Black Sea sediments – no evidence for the ‘Hilina Pali excursion’? Earth and Planetary Science Letters, 492, 174–185. https://doi.org/10.1016/j.epsl.2018.04.014\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.epsl.2018.12.029",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J., Nowaczyk, N., Frank, U., & Arz, H. (2019). Geomagnetic paleosecular variation record spanning from 40 to 20 ka – implications for the Mono Lake excursion from Black Sea sediments. Earth and Planetary Science Letters, 509, 114–124. https://doi.org/10.1016/j.epsl.2018.12.029\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2019JB019225",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J., Nowaczyk, N. R., Panovska, S., Korte, M., & Arz, H. W. (2020). The Norwegian‐Greenland Sea, the Laschamps, and the Mono Lake Excursions Recorded in a Black Sea Sedimentary Sequence Spanning From 68.9 to 14.5 ka. Journal of Geophysical Research: Solid Earth, 125(8). Portico. https://doi.org/10.1029/2019jb019225\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.25932/publishup-42946",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J. (2019). <i>Dynamics of the geomagnetic field during the last glacial</i> [Universität Potsdam]. https://doi.org/10.25932/PUBLISHUP-42946",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.epsl.2012.06.050",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Arz, H. W., Frank, U., Kind, J., & Plessen, B. (2012). Dynamics of the Laschamp geomagnetic excursion from Black Sea sediments. Earth and Planetary Science Letters, 351–352, 54–69. https://doi.org/10.1016/j.epsl.2012.06.050\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.epsl.2013.09.028",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Frank, U., Kind, J., & Arz, H. W. (2013). A high-resolution paleointensity stack of the past 14 to 68 ka from Black Sea sediments. Earth and Planetary Science Letters, 384, 1–16. https://doi.org/10.1016/j.epsl.2013.09.028\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.epsl.2017.12.009",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Jiabo, L., Frank, U., & Arz, H. W. (2018). A high-resolution paleosecular variation record from Black Sea sediments indicating fast directional changes associated with low field intensities during marine isotope stage (MIS) 4. Earth and Planetary Science Letters, 484, 15–29. https://doi.org/10.1016/j.epsl.2017.12.009\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1093/gji/ggaa506",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., & Arz, H. W. (2020). Records of the Laschamps geomagnetic polarity excursion from Black Sea sediments: magnetite versus greigite, discrete sample versus U-channel data. Geophysical Journal International, 224(2), 1079–1095. https://doi.org/10.1093/gji/ggaa506\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2020JB021350",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., Plessen, B., Wegwerth, A., & Arz, H. W. (2021). A High‐Resolution Paleosecular Variation Record for Marine Isotope Stage 6 From Southeastern Black Sea Sediments. Journal of Geophysical Research: Solid Earth, 126(3). Portico. https://doi.org/10.1029/2020jb021350\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.919427",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J., Nowaczyk, N. R., &amp; Arz, H. W. (2020). <i>Age models of sixteen Black Sea cores between 68.9 and 14.5 ka</i>. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.919427",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.919446",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J., Nowaczyk, N. R., &amp; Arz, H. W. (2020). <i>Paleomagnetic results of sixteen Black Sea cores beween 68.9 and 14.5 ka</i>. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.919446",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2020.001",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R. (2020). <i>Data from redeposition experiments of glacial Black Sea sediments</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2020.001",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2020.002",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., &amp; Arz, H. W. (2020). <i>Paleo- and rock magnetic data from cores MSM33-53-1, M72-5-22GC4, M72-5-25GC1 from the southeastern Black Sea</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2020.002",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.925414",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., &amp; Arz, H. W. (2020). <i>Paleomagnetic data from Black Sea, sediment core MSM33_851-1 (MSM33-53-1)</i>. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.925414",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2021.001",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., Plessen, B., Wegwerth , A., &amp; Arz, H. W. (2021). <i>Paleosecular variation data for marine isotope stage 6 from SE Black Sea sediments</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2021.001",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2021.002",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., &amp; Arz, H. W. (2021). <i>Rock magnetic data from sediments from the Arkhangelsky Ridge, SE Black Sea: I - cores from expedition M72/5, German RV Meteor, 2007</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2021.002",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.925709",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R. (2020). <i>Magnetization intensities of redeposited Black Sea sediment from the last glacial</i> [Data set]. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.925709",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.906134",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Wegwerth, A. (2019). <i>Age depth model of Black Sea sediment cores covering MIS 6 (184-130 ka BP)</i> [Data set]. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.906134",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5194/cp-4-47-2008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Svensson, A., Andersen, K. K., Bigler, M., Clausen, H. B., Dahl-Jensen, D., Davies, S. M., Johnsen, S. J., Muscheler, R., Parrenin, F., Rasmussen, S. O., Röthlisberger, R., Seierstad, I., Steffensen, J. P., & Vinther, B. M. (2008). A 60 000 year Greenland stratigraphic ice core chronology. Climate of the Past, 4(1), 47–57. https://doi.org/10.5194/cp-4-47-2008\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.quascirev.2019.07.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Wegwerth, A., Dellwig, O., Wulf, S., Plessen, B., Kleinhanns, I. C., Nowaczyk, N. R., Jiabo, L., & Arz, H. W. (2019). Major hydrological shifts in the Black Sea “Lake” in response to ice sheet collapses during MIS 6 (130–184 ka BP). Quaternary Science Reviews, 219, 126–144. https://doi.org/10.1016/j.quascirev.2019.07.008\n",
+                        "referenceType": "Cites"
+                    }
+                ],
+                "laboratories": [],
+                "materials": [],
+                "spatial": [
+                    {
+                        "eLong": "36.7179",
+                        "nLat": "42.0397",
+                        "sLate": "42.0397",
+                        "wLong": "36.7179"
+                    },
+                    {
+                        "eLong": "36.6199",
+                        "nLat": "42.0846",
+                        "sLate": "42.0846",
+                        "wLong": "36.6199"
+                    },
+                    {
+                        "eLong": "36.6228",
+                        "nLat": "42.0835",
+                        "sLate": "42.0835",
+                        "wLong": "36.6228"
+                    },
+                    {
+                        "eLong": "36.7308",
+                        "nLat": "41.9831",
+                        "sLate": "41.9831",
+                        "wLong": "36.7308"
+                    },
+                    {
+                        "eLong": "36.7829",
+                        "nLat": "41.9001",
+                        "sLate": "41.9001",
+                        "wLong": "36.7829"
+                    },
+                    {
+                        "eLong": "36.9301",
+                        "nLat": "41.7888",
+                        "sLate": "41.7888",
+                        "wLong": "36.9301"
+                    },
+                    {
+                        "eLong": "36.9324",
+                        "nLat": "41.7896",
+                        "sLate": "41.7896",
+                        "wLong": "36.9324"
+                    },
+                    {
+                        "eLong": "36.7921",
+                        "nLat": "41.9937",
+                        "sLate": "41.9937",
+                        "wLong": "36.7921"
+                    },
+                    {
+                        "eLong": "36.7336",
+                        "nLat": "42.0475",
+                        "sLate": "42.0475",
+                        "wLong": "36.7336"
+                    },
+                    {
+                        "eLong": "36.5018",
+                        "nLat": "42.2191",
+                        "sLate": "42.2191",
+                        "wLong": "36.5018"
+                    },
+                    {
+                        "eLong": "36.5",
+                        "nLat": "42.2212",
+                        "sLate": "42.2212",
+                        "wLong": "36.5"
+                    },
+                    {
+                        "eLong": "36.5253",
+                        "nLat": "42.2076",
+                        "sLate": "42.2076",
+                        "wLong": "36.5253"
+                    }
+                ],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": []
+            },
+            {
+                "title": "Paleosecular variation data for marine isotope stage 6 from SE Black Sea sediments",
+                "name": "81e2f350ca41678f6f690dfae40f50d9",
+                "portalLink": "http://dev.epos-msl.uu.nl/data-publication/81e2f350ca41678f6f690dfae40f50d9",
+                "pid": [
+                    {
+                        "identifier": "10.5880/GFZ.4.3.2021.001",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/GFZ.4.3.2021.001",
+                "publisher": "b30f86a0-c80e-4ad3-9616-89309245fdf2",
+                "subdomain": [
+                    "paleomagnetism"
+                ],
+                "description": "This data publication includes stacked paleomagnetic data, inclinations, declinations, and relative paleointensities, for the time interval 120 to 180 ka, comprising data from twelve sediment cores recovered from the Arkhangelsky Ridge in the Southeastern Black Sea; German RV Meteor expedition M72/5 in 2007: M72/5-22GC6, M72/5-22GC8; German RV Maria S. Merian expedition MSM33 in 2013: MSM33-51-3, MSM33-52-1, MSM33-54-3, MSM33-56-1, MSM33-57-1, MSM33-60-1, MSM33-61-1, MSM33-62-2, MSM33-63-1, MSM33-64-1. The data are also described in Nowaczyk et al. (2021).       \n  \nSediment cores were recovered using gravitiy and piston corers. For paleo- and mineral-magnetic analyses clear plastic boxes of 20×20×15 mm were pressed into the split halves of the generally 1 m long sections of the sediment cores.       \n\nData are provided as six ASCII files (.dat, one for each core) with metadata header, followed by 12 data columns and are decribed in the associated data description file (pdf).      \n     ",
+                "publicationDate": "",
+                "citation": "Nowaczyk, N. R., Liu, J., Plessen, B., Wegwerth , A., &amp; Arz, H. W. (2021). <i>Paleosecular variation data for marine isotope stage 6 from SE Black Sea sediments</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2021.001",
+                "creators": [
+                    {
+                        "authorName": "Nowaczyk, Norbert R.",
+                        "authorIdentifier": "http://orcid.org/0000-0002-3362-0578",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Liu, Jiabo",
+                        "authorIdentifier": "http://orcid.org/0000-0002-6150-1322",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Plessen, Birgit",
+                        "authorIdentifier": "http://orcid.org/0000-0003-4807-6357",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Wegwerth , Antje",
+                        "authorIdentifier": "http://orcid.org/0000-0002-5104-9408",
+                        "authorAffiliation": "Leibnitz Institute for Baltic Sea Research Warnemünde, Rostock, Germany"
+                    },
+                    {
+                        "authorName": "Arz, Helge W. ",
+                        "authorIdentifier": "http://orcid.org/0000-0002-1997-1718",
+                        "authorAffiliation": "Leibnitz Institute for Baltic Sea Research Warnemünde, Rostock, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.1029/2020JB021350",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., Plessen, B., Wegwerth, A., & Arz, H. W. (2021). A High‐Resolution Paleosecular Variation Record for Marine Isotope Stage 6 From Southeastern Black Sea Sediments. Journal of Geophysical Research: Solid Earth, 126(3). Portico. https://doi.org/10.1029/2020jb021350\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1098/rspa.1953.0064",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Fisher, R. (1953). Dispersion on a Sphere. Proceedings of the Royal Society A: Mathematical, Physical and Engineering Sciences, 217(1130), 295–305. https://doi.org/10.1098/rspa.1953.0064\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1111/j.1365-246X.1980.tb02601.x",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kirschvink, J. L. (1980). The least-squares line and plane and the analysis of palaeomagnetic data. Geophysical Journal International, 62(3), 699–718. https://doi.org/10.1111/j.1365-246x.1980.tb02601.x\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1002/2016GC006668",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Panovska, S., & Constable, C. G. (2017). An activity index for geomagnetic paleosecular variation, excursions, and reversals. Geochemistry, Geophysics, Geosystems, 18(4), 1366–1375. Portico. https://doi.org/10.1002/2016gc006668\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.quascirev.2019.07.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Wegwerth, A., Dellwig, O., Wulf, S., Plessen, B., Kleinhanns, I. C., Nowaczyk, N. R., Jiabo, L., & Arz, H. W. (2019). Major hydrological shifts in the Black Sea “Lake” in response to ice sheet collapses during MIS 6 (130–184 ka BP). Quaternary Science Reviews, 219, 126–144. https://doi.org/10.1016/j.quascirev.2019.07.008\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.919446",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J., Nowaczyk, N. R., &amp; Arz, H. W. (2020). <i>Paleomagnetic results of sixteen Black Sea cores beween 68.9 and 14.5 ka</i>. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.919446",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.919427",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Liu, J., Nowaczyk, N. R., &amp; Arz, H. W. (2020). <i>Age models of sixteen Black Sea cores between 68.9 and 14.5 ka</i>. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.919427",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2020.001",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R. (2020). <i>Data from redeposition experiments of glacial Black Sea sediments</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2020.001",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2020.002",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., &amp; Arz, H. W. (2020). <i>Paleo- and rock magnetic data from cores MSM33-53-1, M72-5-22GC4, M72-5-25GC1 from the southeastern Black Sea</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2020.002",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2021.002",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., &amp; Arz, H. W. (2021). <i>Rock magnetic data from sediments from the Arkhangelsky Ridge, SE Black Sea: I - cores from expedition M72/5, German RV Meteor, 2007</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2021.002",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5880/GFZ.4.3.2021.003",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Nowaczyk, N. R., Liu, J., &amp; Arz, H. W. (2021). <i>Rock magnetic data from sediments from the Arkhangelsky Ridge, SE Black Sea, II - cores from expedition MSM33, German RV Maria S. Merian, 2013</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.3.2021.003",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1594/PANGAEA.906134",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Wegwerth, A. (2019). <i>Age depth model of Black Sea sediment cores covering MIS 6 (184-130 ka BP)</i> [Data set]. PANGAEA - Data Publisher for Earth &amp; Environmental Science. https://doi.org/10.1594/PANGAEA.906134",
+                        "referenceType": "References"
+                    }
+                ],
+                "laboratories": [],
+                "materials": [],
+                "spatial": [
+                    {
+                        "eLong": "36.4925",
+                        "nLat": "42.2255",
+                        "sLate": "42.2255",
+                        "wLong": "36.4925"
+                    },
+                    {
+                        "eLong": "36.4922",
+                        "nLat": "42.2257",
+                        "sLate": "42.2257",
+                        "wLong": "36.4922"
+                    },
+                    {
+                        "eLong": "36.4942",
+                        "nLat": "42.2262",
+                        "sLate": "42.2262",
+                        "wLong": "36.4942"
+                    },
+                    {
+                        "eLong": "36.4932",
+                        "nLat": "42.2255",
+                        "sLate": "42.2255",
+                        "wLong": "36.4932"
+                    },
+                    {
+                        "eLong": "37.4777",
+                        "nLat": "41.4777",
+                        "sLate": "41.4777",
+                        "wLong": "37.4777"
+                    },
+                    {
+                        "eLong": "36.6238",
+                        "nLat": "42.1035",
+                        "sLate": "42.1035",
+                        "wLong": "36.6238"
+                    },
+                    {
+                        "eLong": "36.7179",
+                        "nLat": "42.0397",
+                        "sLate": "42.0397",
+                        "wLong": "36.7179"
+                    },
+                    {
+                        "eLong": "36.6199",
+                        "nLat": "42.0846",
+                        "sLate": "42.0846",
+                        "wLong": "36.6199"
+                    },
+                    {
+                        "eLong": "36.6228",
+                        "nLat": "42.0835",
+                        "sLate": "42.0835",
+                        "wLong": "36.6228"
+                    },
+                    {
+                        "eLong": "36.7308",
+                        "nLat": "41.9831",
+                        "sLate": "41.9831",
+                        "wLong": "36.7308"
+                    },
+                    {
+                        "eLong": "36.7829",
+                        "nLat": "41.9001",
+                        "sLate": "41.9001",
+                        "wLong": "36.7829"
+                    },
+                    {
+                        "eLong": "36.9301",
+                        "nLat": "41.7888",
+                        "sLate": "41.7888",
+                        "wLong": "36.9301"
+                    },
+                    {
+                        "eLong": "36.9324",
+                        "nLat": "41.7896",
+                        "sLate": "41.7896",
+                        "wLong": "36.9324"
+                    },
+                    {
+                        "eLong": "36.7921",
+                        "nLat": "41.9937",
+                        "sLate": "41.9937",
+                        "wLong": "36.7921"
+                    },
+                    {
+                        "eLong": "36.7336",
+                        "nLat": "42.0475",
+                        "sLate": "42.0475",
+                        "wLong": "36.7336"
+                    },
+                    {
+                        "eLong": "36.5018",
+                        "nLat": "42.2191",
+                        "sLate": "42.2191",
+                        "wLong": "36.5018"
+                    },
+                    {
+                        "eLong": "36.5",
+                        "nLat": "42.2212",
+                        "sLate": "42.2212",
+                        "wLong": "36.5"
+                    },
+                    {
+                        "eLong": "36.5253",
+                        "nLat": "42.2076",
+                        "sLate": "42.2076",
+                        "wLong": "36.5253"
+                    }
+                ],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": []
+            }
+        ]
+    }
+}
+```
+
+</details>
+
+# /microscopy
+This endpoint gives access to all data-publications available that are marked as belonging to the rock physics (sub)domain. 
+
+## Search all microscopy and tomography data-publications [GET]
++ Parameters
+
+    + rows (number, optional) - The number of results to return.
+        + Default: `10`
+    + start (number, optional) - The number to start results from. 
+        + Default: `0`
+    + query (text, optional) - Words to search for. 
+        + Default: ``
+    + authorName (text, optional) - Author names to search for. 
+        + Default: ``
+    + labName (text, optional) - Lab names to search for. 
+        + Default: ``
+    + title (text, optional) - Title to search for. 
+        + Default: ``
+    + tags (text, optional) - Tags to search for. 
+        + Default: ``
+
+        
++ Response 200 (application/json)
+
+<details>
+  <summary>view response</summary>
+  
+```json
+  {
+    "success": true,
+    "message": "",
+    "result": {
+        "count": 4,
+        "resultCount": 2,
+        "results": [
+            {
+                "title": "Original microstructural data of altered rocks and reconstructions using generative adversarial networks (GANs)",
+                "name": "da27c86c28542af2cc6d931d0944ea4b",
+                "portalLink": "http://dev.epos-msl.uu.nl/data-publication/da27c86c28542af2cc6d931d0944ea4b",
+                "pid": [
+                    {
+                        "identifier": "10.24416/UU01-ACSDR4",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "",
+                "version": "",
+                "source": "http://dx.doi.org/10.24416/UU01-ACSDR4",
+                "publisher": "09573664-2f4d-4f03-9813-b91a29330e57",
+                "subdomain": [
+                    "microscopy and tomography"
+                ],
+                "description": "We image two altered rock samples consisting of a meta-igneous and a serpentinite showing an isolated porous and fracture network, respectively. The rock samples are collected during previous visits to Swartberget, Norway in 2009 and Tønsberg, Norway in 2012. The objective is to employ a deep-learning-based model called generative adversarial network (GAN) to reconstruct statistically-equivalent microstructures. To evaluate the reconstruction accuracy, different polytope functions are calculated and compared in both original and reconstructed images. Compared with a common stochastic reconstruction method, our analysis shows that GAN is able to reconstruct more realistic microstructures. The data are organized into 12 folders: one containing original segmented images of rock samples, one with python codes used,  and the other 10 folder containing data and individual figures used to create figures in the main publication.",
+                "publicationDate": "",
+                "citation": "Amiri, H. (2022). <i>Original microstructural data of altered rocks and reconstructions using generative adversarial networks (GANs)</i> (Version 1.0) [Data set]. Utrecht University. https://doi.org/10.24416/UU01-ACSDR4",
+                "creators": [
+                    {
+                        "authorName": "Amiri, Hamed",
+                        "authorIdentifier": "0000-0002-2981-1398",
+                        "authorAffiliation": "Utrecht University;"
+                    }
+                ],
+                "contributors": [
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Utrecht University;",
+                        "contributorRole": "ProjectManager"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Utrecht University;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Arizona state university;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Arizona state university;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Utrecht University;",
+                        "contributorRole": "ContactPerson"
+                    }
+                ],
+                "references": [],
+                "laboratories": [
+                    "Electron Microscopy Facilities (Utrecht University, The Netherlands)"
+                ],
+                "materials": [],
+                "spatial": [],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [
+                    {
+                        "startDate": "2020-04-01",
+                        "endDate": "2022-02-25"
+                    }
+                ],
+                "maintainer": "",
+                "downloads": [
+                    {
+                        "fileName": "data-documentation",
+                        "downloadLink": "https://geo.public.data.uu.nl/vault-gan/research-gan%5B1647946088%5D/original/data-documentation.pdf"
+                    },
+                    {
+                        "fileName": "data",
+                        "downloadLink": "https://geo.public.data.uu.nl/vault-gan/research-gan%5B1647946088%5D/original/data.zip"
+                    }
+                ],
+                "researchAspects": []
+            },
+            {
+                "title": "Microstructural data and microscopic stress measurements of natural mineral-hydration reactions",
+                "name": "a06c82352950f16377190270eca462cb",
+                "portalLink": "http://dev.epos-msl.uu.nl/data-publication/a06c82352950f16377190270eca462cb",
+                "pid": [
+                    {
+                        "identifier": "10.24416/UU01-XVJYBS",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "",
+                "version": "",
+                "source": "http://dx.doi.org/10.24416/UU01-XVJYBS",
+                "publisher": "09573664-2f4d-4f03-9813-b91a29330e57",
+                "subdomain": [
+                    "microscopy and tomography",
+                    "rock and melt physics",
+                    "analogue modelling of geologic processes"
+                ],
+                "description": "We investigated the microstructures of periclase-to-brucite hydration domains within marble from the Adamello contact aureole (Italy). The microstructure preserve high differential stresses within the calcite surrounding the hydration domains of up to 1.5 GPa. Samples were investigated using optical, scanning and transmission electron microscopy as well as high-angular resolution electron backscatter diffraction (HREBSD). Stress measurements obtained via HREBSD are compared to analytical solutions. The data is organised in 10 folders termed (Supplementary) Figure X, where X is the figure number in the primary publication and supplementary information. An additional folder contains Matlab scripts for the analytical solutions to the stress measurements. Detailed information about the files and methods used is given in a readme file.",
+                "publicationDate": "",
+                "citation": "Plümper, O. (2021). <i>Microstructural data and microscopic stress measurements of natural mineral-hydration reactions</i> (Version 1.0) [Data set]. Utrecht University. https://doi.org/10.24416/UU01-XVJYBS",
+                "creators": [
+                    {
+                        "authorName": "Plümper, Oliver",
+                        "authorIdentifier": "0000-0001-9726-0885",
+                        "authorAffiliation": "Utrecht University;"
+                    }
+                ],
+                "contributors": [
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "University of Cambridge;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Johannes Gutenberg Universität Mainz;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "University of Lausanne;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Utrecht University;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Georg-August-Universität Göttingen;",
+                        "contributorRole": "Researcher"
+                    },
+                    {
+                        "contributorFirstName": "",
+                        "contributorFamilyName": "",
+                        "contributorOrcid": "",
+                        "contributorAffiliation": "Utrecht University;",
+                        "contributorRole": "ContactPerson"
+                    }
+                ],
+                "references": [],
+                "laboratories": [
+                    "Electron Microscopy Facilities (Utrecht University, The Netherlands)"
+                ],
+                "materials": [],
+                "spatial": [],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [
+                    {
+                        "startDate": "2019-06-01",
+                        "endDate": "2021-11-18"
+                    }
+                ],
+                "maintainer": "",
+                "downloads": [
+                    {
+                        "fileName": "readme",
+                        "downloadLink": "https://geo.public.data.uu.nl/vault-hydration/research-hydration%5B1638268339%5D/original/readme.txt"
+                    }
+                ],
+                "researchAspects": []
+            }
+        ]
+    }
+}
+```
+
+</details>
+
+# /geochemistry
+This endpoint gives access to all data-publications available that are marked as belonging to the rock physics (sub)domain. 
+
+## Search all geochemistry data-publications [GET]
++ Parameters
+
+    + rows (number, optional) - The number of results to return.
+        + Default: `10`
+    + start (number, optional) - The number to start results from. 
+        + Default: `0`
+    + query (text, optional) - Words to search for. 
+        + Default: ``
+    + authorName (text, optional) - Author names to search for. 
+        + Default: ``
+    + labName (text, optional) - Lab names to search for. 
+        + Default: ``
+    + title (text, optional) - Title to search for. 
+        + Default: ``
+    + tags (text, optional) - Tags to search for. 
+        + Default: ``
+
+        
++ Response 200 (application/json)
+
+<details>
+  <summary>view response</summary>
+  
+```json
+  {
+    "success": true,
+    "message": "",
+    "result": {
+        "count": 0,
+        "resultCount": 0,
+        "results": []
+    }
+}
+```
+
+</details>
+
+# /all
+This endpoint gives access to all data-publications available that are marked as belonging to the rock physics (sub)domain. 
+
+## Search all data-publications [GET]
++ Parameters
+
+    + rows (number, optional) - The number of results to return.
+        + Default: `10`
+    + start (number, optional) - The number to start results from. 
+        + Default: `0`
+    + query (text, optional) - Words to search for. 
+        + Default: ``
+    + subDomain (text, optional) - subDomain to filter on. 
+        + Default: ``
+    + authorName (text, optional) - Author names to search for. 
+        + Default: ``
+    + labName (text, optional) - Lab names to search for. 
+        + Default: ``
+    + title (text, optional) - Title to search for. 
+        + Default: ``
+    + tags (text, optional) - Tags to search for. 
+        + Default: ``
+
+        
++ Response 200 (application/json)
+
+<details>
+  <summary>view response</summary>
+  
+```json
+  {
+    "success": true,
+    "message": "",
+    "result": {
+        "count": 136,
+        "resultCount": 2,
+        "results": [
+            {
+                "title": "Digital image correlation data from laboratory subduction megathrust models",
+                "name": "4bb18f7b6c615156f095e2cbd1bcbd0e",
+                "portalLink": "https://epos-msl.uu.nl/data-publication/4bb18f7b6c615156f095e2cbd1bcbd0e",
+                "pid": [
+                    {
+                        "identifier": "10.5880/fidgeo.2022.015",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/fidgeo.2022.015",
+                "publisher": "1ad19b41-9e16-4350-af3d-aee38be4dd5a",
+                "subdomain": [
+                    "analogue modelling of geologic processes"
+                ],
+                "description": "This data set includes digital image correlation data from analog earthquakes experiments. The data consists of grids of surface strain and time series of surface displacement (horizontal and vertical) and strain. The data have been derived using a stereo camera setup and processed with LaVision Davis 10 software. Detailed descriptions of the experiments and results regarding the surface pattern of the strain can be found in Kosari et al. (2022), to which this data set is supplementary. \n\nWe use an analog seismotectonic scale model approach (Rosenau et al., 2019 and 2017) to generate a catalog of analog megathrust earthquakes (Table 1). The presented experimental setup is modified from the 3D setup used in Rosenau et al. (2019) and Kosari et al. ( 2020). The subduction forearc model wedge is set up in a glass-sided box (1000 mm across strike, 800mm along strike, and 300 mm deep) with a dipping, elastic basal conveyor belt and a rigid backwall. An elastoplastic sand-rubber mixture (50 vol.% quartz sandG12: 50 vol.% EPDM rubber) is sieved into the setup representing a 240 km long forearc segment from the trench to the volcanic arc. The shallow part of the wedge includes a basal layer of sticky rice grains characterized by unstable stick-slip sliding representing the seismogenic zone. Stick-slip sliding in rice is governed by a rate-and-state dependent friction law similar to natural rocks. According to Coulomb wedge theory (Dahlen et al., 1984), two types of wedge configurations have been designed: a “compressional” configuration represents an interseismically compressional and coseismically stable wedge (compressional configuration), and a “critical” configuration, which is interseismically stable (close to critically compressional) and may reach a critical extensional state coseismically (critical configuration). In the compressional configuration, a flat-top (surface slope α=0) wedge overlies a single large rectangular in map view stick-slip patch (Width*Length=200*800 mm) over a 15-degree dipping basal thrust. In the critical configuration, the surface angle of the elastoplastic wedge varies from the coastal segment onshore (α=10) to the inner-wedge offshore (α=15) segments over a 5-degree dipping basal thrust. Slow continuous compression of the wedge by moving the basal conveyor belt at a speed velocity of 0.05 mm/s simulates plate convergence and results in the quasi-periodic nucleation of quasi-periodic stick-slip events (analog earthquakes) within the rice layer. The wedge responds elastically to these basal slip events, similar to crustal rebound during natural subduction megathrust earthquakes. ",
+                "publicationDate": "",
+                "citation": "Kosari, E., Rosenau, M., &amp; Oncken, O. (2022). <i>Digital image correlation data from laboratory subduction megathrust models</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/FIDGEO.2022.015",
+                "creators": [
+                    {
+                        "authorName": "Kosari, Ehsan",
+                        "authorIdentifier": "http://orcid.org/0000-0002-1052-4997",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Rosenau, Matthias",
+                        "authorIdentifier": "http://orcid.org/0000-0003-1134-5381",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Oncken, Onno",
+                        "authorIdentifier": "http://orcid.org/0000-0002-2894-480X",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.1029/2021TC007099",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kosari, E., Rosenau, M., & Oncken, O. (2022). Strain Signals Governed by Frictional‐Elastoplastic Interaction of the Upper Plate and Shallow Subduction Megathrust Interface Over Seismic Cycles. Tectonics, 41(5). Portico. https://doi.org/10.1029/2021tc007099\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.jsg.2004.08.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Adam, J., Urai, J. L., Wieneke, B., Oncken, O., Pfeiffer, K., Kukowski, N., Lohrmann, J., Hoth, S., van der Zee, W., & Schmatz, J. (2005). Shear localisation and strain distribution during tectonic faulting—new insights from granular-flow experiments and high-resolution optical image correlation techniques. Journal of Structural Geology, 27(2), 283–301. https://doi.org/10.1016/j.jsg.2004.08.008\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2020GL088266",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kosari, E., Rosenau, M., Bedford, J., Rudolf, M., & Oncken, O. (2020). On the Relationship Between Offshore Geodetic Coverage and Slip Model Uncertainty: Analog Megathrust Earthquake Case Studies. Geophysical Research Letters, 47(15). Portico. https://doi.org/10.1029/2020gl088266\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.5194/se-8-597-2017",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Corbi, F., & Dominguez, S. (2017). Analogue earthquakes and seismic cycles: experimental modelling across timescales. Solid Earth, 8(3), 597–635. https://doi.org/10.5194/se-8-597-2017\n",
+                        "referenceType": "Cites"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2018JB016597",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Horenko, I., Corbi, F., Rudolf, M., Kornhuber, R., & Oncken, O. (2019). Synchronization of Great Subduction Megathrust Earthquakes: Insights From Scale Model Analysis. Journal of Geophysical Research: Solid Earth, 124(4), 3646–3661. Portico. https://doi.org/10.1029/2018jb016597\n",
+                        "referenceType": "Cites"
+                    }
+                ],
+                "laboratories": [
+                    "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                ],
+                "materials": [
+                    "quartz sand"
+                ],
+                "spatial": [],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": []
+            },
+            {
+                "title": "Digital image correlation data from analogue subduction megathrust earthquakes addressing the control of geodetic coverage on coseismic slip inversion",
+                "name": "c2ff095fe535552d736e356ab0112e14",
+                "portalLink": "https://epos-msl.uu.nl/data-publication/c2ff095fe535552d736e356ab0112e14",
+                "pid": [
+                    {
+                        "identifier": "10.5880/GFZ.4.1.2020.003",
+                        "identifierType": "doi"
+                    }
+                ],
+                "license": "CC BY 4.0",
+                "version": "",
+                "source": "http://doi.org/10.5880/GFZ.4.1.2020.003",
+                "publisher": "1ad19b41-9e16-4350-af3d-aee38be4dd5a",
+                "subdomain": [
+                    "analogue modelling of geologic processes"
+                ],
+                "description": "This data set includes digital image correlation data from thirteen analogue earthquakes generated by means of an analogue seismotectonic scale model approach. The data consists of grids of 3D static coseismic surface displacements. The data have been derived using a stereo camera setup and processed with LaVision Davis 8 software. Detailed descriptions of the experiments and results regarding the control of geodetic coverage on the slip inversion problem can be found in Kosari et al. (2020) to which this data set is supplementary material.\n       \nWe use an analogue seismotectonic scale model approach (Rosenau et al., 2017) to generate a catalogue of analogue megathrust earthquakes (Table 1). The presented experimental setup is modified from the 3D setup used in Rosenau et al. (2019).\n\nTo monitor surface deformation of the wedge analogue model a stereoscopic set of two CCD cameras (LaVision Imager pro X 11MPx, 14 bit) monitors images the wedge surface continuously at 2.5 Hz. To derive observational data similar to those from geodetic techniques, i.e. velocities at the location on the surface, we use digital image correlation (DIC, Adam et al., 2005) to derive the 3D incremental surface displacement (or velocity) at high spatial resolution (< 0.1 mm). The time series of incremental surface displacement data was calculated using LaVision Davis 8 software. The result is an evenly spaced grid of vectors per time step, oriented parallel with respect to the principal dimensions of the box.",
+                "publicationDate": "",
+                "citation": "Kosari, E., Rosenau, M., Bedford, J., Rudolf, M., &amp; Oncken, O. (2020). <i>Digital image correlation data from analogue subduction megathrust earthquakes addressing the control of geodetic coverage on coseismic slip inversion</i> [Data set]. GFZ Data Services. https://doi.org/10.5880/GFZ.4.1.2020.003",
+                "creators": [
+                    {
+                        "authorName": "Kosari, Ehsan",
+                        "authorIdentifier": "http://orcid.org/0000-0002-1052-4997",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Rosenau, Matthias",
+                        "authorIdentifier": "http://orcid.org/0000-0003-1134-5381",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Bedford, Jonathan",
+                        "authorIdentifier": "http://orcid.org/0000-0002-8954-4367",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Rudolf, Michael",
+                        "authorIdentifier": "http://orcid.org/0000-0002-5077-5221",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    },
+                    {
+                        "authorName": "Oncken, Onno",
+                        "authorIdentifier": "http://orcid.org/0000-0002-2894-480X",
+                        "authorAffiliation": "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                    }
+                ],
+                "contributors": [],
+                "references": [
+                    {
+                        "referenceIdentifier": "10.1029/2020GL088266",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Kosari, E., Rosenau, M., Bedford, J., Rudolf, M., & Oncken, O. (2020). On the Relationship Between Offshore Geodetic Coverage and Slip Model Uncertainty: Analog Megathrust Earthquake Case Studies. Geophysical Research Letters, 47(15). Portico. https://doi.org/10.1029/2020gl088266\n",
+                        "referenceType": "IsSupplementTo"
+                    },
+                    {
+                        "referenceIdentifier": "10.1016/j.jsg.2004.08.008",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Adam, J., Urai, J. L., Wieneke, B., Oncken, O., Pfeiffer, K., Kukowski, N., Lohrmann, J., Hoth, S., van der Zee, W., & Schmatz, J. (2005). Shear localisation and strain distribution during tectonic faulting—new insights from granular-flow experiments and high-resolution optical image correlation techniques. Journal of Structural Geology, 27(2), 283–301. https://doi.org/10.1016/j.jsg.2004.08.008\n",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.5194/se-8-597-2017",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Corbi, F., & Dominguez, S. (2017). Analogue earthquakes and seismic cycles: experimental modelling across timescales. Solid Earth, 8(3), 597–635. https://doi.org/10.5194/se-8-597-2017\n",
+                        "referenceType": "References"
+                    },
+                    {
+                        "referenceIdentifier": "10.1029/2018JB016597",
+                        "referenceIdentifierType": "DOI",
+                        "referenceTitle": "Rosenau, M., Horenko, I., Corbi, F., Rudolf, M., Kornhuber, R., & Oncken, O. (2019). Synchronization of Great Subduction Megathrust Earthquakes: Insights From Scale Model Analysis. Journal of Geophysical Research: Solid Earth, 124(4), 3646–3661. Portico. https://doi.org/10.1029/2018jb016597\n",
+                        "referenceType": "References"
+                    }
+                ],
+                "laboratories": [
+                    "GFZ German Research Centre for Geosciences, Potsdam, Germany",
+                    "GFZ German Research Centre for Geosciences, Potsdam, Germany"
+                ],
+                "materials": [
+                    "quartz sand"
+                ],
+                "spatial": [],
+                "locations": [],
+                "coveredPeriods": [],
+                "collectionPeriods": [],
+                "maintainer": "",
+                "downloads": [],
+                "researchAspects": []
+            }
+        ]
+    }
+}
+```
+
+</details>
