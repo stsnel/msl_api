@@ -37,7 +37,7 @@ class ImportCsicSeeder extends Seeder
                     'importProcessor' => [
                         'type' => 'directoryListing',
                         'options' => [
-                            'directoryPath' => '/import-data/yoda/converted.json',
+                            'directoryPath' => '/import-data/csic/files/',
                             'recursive' => 'true',
                         ]                    
                     ],

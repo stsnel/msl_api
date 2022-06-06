@@ -19,6 +19,8 @@ class BaseDataset
     
     public $notes;
     
+    public $msl_technical_description;
+    
     public $msl_pids = [];    
     
     public $msl_publication_day;

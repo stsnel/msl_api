@@ -28,7 +28,6 @@ use App\Ckan\Response\PackageSearchResponse;
 use App\Mappers\Helpers\DataciteCitationHelper;
 use App\Converters\MaterialsConverter;
 use App\Exports\MappingLogsExport;
-use Database\Seeders\MaterialKeywordsSeeder;
 use App\Models\MaterialKeyword;
 use App\Converters\RockPhysicsConverter;
 use App\Datacite\Datacite;
@@ -36,6 +35,7 @@ use App\Mappers\YodaMapper;
 use App\Models\Keyword;
 use App\Exports\FilterTreeExport;
 use App\Datasets\BaseDataset;
+use App\Mappers\CsicMapper;
 
 class HomeController extends Controller
 {
@@ -281,6 +281,15 @@ class HomeController extends Controller
         
     public function test()
     {
+        //$sourceDataset = SourceDataset::where('id', 1534)->first();
+        //$sourceDataset = SourceDataset::where('id', 1540)->first();
+        //$sourceDataset = SourceDataset::where('id', 1537)->first();
+        $sourceDataset = SourceDataset::where('id', 1539)->first();
+        //dd($sourceDataset);
+        $mapper = new CsicMapper();
+        
+        $mapper->map($sourceDataset);
+        
         return dd('test');
     }
 }
