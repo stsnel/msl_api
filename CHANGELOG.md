@@ -9,7 +9,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 
-- API documentation in API.md file
+- API documentation in API.md
+- Add changelog in CHANGELOG.md
 
 ## [1.1.0] - 2022-05-24
 
