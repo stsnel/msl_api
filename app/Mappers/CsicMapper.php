@@ -177,14 +177,11 @@ class CsicMapper
         } else {
             throw new \Exception('No DOI found.');
         }
-               
-        //extract msl_pids
+        
+        //extract doi
         if(isset($result[0])) {
-            $dataset->msl_pids[] = [
-                'msl_pid' => (string)$result[0],
-                'msl_identifier_type' => 'doi'
-            ];
-        }
+            $dataset->msl_doi = (string)$result[0];
+        }                        
                         
         //extract source
         if(isset($result[0])) {
@@ -192,11 +189,15 @@ class CsicMapper
         }
                         
         //set citation
-        if(false) {
-            $citationString = $this->dataciteHelper->getCitationString((string)$result[0]);
-            if(strlen($citationString > 0)) {
-                $dataset->msl_citation = $citationString;
-            }
+        $citationString = $this->dataciteHelper->getCitationString((string)$result[0]);
+        if(strlen($citationString > 0)) {
+            $dataset->msl_citation = $citationString;
+        }
+        
+        //extract handle
+        $result = $xmlDocument->xpath("/dc:resource/dc:alternateIdentifiers/dc:alternateIdentifier[@alternateIdentifierType='Handle']/node()");
+        if(isset($result[0])) {
+            $dataset->msl_handle = (string)$result[0];
         }
                         
         //extract year
@@ -221,8 +222,8 @@ class CsicMapper
             foreach ($authorsResult as $authorResult) {
                 $author = [
                     'msl_author_name' => '',
-                    'msl_author_identifier' => '',
-                    'msl_author_identifier_type' => '',
+                    'msl_author_orcid' => '',
+                    'msl_author_scopus' => '',
                     'msl_author_affiliation' => ''
                 ];
                 
@@ -264,9 +265,9 @@ class CsicMapper
             foreach ($contributorsResult as $contributorResult) {
                 $contributor = [
                     'msl_contributor_name' => '',
-                    'msl_contributor_role' => '',                    
-                    'msl_contributor_identifier' => '',
-                    'msl_contributor_identifier_type' => '',
+                    'msl_contributor_role' => '',
+                    'msl_contributor_orcid' => '',
+                    'msl_contributor_scopus' => '',
                     'msl_contributor_affiliation' => ''
                 ];
                 
@@ -283,23 +284,7 @@ class CsicMapper
                 }
                 if(isset($roleNode[0])) {
                     $contributor['msl_contributor_role'] = (string)$roleNode[0];
-                }
-                if(isset($identifierNode[0])) {
-                    $contributor['msl_contributor_identifier'] = (string)$identifierNode[0];
-                }
-                if(isset($identifierType[0])) {
-                    $contributor['msl_contributor_identifier_type'] = (string)$identifierType[0];
-                }
-                if(count($affiliationNodes) > 0) {
-                    $affilitionString = '';
-                    foreach ($affiliationNodes as $affiliationNode) {
-                        if($affilitionString !== '') {
-                            $affilitionString = $affilitionString . ' ';
-                        }
-                        $affilitionString = $affilitionString . (string)$affiliationNode . ';';
-                    }
-                    $contributor['msl_contributor_affiliation'] = $affilitionString;
-                }
+                }                
                                 
                 $dataset->msl_contributors[] = $contributor;
             }
@@ -310,38 +295,23 @@ class CsicMapper
         if(count($referencesResult) > 0) {
             foreach ($referencesResult as $referenceResult) {
                 $reference = [
-                    'msl_reference_identifier' => '',
-                    'msl_reference_identifier_type' => '',
+                    'msl_reference_doi' => '',
+                    'msl_reference_handle' => '',
                     'msl_reference_title' => '',
                     'msl_reference_type' => ''
                 ];
                 
                 $referenceResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
                 
-                $identifierNode = $referenceResult->xpath(".//node()[1]");
-                $identifierTypeNode = $referenceResult->xpath(".//@relatedIdentifierType");
-                $referenceTypeNode = $referenceResult->xpath(".//@relationType");
+                $titleNode = $referenceResult->xpath(".//node()[1]");
+                $referenceTypeNode = $referenceResult->xpath(".//@relatedIdentifierType");
                 
-                if(isset($identifierNode[0])) {
-                    $reference['msl_reference_identifier'] = (string)$identifierNode[0];
-                }
-                if(isset($identifierTypeNode[0])) {
-                    $reference['msl_reference_identifier_type'] = (string)$identifierTypeNode[0];
+                if(isset($titleNode[0])) {
+                    $reference['msl_reference_title'] = (string)$titleNode[0];
                 }
                 if(isset($referenceTypeNode[0])) {
                     $reference['msl_reference_type'] = (string)$referenceTypeNode[0];
-                }
-                                
-                if($reference['msl_reference_identifier_type'] == 'DOI') {
-                    if($reference['msl_reference_identifier']) {                        
-                        $citationString = $this->dataciteHelper->getCitationString($this->cleanDoiReference($reference['msl_reference_identifier']));
-                        if(strlen($citationString) == 0) {
-                            $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_identifier'], $sourceDataset);
-                        } else {
-                            $reference['msl_reference_title'] = $citationString;
-                        }
-                    }
-                }                
+                }                           
                 
                 $dataset->msl_references[] = $reference;
             }
@@ -435,9 +405,7 @@ class CsicMapper
                         
             $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords);            
         }
-        
-        dd($dataset);
-            
+                    
         return $dataset;
     }
 }

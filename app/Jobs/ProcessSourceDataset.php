@@ -12,6 +12,7 @@ use App\Models\DatasetCreate;
 use App\Models\SourceDataset;
 use App\Mappers\GfzMapper;
 use App\Mappers\YodaMapper;
+use App\Mappers\CsicMapper;
 
 class ProcessSourceDataset implements ShouldQueue
 {
@@ -43,6 +44,8 @@ class ProcessSourceDataset implements ShouldQueue
             $mapper = new GfzMapper();
         } elseif($importer->options['sourceDatasetProcessor']['type'] == 'yodaMapper') {
             $mapper = new YodaMapper();
+        } elseif($importer->options['sourceDatasetProcessor']['type'] == 'CsicMapper') {
+            $mapper = new CsicMapper();
         } else {
             throw new \Exception('Invalid sourceDatasetProcessor defined in importer config.');
         }                                
