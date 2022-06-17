@@ -281,14 +281,6 @@ class HomeController extends Controller
         
     public function test()
     {
-        //$sourceDataset = SourceDataset::where('id', 1534)->first();
-        //$sourceDataset = SourceDataset::where('id', 1540)->first();
-        //$sourceDataset = SourceDataset::where('id', 1537)->first();
-        $sourceDataset = SourceDataset::where('id', 1539)->first();
-        //dd($sourceDataset);
-        $mapper = new CsicMapper();
-        
-        $mapper->map($sourceDataset);
         
         return dd('test');
     }

@@ -200,9 +200,8 @@ class CsicMapper
             $dataset->msl_handle = (string)$result[0];
         }
                         
-        //extract year
+        //extract date
         $result = $xmlDocument->xpath('/dc:resource[1]/dc:date[@dateType="Issued"]/node()[1]');
-        //date[@dateType="Issued"]/node()[1]
         if(isset($result[0])) {
             $parts = explode('-', $result[0]);
             if(isset($parts[0])) {
@@ -213,7 +212,10 @@ class CsicMapper
             }
             if(isset($parts[2])) {
                 $dataset->msl_publication_day = $parts[2];
-            }            
+            }
+            
+            $date = new \DateTime($result[0]);
+            $dataset->msl_publication_date = $date->format('Y-m-d');            
         }
                         
         //extract authors
