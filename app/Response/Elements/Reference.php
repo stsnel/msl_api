@@ -4,21 +4,21 @@ namespace App\Response\Elements;
 
 class Reference
 {
-    public $referenceIdentifier = "";
-
-    public $referenceIdentifierType = "";
+    public $referenceDoi = "";
+    
+    public $referenceHandle = "";
 
     public $referenceTitle = "";
 
     public $referenceType = "";
 
     public function __construct($data) {
-        if(isset($data['msl_reference_identifier'])) {
-            $this->referenceIdentifier = $data['msl_reference_identifier'];
+        if(isset($data['msl_reference_doi'])) {
+            $this->referenceDoi = $data['msl_reference_doi'];
         }
 
-        if(isset($data['msl_reference_identifier_type'])) {
-            $this->referenceIdentifierType = $data['msl_reference_identifier_type'];
+        if(isset($data['msl_reference_handle'])) {
+            $this->referenceHandle = $data['msl_reference_handle'];
         }
 
         if(isset($data['msl_reference_title'])) {

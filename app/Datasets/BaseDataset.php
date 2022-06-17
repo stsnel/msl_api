@@ -20,14 +20,18 @@ class BaseDataset
     public $notes;
     
     public $msl_technical_description;
+
+    public $msl_doi;
     
-    public $msl_pids = [];    
+    public $msl_handle;
     
     public $msl_publication_day;
     
     public $msl_publication_month;
     
     public $msl_publication_year;
+    
+    public $msl_publication_date;
     
     public $msl_authors = [];
     

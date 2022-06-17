@@ -145,9 +145,46 @@ class YodaMapper
         
         return trim($keyword);
     }
+    
+    private function cleanDoi($string)
+    {
+        if(str_contains($string, 'doi:')) {
+            $string = str_replace('doi:', '', $string);
+        }
+        
+        if(str_contains($string, 'https://doi.org/')) {
+            $string = str_replace('https://doi.org/', '', $string);
+        }
+        
+        if(str_contains($string, 'http://doi.org/')) {
+            $string = str_replace('http://doi.org/', '', $string);
+        }
+        
+        return $string;
+    }
+    
+    private function cleanOrcid($string)
+    {
+        if(str_contains($string, '/')) {
+            return substr($string, strrpos( $string, '/' )+1);
+        }
+        
+        return $string;
+    }
+    
+    private function formatDate($date)
+    {
+        $datetime = \DateTime::createFromFormat('!Y',$date);
+        $result = $datetime->format('Y-m-d');
+        
+        if($result) {
+            return $result;
+        }
+        return '';
+    }
             
     public function map(SourceDataset $sourceDataset)
-    {
+    {        
         //load xml file
         $xmlDocument = simplexml_load_string($sourceDataset->source_dataset);
         
@@ -171,12 +208,9 @@ class YodaMapper
         
         //extract name
         $dataset->name = $this->createDatasetNameFromDoi($sourceDataset->source_dataset_identifier->identifier);
-
-        //extract msl_pids
-        $dataset->msl_pids[] = [
-            'msl_pid' => $sourceDataset->source_dataset_identifier->identifier,
-            'msl_identifier_type' => 'doi'
-        ];
+        
+        //extract doi
+        $dataset->msl_doi = $this->cleanDoi($sourceDataset->source_dataset_identifier->identifier);
         
         //extract source
         $dataset->msl_source = "http://dx.doi.org/" . $sourceDataset->source_dataset_identifier->identifier;
@@ -191,6 +225,7 @@ class YodaMapper
         $result = $xmlDocument->xpath('/dc:resource[1]/dc:publicationYear[1]/node()[1]');
         if(isset($result[0])) {
             $dataset->msl_publication_year = (string)$result[0];
+            $dataset->msl_publication_date = $this->formatDate((string)$result[0]);
         }
         
         //extract authors
@@ -199,8 +234,8 @@ class YodaMapper
             foreach ($authorsResult as $authorResult) {
                 $author = [
                     'msl_author_name' => '',
-                    'msl_author_identifier' => '',
-                    'msl_author_identifier_type' => '',
+                    'msl_author_orcid' => '',
+                    'msl_author_scopus' => '',
                     'msl_author_affiliation' => ''
                 ];
                 
@@ -215,12 +250,15 @@ class YodaMapper
                 if(isset($nameNode[0])) {
                     $author['msl_author_name'] = (string)$nameNode[0];
                 }
-                if(isset($identifierNode[0])) {
-                    $author['msl_author_identifier'] = (string)$identifierNode[0];
-                }
                 if(isset($identifierType[0])) {
-                    $author['msl_author_identifier_type'] = (string)$identifierType[0];
-                }
+                    if((string)$identifierType[0] == 'ORCID') {
+                        $author['msl_author_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                    }
+                    if((string)$identifierType[0] == 'Author identifier (Scopus)') {
+                        $author['msl_author_scopus'] = (string)$identifierNode[0];
+                    }                    
+                }                                                
+                
                 if(count($affiliationNodes) > 0) {
                     $affilitionString = '';
                     foreach ($affiliationNodes as $affiliationNode) {
@@ -242,9 +280,9 @@ class YodaMapper
             foreach ($contributorsResult as $contributorResult) {
                 $contributor = [
                     'msl_contributor_name' => '',
-                    'msl_contributor_role' => '',                    
-                    'msl_contributor_identifier' => '',
-                    'msl_contributor_identifier_type' => '',
+                    'msl_contributor_role' => '',
+                    'msl_contributor_orcid' => '',
+                    'msl_contributor_scopus' => '',                    
                     'msl_contributor_affiliation' => ''
                 ];
                 
@@ -262,12 +300,15 @@ class YodaMapper
                 if(isset($roleNode[0])) {
                     $contributor['msl_contributor_role'] = (string)$roleNode[0];
                 }
-                if(isset($identifierNode[0])) {
-                    $contributor['msl_contributor_identifier'] = (string)$identifierNode[0];
-                }
                 if(isset($identifierType[0])) {
-                    $contributor['msl_contributor_identifier_type'] = (string)$identifierType[0];
-                }
+                    if((string)$identifierType[0] == 'ORCID') {
+                        $contributor['msl_contributor_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                    }
+                    if((string)$identifierType[0] == 'Author identifier (Scopus)') {
+                        $contributor['msl_contributor_scopus'] = (string)$identifierNode[0];
+                    }
+                }                                
+                
                 if(count($affiliationNodes) > 0) {
                     $affilitionString = '';
                     foreach ($affiliationNodes as $affiliationNode) {
@@ -288,8 +329,8 @@ class YodaMapper
         if(count($referencesResult) > 0) {
             foreach ($referencesResult as $referenceResult) {
                 $reference = [
-                    'msl_reference_identifier' => '',
-                    'msl_reference_identifier_type' => '',
+                    'msl_reference_doi' => '',
+                    'msl_reference_handle' => '',
                     'msl_reference_title' => '',
                     'msl_reference_type' => ''
                 ];
@@ -300,26 +341,22 @@ class YodaMapper
                 $identifierTypeNode = $referenceResult->xpath(".//@relatedIdentifierType");
                 $referenceTypeNode = $referenceResult->xpath(".//@relationType");
                 
-                if(isset($identifierNode[0])) {
-                    $reference['msl_reference_identifier'] = (string)$identifierNode[0];
-                }
                 if(isset($identifierTypeNode[0])) {
-                    $reference['msl_reference_identifier_type'] = (string)$identifierTypeNode[0];
-                }
-                if(isset($referenceTypeNode[0])) {
-                    $reference['msl_reference_type'] = (string)$referenceTypeNode[0];
-                }
-                                
-                if($reference['msl_reference_identifier_type'] == 'DOI') {
-                    if($reference['msl_reference_identifier']) {                        
-                        $citationString = $this->dataciteHelper->getCitationString($this->cleanDoiReference($reference['msl_reference_identifier']));
+                    if((string)$identifierTypeNode[0] == 'DOI') {
+                        $reference['msl_reference_doi'] = $this->cleanDoi((string)$identifierNode[0]);
+                        
+                        $citationString = $this->dataciteHelper->getCitationString($reference['msl_reference_doi']);
                         if(strlen($citationString) == 0) {
-                            $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_identifier'], $sourceDataset);
+                            $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_doi'], $sourceDataset);
                         } else {
                             $reference['msl_reference_title'] = $citationString;
                         }
                     }
-                }                
+                }
+                                
+                if(isset($referenceTypeNode[0])) {
+                    $reference['msl_reference_type'] = (string)$referenceTypeNode[0];
+                }                                                         
                 
                 $dataset->msl_references[] = $reference;
             }
@@ -496,9 +533,7 @@ class YodaMapper
                 $dataset->msl_laboratories[] = $lab;
             }
         }
-        
-        
-            
+                
         return $dataset;
     }
 }
