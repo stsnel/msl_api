@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add changelog in CHANGELOG.md
 - Update GFZ and yoda importers to work with new data-publication schema
 - Update API responses to work with new data-publication schema
+- Csic data importing
 
 ## [1.1.0] - 2022-05-24
 
