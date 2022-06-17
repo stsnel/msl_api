@@ -5,8 +5,10 @@ namespace App\Response\Elements;
 class Author
 {
     public $authorName = "";
-
-    public $authorIdentifier = "";
+    
+    public $authorOrcid = "";
+    
+    public $authorScopus = "";
 
     public $authorAffiliation = [];
 
@@ -15,10 +17,14 @@ class Author
             $this->authorName = $data['msl_author_name'];
         }        
 
-        if(isset($data['msl_author_identifier'])) {
-            $this->authorIdentifier = $data['msl_author_identifier'];
+        if(isset($data['msl_author_orcid'])) {
+            $this->authorOrcid = $data['msl_author_orcid'];
         }
-
+        
+        if(isset($data['msl_author_scopus'])) {
+            $this->authorScopus = $data['msl_author_scopus'];
+        }
+        
         if(isset($data['msl_author_affiliation'])) {
             $this->authorAffiliation = $data['msl_author_affiliation'];
         }

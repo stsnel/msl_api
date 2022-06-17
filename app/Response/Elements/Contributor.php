@@ -3,28 +3,28 @@
 namespace App\Response\Elements;
 
 class Contributor
-{
-    public $contributorFirstName = "";
-
-    public $contributorFamilyName = "";
+{   
+    public $contributorName = "";
 
     public $contributorOrcid = "";
+    
+    public $contributorScopus = "";
 
     public $contributorAffiliation = [];
 
     public $contributorRole = "";
 
     public function __construct($data) {
-        if(isset($data['msl_contributor_first_name'])) {
-            $this->contributorFirstName = $data['msl_contributor_first_name'];
-        }
-
-        if(isset($data['msl_contributor_family_name'])) {
-            $this->contributorFamilyName = $data['msl_contributor_family_name'];
-        }
+        if(isset($data['msl_contributor_name'])) {
+            $this->contributorName = $data['msl_contributor_name'];
+        }        
 
         if(isset($data['msl_contributor_orcid'])) {
             $this->contributorOrcid = $data['msl_contributor_orcid'];
+        }
+        
+        if(isset($data['msl_contributor_scopus'])) {
+            $this->contributorScopus = $data['msl_contributor_scopus'];
         }
 
         if(isset($data['msl_contributor_affiliation'])) {
