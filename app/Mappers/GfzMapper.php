@@ -220,7 +220,33 @@ class GfzMapper
         }
         
         return trim($keyword);
-    }    
+    }
+    
+    private function cleanDoi($string)
+    {
+        if(str_contains($string, 'doi:')) {
+            $string = str_replace('doi:', '', $string);
+        }
+        
+        if(str_contains($string, 'https://doi.org/')) {
+            $string = str_replace('https://doi.org/:', '', $string);
+        }
+        
+        if(str_contains($string, 'http://doi.org/')) {
+            $string = str_replace('http://doi.org/:', '', $string);
+        }
+        
+        return $string;
+    }
+    
+    private function cleanOrcid($string)
+    {
+        if(str_contains($string, '/')) {
+            return substr($string, strrpos( $string, '/' )+1);
+        }
+        
+        return $string;
+    }
     
     public function map(SourceDataset $sourceDataset)
     {
@@ -260,22 +286,16 @@ class GfzMapper
         if(isset($result[0])) {
             $dataset->name = $this->createDatasetNameFromDoi((string)$result[0]);
         }
-        
-        //extract msl_pids
+                
+        //extract doi
         $result = $xmlDocument->xpath('/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata/gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString/node()');
         if(isset($result[0])) {
-            $dataset->msl_pids[] = [
-                'msl_pid' => (string)$result[0],
-                'msl_identifier_type' => 'doi'
-            ];
+            $dataset->msl_doi = $this->cleanDoi((string)$result[0]);
         }
-        
+                
         $result = $xmlDocument->xpath('/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata/gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString/node()');
         if(isset($result[0])) {
-            $doi = $result[0];
-            if(str_contains($doi, 'doi:')) {
-                $doi = str_replace('doi:', '', $doi);
-            }
+            $doi = $this->cleanDoi((string)$result[0]);
             
             $citationString = $this->dataciteHelper->getCitationString($doi);
             if(strlen($citationString > 0)) {
@@ -288,8 +308,9 @@ class GfzMapper
         if(isset($result[0])) {
             $dataset->msl_publication_day = $this->getDay((string)$result[0]);
             $dataset->msl_publication_month = $this->getMonth((string)$result[0]);
-            $dataset->msl_publication_year = $this->getYear((string)$result[0]);                        
-        }
+            $dataset->msl_publication_year = $this->getYear((string)$result[0]);  
+            $dataset->msl_publication_date = $this->formatDate((string)$result[0]);
+        }        
         
         //extract authors
         $authorsResult = $xmlDocument->xpath("/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata[1]/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:citedResponsibleParty[./gmd:CI_ResponsibleParty/gmd:role/gmd:CI_RoleCode='author']");
@@ -297,7 +318,8 @@ class GfzMapper
             foreach ($authorsResult as $authorResult) {                
                 $author = [
                     'msl_author_name' => '',
-                    'msl_author_identifier' => '',
+                    'msl_author_orcid' => '',
+                    'msl_author_scopus' => '',
                     'msl_author_affiliation' => ''
                 ];
                 
@@ -308,7 +330,7 @@ class GfzMapper
                     $author['msl_author_name'] = (string)$nameNode[0];
                 }
                 if(isset($identifierNode[0])) {
-                    $author['msl_author_identifier'] = (string)$identifierNode[0];
+                    $author['msl_author_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
                 }
                 if(isset($affiliationNode[0])) {
                     $author['msl_author_affiliation'] = (string)$affiliationNode[0];
@@ -322,8 +344,8 @@ class GfzMapper
         if(count($referencesResult) > 0) {
             foreach ($referencesResult as $referenceResult) {
                 $reference = [
-                    'msl_reference_identifier' => '',
-                    'msl_reference_identifier_type' => '',
+                    'msl_reference_doi' => '',
+                    'msl_reference_handle' => '',
                     'msl_reference_title' => '',
                     'msl_reference_type' => ''
                 ];
@@ -332,30 +354,26 @@ class GfzMapper
                 $identifierTypeNode = $referenceResult->xpath(".//gmd:MD_AggregateInformation/gmd:aggregateDataSetIdentifier/gmd:RS_Identifier/gmd:codeSpace/gco:CharacterString/node()");
                 $referenceTypeNode = $referenceResult->xpath(".//gmd:MD_AggregateInformation/gmd:associationType/gmd:DS_AssociationTypeCode/node()");
                 
-                if(isset($identifierNode[0])) {
-                    $reference['msl_reference_identifier'] = (string)$identifierNode[0];
-                }
-                if(isset($identifierTypeNode[0])) {
-                    $reference['msl_reference_identifier_type'] = (string)$identifierTypeNode[0];
-                }
                 if(isset($referenceTypeNode[0])) {
                     $reference['msl_reference_type'] = (string)$referenceTypeNode[0];
                 }
-                
-                if($reference['msl_reference_identifier_type'] == 'DOI') {
-                    if($reference['msl_reference_identifier']) {
-                        $citationString = $this->dataciteHelper->getCitationString($reference['msl_reference_identifier']);
+                                
+                if(isset($identifierTypeNode[0])) {
+                    if((string)$identifierTypeNode[0] == 'DOI') {
+                        $reference['msl_reference_doi'] = $this->cleanDoi((string)$identifierNode[0]);
+                        
+                        $citationString = $this->dataciteHelper->getCitationString($reference['msl_reference_doi']);
                         if(strlen($citationString) == 0) {
-                            $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_identifier'], $sourceDataset);
+                            $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_doi'], $sourceDataset);
                         } else {
                             $reference['msl_reference_title'] = $citationString;
                         }                                                
-                    }
+                    }                    
                 }
-                
+                               
                 $dataset->msl_references[] = $reference;                
             }
-        }
+        }       
         
         //extract notes
         $result = $xmlDocument->xpath('/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString/node()');
@@ -498,7 +516,7 @@ class GfzMapper
                 }                               
             }
         }
-                                                       
+              
         return $dataset;
     }
 }

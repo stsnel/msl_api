@@ -18,8 +18,10 @@ class BaseResult
     public $name = "";
     
     public $portalLink = "";
-
-    public $pid = [];
+    
+    public $doi = "";
+    
+    public $handle = "";
 
     public $license = "";
 
@@ -73,14 +75,6 @@ class BaseResult
             $this->portalLink = config('ckan.ckan_root_url') . 'data-publication/' . $data['name'];
         }
 
-        if(isset($data['msl_pids'])) {
-            if(count($data['msl_pids']) > 0) {
-                foreach ($data['msl_pids'] as $pidData) {
-                    $this->pid[] = new Pid($pidData);
-                }
-            }
-        }
-
         if(isset($data['license_id'])) {
             $this->license = $data['license_id'];
         }
@@ -91,6 +85,14 @@ class BaseResult
 
         if(isset($data['msl_source'])) {
             $this->source = $data['msl_source'];
+        }
+        
+        if(isset($data['msl_doi'])) {
+            $this->doi = $data['msl_doi'];
+        }
+        
+        if(isset($data['msl_handle'])) {
+            $this->handle = $data['msl_handle'];
         }
 
         if(isset($data['owner_org'])) {
