@@ -91,6 +91,8 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                     'source_dataset' => $fileContent
                 ]);
                 
+                ProcessSourceDataset::dispatch($SourceDataset);
+                
                 $this->sourceDatasetIdentifier->response_code = 200;
                 $this->sourceDatasetIdentifier->save();
             } else {

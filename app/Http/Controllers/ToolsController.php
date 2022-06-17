@@ -27,7 +27,6 @@ use App\Ckan\Response\PackageSearchResponse;
 use App\Mappers\Helpers\DataciteCitationHelper;
 use App\Converters\MaterialsConverter;
 use App\Exports\MappingLogsExport;
-use Database\Seeders\MaterialKeywordsSeeder;
 use App\Models\MaterialKeyword;
 use App\Converters\RockPhysicsConverter;
 use App\Converters\ExcelToJsonConverter;

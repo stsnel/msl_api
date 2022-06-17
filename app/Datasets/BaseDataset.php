@@ -19,6 +19,8 @@ class BaseDataset
     
     public $notes;
     
+    public $msl_technical_description;
+
     public $msl_doi;
     
     public $msl_handle;
