@@ -39,7 +39,7 @@ class FilterTreeExport
                     'filterName' => '',
                     'filterValue' => ''
                 ],
-                'children' => $this->getVocabAsFilters(5, 'msl_geologicalage__')
+                'children' => $this->getVocabAsFilters(5, 'msl_geologicalage_')
             ],
             [
                 'text' => 'Pore fluid',
@@ -71,7 +71,7 @@ class FilterTreeExport
                     'filterName' => '',
                     'filterValue' => ''
                 ],
-                'children' => $this->getVocabAsFilters(6, 'msl_geologicalsetting__')
+                'children' => $this->getVocabAsFilters(6, 'msl_geologicalsetting_')
             ],
             [
                 'text' => 'Analogue modelling of geological processes',
