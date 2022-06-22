@@ -19,9 +19,14 @@ class KeywordFactory
             case 'analogue':
                 return new Analogue($keyword);
                 
+            case 'geologicalage':
+                return new GeologicalAge($keyword);
+                
+            case 'geologicalsetting':
+                return new GeologicalSetting($keyword);
+                
             default:
                 throw new \Exception('invalid vocabularyname');
         }
     }
 }
-

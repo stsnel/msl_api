@@ -12,8 +12,8 @@ class KeywordHelper
         'porefluids' => 'msl_porefluids',
         'rockphysics' => 'msl_rockphysics',
         'analogue' => 'msl_analogue',
-        'geologicalage' => 'msl_geologicalage',
-        'geologicalsetting' => 'msl_geologicalsetting',
+        'geologicalage' => 'msl_geologicalages',
+        'geologicalsetting' => 'msl_geologicalsettings',
     ];
     
     private $vocabularySubDomainMapping = [
