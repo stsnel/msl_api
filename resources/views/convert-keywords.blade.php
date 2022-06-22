@@ -68,6 +68,34 @@
                         <button type="submit" class="btn btn-primary">Upload file</button>
 					</form>
                 </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">Upload geological age file</div>
+                <div class="card-body">
+					<form action="{{ route('process-geological-age-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">Geological age xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="geological-age-file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">Upload geological setting file</div>
+                <div class="card-body">
+					<form action="{{ route('process-geological-setting-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">Geological setting xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="geological-setting-file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
             </div>                                    
         </div>
     </div>

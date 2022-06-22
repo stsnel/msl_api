@@ -42,6 +42,8 @@ Route::post('tools/convert-keywords', [ToolsController::class, 'processMaterials
 Route::post('tools/convert-porefluids', [ToolsController::class, 'processPorefluidsFile'])->name('process-porefluids-file');
 Route::post('tools/convert-rockphysics', [ToolsController::class, 'processRockPhysicsFile'])->name('process-rockphysics-file');
 Route::post('tools/convert-analogue', [ToolsController::class, 'processAnalogueModellingFile'])->name('process-analogue-file');
+Route::post('tools/convert-geological-age', [ToolsController::class, 'processGeologicalAgeFile'])->name('process-geological-age-file');
+Route::post('tools/convert-geological-setting', [ToolsController::class, 'processGeologicalSettingFile'])->name('process-geological-setting-file');
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
 Route::get('tools/filtertree', [ToolsController::class, 'filterTree'])->name('filter-tree');

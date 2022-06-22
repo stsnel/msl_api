@@ -33,6 +33,8 @@ use App\Converters\ExcelToJsonConverter;
 use App\Exports\FilterTreeExport;
 use App\Converters\PorefluidsConverter;
 use App\Converters\AnalogueModellingConverter;
+use App\Converters\GeologicalAgeConverter;
+use App\Converters\GeologicalSettingConverter;
 
 class ToolsController extends Controller
 {
@@ -121,6 +123,44 @@ class ToolsController extends Controller
             return response()->streamDownload(function () use($converter, $request) {
                 echo $converter->ExcelToJson($request->file('analogue-file'));
             }, 'analogue.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processGeologicalAgeFile(Request $request)
+    {
+        $request->validate([
+            'geological-age-file' => 'required'
+        ]);
+        
+        if($request->hasFile('geological-age-file')) {
+            $converter = new GeologicalAgeConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('geological-age-file'));
+            }, 'geological-age.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processGeologicalSettingFile(Request $request)
+    {
+        $request->validate([
+            'geological-setting-file' => 'required'
+        ]);
+        
+        if($request->hasFile('geological-setting-file')) {
+            $converter = new GeologicalSettingConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('geological-setting-file'));
+            }, 'geological-setting.json');
                 
         }
         

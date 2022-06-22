@@ -24,8 +24,7 @@ class VocabularySeeder extends Seeder
         //create materials vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'materials'
-                
+                'name' => 'materials'                
             ],
             [
                 'name' => 'materials', 
@@ -45,8 +44,7 @@ class VocabularySeeder extends Seeder
         //create porefluids vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'porefluids'
-                
+                'name' => 'porefluids'                
             ],
             [
                 'name' => 'porefluids',
@@ -66,14 +64,13 @@ class VocabularySeeder extends Seeder
         //create rockphysics vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'rockphysics'
-                
+                'name' => 'rockphysics'              
             ],
             [
                 'name' => 'rockphysics',
                 'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/rockphysics/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/rockphysics.json'));
@@ -87,17 +84,56 @@ class VocabularySeeder extends Seeder
         //create analogue modelling vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'analogue'
-                
+                'name' => 'analogue'               
             ],
             [
                 'name' => 'analogue',
                 'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/analoguemodelling/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/analogue.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
+        
+        //create geological age vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'geologicalage'
+            ],
+            [
+                'name' => 'geologicalage',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/geologicalage/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/geological-age.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
+        
+        //create geological settting vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'geologicalsetting'
+            ],
+            [
+                'name' => 'geologicalsetting',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/geologicalsetting/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/geological-setting.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes

@@ -24,7 +24,23 @@ class FilterTreeExport
                     'filterValue' => ''
                 ],
                 'children' => $this->getVocabAsFilters(1, 'msl_material_')
-            ],            
+            ],
+            [
+                'text' => 'Geological age',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(5, 'msl_geologicalage_')
+            ],
             [
                 'text' => 'Pore fluid',
                 'state' => [
@@ -40,6 +56,22 @@ class FilterTreeExport
                     'filterValue' => ''
                 ],
                 'children' => $this->getVocabAsFilters(2, 'msl_porefluid_')
+            ],
+            [
+                'text' => 'Geological setting',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(6, 'msl_geologicalsetting_')
             ],
             [
                 'text' => 'Analogue modelling of geological processes',
