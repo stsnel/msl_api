@@ -216,26 +216,49 @@ class BaseResult
         
         //set researchaspects based on context(calling api function)
         switch ($context) {
-            case 'rockPhysics':
-                $this->researchAspects = $this->getRockPhysicsKeywords($data);              
+            case 'rockPhysics':                
+                $keywords = [];
+                $keywords = array_merge($keywords, $this->getRockPhysicsKeywords($data));
+                $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
+                $keywords = array_values(array_unique($keywords));
+                
+                $this->researchAspects = $keywords;                                
                 break;            
             case 'analogue':
-                $this->researchAspects = $this->getAnalogueKeywords($data);
+                $keywords = [];
+                $keywords = array_merge($keywords, $this->getAnalogueKeywords($data));
+                $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
+                $keywords = array_values(array_unique($keywords));
+                
+                $this->researchAspects = $keywords;
                 break;
             case 'paleo':
+                $keywords = [];
+                $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
+                $keywords = array_values(array_unique($keywords));
                 
+                $this->researchAspects = $keywords;
                 break;
             case 'microscopy':
+                $keywords = [];
+                $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
+                $keywords = array_values(array_unique($keywords));
                 
+                $this->researchAspects = $keywords;
                 break;
             case 'geochemistry':
+                $keywords = [];
+                $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
+                $keywords = array_values(array_unique($keywords));
                 
+                $this->researchAspects = $keywords;
                 break;
             case 'all':
                 $keywords = [];
                 
                 $keywords = array_merge($keywords, $this->getRockPhysicsKeywords($data));
                 $keywords = array_merge($keywords, $this->getAnalogueKeywords($data));
+                $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
                 $keywords = array_values(array_unique($keywords));
                 
                 $this->researchAspects = $keywords;                                
@@ -284,6 +307,28 @@ class BaseResult
                             if(in_array($terms[0], $topNodes)) {
                                 $keywords[] = trim($terms[count($terms) - 1]);
                             }
+                        }
+                    }
+                }
+            }
+            $keywords = array_values(array_unique($keywords));
+        }
+        
+        return $keywords;
+    }
+    
+    private function getGeologicalSettingKeywords($data) {
+        $keywords = [];
+        
+        if(isset($data['msl_geologicalsettings'])) {            
+            if(count($data['msl_geologicalsettings']) > 0) {
+                foreach ($data['msl_geologicalsettings'] as $keywordData) {
+                    if(isset($keywordData['msl_geologicalsetting_combined'])) {
+                        $term = $keywordData['msl_geologicalsetting_combined'];
+                        
+                        if(str_contains($term, '>')) {
+                            $terms = explode('>', $term);
+                            $keywords[] = trim($terms[count($terms) - 1]);                            
                         }
                     }
                 }

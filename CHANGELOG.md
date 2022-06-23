@@ -15,6 +15,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update API responses to work with new data-publication schema
 - Csic data importing
 - Implement 2 new vocabularies: geological age and geological setting
+- Add geological setting to researchaspects part of each API endpoint
 
 ## [1.1.0] - 2022-05-24
 
