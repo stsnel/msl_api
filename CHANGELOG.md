@@ -14,7 +14,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Update GFZ and yoda importers to work with new data-publication schema
 - Update API responses to work with new data-publication schema
 - Csic data importing
-- Implement 2 new vocabularies: geological age and geological setting
+- Implement 4 new vocabularies: geological age, geological setting, paleomagnetism and geochemistry
 - Add geological setting to researchaspects part of each API endpoint
 
 ## [1.1.0] - 2022-05-24
