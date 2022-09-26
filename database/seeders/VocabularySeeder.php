@@ -140,6 +140,46 @@ class VocabularySeeder extends Seeder
         foreach ($vocabData as $topNode) {
             $this->processNode($topNode, $vocabulary);
         }
+        
+        //create paleomagnetism vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'paleomagnetism'
+            ],
+            [
+                'name' => 'paleomagnetism',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/paleomagnetism/'
+            ]
+            );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/paleomagnetism.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
+        
+        //create geochemistry settting vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'geochemistry'
+            ],
+            [
+                'name' => 'geochemistry',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/geochemistry/'
+            ]
+            );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/geochemistry.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
     }
     
     private function processNode($node, $vocabulary, $parentId = null)

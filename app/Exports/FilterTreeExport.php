@@ -90,6 +90,38 @@ class FilterTreeExport
                 'children' => $this->getVocabAsFilters(4, 'msl_analogue_')
             ],
             [
+                'text' => 'Geochemistry',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(8, 'msl_geochemistry_')
+            ],
+            [
+                'text' => 'Paleomagnetism',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(7, 'msl_paleomagnetism_')
+            ],
+            [
                 'text' => 'Rock and melt physics',
                 'state' => [
                     'opened' => false,

@@ -25,6 +25,12 @@ class KeywordFactory
             case 'geologicalsetting':
                 return new GeologicalSetting($keyword);
                 
+            case 'paleomagnetism':
+                return new Paleomagnetism($keyword);
+                
+            case 'geochemistry':
+                return new Geochemistry($keyword);                                
+                
             default:
                 throw new \Exception('invalid vocabularyname');
         }

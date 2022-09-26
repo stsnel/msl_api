@@ -96,7 +96,35 @@
                         <button type="submit" class="btn btn-primary">Upload file</button>
 					</form>
                 </div>
-            </div>                                    
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">Upload paleomagnetism file</div>
+                <div class="card-body">
+					<form action="{{ route('process-paleomagnetism-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">Paleomagnetism xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="paleomagnetism-file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">Upload geochemistry file</div>
+                <div class="card-body">
+					<form action="{{ route('process-geochemistry-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">Geochemistry xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="geochemistry-file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
+            </div>                                      
         </div>
     </div>
 </div>

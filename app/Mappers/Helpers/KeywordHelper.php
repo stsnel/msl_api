@@ -14,11 +14,15 @@ class KeywordHelper
         'analogue' => 'msl_analogue',
         'geologicalage' => 'msl_geologicalages',
         'geologicalsetting' => 'msl_geologicalsettings',
+        'paleomagnetism' => 'msl_paleomagnetism',
+        'geochemistry' => 'msl_geochemistry'
     ];
     
     private $vocabularySubDomainMapping = [
         'rockphysics' => 'rock and melt physics',
-        'analogue' => 'analogue modelling of geologic processes'
+        'analogue' => 'analogue modelling of geologic processes',
+        'paleomagnetism' => 'paleomagnetism',
+        'geochemistry' => 'geochemistry'
     ];       
     
     

@@ -35,6 +35,8 @@ use App\Converters\PorefluidsConverter;
 use App\Converters\AnalogueModellingConverter;
 use App\Converters\GeologicalAgeConverter;
 use App\Converters\GeologicalSettingConverter;
+use App\Converters\PaleomagnetismConverter;
+use App\Converters\GeochemistryConverter;
 
 class ToolsController extends Controller
 {
@@ -161,6 +163,44 @@ class ToolsController extends Controller
             return response()->streamDownload(function () use($converter, $request) {
                 echo $converter->ExcelToJson($request->file('geological-setting-file'));
             }, 'geological-setting.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processPaleomagnetismFile(Request $request)
+    {
+        $request->validate([
+            'paleomagnetism-file' => 'required'
+        ]);
+        
+        if($request->hasFile('paleomagnetism-file')) {
+            $converter = new PaleomagnetismConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('paleomagnetism-file'));
+            }, 'paleomagnetism.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processGeochemistryFile(Request $request)
+    {
+        $request->validate([
+            'geochemistry-file' => 'required'
+        ]);
+        
+        if($request->hasFile('geochemistry-file')) {
+            $converter = new GeochemistryConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('geochemistry-file'));
+            }, 'geochemistry.json');
                 
         }
         
