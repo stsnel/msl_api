@@ -74,7 +74,7 @@ class HomeController extends Controller
             dd($e->getMessage());
         }
         
-        $organizationListResponse =  new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
+        $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
         $organizations = $organizationListResponse->getOrganizations();
         
         return view('remove-dataset', ['organizations' => $organizations]);

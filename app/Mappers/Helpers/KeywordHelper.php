@@ -61,6 +61,23 @@ class KeywordHelper
         return $dataset;
     }
     
+    public function extractFromText($text)
+    {
+        $searchKeywords = KeywordSearch::all();
+        $matchedKeywords = [];
+        
+        foreach ($searchKeywords as $searchKeyword) {
+            if($searchKeyword->search_value !== '') {
+                $expr = '/\b' . preg_quote($searchKeyword->search_value, '/') . '\b/i';
+                if (preg_match($expr, $text)) {
+                    $matchedKeywords[] = $searchKeyword->keyword;
+                }
+            }
+        }
+                
+        return $matchedKeywords;
+    }
+    
     private function cleanKeyword($string)
     {
         $keyword = preg_replace("/[^A-Za-z0-9 ]/", '', $string);

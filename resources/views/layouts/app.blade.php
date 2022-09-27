@@ -72,7 +72,11 @@
                                     
                                     <a class="dropdown-item" href="{{ route('view-unmatched-keywords') }}">                                                                              
                                         View unmatched keywords
-                                    </a>                                    
+                                    </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('abstract-matching') }}">                                                                              
+                                        Abstract matching
+                                    </a>
                                 </div>
                             </li>
                         

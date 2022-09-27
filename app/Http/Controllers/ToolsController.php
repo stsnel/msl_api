@@ -38,6 +38,8 @@ use App\Converters\GeologicalSettingConverter;
 use App\Converters\PaleomagnetismConverter;
 use App\Converters\GeochemistryConverter;
 use App\Exports\UnmatchedKeywordsExport;
+use App\Mappers\Helpers\KeywordHelper;
+use App\Exports\AbstractMatchingExport;
 
 class ToolsController extends Controller
 {
@@ -287,6 +289,79 @@ class ToolsController extends Controller
     public function downloadUnmatchedKeywords()
     {
         return Excel::download(new UnmatchedKeywordsExport(), 'unmatched-keywords.xlsx');
+    }
+    
+    public function abstractMatching(Request $request)
+    {
+        $client = new \GuzzleHttp\Client();
+        
+        $OrganizationListrequest = new OrganizationList();
+        
+        try {
+            $response = $client->request($OrganizationListrequest->method,
+                $OrganizationListrequest->endPoint,
+                $OrganizationListrequest->getPayloadAsArray());
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        
+        $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
+        $organizations = $organizationListResponse->getOrganizations();
+        
+        $filteredOrganizations = [];        
+        
+        foreach ($organizations as $organization) {
+            if($organization['name'] !== 'epos-multi-scale-laboratories-thematic-core-service')
+            {
+                $filteredOrganizations[] = $organization;
+            }
+        }
+        
+        $data = [];
+        $selected = '';
+        
+        if ($request->has('datasetSource')) {
+            $datasetSource = $request->query('datasetSource');
+            $selected = $datasetSource;
+            
+            $searchRequest = new PackageSearch();
+            $searchRequest->rows = 10;
+            $searchRequest->query = 'type: data-publication';
+            $searchRequest->filterQuery =  'owner_org:' . $datasetSource;
+            
+            try {
+                $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+            } catch (\Exception $e) {
+                
+            }
+            
+            $content = json_decode($response->getBody(), true);
+            $results = $content['result']['results'];
+            
+            $keywordHelper = new KeywordHelper();
+                    
+            foreach ($results as $result) {
+                $item = [];
+                $item['identifier'] = $result['msl_doi'];
+                $item['abstract'] = $result['notes'];
+                $item['keywords'] = [];
+                $keywords = $keywordHelper->extractFromText($item['abstract']);
+                
+                foreach ($keywords as $keyword) {
+                    $item['keywords'][] = $keyword->getFullPath('>', true);
+                }
+                
+                $data[] = $item;
+            }
+        }
+                                
+        
+        return view('abstract-matching', ['data' => $data, 'organizations' => $filteredOrganizations, 'selected' => $selected]);
+    }
+    
+    public function abstractMatchingDownload($dataRepo) 
+    {
+        return Excel::download(new AbstractMatchingExport($dataRepo), 'abstract-matching.xlsx');
     }
   
 }
