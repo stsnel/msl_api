@@ -37,6 +37,7 @@ use App\Converters\GeologicalAgeConverter;
 use App\Converters\GeologicalSettingConverter;
 use App\Converters\PaleomagnetismConverter;
 use App\Converters\GeochemistryConverter;
+use App\Exports\UnmatchedKeywordsExport;
 
 class ToolsController extends Controller
 {
@@ -244,6 +245,48 @@ class ToolsController extends Controller
         return response()->streamDownload(function () use($exporter) {
             echo $exporter->export();
         }, 'test.json');
+    }
+    
+    public function viewUnmatchedKeywords()
+    {
+        $client = new \GuzzleHttp\Client();
+        
+        $searchRequest = new PackageSearch();
+        $searchRequest->rows = 1000;
+        $searchRequest->query = 'type: data-publication';
+        
+        try {
+            $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+        } catch (\Exception $e) {
+            
+        }
+        
+        $content = json_decode($response->getBody(), true);
+        $results = $content['result']['results'];                
+                                
+        $keywords = [];
+        foreach ($results as $result) {
+            if(count($result['tags']) > 0) {
+                foreach ($result['tags'] as $tag) {
+                    if(!array_key_exists($tag['name'], $keywords)) {
+                        $keywords[$tag['name']] = 1;
+                    } else {
+                        $keywords[$tag['name']] = $keywords[$tag['name']] + 1;
+                    }
+                }
+            }
+        }
+        
+        uasort($keywords, function($a, $b) {
+            return $b - $a;
+        });
+        
+        return view('unmatched-keywords', ['keywords' => $keywords]);
+    }
+    
+    public function downloadUnmatchedKeywords()
+    {
+        return Excel::download(new UnmatchedKeywordsExport(), 'unmatched-keywords.xlsx');
     }
   
 }
