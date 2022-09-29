@@ -260,6 +260,8 @@ class BaseResult
                 
                 $keywords = array_merge($keywords, $this->getRockPhysicsKeywords($data));
                 $keywords = array_merge($keywords, $this->getAnalogueKeywords($data));
+                $keywords = array_merge($keywords, $this->getPaleomagneticKeywords($data));
+                $keywords = array_merge($keywords, $this->getGeochemistryKeywords($data));
                 $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
                 $keywords = array_values(array_unique($keywords));
                 
