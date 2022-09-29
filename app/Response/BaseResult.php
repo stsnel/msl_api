@@ -234,6 +234,7 @@ class BaseResult
                 break;
             case 'paleo':
                 $keywords = [];
+                $keywords = array_merge($keywords, $this->getPaleomagneticKeywords($data));
                 $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
                 $keywords = array_values(array_unique($keywords));
                 
@@ -248,6 +249,7 @@ class BaseResult
                 break;
             case 'geochemistry':
                 $keywords = [];
+                $keywords = array_merge($keywords, $this->getGeochemistryKeywords($data));
                 $keywords = array_merge($keywords, $this->getGeologicalSettingKeywords($data));
                 $keywords = array_values(array_unique($keywords));
                 
@@ -329,6 +331,53 @@ class BaseResult
                         if(str_contains($term, '>')) {
                             $terms = explode('>', $term);
                             $keywords[] = trim($terms[count($terms) - 1]);                            
+                        }
+                    }
+                }
+            }
+            $keywords = array_values(array_unique($keywords));
+        }
+        
+        return $keywords;
+    }
+    
+    private function getPaleomagneticKeywords($data) {
+        $topNodes = ['Measured property', 'Inferred behavior'];
+        $keywords = [];
+        
+        if(isset($data['msl_paleomagnetism'])) {
+            if(count($data['msl_paleomagnetism']) > 0) {
+                foreach ($data['msl_paleomagnetism'] as $keywordData) {
+                    if(isset($keywordData['msl_paleomagnetism_combined'])) {
+                        $term = $keywordData['msl_paleomagnetism_combined'];
+                        
+                        if(str_contains($term, '>')) {
+                            $terms = explode('>', $term);
+                            if(in_array($terms[0], $topNodes)) {
+                                $keywords[] = trim($terms[count($terms) - 1]);
+                            }
+                        }
+                    }
+                }
+            }
+            $keywords = array_values(array_unique($keywords));
+        }
+        
+        return $keywords;        
+    }
+    
+    private function getGeochemistryKeywords($data) {
+        $keywords = [];
+        
+        if(isset($data['msl_geochemistry'])) {
+            if(count($data['msl_geochemistry']) > 0) {
+                foreach ($data['msl_geochemistry'] as $keywordData) {
+                    if(isset($keywordData['msl_geochemistry_combined'])) {
+                        $term = $keywordData['msl_geochemistry_combined'];
+                        
+                        if(str_contains($term, '>')) {
+                            $terms = explode('>', $term);
+                            $keywords[] = trim($terms[count($terms) - 1]);
                         }
                     }
                 }
