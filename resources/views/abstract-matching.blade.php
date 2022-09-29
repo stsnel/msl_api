@@ -41,7 +41,8 @@
 					@foreach ($data as $row)
                     	<div class="card">
                     		<div class="card-body">
-                    			{{ $row['abstract'] }}
+                    			<p>{{ $row['title'] }}</p>
+                    			<p>{{ $row['abstract'] }}</p>
                     			<hr>
                     			
                     			@foreach($row['keywords'] as $keyword)

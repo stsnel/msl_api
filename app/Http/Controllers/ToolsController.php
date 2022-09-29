@@ -338,14 +338,17 @@ class ToolsController extends Controller
             $content = json_decode($response->getBody(), true);
             $results = $content['result']['results'];
             
+            //dd($results);
+            
             $keywordHelper = new KeywordHelper();
                     
             foreach ($results as $result) {
                 $item = [];
                 $item['identifier'] = $result['msl_doi'];
+                $item['title'] = $result['title'];
                 $item['abstract'] = $result['notes'];
                 $item['keywords'] = [];
-                $keywords = $keywordHelper->extractFromText($item['abstract']);
+                $keywords = $keywordHelper->extractFromText($item['abstract'] . ' ' . $item['title']);
                 
                 foreach ($keywords as $keyword) {
                     $item['keywords'][] = $keyword->getFullPath('>', true);

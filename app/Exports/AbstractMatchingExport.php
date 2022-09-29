@@ -46,8 +46,9 @@ class AbstractMatchingExport implements FromCollection, WithHeadings, WithMappin
         foreach ($results as $result) {
             $item = [];
             $item['identifier'] = $result['msl_doi'];
-            $item['abstract'] = $result['notes'];            
-            $keywords = $keywordHelper->extractFromText($item['abstract']);
+            $item['abstract'] = $result['notes'];    
+            $item['title'] = $result['title'];
+            $keywords = $keywordHelper->extractFromText($item['abstract'] . ' ' . $item['title']);
             $items = [];
             
             foreach ($keywords as $keyword) {
@@ -68,6 +69,7 @@ class AbstractMatchingExport implements FromCollection, WithHeadings, WithMappin
     {
         return [
             'identifier',
+            'title',
             'abstract',
             'keywords'
         ];
@@ -77,6 +79,7 @@ class AbstractMatchingExport implements FromCollection, WithHeadings, WithMappin
     {
         return [
             $keywords['identifier'],
+            $keywords['title'],
             $keywords['abstract'],
             $keywords['keywords']
         ];
