@@ -35,6 +35,7 @@ class MappingLogsExport implements FromCollection, WithHeadings, WithMapping
             'created_at'
         ];
     }
+    
     public function map($mappingLog): array
     {
         return [

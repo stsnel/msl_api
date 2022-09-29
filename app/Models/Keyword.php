@@ -43,10 +43,14 @@ class Keyword extends Model
         return $parents;
     }
     
-    public function getFullPath($delimiter = '>')
+    public function getFullPath($delimiter = '>', $includeVocabName = false)
     {
         $keywords = $this->getFullHierarchy();
         $parts = [];
+        
+        if($includeVocabName) {
+            $parts[] = $this->vocabulary->name;
+        }
         
         foreach ($keywords as $keyword) {
            $parts[] = $keyword->value;

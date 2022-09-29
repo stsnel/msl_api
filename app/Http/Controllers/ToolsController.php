@@ -37,6 +37,9 @@ use App\Converters\GeologicalAgeConverter;
 use App\Converters\GeologicalSettingConverter;
 use App\Converters\PaleomagnetismConverter;
 use App\Converters\GeochemistryConverter;
+use App\Exports\UnmatchedKeywordsExport;
+use App\Mappers\Helpers\KeywordHelper;
+use App\Exports\AbstractMatchingExport;
 
 class ToolsController extends Controller
 {
@@ -244,6 +247,124 @@ class ToolsController extends Controller
         return response()->streamDownload(function () use($exporter) {
             echo $exporter->export();
         }, 'test.json');
+    }
+    
+    public function viewUnmatchedKeywords()
+    {
+        $client = new \GuzzleHttp\Client();
+        
+        $searchRequest = new PackageSearch();
+        $searchRequest->rows = 1000;
+        $searchRequest->query = 'type: data-publication';
+        
+        try {
+            $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+        } catch (\Exception $e) {
+            
+        }
+        
+        $content = json_decode($response->getBody(), true);
+        $results = $content['result']['results'];                
+                                
+        $keywords = [];
+        foreach ($results as $result) {
+            if(count($result['tags']) > 0) {
+                foreach ($result['tags'] as $tag) {
+                    if(!array_key_exists($tag['name'], $keywords)) {
+                        $keywords[$tag['name']] = 1;
+                    } else {
+                        $keywords[$tag['name']] = $keywords[$tag['name']] + 1;
+                    }
+                }
+            }
+        }
+        
+        uasort($keywords, function($a, $b) {
+            return $b - $a;
+        });
+        
+        return view('unmatched-keywords', ['keywords' => $keywords]);
+    }
+    
+    public function downloadUnmatchedKeywords()
+    {
+        return Excel::download(new UnmatchedKeywordsExport(), 'unmatched-keywords.xlsx');
+    }
+    
+    public function abstractMatching(Request $request)
+    {
+        $client = new \GuzzleHttp\Client();
+        
+        $OrganizationListrequest = new OrganizationList();
+        
+        try {
+            $response = $client->request($OrganizationListrequest->method,
+                $OrganizationListrequest->endPoint,
+                $OrganizationListrequest->getPayloadAsArray());
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        
+        $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
+        $organizations = $organizationListResponse->getOrganizations();
+        
+        $filteredOrganizations = [];        
+        
+        foreach ($organizations as $organization) {
+            if($organization['name'] !== 'epos-multi-scale-laboratories-thematic-core-service')
+            {
+                $filteredOrganizations[] = $organization;
+            }
+        }
+        
+        $data = [];
+        $selected = '';
+        
+        if ($request->has('datasetSource')) {
+            $datasetSource = $request->query('datasetSource');
+            $selected = $datasetSource;
+            
+            $searchRequest = new PackageSearch();
+            $searchRequest->rows = 10;
+            $searchRequest->query = 'type: data-publication';
+            $searchRequest->filterQuery =  'owner_org:' . $datasetSource;
+            
+            try {
+                $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+            } catch (\Exception $e) {
+                
+            }
+            
+            $content = json_decode($response->getBody(), true);
+            $results = $content['result']['results'];
+            
+            //dd($results);
+            
+            $keywordHelper = new KeywordHelper();
+                    
+            foreach ($results as $result) {
+                $item = [];
+                $item['identifier'] = $result['msl_doi'];
+                $item['title'] = $result['title'];
+                $item['abstract'] = $result['notes'];
+                $item['keywords'] = [];
+                $keywords = $keywordHelper->extractFromText($item['abstract'] . ' ' . $item['title']);
+                
+                foreach ($keywords as $keyword) {
+                    $item['keywords'][] = $keyword->getFullPath('>', true);
+                }
+                
+                $data[] = $item;
+            }
+        }
+                                
+        
+        return view('abstract-matching', ['data' => $data, 'organizations' => $filteredOrganizations, 'selected' => $selected]);
+    }
+    
+    public function abstractMatchingDownload($dataRepo) 
+    {
+        return Excel::download(new AbstractMatchingExport($dataRepo), 'abstract-matching.xlsx');
     }
   
 }
