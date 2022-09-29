@@ -16,6 +16,8 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Csic data importing
 - Implement 4 new vocabularies: geological age, geological setting, paleomagnetism and geochemistry
 - Add geological setting to researchaspects part of each API endpoint
+- Add functions to view and export unmatched keyword terms
+- Add functions to view and export matching of keywords in abstract and title
 
 ## [1.1.0] - 2022-05-24
 
