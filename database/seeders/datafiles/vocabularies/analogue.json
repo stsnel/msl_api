@@ -6311,15 +6311,6 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [],
-                "subTerms": []
-            },
-            {
-                "value": " ",
-                "level": 2,
-                "hyperlink": "",
-                "vocabUri": "",
-                "uri": "",
-                "synonyms": [],
                 "subTerms": [
                     {
                         "value": "SfM - 3DF Zephyr (3Dflow)",
