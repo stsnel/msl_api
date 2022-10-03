@@ -200,7 +200,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/geochemical_data/Dataset/001> a dcat:Dataset ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/geochemical_data/Dataset/001" ;
         dct:title "Geochemical data" ;
-        dct:description "Access to high-quality analytical data emerging from geochemical measurements." ;
+        dct:description "Geochemical data from geochemistry, geochronology, mineral chemistry and fluid inclusion studies provides compositional data from whole rock to micrometer or even nanometer inclusions (solid, liquid and/or gas) in minerals. There is a large range in techniques and equipment, and, consequently, a large range in data and data types. Analytical techniques vary on the elements or minerals that can be analyzed with the respective detection limits. Data typically include major element composition data, isotope chemistry data, geochronology data and mineral composition data." ;
         adms:identifier [ a adms:Identifier ;
             adms:schemeAgency "DDSS-ID" ;
             skos:notation "WP16-DDSS-001" ;
@@ -208,18 +208,21 @@
         ];
         dct:created "2022-02-22T00:00:00Z"^^xsd:dateTime ;
 		dct:issued "2022-02-23T00:00:00Z"^^xsd:dateTime ;
-		dct:modified "2022-02-230T00:00:00Z"^^xsd:dateTime ;
+		dct:modified "2022-10-03T00:00:00Z"^^xsd:dateTime ;
 		owl:versionInfo "1.0.0" ;
 
         # This property refers to the type of the Dataset. 
         # Example of frequency using a controlled vocabulary http://dublincore.org/2012/06/14/dctype
+        
+        # Update frequency
+        dct:accrualPeriodicity "http://purl.org/cld/freq/irregular"^^xsd:anyURI;
 
 		dct:type "http://purl.org/dc/dcmitype/Collection"^^xsd:anyURI ;
 		
 		# This property refers to a category of the Dataset. A Dataset may be associated with multiple themes.
         dcat:theme <epos:GeochemistryData> ;
         
-        dcat:keyword "geochemistry", "geochemical data", "element geochemistry", "elemental geochemistry", "isotope geochemistry";
+        dcat:keyword "analytical","crustal and upper mantle rheology","fault behavior","fluid and radioactive waste storage","fluid flow, transport and permeability", "fluid inclusions (solid, liquid, gas)","fluid-rock interaction","geochemistry","geochronology","geothermal energy","induced seismicity /induced earthquakes","isotope geochemistry","major element composition","material property","mineral chemistry","mineral composition","natural disaster","natural seismicity /natural earthquakes","oil/gas production","rock mechanical testing","volcano","whole rock chemistry";
         dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint> ;
 
         # This property refers to an Organisation responsible for making the Dataset available.
@@ -235,7 +238,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/rock_and_melt_physical_properties/Dataset/002> a dcat:Dataset ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/rock_and_melt_physical_properties/Dataset/002" ;
         dct:title "Rock and melt physical properties" ;
-        dct:description "Data from multi-scale research into the physical behavior of Earth materials, including rock mechanics experiments, fluid flow tests and petrophysical analyses, performed under crustal or upper mantle conditions of stress, temperature and chemistry. Materials typically studied include sedimentary rocks, like sandstone, limestone, coal and evaporites like rock salt and gypsum, igneous or volcanic rocks like granite, basalt and gabbro, metamorphic rocks like marble and schist, and anthropogenic composites like cement, or 3D-printed rock. The data provide key information into the processes governing geohazards, whether human induced or natural, including earthquakes, land subsidence, landslides and volcanic activity. As such these data are frequently used in models and upscaling studies, aimed at understanding system-scale Earth behavior and at steering strategy for safe and sustainable use of our subsurface." ;
+        dct:description "Data from multi-scale research into the physical behavior of Earth materials, including rock mechanics experiments, fluid flow tests and petrophysical analyses, performed under crustal or upper mantle conditions of stress, temperature and chemistry. Materials typically studied include sedimentary rocks, like sandstone, limestone, coal and evaporites like rock salt and gypsum, igneous or volcanic rocks like granite, basalt and gabbro, metamorphic rocks like marble and schist, and anthropogenic composites like cement, or 3D-printed rock. The data provide key information into the processes governing geohazards, whether human induced or natural, including earthquakes, land subsidence, landslides and volcanic activity. As such, these data are frequently used in models and upscaling studies, aimed at understanding system-scale Earth behavior and at steering strategy for safe and sustainable use of our subsurface." ;
         adms:identifier [ a adms:Identifier ;
             adms:schemeAgency "DDSS-ID" ;
             skos:notation "WP16-DDSS-002" ;
@@ -248,13 +251,16 @@
 
         # This property refers to the type of the Dataset. 
         # Example of frequency using a controlled vocabulary http://dublincore.org/2012/06/14/dctype
+        
+        # Update frequency
+        dct:accrualPeriodicity "http://purl.org/cld/freq/irregular"^^xsd:anyURI;
 
 		dct:type "http://purl.org/dc/dcmitype/Collection"^^xsd:anyURI ;
 		
 		# This property refers to a category of the Dataset. A Dataset may be associated with multiple themes.
         dcat:theme <epos:RockAndMeltPhysicalProperties> ;
         
-        dcat:keyword "rock mechanical testing","material property","fluid flow, transport and permeability","crustal and upper mantle rheology","fault behavior","induced seismicity","induced earthquakes","natural seismicity /natural earthquakes","friction","fracture strength", "shear strength","elastic moduli","brittle deformation","ductile deformation","plastic deformation","geothermal energy","oil production", "gas production","fluid and radioactive waste storage","stress-strain behavior","model parameter","high pressure","high temperature","fluid-rock interaction","natural disaster","volcano","microphysical deformation process","compaction","consolidation","torsion","extension","subsidence","acoustic measurements","anisotropy" ;
+        dcat:keyword "acoustic measurements","anisotropy","brittle deformation","compaction /consolidation","crustal and upper mantle rheology","ductile deformation","elastic moduli","extension","fault behavior","fluid and radioactive waste storage","fluid flow, transport and permeability","fluid-rock interaction","fracture strength /shear strength","friction","geothermal energy","high pressure","high temperature","induced seismicity /induced earthquakes","material property","microphysical deformation process","model parameter","natural disaster","natural seismicity /natural earthquakes","oil/gas production","plastic deformation","rock mechanical testing","stress-strain behavior","subsidence","torsion","volcano" ;
         dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint> ;
 
         # This property refers to an Organisation responsible for making the Dataset available.
@@ -269,7 +275,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/analogue_modelling_data/Dataset/003> a dcat:Dataset ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/analogue_modelling_data/Dataset/003" ;
         dct:title "Analogue modelling data" ;
-        dct:description "Access to high-quality data publications emerging from analogue modelling experiments on gelogical processes. Analogue modeling in Earth Sciences aims at understanding the physics and dynamics of a variety of geological processes operating at different spatial and temporal scales. The analogue community utilizes physical models scaled from a natural prototype (e.g. a mountain belt) down to the laboratory environment. Analogue modeling is a laboratory-based method and has been part of EPOS MSL since the beginning of the EPOS Preparatory Phase in 2010." ;
+        dct:description "Data from analogue modeling studies into large-scale tectonic deformation of the crust and lithosphere (upper mantle) of the Earth. Analogue models are scaled from a natural geological feature (e.g. a mountain belt) down to the laboratory environment. Models utilize a combination of granular materials, like sand or glass beads, elastic materials, like gelatin or silicone, and/or viscous and plastic materials, like oil or clay, to simulate multi-layer deformation of various rheology. Data typically include force, pressure, strain and temperature versus time series, and 2D or 3D image data suitable for digital image correlation to monitor model evolution. The data can be applied to improve understanding into the fundamental physics and dynamics of geological processes like orogenesis (mountain building), extending basins, transform faults and salt flow, and hazards like earthquakes, subsidence, volcanic activity and landslides." ;
         adms:identifier [ a adms:Identifier ;
             adms:schemeAgency "DDSS-ID" ;
             skos:notation "WP16-DDSS-003" ;
@@ -282,13 +288,16 @@
 
         # This property refers to the type of the Dataset. 
         # Example of frequency using a controlled vocabulary http://dublincore.org/2012/06/14/dctype
+        
+        # Update frequency
+        dct:accrualPeriodicity "http://purl.org/cld/freq/irregular"^^xsd:anyURI;
 
 		dct:type "http://purl.org/dc/dcmitype/Collection"^^xsd:anyURI ;
 		
 		# This property refers to a category of the Dataset. A Dataset may be associated with multiple themes.
         dcat:theme <epos:AnalogueModellingResults> ;
         
-        dcat:keyword "tectonically defined  setting", "earth surface  setting", "graben", "deformation", "geologic process", "magmatic process", "sedimentary process", "tectonic process", "weathering", "fault", "crest", "glacial", "tectonic structural", "Dike", "textonics", "analogue modelling";
+        dcat:keyword "basin","brittle deformation","compression","crust and mantle behavior","digital image correlation (DIC)","ductile deformation","extension","fault and fold behavior","geological process","geothermal energy","induced seismicity /earthquakes","lithosphere, asthenosphere","model parameter","mountain","natural hazard or disaster","natural seismicity /earthquakes","oil/gas production","plastic deformation","plate tectonics","sandbox apparatus","shear","subsidence and uplift","viscous behavior","volcano" ;
         dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint> ;
 
         # This property refers to an Organisation responsible for making the Dataset available.
@@ -303,7 +312,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/magnetic_paleomagnetic_data/Dataset/006> a dcat:Dataset ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/magnetic_paleomagnetic_data/Dataset/006" ;
         dct:title "Magnetic and paleomagnetic data" ;
-        dct:description "Access to high-quality data publications emerging from magnetic and paleomagnetic lab measurements. The paleomagnetic community has been involved in EPOS since its early Preliminary Phase, building today a network of laboratories based in France, Italy, The Netherlands, Spain, UK, Poland, Belgium, and Bulgaria. Paleomagnetic data provision started with directional, magnetostratigraphic, magnetic susceptibility and paleointensity datasets, especially addressing the understanding of the evolution of sedimentary basins and for charting geo-hazard frequency. The next step will be the inclusion of environmental and rock magnetism data, following recent trends of paleomagnetic research and technology. Paleomagnetic data measured in MSL laboratories and published via the Magnetics Information Consortium (MagIC) repository can also be discovered and accessed via this service and the MSL Portal." ;
+        dct:description "Data from paleomagnetic and magnetic studies provide directional, magnetostratigraphic, magnetic susceptibility and paleointensity datasets, especially addressing the understanding of evolution of sedimentary basins and for charting geo-hazard frequency. Data can also include environmental magnetism and rock magnetism data. Paleomagnetic and magnetic data provide records of the strength and polarity reversals of the Earth’s magnetic field, among other applications. Materials typically studied are sedimentary rocks like sandstones, shales, limestone, and evaporites, igneous and metamorphic rocks like basalt, peridotite, serpentinite, gneiss and schists. Crucial is the understanding of magnetic mineralogy, presence and abundance of magnetite, hematite, titanomagnetite, chromite." ;
         adms:identifier [ a adms:Identifier ;
             adms:schemeAgency "DDSS-ID" ;
             skos:notation "WP16-DDSS-006" ;
@@ -316,13 +325,16 @@
 
         # This property refers to the type of the Dataset. 
         # Example of frequency using a controlled vocabulary http://dublincore.org/2012/06/14/dctype
+        
+        #Update frequency
+        dct:accrualPeriodicity "http://purl.org/cld/freq/irregular"^^xsd:anyURI;
 
 		dct:type "http://purl.org/dc/dcmitype/Collection"^^xsd:anyURI ;
 		
 		# This property refers to a category of the Dataset. A Dataset may be associated with multiple themes.
         dcat:theme <epos:MagneticPaleomagneticData> ;
         
-        dcat:keyword "Laboratories", "mutli-scale", "magnetism", "paleomagnetism", "magnetic susceptibility", "remanent magnetization", "magnetic sample", "lithology", "anisotropy", "demagnetisation", "ArcheologicalAshes","LandSection","StrategraphicSection","ArcheologicalSite","Lunar","Submarine","Core","Martian","DrillSite","Meteorite","Outcrop","LakeCore","Region";
+        dcat:keyword "basin","basin evolution","crust and mantle behavior","crustal magnetism","directional data","environmental magnetism","fault and fold behavior","geo-hazard frequency","geological process","induced seismicity /earthquakes","lithosphere, asthenosphere","magnetic mineralogy","magnetic remanence","magnetic susceptibility","magnetiostratigraphy","mountain","natural hazard or disaster","natural seismicity /earthquakes","paleointensity","paleomagnetism","plate tectonics","polarity reversals","rock magnetism","subsidence and uplift","volcano" ;
         dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint> ;
 
         # This property refers to an Organisation responsible for making the Dataset available.
@@ -337,7 +349,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/microscopy_and_tomography_data/Dataset/011> a dcat:Dataset ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/microscopy_and_tomography_data/Dataset/011" ;
         dct:title "Microscopy and tomography data" ;
-        dct:description "Access to high-quality, high-resolution data emerging from electron and X-ray microscopes." ;
+        dct:description "Multi-scale, 2D and 3D visualization of Earth materials. Analyses involve a wide range in techniques, including electron, optical and atomic force microscopy, X-ray tomography and microchemical analyses and mapping. The data include rock and pore structure images at nanometer, or even atomic resolution, microchemical, mineralogical and crystallographic maps and CT scans. Materials typically studied are sedimentary rock like sandstones, shales, limestone and evaporites, igneous and metamorphic rocks like granite, basalt, gneiss and schists, ores and rare-Earth elements, but can also include extra-terrestrial materials like meteorites. The microstructural and compositional information provided by these data is crucial for our understanding of a wide range of geoscientific topics, including the effects of hydrogen storage, geothermal energy production, gas production and mining, and on factors influencing hazards like volcanic activity, landslides, fault behavior, subsidence and earthquakes." ;
         adms:identifier [ a adms:Identifier ;
             adms:schemeAgency "DDSS-ID" ;
             skos:notation "WP16-DDSS-011" ;
@@ -350,13 +362,16 @@
 
         # This property refers to the type of the Dataset. 
         # Example of frequency using a controlled vocabulary http://dublincore.org/2012/06/14/dctype
+        
+        #Update frequency
+        dct:accrualPeriodicity "http://purl.org/cld/freq/irregular"^^xsd:anyURI;
 
 		dct:type "http://purl.org/dc/dcmitype/Collection"^^xsd:anyURI ;
 		
 		# This property refers to a category of the Dataset. A Dataset may be associated with multiple themes.
         dcat:theme <epos:MicroscopyTomographyData> ;
         
-        dcat:keyword "poroelastic deformation", "(poro)elastic deformation", "poro-elastic deformation", "anelastic deformation", "inelastic deformation", "hysteresis", "brittle deformation", "frictional deformation", "ductile deformation", "brittle-ductile deformation", "semi-brittle deformation", "cataclastic deformation", "brittle-plastic deformation", "brittle-viscous deformation", "viscous deformation", "plastic deformation", "intragranular cracking", "intergranular cracking", "transgranular cracking", "intergranular slip", "granular flow", "sub-critical crack growth", "stress corrosion cracking", "pressure solution", "dissolution precipitation creep", "fluid desorption", "fluid expulsion", "fluid adsorption", "fluid absorption", "crystal plasticity - dislocation creep", "diffusion creep", "frictional heating", "flash heating", "shear failure", "shear fracturing", "compaction band", "stylolite", "shear band", "boundary shear", "Riedel shear", "boudinage", "chemical reaction zonation";
+        dcat:keyword "anisotropy","crystal and mineral orientation","electron microscopy (SEM, FIB-SEM, STEM, TEM)","fault behavior","fluid and radioactive waste storage","fluid flow, transport and permeability","fluid-rock interaction","geothermal energy","induced seismicity /earthquakes","interferometry","micrograph","microphysical deformation process","microprobe","microstructure and rock structure","model parameter","natural disaster","natural seismicity /earthquakes","oil/gas production","pore network and porosity","spectroscopy","subsidence","volcano","X-ray tomography" ;
         dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint> ;
 
         # This property refers to an Organisation responsible for making the Dataset available.
@@ -370,7 +385,7 @@
 
 <https://www.epos-eu.org/multi-scale-laboratories/laboratory_data/Dataset/013> a dcat:Dataset ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/laboratory_data/Dataset/013" ;
-        dct:title "Experimental lab data" ;
+        dct:title "Search all multi-scale lab data" ;
         dct:description "Access to high-quality data emerging from experimental labs in the Earth sciences." ;
         adms:identifier [ a adms:Identifier ;
             adms:schemeAgency "DDSS-ID" ;
@@ -384,6 +399,9 @@
 
         # This property refers to the type of the Dataset. 
         # Example of frequency using a controlled vocabulary http://dublincore.org/2012/06/14/dctype
+        
+        #Update frequency
+        dct:accrualPeriodicity "http://purl.org/cld/freq/irregular"^^xsd:anyURI;
 
 		dct:type "http://purl.org/dc/dcmitype/Collection"^^xsd:anyURI ;
 		
@@ -400,6 +418,17 @@
         dcat:distribution <https://www.epos-eu.org/multi-scale-laboratories/laboratory_data/Dataset/013/Distribution/013> ;
 .
 
+# *************
+#
+# ApiDocumentation
+#
+# *************
+
+<https://www.epos-eu.org/multi-scale-laboratories/doc/general-webservices> a hydra:ApiDocumentation ;
+	hydra:title "EPOS MSL webservice" ;
+	hydra:description "EPOS MSL webservice providing access to data.";
+	hydra:entrypoint "https://github.com/UtrechtUniversity/msl_api/blob/master/api.md"^^xsd:anyURI;
+.
 
 # *************
 #
@@ -552,8 +581,8 @@
 
 <https://www.epos-eu.org/multi-scale-laboratories/laboratory_data/Dataset/013/Distribution/013> a dcat:Distribution ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/microscopy_and_tomography_data/Dataset/011/Distribution/011" ;
-        dct:title "Experimental lab data" ;
-		dct:description "Access to high-quality data emerging from multi-domain experimental labs in the Earth sciences." ;
+        dct:title "Search all multi-scale lab data" ;
+		dct:description "Search all multi-scale labs data i.e. include all multi-scale lab subdomains in your search." ;
 
         # This property refers to the type of the Distribution. The possible types are
         # (http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE
@@ -598,6 +627,7 @@
 	schema:keywords "geochemistry", "geochemical data", "element geochemistry", "elemental geochemistry", "isotope geochemistry" ;
 	dct:license "http://www.fsf.org/licensing/licenses/agpl-3.0.html"^^xsd:anyURI;
 	dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint>;
+	dct:conformsTo <https://www.epos-eu.org/multi-scale-laboratories/doc/general-webservices>;
 . 
 
 	<https://www.epos-eu.org/multi-scale-laboratories/WebService/001/Operation/001> a hydra:Operation;
@@ -660,6 +690,7 @@
 	schema:keywords "Laboratories","Rock and melt physical properties","Experimental data","rock mechanical testing","material property","fluid flow, transport and permeability","crustal and upper mantle rheology","fault behavior","induced seismicity","induced earthquakes","natural seismicity /natural earthquakes","friction","fracture strength", "shear strength","elastic moduli","brittle deformation","ductile deformation","plastic deformation","geothermal energy","oil production", "gas production","fluid and radioactive waste storage","stress-strain behavior","model parameter","high pressure","high temperature","fluid-rock interaction","natural disaster","volcano","microphysical deformation process","compaction","consolidation","torsion","extension","subsidence","acoustic measurements","anisotropy" ;
 	dct:license "http://www.fsf.org/licensing/licenses/agpl-3.0.html"^^xsd:anyURI;
 	dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint>;
+	dct:conformsTo <https://www.epos-eu.org/multi-scale-laboratories/doc/general-webservices>;
 . 
 
 	<https://www.epos-eu.org/multi-scale-laboratories/WebService/002/Operation/002> a hydra:Operation;
@@ -721,6 +752,7 @@
 	schema:keywords "laboratories","Eexperimental data","crust and mantle behavior","geological process","fault and fold behavior","induced seismicity /earthquakes","natural seismicity /earthquakes","model parameter","natural hazard or disaster","volcano","subsidence and uplift","plate tectonics","lithosphere, asthenosphere","mountain","basin","brittle deformation","ductile deformation","plastic deformation","viscous behavior","sandbox apparatus","compression","extension","shear ","digital image correlation (DIC)","geothermal energy","oil/gas production";
 	dct:license "http://www.fsf.org/licensing/licenses/agpl-3.0.html"^^xsd:anyURI;
 	dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint>;
+	dct:conformsTo <https://www.epos-eu.org/multi-scale-laboratories/doc/general-webservices>;
 . 
 
 	<https://www.epos-eu.org/multi-scale-laboratories/WebService/003/Operation/003> a hydra:Operation;
@@ -782,6 +814,7 @@
 	schema:keywords "laboratories","experimental data","basin","basin evolution","crust and mantle behavior","crustal magnetism","directional data","environmental magnetism","fault and fold behavior","geo-hazard frequency","geological process","induced seismicity /earthquakes","lithosphere, asthenosphere","magnetic mineralogy","magnetic remanence","magnetic susceptibility","magnetiostratigraphy","mountain","natural hazard or disaster","natural seismicity /earthquakes","paleointensity","paleomagnetism","plate tectonics","polarity reversals","rock magnetism","subsidence and uplift","volcano";
 	dct:license "http://www.fsf.org/licensing/licenses/agpl-3.0.html"^^xsd:anyURI;
 	dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint>;
+	dct:conformsTo <https://www.epos-eu.org/multi-scale-laboratories/doc/general-webservices>;
 . 
 
 	<https://www.epos-eu.org/multi-scale-laboratories/WebService/006/Operation/006> a hydra:Operation;
@@ -843,6 +876,7 @@
 	schema:keywords "poroelastic deformation", "(poro)elastic deformation", "poro-elastic deformation", "anelastic deformation", "inelastic deformation", "hysteresis", "brittle deformation", "frictional deformation", "ductile deformation", "brittle-ductile deformation", "semi-brittle deformation", "cataclastic deformation", "brittle-plastic deformation", "brittle-viscous deformation", "viscous deformation", "plastic deformation", "intragranular cracking", "intergranular cracking", "transgranular cracking", "intergranular slip", "granular flow", "sub-critical crack growth", "stress corrosion cracking", "pressure solution", "dissolution precipitation creep", "fluid desorption", "fluid expulsion", "fluid adsorption", "fluid absorption", "crystal plasticity - dislocation creep", "diffusion creep", "frictional heating", "flash heating", "shear failure", "shear fracturing", "compaction band", "stylolite", "shear band", "boundary shear", "Riedel shear", "boudinage", "chemical reaction zonation";
 	dct:license "http://www.fsf.org/licensing/licenses/agpl-3.0.html"^^xsd:anyURI;
 	dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint>;
+	dct:conformsTo <https://www.epos-eu.org/multi-scale-laboratories/doc/general-webservices>;
 . 
 
 	<https://www.epos-eu.org/multi-scale-laboratories/WebService/011/Operation/011> a hydra:Operation;
@@ -904,6 +938,7 @@
 	schema:keywords "laboratory data", "experiment", "measurement";
 	dct:license "http://www.fsf.org/licensing/licenses/agpl-3.0.html"^^xsd:anyURI;
 	dcat:contactPoint <http://orcid.org/0000-0003-3560-988X/contactPoint>;
+	dct:conformsTo <https://www.epos-eu.org/multi-scale-laboratories/doc/general-webservices>;
 . 
 
 	<https://www.epos-eu.org/multi-scale-laboratories/WebService/013/Operation/013> a hydra:Operation;
