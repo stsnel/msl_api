@@ -15,6 +15,9 @@
 @prefix http: <http://www.w3.org/2006/http#> .  
 @prefix owl: <http://www.w3.org/2002/07/owl#> .  
 @prefix gsp: <http://www.opengis.net/ont/geosparql#> .  
+@prefix dqv: <http://www.w3.org/ns/dqv#> .  
+@prefix oa: <http://www.w3.org/ns/oa#> .  
+
 
 <ORCID:0000-0003-3560-988X> a schema:Person;
     schema:identifier [ a schema:PropertyValue ;
@@ -280,6 +283,11 @@
         # This property refers to an Organisation responsible for making the Dataset available.
 		dct:publisher <PIC:99985805>, <PIC:999994341> ;
 		
+		# This property refers to the quality assurance document URL
+        dqv:hasQualityAnnotation [ a oa:Annotation ;
+       		oa:hasBody "https://github.com/UtrechtUniversity/msl_api/blob/master/data-quality.md"^^xsd:anyURI  ;
+        ];
+		
 		# This property links the Dataset to an available Distribution.
         dcat:distribution <https://www.epos-eu.org/multi-scale-laboratories/geochemical_data/Dataset/001/Distribution/001> ;
 .
@@ -318,6 +326,11 @@
         # This property refers to an Organisation responsible for making the Dataset available.
 		dct:publisher <PIC:99985805>, <PIC:999994341> ;
 		
+		# This property refers to the quality assurance document URL
+        dqv:hasQualityAnnotation [ a oa:Annotation ;
+       		oa:hasBody "https://github.com/UtrechtUniversity/msl_api/blob/master/data-quality.md"^^xsd:anyURI  ;
+        ];
+		
 		# This property links the Dataset to an available Distribution.
         dcat:distribution <https://www.epos-eu.org/multi-scale-laboratories/rock_and_melt_physical_properties/Dataset/002/Distribution/002> ;
 .
@@ -354,6 +367,11 @@
 
         # This property refers to an Organisation responsible for making the Dataset available.
 		dct:publisher <PIC:99985805>, <PIC:999994341> ;
+		
+		# This property refers to the quality assurance document URL
+        dqv:hasQualityAnnotation [ a oa:Annotation ;
+       		oa:hasBody "https://github.com/UtrechtUniversity/msl_api/blob/master/data-quality.md"^^xsd:anyURI  ;
+        ];
 		
 		# This property links the Dataset to an available Distribution.
         dcat:distribution <https://www.epos-eu.org/multi-scale-laboratories/analogue_modelling_data/Dataset/003/Distribution/003> ;
@@ -392,6 +410,11 @@
         # This property refers to an Organisation responsible for making the Dataset available.
 		dct:publisher <PIC:99985805>, <PIC:999994341> ;
 		
+		# This property refers to the quality assurance document URL
+        dqv:hasQualityAnnotation [ a oa:Annotation ;
+       		oa:hasBody "https://github.com/UtrechtUniversity/msl_api/blob/master/data-quality.md"^^xsd:anyURI  ;
+        ];
+		
 		# This property links the Dataset to an available Distribution.
         dcat:distribution <https://www.epos-eu.org/multi-scale-laboratories/magnetic_paleomagnetic_data/Dataset/006/Distribution/006> ;
 .
@@ -429,6 +452,11 @@
         # This property refers to an Organisation responsible for making the Dataset available.
 		dct:publisher <PIC:99985805>, <PIC:999994341> ;
 		
+		# This property refers to the quality assurance document URL
+        dqv:hasQualityAnnotation [ a oa:Annotation ;
+       		oa:hasBody "https://github.com/UtrechtUniversity/msl_api/blob/master/data-quality.md"^^xsd:anyURI  ;
+        ];
+		
 		# This property links the Dataset to an available Distribution.
         dcat:distribution <https://www.epos-eu.org/multi-scale-laboratories/microscopy_and_tomography_data/Dataset/011/Distribution/011> ;
 .
@@ -465,6 +493,11 @@
 
         # This property refers to an Organisation responsible for making the Dataset available.
 		dct:publisher <PIC:99985805>, <PIC:999994341> ;
+		
+		# This property refers to the quality assurance document URL
+        dqv:hasQualityAnnotation [ a oa:Annotation ;
+       		oa:hasBody "https://github.com/UtrechtUniversity/msl_api/blob/master/data-quality.md"^^xsd:anyURI  ;
+        ];
 		
 		# This property links the Dataset to an available Distribution.
         dcat:distribution <https://www.epos-eu.org/multi-scale-laboratories/laboratory_data/Dataset/013/Distribution/013> ;
