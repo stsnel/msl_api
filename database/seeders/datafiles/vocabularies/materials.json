@@ -735,7 +735,10 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "Rotliegend sandstone"
+                                    "Rotliegend sandstone",
+                                    "Rotliegendes",
+                                    "Rotliegend",
+                                    "Slochteren"
                                 ],
                                 "subTerms": []
                             }
@@ -795,7 +798,17 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/rock_gypsum_or_anhydrite",
                         "synonyms": [],
-                        "subTerms": []
+                        "subTerms": [
+                            {
+                                "value": "Basal Zechstein",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
                     },
                     {
                         "value": "rock salt",
@@ -832,13 +845,13 @@
         ],
         "subTerms": [
             {
-                "value": "acidic",
+                "value": "acidic intrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/acidic_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/acidic_igneous_rock",
                 "synonyms": [
-                    "felsic"
+                    "felsic intrusive"
                 ],
                 "subTerms": [
                     {
@@ -987,21 +1000,14 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "Stripa granite",
+                                "value": "Westerly granite",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "Westerley granite",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "Westerley granite"
+                                ],
                                 "subTerms": []
                             }
                         ]
@@ -1085,13 +1091,13 @@
                 ]
             },
             {
-                "value": "intermediate",
+                "value": "intermediate intrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/intermediate_composition_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/intermediate_composition_igneous_rock",
                 "synonyms": [
-                    "andesitic"
+                    "andesitic intrusive"
                 ],
                 "subTerms": [
                     {
@@ -1124,13 +1130,13 @@
                 ]
             },
             {
-                "value": "basic",
+                "value": "basic intrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/basic_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/basic_igneous_rock",
                 "synonyms": [
-                    "mafic"
+                    "mafic intrusive"
                 ],
                 "subTerms": [
                     {
@@ -1212,13 +1218,13 @@
                 ]
             },
             {
-                "value": "ultrabasic",
+                "value": "ultrabasic intrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/ultramafic_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/ultramafic_igneous_rock",
                 "synonyms": [
-                    "ultramafic"
+                    "ultramafic intrusive"
                 ],
                 "subTerms": [
                     {
@@ -1337,13 +1343,13 @@
         ],
         "subTerms": [
             {
-                "value": "acidic",
+                "value": "acidic extrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/acidic_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/acidic_igneous_rock",
                 "synonyms": [
-                    "felsic"
+                    "felsic extrusive"
                 ],
                 "subTerms": [
                     {
@@ -1376,13 +1382,13 @@
                 ]
             },
             {
-                "value": "intermediate",
+                "value": "intermediate extrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/intermediate_composition_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/intermediate_composition_igneous_rock",
                 "synonyms": [
-                    "andesitic"
+                    "andesitic extrusive"
                 ],
                 "subTerms": [
                     {
@@ -1424,13 +1430,13 @@
                 ]
             },
             {
-                "value": "basic",
+                "value": "basic extrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/basic_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/basic_igneous_rock",
                 "synonyms": [
-                    "mafic"
+                    "mafic extrusive"
                 ],
                 "subTerms": [
                     {
@@ -1500,13 +1506,13 @@
                 ]
             },
             {
-                "value": "ultrabasic",
+                "value": "ultrabasic extrusive",
                 "level": 2,
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/ultramafic_igneous_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/ultramafic_igneous_rock",
                 "synonyms": [
-                    "ultramafic"
+                    "ultramafic extrusive"
                 ],
                 "subTerms": [
                     {
@@ -1563,7 +1569,9 @@
                         "uri": "",
                         "synonyms": [
                             "lapillituff",
-                            "lapilli-tuff"
+                            "lapilli-tuff",
+                            "ashtufflapillistoneandlapillituff",
+                            "ash tuff lapillistone and lapilli tuff"
                         ],
                         "subTerms": []
                     },
@@ -1583,7 +1591,8 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "ash tuff"
+                            "ash tuff",
+                            "volcanic ash"
                         ],
                         "subTerms": [
                             {
@@ -1832,7 +1841,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/phyllite",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/phyllite",
-                "synonyms": [],
+                "synonyms": [
+                    "phyllitic"
+                ],
                 "subTerms": []
             },
             {
@@ -1841,7 +1852,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/schist",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/schist",
-                "synonyms": [],
+                "synonyms": [
+                    "schistosity"
+                ],
                 "subTerms": [
                     {
                         "value": "greenschist",
@@ -2036,7 +2049,14 @@
         "hyperlink": "",
         "vocabUri": "",
         "uri": "",
-        "synonyms": [],
+        "synonyms": [
+            "faultrelatedmaterial",
+            "fault rocks",
+            "faultrocks",
+            "faultrock",
+            "natural fault rocks",
+            "fault microstructure"
+        ],
         "subTerms": [
             {
                 "value": "fault gouge",
@@ -2044,8 +2064,23 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
-                "subTerms": []
+                "synonyms": [
+                    "fault gouges",
+                    "fault gouge microstructure"
+                ],
+                "subTerms": [
+                    {
+                        "value": "simulated fault gouge",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "simulated fault gouges"
+                        ],
+                        "subTerms": []
+                    }
+                ]
             },
             {
                 "value": "cataclasite",
@@ -2053,7 +2088,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "cataclasiteseries"
+                ],
                 "subTerms": []
             },
             {
@@ -2062,7 +2099,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "mylonite foliation"
+                ],
                 "subTerms": []
             },
             {
@@ -2071,7 +2110,11 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "pseudotachylyte",
+                    "pseudotachilite",
+                    "pseudotachylite microstructure"
+                ],
                 "subTerms": []
             },
             {
@@ -2080,7 +2123,10 @@
                 "hyperlink": "https:\/\/cgi.vocabs.ga.gov.au\/object?uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/breccia_gouge_series",
                 "vocabUri": "",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/breccia_gouge_series",
-                "synonyms": [],
+                "synonyms": [
+                    "breccia microstructure",
+                    "fault breccia"
+                ],
                 "subTerms": []
             }
         ]
@@ -2337,7 +2383,9 @@
         "hyperlink": "https:\/\/www.mindat.org\/strunz.php",
         "vocabUri": "",
         "uri": "",
-        "synonyms": [],
+        "synonyms": [
+            "mineral"
+        ],
         "subTerms": [
             {
                 "value": "elements",
@@ -3559,7 +3607,10 @@
                 "hyperlink": "https:\/\/www.mindat.org\/strunz.php?a=5",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "carbonate sedimentary rock",
+                    "carbonate"
+                ],
                 "subTerms": [
                     {
                         "value": "ankerite",
@@ -4685,7 +4736,9 @@
                                 "hyperlink": "https:\/\/www.mindat.org\/min-6728.html",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "mica fish"
+                                ],
                                 "subTerms": [
                                     {
                                         "value": "biotite",
@@ -4814,7 +4867,9 @@
                                 "hyperlink": "https:\/\/www.mindat.org\/min-9581.html",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "Kfeldspar"
+                                ],
                                 "subTerms": [
                                     {
                                         "value": "anorthoclase",
@@ -4860,7 +4915,9 @@
                                 "hyperlink": "https:\/\/www.mindat.org\/min-9264.html",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "plagioclase"
+                                ],
                                 "subTerms": [
                                     {
                                         "value": "albite",
@@ -4968,15 +5025,6 @@
                                         "value": "opal",
                                         "level": 5,
                                         "hyperlink": "https:\/\/www.mindat.org\/min-3004.html",
-                                        "vocabUri": "",
-                                        "uri": "",
-                                        "synonyms": [],
-                                        "subTerms": []
-                                    },
-                                    {
-                                        "value": "quartz",
-                                        "level": 5,
-                                        "hyperlink": "https:\/\/www.mindat.org\/min-3337.html",
                                         "vocabUri": "",
                                         "uri": "",
                                         "synonyms": [],
@@ -5250,7 +5298,9 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "Fontainebleau sand (analogue modelling)"
+                                ],
                                 "subTerms": []
                             },
                             {
@@ -5259,16 +5309,20 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "Heksenberg sand (analogue modelling)"
+                                ],
                                 "subTerms": []
                             },
                             {
-                                "value": "Ottowa sand ",
+                                "value": "Ottowa sand",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "Ottowa sand (analogue modelling)"
+                                ],
                                 "subTerms": []
                             },
                             {
@@ -5277,7 +5331,9 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "St. Peter sand (analogue modelling)"
+                                ],
                                 "subTerms": []
                             }
                         ]
@@ -5309,7 +5365,9 @@
                         "hyperlink": "https:\/\/inspire.ec.europa.eu\/codelist\/LithologyValue\/ashBrecciaBombOrBlockTephra",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "ashandlapilli"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -5322,13 +5380,13 @@
                         "subTerms": []
                     },
                     {
-                        "value": "bomb",
+                        "value": "pyroclastic bomb",
                         "level": 3,
                         "hyperlink": "https:\/\/www.mindat.org\/min-48578.html",
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "block"
+                            "pyroclastic block"
                         ],
                         "subTerms": []
                     },
@@ -5369,10 +5427,14 @@
         "hyperlink": "",
         "vocabUri": "",
         "uri": "",
-        "synonyms": [],
+        "synonyms": [
+            "analogue materials",
+            "analog modelling material",
+            "analog materials"
+        ],
         "subTerms": [
             {
-                "value": "granular material",
+                "value": "granular modelling material",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -5380,7 +5442,7 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "natural",
+                        "value": "natural granular material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -5388,7 +5450,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "quartz sand",
+                                "value": "quartz sand (analogue modelling)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5396,7 +5458,7 @@
                                 "synonyms": [],
                                 "subTerms": [
                                     {
-                                        "value": "Fontainebleau sand",
+                                        "value": "Fontainebleau sand (analogue modelling)",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -5405,7 +5467,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "Heksenberg sand",
+                                        "value": "Heksenberg sand (analogue modelling)",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -5414,7 +5476,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "Ottowa sand ",
+                                        "value": "Ottowa sand (analogue modelling)",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -5423,7 +5485,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "St. Peter sand",
+                                        "value": "St. Peter sand (analogue modelling)",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -5472,7 +5534,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "feldspar sand",
+                                "value": "feldspar sand (analogue modelling)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5536,7 +5598,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "graphite",
+                                "value": "graphite (analogue modelling)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5560,7 +5622,7 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "talc"
+                                    "talc (analogue modelling)"
                                 ],
                                 "subTerms": []
                             },
@@ -5585,7 +5647,7 @@
                         ]
                     },
                     {
-                        "value": "synthetic",
+                        "value": "synthetic granular material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -5662,7 +5724,7 @@
                         ]
                     },
                     {
-                        "value": "organic",
+                        "value": "organic granular material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -5716,7 +5778,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "iron",
+                                "value": "iron powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5725,7 +5787,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "aluminium",
+                                "value": "aluminium powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5734,7 +5796,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "bismuth",
+                                "value": "bismuth powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5743,7 +5805,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "cadmium",
+                                "value": "cadmium powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5752,7 +5814,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "nickel",
+                                "value": "nickel powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5761,7 +5823,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "magnesium",
+                                "value": "magnesium powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5770,7 +5832,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "bronze",
+                                "value": "bronze powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5779,7 +5841,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "copper",
+                                "value": "copper powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5788,7 +5850,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "lead tetroxide",
+                                "value": "lead tetroxide powder",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5801,7 +5863,7 @@
                 ]
             },
             {
-                "value": "elastic material",
+                "value": "elastic modelling material",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -5809,7 +5871,7 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "natural",
+                        "value": "natural elastic material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -5832,7 +5894,9 @@
                                         "hyperlink": "",
                                         "vocabUri": "",
                                         "uri": "",
-                                        "synonyms": [],
+                                        "synonyms": [
+                                            "pig skin"
+                                        ],
                                         "subTerms": []
                                     },
                                     {
@@ -5911,32 +5975,44 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "latex"
+                                    "rubber"
                                 ],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "rubber foam",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "nitrile rubber",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
+                                "subTerms": [
+                                    {
+                                        "value": "latex",
+                                        "level": 5,
+                                        "hyperlink": "",
+                                        "vocabUri": "",
+                                        "uri": "",
+                                        "synonyms": [],
+                                        "subTerms": []
+                                    },
+                                    {
+                                        "value": "rubber foam",
+                                        "level": 5,
+                                        "hyperlink": "",
+                                        "vocabUri": "",
+                                        "uri": "",
+                                        "synonyms": [
+                                            "foam rubber"
+                                        ],
+                                        "subTerms": []
+                                    },
+                                    {
+                                        "value": "nitrile rubber",
+                                        "level": 5,
+                                        "hyperlink": "",
+                                        "vocabUri": "",
+                                        "uri": "",
+                                        "synonyms": [],
+                                        "subTerms": []
+                                    }
+                                ]
                             }
                         ]
                     },
                     {
-                        "value": "synthetic",
+                        "value": "synthetic elastic material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -5949,20 +6025,13 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "polyurethane"
+                                ],
                                 "subTerms": []
                             },
                             {
                                 "value": "neoprene foam",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "ethylene-vinyl acetate (EVA) foam",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -5976,7 +6045,9 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "polyethylene"
+                                ],
                                 "subTerms": []
                             },
                             {
@@ -5985,7 +6056,9 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "polyvinyl chloride"
+                                ],
                                 "subTerms": []
                             },
                             {
@@ -5998,7 +6071,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "polystyrene (PS) foam",
+                                "value": "polystyrene foam ",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -6007,7 +6080,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "polypropylene (PP) foam",
+                                "value": "polypropylene foam",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -6025,7 +6098,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "carbopol",
+                                "value": "ethylene-vinyl acetate foam",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -6034,12 +6107,14 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "ethel vinyl acetate (EVA) rubber ",
+                                "value": "ethel vinyl acetate rubber",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "ethel vinyl acetate"
+                                ],
                                 "subTerms": []
                             }
                         ]
@@ -6047,7 +6122,7 @@
                 ]
             },
             {
-                "value": "viscous material",
+                "value": "viscous modelling material",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6057,7 +6132,7 @@
                 ],
                 "subTerms": [
                     {
-                        "value": "natural",
+                        "value": "natural viscous material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -6065,16 +6140,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "water",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "clay ",
+                                "value": "water (analogue modelling)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -6094,7 +6160,7 @@
                         ]
                     },
                     {
-                        "value": "synthetic",
+                        "value": "synthetic viscous material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -6109,7 +6175,11 @@
                                 "uri": "",
                                 "synonyms": [
                                     "silly putty",
-                                    "polydimethylsiloxane PDMS"
+                                    "sillyputty",
+                                    "polydimethylsiloxane PDMS",
+                                    "SiliconSilly puttyPDMS",
+                                    "PDMS",
+                                    "Silicon  Silly putty  PDMS"
                                 ],
                                 "subTerms": []
                             },
@@ -6170,7 +6240,7 @@
                         ]
                     },
                     {
-                        "value": "organic",
+                        "value": "organic viscous material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -6210,7 +6280,9 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "golden syrup"
+                                ],
                                 "subTerms": []
                             },
                             {
@@ -6245,7 +6317,7 @@
                 ]
             },
             {
-                "value": "plastic material",
+                "value": "plastic modelling material",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6253,7 +6325,7 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "natural",
+                        "value": "natural plastic material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -6261,7 +6333,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "clay",
+                                "value": "clay (analogue modelling)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -6272,7 +6344,7 @@
                         ]
                     },
                     {
-                        "value": "synthetic",
+                        "value": "synthetic plastic material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -6307,15 +6379,6 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "plastic",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
                                 "value": "PVC rods",
                                 "level": 4,
                                 "hyperlink": "",
@@ -6329,7 +6392,7 @@
                         ]
                     },
                     {
-                        "value": "organic",
+                        "value": "organic plastic material",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -6390,35 +6453,52 @@
         ]
     },
     {
-        "value": "antropogenic material",
+        "value": "synthesized material",
         "level": 1,
         "hyperlink": "",
         "vocabUri": "",
         "uri": "",
         "synonyms": [
-            "synthesized material"
+            "anthropogenic material"
         ],
         "subTerms": [
             {
-                "value": "cement",
+                "value": "construction cement",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "building cement"
+                ],
                 "subTerms": []
             },
             {
-                "value": "concrete",
+                "value": "casing cement",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "cement casing"
+                ],
                 "subTerms": []
             },
             {
-                "value": "glass",
+                "value": "concrete (construction)",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "construction concrete",
+                    "building concrete",
+                    "concrete for building"
+                ],
+                "subTerms": []
+            },
+            {
+                "value": "fabricated glass ",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6432,7 +6512,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "3D-printed"
+                ],
                 "subTerms": [
                     {
                         "value": "printed plastic",

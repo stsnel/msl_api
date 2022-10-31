@@ -63,19 +63,19 @@ class RockPhysicsConverter
         foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {
             switch ($sheetName) {
                 case 'Apparatus':
-                    $cellIterator = $row->getCellIterator('A', 'C');
+                    $cellIterator = $row->getCellIterator('A', 'D');
                     break;
                     
                 case 'Ancillary equipment':
-                    $cellIterator = $row->getCellIterator('A', 'B');
+                    $cellIterator = $row->getCellIterator('A', 'C');
                     break;
                     
                 case 'Measured property':
-                    $cellIterator = $row->getCellIterator('A', 'B');
+                    $cellIterator = $row->getCellIterator('A', 'C');
                     break;
                     
                 case 'Inferred deformation behavior':
-                    $cellIterator = $row->getCellIterator('A', 'B');
+                    $cellIterator = $row->getCellIterator('A', 'C');
                     break;
             }
             

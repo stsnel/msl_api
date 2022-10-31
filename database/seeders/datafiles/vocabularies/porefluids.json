@@ -9,7 +9,7 @@
         "subTerms": []
     },
     {
-        "value": "solid",
+        "value": "solid phase",
         "level": 1,
         "hyperlink": "",
         "vocabUri": "",
@@ -28,7 +28,7 @@
         ]
     },
     {
-        "value": "liquid ",
+        "value": "liquid phase",
         "level": 1,
         "hyperlink": "",
         "vocabUri": "",
@@ -86,7 +86,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "brine"
+                ],
                 "subTerms": []
             },
             {
@@ -138,7 +140,7 @@
         ]
     },
     {
-        "value": "gas",
+        "value": "gas phase",
         "level": 1,
         "hyperlink": "",
         "vocabUri": "",
@@ -163,7 +165,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "hydrogen"
+                ],
                 "subTerms": []
             },
             {
@@ -172,7 +176,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "oxygen"
+                ],
                 "subTerms": []
             },
             {
@@ -181,7 +187,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "methane"
+                ],
                 "subTerms": []
             },
             {
@@ -202,7 +210,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "nitrogen"
+                ],
                 "subTerms": []
             },
             {
@@ -211,7 +221,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "argon"
+                ],
                 "subTerms": []
             }
         ]
