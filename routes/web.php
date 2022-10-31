@@ -45,6 +45,7 @@ Route::post('tools/convert-geological-age', [ToolsController::class, 'processGeo
 Route::post('tools/convert-geological-setting', [ToolsController::class, 'processGeologicalSettingFile'])->name('process-geological-setting-file');
 Route::post('tools/convert-paleomagnetism', [ToolsController::class, 'processPaleomagnetismFile'])->name('process-paleomagnetism-file');
 Route::post('tools/convert-geochemistry', [ToolsController::class, 'processGeochemistryFile'])->name('process-geochemistry-file');
+Route::post('tools/convert-microscopy', [ToolsController::class, 'processMiscroscopyFile'])->name('process-microscopy-file');
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
 Route::get('tools/filtertree', [ToolsController::class, 'filterTree'])->name('filter-tree');

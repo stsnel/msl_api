@@ -180,6 +180,26 @@ class VocabularySeeder extends Seeder
         foreach ($vocabData as $topNode) {
             $this->processNode($topNode, $vocabulary);
         }
+        
+        //create microscopy vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'microscopy'
+            ],
+            [
+                'name' => 'microscopy',
+                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/microscopy/'
+            ]
+            );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/microscopy.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary);
+        }
     }
     
     private function processNode($node, $vocabulary, $parentId = null)

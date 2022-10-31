@@ -40,6 +40,7 @@ use App\Converters\GeochemistryConverter;
 use App\Exports\UnmatchedKeywordsExport;
 use App\Mappers\Helpers\KeywordHelper;
 use App\Exports\AbstractMatchingExport;
+use App\Converters\MicroscopyConverter;
 
 class ToolsController extends Controller
 {
@@ -204,6 +205,25 @@ class ToolsController extends Controller
             return response()->streamDownload(function () use($converter, $request) {
                 echo $converter->ExcelToJson($request->file('geochemistry-file'));
             }, 'geochemistry.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processMiscroscopyFile(Request $request)
+    {
+        $request->validate([
+            'microscopy-file' => 'required'
+        ]);
+        
+        if($request->hasFile('microscopy-file')) {
+            $converter = new MicroscopyConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('microscopy-file'));
+            }, 'microscopy.json');
                 
         }
         
