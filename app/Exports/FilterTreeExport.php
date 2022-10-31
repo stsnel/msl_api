@@ -106,6 +106,22 @@ class FilterTreeExport
                 'children' => $this->getVocabAsFilters(8, 'msl_geochemistry_')
             ],
             [
+                'text' => 'Microscopy and tomography',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'node',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters(9, 'msl_microscopy_')
+            ],
+            [
                 'text' => 'Paleomagnetism',
                 'state' => [
                     'opened' => false,

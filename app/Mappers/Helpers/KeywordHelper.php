@@ -15,14 +15,16 @@ class KeywordHelper
         'geologicalage' => 'msl_geologicalages',
         'geologicalsetting' => 'msl_geologicalsettings',
         'paleomagnetism' => 'msl_paleomagnetism',
-        'geochemistry' => 'msl_geochemistry'
+        'geochemistry' => 'msl_geochemistry',
+        'microscopy' => 'msl_microscopy'
     ];
     
     private $vocabularySubDomainMapping = [
         'rockphysics' => 'rock and melt physics',
         'analogue' => 'analogue modelling of geologic processes',
         'paleomagnetism' => 'paleomagnetism',
-        'geochemistry' => 'geochemistry'
+        'geochemistry' => 'geochemistry',
+        'microscopy' => 'microscopy and tomography'
     ];       
     
     
@@ -48,7 +50,7 @@ class KeywordHelper
                     
                     $dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
                     
-                    //add subdomain to dataset if keyword from specified vocabulary
+                    //add subdomain to dataset if keyword is from specified vocabulary
                     if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
                         $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name]);
                     }
