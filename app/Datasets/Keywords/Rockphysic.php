@@ -11,14 +11,17 @@ class Rockphysic
     
     public $msl_rockphysic_3 = '';
     
-    public $msl_rockphysic_4 = ''; 
+    public $msl_rockphysic_4 = '';
+    
+    public $msl_rockphysic_5 = ''; 
 
     
     private $levels = [
         1 => 'msl_rockphysic_1',
         2 => 'msl_rockphysic_2',
         3 => 'msl_rockphysic_3',
-        4 => 'msl_rockphysic_4'
+        4 => 'msl_rockphysic_4',
+        5 => 'msl_rockphysic_5'
     ];
             
     
@@ -40,7 +43,8 @@ class Rockphysic
             'msl_rockphysic_1' => $this->msl_rockphysic_1,
             'msl_rockphysic_2' => $this->msl_rockphysic_2,
             'msl_rockphysic_3' => $this->msl_rockphysic_3,
-            'msl_rockphysic_4' => $this->msl_rockphysic_4
+            'msl_rockphysic_4' => $this->msl_rockphysic_4,
+            'msl_rockphysic_5' => $this->msl_rockphysic_5
         ];
     }
 }

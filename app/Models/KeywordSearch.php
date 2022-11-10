@@ -9,7 +9,8 @@ class KeywordSearch extends Model
     public $fillable = [
         'keyword_id',
         'value',
-        'is_synonym'
+        'is_synonym',
+        'exclude_abstract_mapping'
     ];
     
     protected $table = 'keywords_search';

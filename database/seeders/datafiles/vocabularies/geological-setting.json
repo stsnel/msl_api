@@ -7,7 +7,9 @@
         "uri": "",
         "synonyms": [
             "plate margin",
-            "plate margin setting"
+            "plate margin setting",
+            "tectonics",
+            "plate boundaries"
         ],
         "subTerms": [
             {
@@ -16,7 +18,10 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "convergent plate boundary",
+                    "convergent margin"
+                ],
                 "subTerms": [
                     {
                         "value": "continental collision",
@@ -25,7 +30,8 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "collisional setting"
+                            "collisional setting",
+                            "continentalcollision"
                         ],
                         "subTerms": [
                             {
@@ -54,7 +60,10 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "thrust sheetnappeoverthrust",
+                                    "modelled fold and thrust belt"
+                                ],
                                 "subTerms": []
                             },
                             {
@@ -74,7 +83,9 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "foreland setting"
+                                ],
                                 "subTerms": []
                             },
                             {
@@ -209,7 +220,8 @@
                         "uri": "",
                         "synonyms": [
                             "subduction zone",
-                            "subduction zone setting"
+                            "subduction zone setting",
+                            "subduction zones"
                         ],
                         "subTerms": [
                             {
@@ -236,7 +248,8 @@
                                     "ocean-continent convergent plate boundary",
                                     "ocean-continent plate boundary",
                                     "ocean-continent",
-                                    "ocean-continent convergence"
+                                    "ocean-continent convergence",
+                                    "active continental margin setting"
                                 ],
                                 "subTerms": []
                             },
@@ -291,13 +304,14 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "accretionnary wedge",
+                                "value": "accretionary wedge",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "wedge"
+                                    "wedge",
+                                    "accretionnary wedge"
                                 ],
                                 "subTerms": []
                             },
@@ -322,7 +336,8 @@
                                 "uri": "",
                                 "synonyms": [
                                     "subducting plate-interface",
-                                    "megathrust"
+                                    "megathrust",
+                                    "subduction megathrust earthquakes"
                                 ],
                                 "subTerms": []
                             },
@@ -480,7 +495,10 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "divergent plate boundary",
+                    "divergent margin"
+                ],
                 "subTerms": [
                     {
                         "value": "rifting",
@@ -490,7 +508,10 @@
                         "uri": "",
                         "synonyms": [
                             "rift setting",
-                            "break-up"
+                            "break-up",
+                            "continental rift setting",
+                            "continentalbreakup",
+                            "continental rifting"
                         ],
                         "subTerms": [
                             {
@@ -646,12 +667,14 @@
                         ]
                     },
                     {
-                        "value": "spreading",
+                        "value": "plate spreading",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "plate spreading center setting"
+                        ],
                         "subTerms": [
                             {
                                 "value": "mid-ocean ridge",
@@ -706,62 +729,68 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "transform tectonic plate boundary"
+                    "transform tectonic plate boundary",
+                    "transform plate boundary setting",
+                    "transform plate boundary",
+                    "transform margin",
+                    "transcurrent plate boundary",
+                    "transcurrent margin",
+                    "strike-slip plate boundary",
+                    "strike slip plate boundary",
+                    "strike-slip boundary",
+                    "strike slip boundary"
                 ],
                 "subTerms": [
                     {
-                        "value": "strike-slip",
+                        "value": "pull-apart basin",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [],
-                        "subTerms": [
-                            {
-                                "value": "pull-apart basin",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "stepover basin",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [
-                                    "step-over basin",
-                                    "step over basin"
-                                ],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "transpressional basin",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "contractional bend",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [
-                                    "push-up",
-                                    "push up",
-                                    "push-up structure",
-                                    "push up structure"
-                                ],
-                                "subTerms": []
-                            }
-                        ]
+                        "subTerms": []
+                    },
+                    {
+                        "value": "stepover basin",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "step-over basin",
+                            "step over basin"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "transpressional basin",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "transpression"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "contractional bend",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "push-up",
+                            "push up",
+                            "push-up structure",
+                            "push up structure",
+                            "pop-up structure",
+                            "pop up structure",
+                            "pop up",
+                            "pop-up",
+                            "modelled pop-up structure"
+                        ],
+                        "subTerms": []
                     },
                     {
                         "value": "releasing and restraining bend",
@@ -782,7 +811,9 @@
         "hyperlink": "",
         "vocabUri": "",
         "uri": "",
-        "synonyms": [],
+        "synonyms": [
+            "intraplate tectonic setting"
+        ],
         "subTerms": [
             {
                 "value": "hot spot magmatism",
@@ -792,7 +823,11 @@
                 "uri": "",
                 "synonyms": [
                     "hotspot activity",
-                    "hotspotsetting"
+                    "hotspotsetting",
+                    "hotspot",
+                    "hot-spot",
+                    "hot spot",
+                    "hot spot setting"
                 ],
                 "subTerms": [
                     {
@@ -911,7 +946,10 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "passive continental margin setting"
+                    "passive continental margin setting",
+                    "passive margin",
+                    "passive margin setting",
+                    "passive contential margin setting"
                 ],
                 "subTerms": [
                     {
@@ -966,12 +1004,15 @@
         ],
         "subTerms": [
             {
-                "value": "crust",
+                "value": "Earth crust",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "continentalcrustal setting",
+                    "crustal"
+                ],
                 "subTerms": [
                     {
                         "value": "upper crust",
@@ -979,7 +1020,9 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "upper continental crustal setting"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -1045,12 +1088,15 @@
                 "subTerms": []
             },
             {
-                "value": "mantle",
+                "value": "Earth mantle",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "mantle setting",
+                    "mantle flow"
+                ],
                 "subTerms": [
                     {
                         "value": "upper mantle",
@@ -1126,7 +1172,7 @@
                 ]
             },
             {
-                "value": "core",
+                "value": "Earth core",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -1462,7 +1508,9 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "hydrocarbon field"
+                    "hydrocarbon field",
+                    "gas reservoir",
+                    "hydrocarbon"
                 ],
                 "subTerms": []
             },
@@ -1473,7 +1521,8 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "hydrocarbon field"
+                    "hydrocarbon field",
+                    "oil reservoir"
                 ],
                 "subTerms": []
             },
@@ -1483,7 +1532,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "geothermal"
+                ],
                 "subTerms": []
             },
             {
@@ -1493,7 +1544,8 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "subsurface disposal"
+                    "subsurface disposal",
+                    "geological storage"
                 ],
                 "subTerms": [
                     {
@@ -1596,7 +1648,8 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "mineral mine"
+                    "mineral mine",
+                    "ore"
                 ],
                 "subTerms": [
                     {
@@ -1622,7 +1675,8 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "civil engineering"
+                    "civil engineering",
+                    "civil engineered"
                 ],
                 "subTerms": [
                     {
@@ -1666,6 +1720,49 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "road",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "Induced seismicity",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "induced earthquake"
+                ],
+                "subTerms": []
+            },
+            {
+                "value": "surface subsidence",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "subsidence"
+                ],
+                "subTerms": [
+                    {
+                        "value": "sinkhole",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "sink hole"
+                        ],
                         "subTerms": []
                     }
                 ]

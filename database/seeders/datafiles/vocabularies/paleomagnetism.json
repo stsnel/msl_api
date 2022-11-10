@@ -36,9 +36,7 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [
-                            "superconducting quantum interference device (SQUID) magnetometer"
-                        ],
+                        "synonyms": [],
                         "subTerms": [
                             {
                                 "value": "cryogenic magnetometer for discrete samples",
@@ -114,7 +112,8 @@
                         "uri": "",
                         "synonyms": [
                             "vibrating sample magnetometer",
-                            "VSM"
+                            "VSM",
+                            "(VSM)"
                         ],
                         "subTerms": [
                             {
@@ -185,7 +184,8 @@
                         "synonyms": [
                             "isothermal remanent magnetiser",
                             "isothermal remanent magnetizer",
-                            "IRM"
+                            "IRM",
+                            "(IRM)"
                         ],
                         "subTerms": [
                             {
@@ -265,7 +265,11 @@
                         "synonyms": [
                             "anhysteretic remanence magnetiser",
                             "anhysteretic remanence magnetizer",
-                            "ARM"
+                            "ARM",
+                            "anhysteretic remanence ARM acquisition",
+                            "(ARM)",
+                            "AMU",
+                            "(AMU)"
                         ],
                         "subTerms": [
                             {
@@ -338,7 +342,8 @@
                         "synonyms": [
                             "thermoremanent magnetiser",
                             "thermoremanent magnetizer",
-                            "TRM"
+                            "TRM",
+                            "(TRM)"
                         ],
                         "subTerms": [
                             {
@@ -417,7 +422,9 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "Bitter pattern"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -446,7 +453,8 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "VFTB"
+                            "VFTB",
+                            "(VFTB)"
                         ],
                         "subTerms": [
                             {
@@ -521,7 +529,8 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "AGM"
+                                    "AGM",
+                                    "(AGM)"
                                 ],
                                 "subTerms": []
                             },
@@ -532,7 +541,8 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "MPMS"
+                                    "MPMS",
+                                    "(MPMS)"
                                 ],
                                 "subTerms": []
                             },
@@ -543,7 +553,8 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "PPMS"
+                                    "PPMS",
+                                    "(PPMS)"
                                 ],
                                 "subTerms": []
                             },
@@ -573,30 +584,30 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "QDM"
+                                    "QDM",
+                                    "(QDM)"
                                 ],
                                 "subTerms": []
                             },
                             {
-                                "value": "semiconducting quantum interference device (SQUID) microscope",
+                                "value": "superconducting quantum interference device (SQUID) microscope",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "SQUID"
+                                    "SQUID",
+                                    "(SQUID)"
                                 ],
                                 "subTerms": []
                             },
                             {
-                                "value": "atomic force microscope (AFM)",
+                                "value": "atomic force microscope (AFM) magnetic scanning",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [
-                                    "AFM"
-                                ],
+                                "synonyms": [],
                                 "subTerms": []
                             },
                             {
@@ -606,7 +617,8 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "MFM"
+                                    "MFM",
+                                    "(MFM)"
                                 ],
                                 "subTerms": []
                             },
@@ -619,7 +631,9 @@
                                 "synonyms": [
                                     "surface magneto optic Kerr effect (SMOKE)",
                                     "MOKE",
-                                    "SMOKE"
+                                    "SMOKE",
+                                    "(SMOKE)",
+                                    "(MOKE)"
                                 ],
                                 "subTerms": []
                             }
@@ -756,7 +770,10 @@
                         "synonyms": [
                             "alternating field (AF) demagnetizer",
                             "AF demagnetiser",
-                            "AF demagnetizer"
+                            "AF demagnetizer",
+                            "demagnetisation type AF",
+                            "demagnetization type AF",
+                            "(AF)"
                         ],
                         "subTerms": [
                             {
@@ -1013,7 +1030,8 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "PSM"
+                                    "PSM",
+                                    "(PSM)"
                                 ],
                                 "subTerms": []
                             }
@@ -1026,7 +1044,8 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "PSG"
+                            "PSG",
+                            "(PSG)"
                         ],
                         "subTerms": [
                             {
@@ -1197,14 +1216,12 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "oven",
+                        "value": "oven (paleomagnetism)",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [
-                            "furnace"
-                        ],
+                        "synonyms": [],
                         "subTerms": [
                             {
                                 "value": "slow cooling oven",
@@ -1227,7 +1244,7 @@
                         ]
                     },
                     {
-                        "value": "cryostat",
+                        "value": "cryostat (paleomagnetism)",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1275,7 +1292,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "carbon monoxide ",
+                        "value": "carbon monoxide atmosphere",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1284,7 +1301,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "carbon dioxide ",
+                        "value": "carbon dioxide atmosphere",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1293,7 +1310,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "air",
+                        "value": "air atmosphere",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1302,7 +1319,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "vacuum",
+                        "value": "evacuated atmosphere (vacuum)",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1328,7 +1345,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "magnetic intensity"
+                ],
                 "subTerms": [
                     {
                         "value": "absolute paleointensity",
@@ -1441,7 +1460,9 @@
                             "anhysteretic remanent magnetization (ARM)",
                             "anhysteretic remanent magnetisation",
                             "anhysteretic remanent magnetization",
-                            "ARM"
+                            "ARM",
+                            "(ARM)",
+                            "anhysteretic remanence ARM acquisition"
                         ],
                         "subTerms": []
                     },
@@ -1455,7 +1476,8 @@
                             "partial anhysteretic remanent magnetization (pARM)",
                             "partial anhysteretic remanent magnetisation",
                             "partial anhysteretic remanent magnetization",
-                            "pARM"
+                            "pARM",
+                            "(pARM)"
                         ],
                         "subTerms": []
                     },
@@ -1469,7 +1491,8 @@
                             "isothermal remanent magnetization (IRM)",
                             "isothermal remanent magnetisation",
                             "isothermal remanent magnetization",
-                            "IRM"
+                            "IRM",
+                            "(IRM)"
                         ],
                         "subTerms": []
                     },
@@ -1483,7 +1506,8 @@
                             "natural remanent magnetization (NRM)",
                             "natural remanent magnetisation",
                             "natural remanent magnetization",
-                            "NRM"
+                            "NRM",
+                            "(NRM)"
                         ],
                         "subTerms": []
                     },
@@ -1497,7 +1521,8 @@
                             "thermoremanent magnetization (TRM)",
                             "thermoremanent magnetisation",
                             "thermoremanent magnetization",
-                            "TRM"
+                            "TRM",
+                            "(TRM)"
                         ],
                         "subTerms": []
                     },
@@ -1511,7 +1536,8 @@
                             "reversed thermoremanent magnetization (rTRM)",
                             "reversed thermoremanent magnetisation",
                             "reversed thermoremanent magnetization",
-                            "rTRM"
+                            "rTRM",
+                            "(rTRM)"
                         ],
                         "subTerms": []
                     },
@@ -1525,7 +1551,8 @@
                             "depositional remanent magnetization (DRM)",
                             "depositional remanent magnetisation",
                             "depositional remanent magnetization",
-                            "DRM"
+                            "DRM",
+                            "(DRM)"
                         ],
                         "subTerms": []
                     },
@@ -1539,7 +1566,8 @@
                             "post-depositional remanent magnetization (pDRM)",
                             "post-depositional remanent magnetisation",
                             "post-depositional remanent magnetization",
-                            "pDRM"
+                            "pDRM",
+                            "(pDRM)"
                         ],
                         "subTerms": []
                     },
@@ -1553,7 +1581,8 @@
                             "chemical remanenet magnetization (CRM)",
                             "chemical remanent magnetisation",
                             "chemical remanenet magnetization",
-                            "CRM"
+                            "CRM",
+                            "(CRM)"
                         ],
                         "subTerms": []
                     },
@@ -1565,7 +1594,9 @@
                         "uri": "",
                         "synonyms": [
                             "backfield remanence coercivity",
-                            "BRC"
+                            "BRC",
+                            "backfield remanent coercivity",
+                            "(BRC)"
                         ],
                         "subTerms": []
                     },
@@ -1580,7 +1611,9 @@
                             "rotational remanent magnetisation (RRM)",
                             "rotational remanent magnetization",
                             "RRM",
-                            "GRM"
+                            "GRM",
+                            "(RRM)",
+                            "(GRM)"
                         ],
                         "subTerms": []
                     }
@@ -1606,7 +1639,8 @@
                             "anisotropy of anhysteretic remanent magnetization",
                             "anisotropic anhysteretic remanent magnetisation",
                             "anisotropic anhysteretic remanent magnetization",
-                            "AARM"
+                            "AARM",
+                            "(AARM)"
                         ],
                         "subTerms": []
                     },
@@ -1620,7 +1654,8 @@
                             "anisotropy of partial anhysteretic remanent magnetization",
                             "anisotropic partial anhysteretic remanent magnetisation",
                             "anisotropic partial anhysteretic remanent magnetization",
-                            "pAARM"
+                            "pAARM",
+                            "(pAARM)"
                         ],
                         "subTerms": []
                     },
@@ -1634,7 +1669,8 @@
                             "anisotropy of isothermal remanent magnetization",
                             "anisotropic isothermal remanent magnetisation",
                             "anisotropic of isothermal remanent magnetization",
-                            "AIRM"
+                            "AIRM",
+                            "(AIRM)"
                         ],
                         "subTerms": []
                     },
@@ -1646,7 +1682,8 @@
                         "uri": "",
                         "synonyms": [
                             "anisotropic magnetic susceptibility",
-                            "AMS"
+                            "AMS",
+                            "(AMS)"
                         ],
                         "subTerms": []
                     },
@@ -1660,7 +1697,8 @@
                             "anisotropy of thermalremanent magnetization",
                             "anisotropic thermal remanent magnetisation",
                             "anisotropic of thermalremanent magnetization",
-                            "ATRM"
+                            "ATRM",
+                            "(ATRM)"
                         ],
                         "subTerms": []
                     }
@@ -1694,7 +1732,9 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "FORC"
+                    "FORC",
+                    "FirstOrderReversal Curves FORC",
+                    "(FORC)"
                 ],
                 "subTerms": []
             },
@@ -1860,65 +1900,49 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "rock structure",
+                        "value": "magnetic anisotropy through rock structure",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [
-                            "rock fabric",
-                            "rock texture",
-                            "microstructure"
-                        ],
+                        "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "sedimentary structure",
+                                "value": "magnetic anisotropy through sedimentary structure",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "magnetic anisotropy through mineralogical structure",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "sediment fabric",
-                                    "sedimentary fabric",
-                                    "sedimentary texture"
+                                    ""
                                 ],
                                 "subTerms": []
                             },
                             {
-                                "value": "mineralogical structure",
+                                "value": "magnetic anisotropy through crystallographic preferred orientation (CPO) ",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [
-                                    "mineral fabric",
-                                    "mineralogical fabric",
-                                    "mineralogical texture"
-                                ],
+                                "synonyms": [],
                                 "subTerms": []
                             },
                             {
-                                "value": "crystallographic preferred orientation (CPO)",
+                                "value": "magnetic anisotropy through shape preferred orientation (SPO) ",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [
-                                    "crystallographic preferred orientation",
-                                    "CPO"
-                                ],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "shape preferred orientation (SPO)",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [
-                                    "shape preferred orientation",
-                                    "SPO"
-                                ],
+                                "synonyms": [],
                                 "subTerms": []
                             }
                         ]
@@ -1999,7 +2023,8 @@
                         "synonyms": [
                             "natural remanent magnetisation orientation",
                             "natural remanent magnetization orientation",
-                            "NRM"
+                            "NRM",
+                            "(NRM)"
                         ],
                         "subTerms": []
                     },
@@ -2030,7 +2055,8 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "degree of magnetic anisotropy"
+                            "degree of magnetic anisotropy",
+                            "Magnetic fabrics and anisotropy"
                         ],
                         "subTerms": []
                     },
@@ -2132,7 +2158,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "mineral phase",
+                        "value": "mineral phase analysis",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -2214,7 +2240,9 @@
                         "uri": "",
                         "synonyms": [
                             "geomagnetic polarity time scale",
-                            "GPTS"
+                            "GPTS",
+                            "(GPTS)",
+                            "Geomagnetic Field Reversals"
                         ],
                         "subTerms": []
                     },
@@ -2224,7 +2252,9 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "paleointensity"
+                        ],
                         "subTerms": []
                     },
                     {

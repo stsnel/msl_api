@@ -31,6 +31,9 @@ class KeywordFactory
             case 'geochemistry':
                 return new Geochemistry($keyword);                                
                 
+            case 'microscopy':
+                return new Microscopy($keyword);
+                
             default:
                 throw new \Exception('invalid vocabularyname');
         }

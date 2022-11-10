@@ -1,11 +1,15 @@
 [
     {
-        "value": "Present",
+        "value": "present-day",
         "level": 1,
         "hyperlink": "",
         "vocabUri": "",
         "uri": "",
-        "synonyms": [],
+        "synonyms": [
+            "presentday",
+            "present-day",
+            "antropogenic setting"
+        ],
         "subTerms": []
     },
     {
@@ -22,7 +26,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "Cenozoic times"
+                ],
                 "subTerms": [
                     {
                         "value": "Quaternary",
@@ -718,7 +724,9 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "Perm"
+                        ],
                         "subTerms": [
                             {
                                 "value": "Lopingian",

@@ -4,7 +4,7 @@ namespace App\Converters;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 use PhpOffice\PhpSpreadsheet\Cell\Coordinate;
 
-class RockPhysicsConverter
+class MicroscopyConverter
 {
     
     public function ExcelToJson($filepath)
@@ -31,23 +31,32 @@ class RockPhysicsConverter
                 'subTerms' => $this->getBySheet($spreadsheet, 'Ancillary equipment', 2)
             ],
             [
-                'value' => 'Measured property',
+                'value' => 'Technique',
                 'level' => 1,
                 'hyperlink' => '',
                 'vocabUri' => '',
                 'uri' => '',
                 'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Measured property', 2)
+                'subTerms' => $this->getBySheet($spreadsheet, 'Technique', 2)
             ],
             [
-                'value' => 'Inferred deformation behavior',
+                'value' => 'Analyzed feature',
                 'level' => 1,
                 'hyperlink' => '',
                 'vocabUri' => '',
                 'uri' => '',
                 'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'Inferred deformation behavior', 2)
-            ]
+                'subTerms' => $this->getBySheet($spreadsheet, 'Analyzed feature', 2)
+            ],
+            [
+                'value' => 'Inferred parameter ',
+                'level' => 1,
+                'hyperlink' => '',
+                'vocabUri' => '',
+                'uri' => '',
+                'synonyms' => [],
+                'subTerms' => $this->getBySheet($spreadsheet, 'inferred parameter', 2)
+            ]            
         ];
         
         return json_encode($data, JSON_PRETTY_PRINT);
@@ -63,20 +72,24 @@ class RockPhysicsConverter
         foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {
             switch ($sheetName) {
                 case 'Apparatus':
+                    $cellIterator = $row->getCellIterator('A', 'B');
+                    break;
+                
+                case 'Ancillary equipment':
+                    $cellIterator = $row->getCellIterator('A', 'B');
+                    break;
+                    
+                case 'Technique':
+                    $cellIterator = $row->getCellIterator('A', 'D');
+                    break;
+                
+                case 'Analyzed feature':
                     $cellIterator = $row->getCellIterator('A', 'D');
                     break;
                     
-                case 'Ancillary equipment':
+                case 'inferred parameter':
                     $cellIterator = $row->getCellIterator('A', 'C');
-                    break;
-                    
-                case 'Measured property':
-                    $cellIterator = $row->getCellIterator('A', 'C');
-                    break;
-                    
-                case 'Inferred deformation behavior':
-                    $cellIterator = $row->getCellIterator('A', 'C');
-                    break;
+                    break;      
             }
             
             $cellIterator->setIterateOnlyExistingCells(false);
