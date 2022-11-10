@@ -419,8 +419,11 @@ class GfzMapper
                 $keywords[] = (string)$result[0];
             }            
             
-            $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords, true, '>');
-        }                                       
+            $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords, true, '>');           
+        }
+        
+        //attempt to map keywords from abstract and title
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes . ' ' . $dataset->title);
         
         //extract spatial coordinates
         $spatialResults = $xmlDocument->xpath("/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement");

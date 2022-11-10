@@ -407,6 +407,9 @@ class CsicMapper
                         
             $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords);            
         }
+        
+        //attempt to map keywords from abstract and title
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes . ' ' . $dataset->title);
                     
         return $dataset;
     }

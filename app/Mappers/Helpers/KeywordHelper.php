@@ -63,9 +63,33 @@ class KeywordHelper
         return $dataset;
     }
     
+    public function mapKeywordsFromText(BaseDataset $dataset, $text) 
+    {
+        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->get();
+        
+        foreach ($searchKeywords as $searchKeyword) {
+            if($searchKeyword->search_value !== '') {
+                $expr = '/\b' . preg_quote($searchKeyword->search_value, '/') . '\b/i';
+                if (preg_match($expr, $text)) {
+                    $keyword = $searchKeyword->keyword;
+                    
+                    $datasetKeyword = KeywordFactory::create($keyword);                    
+                    $dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
+                    
+                    //add subdomain to dataset if keyword is from specified vocabulary
+                    if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
+                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name]);
+                    }
+                }
+            }
+        }
+        
+        return $dataset;
+    }
+    
     public function extractFromText($text)
     {
-        $searchKeywords = KeywordSearch::all();
+        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->get();
         $matchedKeywords = [];
         
         foreach ($searchKeywords as $searchKeyword) {

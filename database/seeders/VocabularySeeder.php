@@ -38,7 +38,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, true);
         }
         
         //create porefluids vocabulary
@@ -58,7 +58,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, true);
         }
         
         //create rockphysics vocabulary
@@ -78,7 +78,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, true);
         }
         
         //create analogue modelling vocabulary
@@ -98,7 +98,14 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            if($topNode->value == "Modeled structure") {
+                $this->processNode($topNode, $vocabulary, null, true, true);
+            }
+            elseif ($topNode->value == "Modeled geomorphological feature") {
+                $this->processNode($topNode, $vocabulary, null, true, true);
+            } else {
+                $this->processNode($topNode, $vocabulary, null, true);
+            }         
         }
         
         //create geological age vocabulary
@@ -118,7 +125,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, true);
         }
         
         //create geological settting vocabulary
@@ -138,7 +145,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, true);
         }
         
         //create paleomagnetism vocabulary
@@ -150,7 +157,7 @@ class VocabularySeeder extends Seeder
                 'name' => 'paleomagnetism',
                 'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/paleomagnetism/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/paleomagnetism.json'));
@@ -158,7 +165,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, true);
         }
         
         //create geochemistry settting vocabulary
@@ -170,7 +177,7 @@ class VocabularySeeder extends Seeder
                 'name' => 'geochemistry',
                 'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/geochemistry/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/geochemistry.json'));
@@ -178,7 +185,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, false);
         }
         
         //create microscopy vocabulary
@@ -198,11 +205,11 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary);
+            $this->processNode($topNode, $vocabulary, null, true);
         }
     }
     
-    private function processNode($node, $vocabulary, $parentId = null)
+    private function processNode($node, $vocabulary, $parentId = null, $excludeAbstractMapping = false, $forceExcludeAbstractMapping = false)
     {
                 
         $keyword = Keyword::create([
@@ -219,22 +226,29 @@ class VocabularySeeder extends Seeder
         KeywordSearch::create([
             'keyword_id' => $keyword->id,
             'search_value' => strtolower($node->value),
-            'isSynonym' => false
+            'isSynonym' => false,
+            'exclude_abstract_mapping' => $excludeAbstractMapping
         ]);
+        
         
         if(count($node->synonyms)) {
             foreach ($node->synonyms as $synonym) {
                 KeywordSearch::create([
                     'keyword_id' => $keyword->id,
                     'search_value' => strtolower($synonym),
-                    'isSynonym' => true
+                    'isSynonym' => true,
+                    'exclude_abstract_mapping' => $excludeAbstractMapping
                 ]);
             }
         }        
         
         if(count($node->subTerms)) {
             foreach ($node->subTerms as $subNode) {
-                $this->processNode($subNode, $vocabulary, $keyword->id);
+                if($forceExcludeAbstractMapping) {
+                    $this->processNode($subNode, $vocabulary, $keyword->id, true, true);
+                } else {                
+                    $this->processNode($subNode, $vocabulary, $keyword->id);
+                }
             }
         }
     }
