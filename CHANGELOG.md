@@ -9,6 +9,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 
+
+## [1.2.0] - 2022-11-11
+
 - API documentation in API.md
 - Add changelog in CHANGELOG.md
 - Update GFZ and yoda importers to work with new data-publication schema
