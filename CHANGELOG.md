@@ -18,6 +18,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add geological setting to researchaspects part of each API endpoint
 - Add functions to view and export unmatched keyword terms
 - Add functions to view and export matching of keywords in abstract and title
+- Add keyword mapping based on free text to keyword helpers used by importers
+- Update all importers to use new keyword mapping features
+- Update all vocabularies
+- RDF/Turtle file used by EPOS ICS-C integration implemented within repo
 
 ## [1.1.0] - 2022-05-24
 
