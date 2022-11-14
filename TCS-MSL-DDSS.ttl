@@ -526,7 +526,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/geochemical_data/Dataset/001/Distribution/001> a dcat:Distribution ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/geochemical_data/Dataset/001/Distribution/001" ;
         dct:title "Data from geochemical measurements" ;
-		dct:description "Access to high-quality analytical data emerging from geochemical measurements." ;
+		dct:description "Geochemical data from geochemistry, geochronology, mineral chemistry and fluid inclusion studies provides compositional data from whole rock to micrometer or even nanometer inclusions (solid, liquid and/or gas) in minerals. There is a large range in techniques and equipment, and, consequently, a large range in data and data types. Analytical techniques vary on the elements or minerals that can be analyzed with the respective detection limits. Data typically include major element composition data, isotope chemistry data, geochronology data and mineral composition data." ;
 
         # This property refers to the type of the Distribution. The possible types are
         # (http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE
@@ -555,7 +555,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/rock_and_melt_physical_properties/Dataset/002/Distribution/002> a dcat:Distribution ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/rock_and_melt_physical_properties/Dataset/002/Distribution/002" ;
         dct:title "Data on rock and melt physical properties" ;
-		dct:description "Data from multi-scale research into the physical behavior of Earth materials, including rock mechanics experiments, fluid flow tests and petrophysical analyses, performed under crustal or upper mantle conditions of stress, temperature and chemistry. Materials typically studied include sedimentary rocks, like sandstone, limestone, coal and evaporites like rock salt and gypsum, igneous or volcanic rocks like granite, basalt and gabbro, metamorphic rocks like marble and schist, and anthropogenic composites like cement, or 3D-printed rock. The data provide key information into the processes governing geohazards, whether human induced or natural, including earthquakes, land subsidence, landslides and volcanic activity. As such these data are frequently used in models and upscaling studies, aimed at understanding system-scale Earth behavior and at steering strategy for safe and sustainable use of our subsurface." ;
+		dct:description "Data from multi-scale research into the physical behavior of Earth materials, including rock mechanics experiments, fluid flow tests and petrophysical analyses, performed under crustal or upper mantle conditions of stress, temperature and chemistry. Materials typically studied include sedimentary rocks, like sandstone, limestone, coal and evaporites like rock salt and gypsum, igneous or volcanic rocks like granite, basalt and gabbro, metamorphic rocks like marble and schist, and anthropogenic composites like cement, or 3D-printed rock. The data provide key information into the processes governing geohazards, whether human induced or natural, including earthquakes, land subsidence, landslides and volcanic activity. As such, these data are frequently used in models and upscaling studies, aimed at understanding system-scale Earth behavior and at steering strategy for safe and sustainable use of our subsurface." ;
 
         # This property refers to the type of the Distribution. The possible types are
         # (http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE
@@ -639,7 +639,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/microscopy_and_tomography_data/Dataset/011/Distribution/011> a dcat:Distribution ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/microscopy_and_tomography_data/Dataset/011/Distribution/011" ;
         dct:title "Microscopy and tomography data" ;
-		dct:description "High-quality, high-resolution data collected with electron and X-ray microscopes." ;
+		dct:description "Multi-scale, 2D and 3D visualization of Earth materials. Analyses involve a wide range in techniques, including electron, optical and atomic force microscopy, X-ray tomography and microchemical analyses and mapping. The data include rock and pore structure images at nanometer, or even atomic resolution, microchemical, mineralogical and crystallographic maps and CT scans. Materials typically studied are sedimentary rock like sandstones, shales, limestone and evaporites, igneous and metamorphic rocks like granite, basalt, gneiss and schists, ores and rare-Earth elements, but can also include extra-terrestrial materials like meteorites. The microstructural and compositional information provided by these data is crucial for our understanding of a wide range of geoscientific topics, including the effects of hydrogen storage, geothermal energy production, gas production and mining, and on factors influencing hazards like volcanic activity, landslides, fault behavior, subsidence and earthquakes." ;
 
         # This property refers to the type of the Distribution. The possible types are
         # (http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE
@@ -667,7 +667,7 @@
 <https://www.epos-eu.org/multi-scale-laboratories/laboratory_data/Dataset/013/Distribution/013> a dcat:Distribution ;
         dct:identifier "https://www.epos-eu.org/multi-scale-laboratories/microscopy_and_tomography_data/Dataset/011/Distribution/011" ;
         dct:title "Search all multi-scale lab data" ;
-		dct:description "Search all multi-scale labs data i.e. include all multi-scale lab subdomains in your search." ;
+		dct:description "Access to high-quality data emerging from experimental labs in the Earth sciences." ;
 
         # This property refers to the type of the Distribution. The possible types are
         # (http://publications.europa.eu/resource/authority/distribution-type/WEB_SERVICE
