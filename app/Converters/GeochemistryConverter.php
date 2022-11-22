@@ -9,23 +9,56 @@ class GeochemistryConverter
     
     public function ExcelToJson($filepath)
     {
-        
         $spreadsheet = IOFactory::load($filepath);
-        $worksheet = $spreadsheet->getSheetByName('Measured property #parameter');
         
+        $data = [
+            [
+                'value' => 'Technique',
+                'level' => 1,
+                'hyperlink' => '',
+                'vocabUri' => '',
+                'uri' => '',
+                'synonyms' => [],
+                'subTerms' => $this->getBySheet($spreadsheet, 'Technique', 2)
+            ],
+            [
+                'value' => 'Measured property',
+                'level' => 1,
+                'hyperlink' => '',
+                'vocabUri' => '',
+                'uri' => '',
+                'synonyms' => [],
+                'subTerms' => $this->getBySheet($spreadsheet, 'Measured property #parameter', 2)
+            ]
+        ];
+        
+        return json_encode($data, JSON_PRETTY_PRINT);
+    }
+    
+    private function getBySheet($spreadsheet, $sheetName, $baseLevel = 1) {
+        $worksheet = $spreadsheet->getSheetByName($sheetName);
         
         $nodes = [];
         
         $counter = 0;
-        foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {            
-            $cellIterator = $row->getCellIterator('A', 'F');
-            $cellIterator->setIterateOnlyExistingCells(false);            
-                                    
-            foreach ($cellIterator as $cell) {                                  
+        foreach ($worksheet->getRowIterator(3, $worksheet->getHighestDataRow()) as $row) {
+            switch ($sheetName) {
+                case 'Technique':
+                    $cellIterator = $row->getCellIterator('A', 'C');
+                    break;
+                    
+                case 'Measured property #parameter':
+                    $cellIterator = $row->getCellIterator('A', 'C');
+                    break;                
+            }
+            
+            $cellIterator->setIterateOnlyExistingCells(false);
+            
+            foreach ($cellIterator as $cell) {
                 if($cell->getValue()) {
                     if($cell->getValue() !== "") {
                         $node = $this->createSimpleNode();
-                                                                       
+                        
                         $node['value'] = $this->cleanValue($cell->getValue());
                         
                         
@@ -35,8 +68,9 @@ class GeochemistryConverter
                             $node['vocabUri'] = $this->extractVocabUri($node['hyperlink']);
                         }
                         
-                        $node['level'] = Coordinate::columnIndexFromString($cell->getColumn());                                                                        
+                        $node['level'] = Coordinate::columnIndexFromString($cell->getColumn()) + ($baseLevel - 1);
                         $node['synonyms'] = $this->extractSynonyms($cell->getValue());
+                        
                         
                         $nodes[] = $node;
                     }
@@ -44,18 +78,18 @@ class GeochemistryConverter
             }
             $counter++;
         }
-                        
+        
         $nestedNodes = [];
         for ($i = 0; $i < count($nodes); $i++) {
-            if($nodes[$i]['level'] == 1) {
+            if($nodes[$i]['level'] == $baseLevel) {
                 $node = $nodes[$i];
                 $node['subTerms'] = $this->getChildren($i, $nodes);
                 $nestedNodes[] = $node;
-            }                                                 
+            }
         }
         
         
-        return json_encode($nestedNodes, JSON_PRETTY_PRINT);
+        return $nestedNodes;
     }
     
     //http://cgi.vocabs.ga.gov.au/object?vocab_uri=http://resource.geosciml.org/classifierScheme/cgi/2016.01/simplelithology&uri=http%3A//resource.geosciml.org/classifier/cgi/lithology/igneous_rock
