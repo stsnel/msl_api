@@ -1603,7 +1603,7 @@
                                 ]
                             },
                             {
-                                "value": "intragranular deformation band",
+                                "value": "wide extinction band (WEB)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -1611,7 +1611,16 @@
                                 "synonyms": [],
                                 "subTerms": [
                                     {
-                                        "value": "wide extinction band (WEB) width sub-100 micron",
+                                        "value": "intragranular deformation band ",
+                                        "level": 5,
+                                        "hyperlink": "",
+                                        "vocabUri": "",
+                                        "uri": "",
+                                        "synonyms": [],
+                                        "subTerms": []
+                                    },
+                                    {
+                                        "value": "intragranular kink band",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -1622,25 +1631,13 @@
                                 ]
                             },
                             {
-                                "value": "intragranular kink band",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
                                 "value": "localized extinction band (LEB)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "intragranular shear band",
-                                    "localized extinction band",
-                                    "LEB",
-                                    "(LEB)"
+                                    "intragranular shear band"
                                 ],
                                 "subTerms": []
                             },
@@ -2178,13 +2175,13 @@
                 ]
             },
             {
-                "value": "Grain aggregate shape",
+                "value": "grain aggregate microstructure",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "grain aggregate microstructure"
+                    "grain aggregate shape"
                 ],
                 "subTerms": [
                     {
@@ -2305,6 +2302,43 @@
                             },
                             {
                                 "value": "grain boundary voids and openings",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
+                    },
+                    {
+                        "value": "grain boundary defect",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "grain boundary dislocations",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "disclination microstructure",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "disconnection microstructure",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -2756,7 +2790,7 @@
                 ]
             },
             {
-                "value": "shock microstructures",
+                "value": "shock microstructure",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -2764,7 +2798,7 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "planar deformation features (PDF)",
+                        "value": "planar deformation feature (PDF)",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -2789,7 +2823,7 @@
                         ]
                     },
                     {
-                        "value": "shock microfractures",
+                        "value": "shock microfracture",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -2800,7 +2834,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "feather structures",
+                        "value": "feather structure",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -2811,7 +2845,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "ballen structures",
+                        "value": "ballen structure",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -2946,7 +2980,7 @@
         ]
     },
     {
-        "value": "Inferred parameter ",
+        "value": "Inferred parameter",
         "level": 1,
         "hyperlink": "",
         "vocabUri": "",
@@ -3086,7 +3120,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "inferred internal stored stress",
+                        "value": "inferred Internal stored stress",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -3136,7 +3170,7 @@
                 ]
             },
             {
-                "value": "inferred recrystallization mechanisms",
+                "value": "inferred mechanisms ",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -3144,34 +3178,53 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "subgrain rotation",
+                        "value": "inferred recrystallization mechanisms",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [],
-                        "subTerms": []
+                        "subTerms": [
+                            {
+                                "value": "subgrain rotation",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "grain boundary bulging",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "grain boundary migration",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            },
+                            {
+                                "value": "geometric dynamic recrystallization ",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [],
+                                "subTerms": []
+                            }
+                        ]
                     },
                     {
-                        "value": "grain boundary bulging",
-                        "level": 3,
-                        "hyperlink": "",
-                        "vocabUri": "",
-                        "uri": "",
-                        "synonyms": [],
-                        "subTerms": []
-                    },
-                    {
-                        "value": "grain boundary migration",
-                        "level": 3,
-                        "hyperlink": "",
-                        "vocabUri": "",
-                        "uri": "",
-                        "synonyms": [],
-                        "subTerms": []
-                    },
-                    {
-                        "value": "geometric dynamic recrystallization ",
+                        "value": "inferred deformation mechanisms",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
