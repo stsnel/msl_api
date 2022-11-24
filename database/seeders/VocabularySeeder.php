@@ -24,11 +24,13 @@ class VocabularySeeder extends Seeder
         //create materials vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'materials'                
+                'name' => 'materials',
+                'version' => '1.0'
             ],
             [
                 'name' => 'materials', 
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/materials/'                
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/materials/'
             ]
         );
                         
@@ -44,11 +46,13 @@ class VocabularySeeder extends Seeder
         //create porefluids vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'porefluids'                
+                'name' => 'porefluids',
+                'version' => '1.0'
             ],
             [
                 'name' => 'porefluids',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/porefluids/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/porefluids/'
             ]
         );
         
@@ -64,11 +68,13 @@ class VocabularySeeder extends Seeder
         //create rockphysics vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'rockphysics'              
+                'name' => 'rockphysics',
+                'version' => '1.0'
             ],
             [
                 'name' => 'rockphysics',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/rockphysics/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/rockphysics/'
             ]
         );
         
@@ -84,11 +90,13 @@ class VocabularySeeder extends Seeder
         //create analogue modelling vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'analogue'               
+                'name' => 'analogue',
+                'version' => '1.0'
             ],
             [
                 'name' => 'analogue',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/analoguemodelling/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/analoguemodelling/'
             ]
         );
         
@@ -111,11 +119,13 @@ class VocabularySeeder extends Seeder
         //create geological age vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'geologicalage'
+                'name' => 'geologicalage',
+                'version' => '1.0'
             ],
             [
                 'name' => 'geologicalage',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/geologicalage/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/geologicalage/'
             ]
         );
         
@@ -131,11 +141,13 @@ class VocabularySeeder extends Seeder
         //create geological settting vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'geologicalsetting'
+                'name' => 'geologicalsetting',
+                'version' => '1.0'
             ],
             [
                 'name' => 'geologicalsetting',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/geologicalsetting/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/geologicalsetting/'
             ]
         );
         
@@ -151,11 +163,13 @@ class VocabularySeeder extends Seeder
         //create paleomagnetism vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'paleomagnetism'
+                'name' => 'paleomagnetism',
+                'version' => '1.0'
             ],
             [
                 'name' => 'paleomagnetism',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/paleomagnetism/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/paleomagnetism/'
             ]
         );
         
@@ -171,11 +185,13 @@ class VocabularySeeder extends Seeder
         //create geochemistry settting vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'geochemistry'
+                'name' => 'geochemistry',
+                'version' => '1.0'
             ],
             [
                 'name' => 'geochemistry',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/geochemistry/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/geochemistry/'
             ]
         );
         
@@ -191,11 +207,13 @@ class VocabularySeeder extends Seeder
         //create microscopy vocabulary
         $vocabulary = Vocabulary::updateOrCreate(
             [
-                'name' => 'microscopy'
+                'name' => 'microscopy',
+                'version' => '1.0'
             ],
             [
                 'name' => 'microscopy',
-                'uri' => 'https://www.epos-eu.org/multi-scale-laboratories/voc/microscopy/'
+                'version' => '1.0',
+                'uri' => 'http://www.epos-eu.org/multi-scale-laboratories/voc/1.0/microscopy/'
             ]
             );
         
@@ -216,7 +234,8 @@ class VocabularySeeder extends Seeder
             'parent_id' => $parentId,
             'vocabulary_id' => $vocabulary->id,
             'value' => $node->value,
-            'uri' => $node->uri,
+            'uri' => '',
+            'external_uri' => $node->uri,
             'level' => $node->level,
             'hyperlink' => $node->hyperlink
         ]);
@@ -254,9 +273,7 @@ class VocabularySeeder extends Seeder
     }
     
     private function generateURI($keyword, $vocabulary) {
-        if($keyword->uri == "") {
-            $keyword->uri = $vocabulary->name . '>' . $keyword->getFullPath();
-            $keyword->save();
-        }        
+        $keyword->uri = $vocabulary->uri . $keyword->getFullPath();
+        $keyword->save();
     }
 }
