@@ -49,13 +49,13 @@ class MicroscopyConverter
                 'subTerms' => $this->getBySheet($spreadsheet, 'Analyzed feature', 2)
             ],
             [
-                'value' => 'Inferred parameter ',
+                'value' => 'Inferred parameter',
                 'level' => 1,
                 'hyperlink' => '',
                 'vocabUri' => '',
                 'uri' => '',
                 'synonyms' => [],
-                'subTerms' => $this->getBySheet($spreadsheet, 'inferred parameter', 2)
+                'subTerms' => $this->getBySheet($spreadsheet, 'inferred parameter ', 2)
             ]            
         ];
         
@@ -87,7 +87,7 @@ class MicroscopyConverter
                     $cellIterator = $row->getCellIterator('A', 'D');
                     break;
                     
-                case 'inferred parameter':
+                case 'inferred parameter ':
                     $cellIterator = $row->getCellIterator('A', 'C');
                     break;      
             }
