@@ -242,7 +242,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "anticline ",
+                                "value": "anticline",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -251,7 +251,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "antiform ",
+                                "value": "antiform",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -260,7 +260,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "syncline ",
+                                "value": "syncline",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -269,7 +269,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "synform ",
+                                "value": "synform",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -280,7 +280,7 @@
                         ]
                     },
                     {
-                        "value": "modelled boudinage ",
+                        "value": "modelled boudinage",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -3675,7 +3675,7 @@
                         ],
                         "subTerms": [
                             {
-                                "value": "wedge simulator ",
+                                "value": "wedge simulator",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -3692,7 +3692,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "3D analysis in wedge simulator ",
+                                        "value": "3D analysis in wedge simulator",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -3746,7 +3746,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "subduction box ",
+                                "value": "subduction box",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -3772,7 +3772,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "3D analysis in extension box - orthogonal ",
+                                        "value": "3D analysis in extension box - orthogonal",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -3800,7 +3800,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "3D analysis in extension box - rotational ",
+                                        "value": "3D analysis in extension box - rotational",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -3878,7 +3878,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "turbidity current simulator ",
+                                "value": "turbidity current simulator",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -3895,7 +3895,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "3D analysis in turbidity current simulator ",
+                                        "value": "3D analysis in turbidity current simulator",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -3906,7 +3906,7 @@
                                 ]
                             },
                             {
-                                "value": "tsunami simulator ",
+                                "value": "tsunami simulator",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -3923,7 +3923,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "3D analysis in tsunami simulator ",
+                                        "value": "3D analysis in tsunami simulator",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -3963,7 +3963,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "3D analysis in wedge simulator ",
+                                        "value": "3D analysis in wedge simulator",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -3974,7 +3974,7 @@
                                 ]
                             },
                             {
-                                "value": "extension box ",
+                                "value": "extension box",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -3991,7 +3991,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "3D analysis in extension box ",
+                                        "value": "3D analysis in extension box",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -4113,6 +4113,35 @@
                     "characterisation of modeling material"
                 ],
                 "subTerms": [
+                    {
+                        "value": "frictional property determination",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [],
+                        "subTerms": [
+                            {
+                                "value": "rotary shear apparatus",
+                                "level": 4,
+                                "hyperlink": "",
+                                "vocabUri": "",
+                                "uri": "",
+                                "synonyms": [
+                                    "ringshear",
+                                    "ring shear",
+                                    "ringshear tester",
+                                    "rotary shear",
+                                    "ringsheartester",
+                                    "ring-shear tests",
+                                    "ringshear tests",
+                                    "ring-shear test",
+                                    "ringshear test"
+                                ],
+                                "subTerms": []
+                            }
+                        ]
+                    },
                     {
                         "value": "porosity and density determination",
                         "level": 3,
@@ -4547,7 +4576,7 @@
                 "synonyms": [],
                 "subTerms": [
                     {
-                        "value": "X-ray computed tomographic (CT) scanning of analogue models ",
+                        "value": "X-ray computed tomographic (CT) scanning of analogue models",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -5902,7 +5931,7 @@
                 "subTerms": []
             },
             {
-                "value": "GOCAD (Earth Decision - Paradigm) ",
+                "value": "GOCAD (Earth Decision - Paradigm)",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6037,7 +6066,7 @@
                 "subTerms": []
             },
             {
-                "value": "Pathfinder (Trimble) ",
+                "value": "Pathfinder (Trimble)",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6075,7 +6104,7 @@
                 "subTerms": []
             },
             {
-                "value": "Promax (Landmark) ",
+                "value": "Promax (Landmark)",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6147,7 +6176,7 @@
                 "subTerms": []
             },
             {
-                "value": "Seiswork (Landmark) ",
+                "value": "Seiswork (Landmark)",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6183,7 +6212,7 @@
                 "subTerms": []
             },
             {
-                "value": "Terrasync (Trimble) ",
+                "value": "Terrasync (Trimble)",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -6201,7 +6230,7 @@
                 "subTerms": []
             },
             {
-                "value": "TopPad (Topcon) ",
+                "value": "TopPad (Topcon)",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
