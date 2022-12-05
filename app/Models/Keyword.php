@@ -25,6 +25,14 @@ class Keyword extends Model
         return $this->belongsTo(Vocabulary::class, 'vocabulary_id');
     }
     
+    public function getSynonyms()
+    {
+        return KeywordSearch::where([
+            ['keyword_id', $this->id],
+            ['isSynonym', true]
+        ])->get();
+    }
+    
     public function getChildren()
     {
         return Keyword::where('parent_id', $this->id)->get();                
@@ -79,4 +87,19 @@ class Keyword extends Model
         
         return $values;
     }
+    
+    public function getSynonymString($startCharacter = '#')
+    {
+        $synonyms = $this->getSynonyms();
+        $string = "";
+        
+        if($synonyms) {
+            foreach ($synonyms as $synonym) {
+                $string .= $startCharacter . $synonym->search_value;
+            }
+        }
+        
+        return $string;        
+    }
+    
 }
