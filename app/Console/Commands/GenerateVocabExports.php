@@ -3,9 +3,11 @@
 namespace App\Console\Commands;
 
 use Illuminate\Console\Command;
+use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Vocabulary;
 use App\Exports\Vocabs\ExcelExport;
+use App\Exports\Vocabs\JsonExport;
 
 class GenerateVocabExports extends Command
 {
@@ -45,9 +47,16 @@ class GenerateVocabExports extends Command
         
         foreach ($vocabularies as $vocabulary) {
             $this->line("processing " . $vocabulary->name . " exports...");
-            $path = 'vocabs/' . $vocabulary->name . '/' . $vocabulary->version . '/' . $vocabulary->name . '.xlsx';            
+            $basePath = 'vocabs/' . $vocabulary->name . '/' . $vocabulary->version . '/';
+            
+            //store Excel export                        
+            $path = $basePath . $vocabulary->name . '.xlsx';                       
             Excel::store(new ExcelExport($vocabulary), $path, 'public');
             
+            //store json export
+            $exporter = new JsonExport($vocabulary);
+            $path = $basePath . $vocabulary->name . '.json';
+            Storage::disk('public')->put($path, $exporter->export());
             
         }        
         
