@@ -8,6 +8,7 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Models\Vocabulary;
 use App\Exports\Vocabs\ExcelExport;
 use App\Exports\Vocabs\JsonExport;
+use App\Exports\Vocabs\RdfExport;
 
 class GenerateVocabExports extends Command
 {
@@ -58,6 +59,14 @@ class GenerateVocabExports extends Command
             $path = $basePath . $vocabulary->name . '.json';
             Storage::disk('public')->put($path, $exporter->export());
             
+            //store turtle export
+            $exporter = new RdfExport($vocabulary);
+            $path = $basePath . $vocabulary->name . '.ttl';
+            Storage::disk('public')->put($path, $exporter->export('turtle'));
+               
+            //store rdfxml export
+            $path = $basePath . $vocabulary->name . '.xml';
+            Storage::disk('public')->put($path, $exporter->export('rdfxml'));
         }        
         
         $this->line("Finished exporting vocabularies.");
