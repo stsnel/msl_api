@@ -752,7 +752,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "porosity meter: Archimedes method ",
+                                "value": "porosity meter: Archimedes method",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -828,7 +828,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "conductivity cell ",
+                                "value": "conductivity cell",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -1232,7 +1232,7 @@
                 ]
             },
             {
-                "value": "in-line fluid property measurement ",
+                "value": "in-line fluid property measurement",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -1249,7 +1249,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "flow meter ",
+                        "value": "flow meter",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1258,7 +1258,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "Coriolis meter ",
+                        "value": "Coriolis meter",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1288,7 +1288,7 @@
         "synonyms": [],
         "subTerms": [
             {
-                "value": "strength ",
+                "value": "strength",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -1645,7 +1645,7 @@
                 ]
             },
             {
-                "value": "friction - controlled stress ",
+                "value": "friction - controlled stress",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -1810,7 +1810,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "pore fluid composition ",
+                        "value": "pore fluid composition",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -1821,7 +1821,7 @@
                 ]
             },
             {
-                "value": "coupled mechanical-hydrological effects ",
+                "value": "coupled mechanical-hydrological effects",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -2300,7 +2300,7 @@
                 ]
             },
             {
-                "value": "anisotropy ",
+                "value": "anisotropy",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -2587,7 +2587,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "deviatoric strain tensor ",
+                                "value": "deviatoric strain tensor",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",

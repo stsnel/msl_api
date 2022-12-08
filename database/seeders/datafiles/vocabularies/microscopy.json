@@ -875,7 +875,7 @@
                         ],
                         "subTerms": [
                             {
-                                "value": "cone beam CT ",
+                                "value": "cone beam CT",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -884,7 +884,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "fan beam CT ",
+                                "value": "fan beam CT",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -1336,7 +1336,7 @@
         "synonyms": [],
         "subTerms": [
             {
-                "value": "deformation microstructure ",
+                "value": "deformation microstructure",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -1442,7 +1442,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "fault microstructure ",
+                                "value": "fault microstructure",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -1468,7 +1468,7 @@
                                 "synonyms": [],
                                 "subTerms": [
                                     {
-                                        "value": "Riedel shear microstructure ",
+                                        "value": "Riedel shear microstructure",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -1575,7 +1575,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "deformation lamellae ",
+                                "value": "deformation lamellae",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -1611,7 +1611,7 @@
                                 "synonyms": [],
                                 "subTerms": [
                                     {
-                                        "value": "intragranular deformation band ",
+                                        "value": "intragranular deformation band",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -1684,7 +1684,7 @@
                                         "subTerms": []
                                     },
                                     {
-                                        "value": "subgrain boundary orientations ",
+                                        "value": "subgrain boundary orientations",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -2094,7 +2094,7 @@
                                 "synonyms": [],
                                 "subTerms": [
                                     {
-                                        "value": "sigma type porphyroclasts ",
+                                        "value": "sigma type porphyroclasts",
                                         "level": 5,
                                         "hyperlink": "",
                                         "vocabUri": "",
@@ -2230,7 +2230,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "recrystallized grains ",
+                        "value": "recrystallized grains",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -2394,7 +2394,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "structural classification ",
+                                "value": "structural classification",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -3148,7 +3148,7 @@
                         ]
                     },
                     {
-                        "value": "inferred permeability ",
+                        "value": "inferred permeability",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -3170,7 +3170,7 @@
                 ]
             },
             {
-                "value": "inferred mechanisms ",
+                "value": "inferred mechanisms",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
@@ -3213,7 +3213,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "geometric dynamic recrystallization ",
+                                "value": "geometric dynamic recrystallization",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
