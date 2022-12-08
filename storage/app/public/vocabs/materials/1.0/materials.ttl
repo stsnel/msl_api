@@ -65,7 +65,7 @@
 <https://epos-msl.uu.nl/voc/materials/1.0/sedimentary_rock-limestone-indiana_limestone>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/sedimentary_rock-limestone" ;
-  rdfs:label "Indiana limestone " .
+  rdfs:label "Indiana limestone" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/sedimentary_rock-limestone-irondequoit_limestone>
   a skos:Concept ;
@@ -706,7 +706,7 @@
 <https://epos-msl.uu.nl/voc/materials/1.0/igneous_rock_-_intrusive-ultrabasic_intrusive-peridotite-synthetic_peridotite>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/igneous_rock_-_intrusive-ultrabasic_intrusive-peridotite" ;
-  rdfs:label "synthetic peridotite " .
+  rdfs:label "synthetic peridotite" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/igneous_rock_-_intrusive-ultrabasic_intrusive-peridotite-synthetic_peridotite_-_hot_pressed_olivine_powder>
   a skos:Concept ;
@@ -1685,7 +1685,7 @@
 <https://epos-msl.uu.nl/voc/materials/1.0/minerals-halides-bischofite>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/minerals-halides" ;
-  rdfs:label "bischofite " .
+  rdfs:label "bischofite" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/minerals-halides-carnallite>
   a skos:Concept ;
@@ -3130,12 +3130,12 @@
 <https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material-carbopol>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material" ;
-  rdfs:label "carbopol " .
+  rdfs:label "carbopol" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material-natrosol>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material" ;
-  rdfs:label "natrosol " .
+  rdfs:label "natrosol" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-organic_granular_material>
   a skos:Concept ;
@@ -3327,7 +3327,7 @@
 <https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-elastic_modelling_material-synthetic_elastic_material-polystyrene_foam>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-elastic_modelling_material-synthetic_elastic_material" ;
-  rdfs:label "polystyrene foam " .
+  rdfs:label "polystyrene foam" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-elastic_modelling_material-synthetic_elastic_material-polypropylene_foam>
   a skos:Concept ;
@@ -3405,7 +3405,7 @@
 <https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-viscous_modelling_material-synthetic_viscous_material-polytungstate>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-viscous_modelling_material-synthetic_viscous_material" ;
-  rdfs:label "polytungstate " .
+  rdfs:label "polytungstate" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-viscous_modelling_material-synthetic_viscous_material-natrosol>
   a skos:Concept ;
@@ -3552,7 +3552,7 @@
 <https://epos-msl.uu.nl/voc/materials/1.0/synthesized_material-fabricated_glass>
   a skos:Concept ;
   skos:broader "https://epos-msl.uu.nl/voc/materials/1.0/synthesized_material" ;
-  rdfs:label "fabricated glass " .
+  rdfs:label "fabricated glass" .
 
 <https://epos-msl.uu.nl/voc/materials/1.0/synthesized_material-3d_printed>
   a skos:Concept ;

@@ -96,7 +96,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/sedimentary_rock-limestone-indiana_limestone">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/sedimentary_rock-limestone</skos:broader>
-    <rdfs:label>Indiana limestone </rdfs:label>
+    <rdfs:label>Indiana limestone</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/sedimentary_rock-limestone-irondequoit_limestone">
@@ -821,7 +821,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/igneous_rock_-_intrusive-ultrabasic_intrusive-peridotite-synthetic_peridotite">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/igneous_rock_-_intrusive-ultrabasic_intrusive-peridotite</skos:broader>
-    <rdfs:label>synthetic peridotite </rdfs:label>
+    <rdfs:label>synthetic peridotite</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/igneous_rock_-_intrusive-ultrabasic_intrusive-peridotite-synthetic_peridotite_-_hot_pressed_olivine_powder">
@@ -1968,7 +1968,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/minerals-halides-bischofite">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/minerals-halides</skos:broader>
-    <rdfs:label>bischofite </rdfs:label>
+    <rdfs:label>bischofite</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/minerals-halides-carnallite">
@@ -3644,12 +3644,12 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material-carbopol">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material</skos:broader>
-    <rdfs:label>carbopol </rdfs:label>
+    <rdfs:label>carbopol</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material-natrosol">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-synthetic_granular_material</skos:broader>
-    <rdfs:label>natrosol </rdfs:label>
+    <rdfs:label>natrosol</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-granular_modelling_material-organic_granular_material">
@@ -3872,7 +3872,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-elastic_modelling_material-synthetic_elastic_material-polystyrene_foam">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-elastic_modelling_material-synthetic_elastic_material</skos:broader>
-    <rdfs:label>polystyrene foam </rdfs:label>
+    <rdfs:label>polystyrene foam</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-elastic_modelling_material-synthetic_elastic_material-polypropylene_foam">
@@ -3959,7 +3959,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-viscous_modelling_material-synthetic_viscous_material-polytungstate">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-viscous_modelling_material-synthetic_viscous_material</skos:broader>
-    <rdfs:label>polytungstate </rdfs:label>
+    <rdfs:label>polytungstate</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/analogue_modelling_material-viscous_modelling_material-synthetic_viscous_material-natrosol">
@@ -4123,7 +4123,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/synthesized_material-fabricated_glass">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.0/synthesized_material</skos:broader>
-    <rdfs:label>fabricated glass </rdfs:label>
+    <rdfs:label>fabricated glass</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.0/synthesized_material-3d_printed">

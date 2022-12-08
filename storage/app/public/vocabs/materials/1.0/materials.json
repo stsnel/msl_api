@@ -96,8 +96,8 @@
                     {
                         "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/sedimentary_rock-limestone-indiana_limestone",
                         "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                        "value": "Indiana limestone ",
-                        "label": "Indiana limestone ",
+                        "value": "Indiana limestone",
+                        "label": "Indiana limestone",
                         "synonyms": [],
                         "children": []
                     },
@@ -1191,8 +1191,8 @@
                             {
                                 "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/igneous_rock_-_intrusive-ultrabasic_intrusive-peridotite-synthetic_peridotite",
                                 "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                                "value": "synthetic peridotite ",
-                                "label": "synthetic peridotite ",
+                                "value": "synthetic peridotite",
+                                "label": "synthetic peridotite",
                                 "synonyms": [],
                                 "children": []
                             },
@@ -2885,8 +2885,8 @@
                     {
                         "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/minerals-halides-bischofite",
                         "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                        "value": "bischofite ",
-                        "label": "bischofite ",
+                        "value": "bischofite",
+                        "label": "bischofite",
                         "synonyms": [],
                         "children": []
                     },
@@ -5257,16 +5257,16 @@
                             {
                                 "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/analogue_modelling_material-granular_modelling_material-synthetic_granular_material-carbopol",
                                 "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                                "value": "carbopol ",
-                                "label": "carbopol ",
+                                "value": "carbopol",
+                                "label": "carbopol",
                                 "synonyms": [],
                                 "children": []
                             },
                             {
                                 "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/analogue_modelling_material-granular_modelling_material-synthetic_granular_material-natrosol",
                                 "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                                "value": "natrosol ",
-                                "label": "natrosol ",
+                                "value": "natrosol",
+                                "label": "natrosol",
                                 "synonyms": [],
                                 "children": []
                             }
@@ -5604,8 +5604,8 @@
                             {
                                 "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/analogue_modelling_material-elastic_modelling_material-synthetic_elastic_material-polystyrene_foam",
                                 "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                                "value": "polystyrene foam ",
-                                "label": "polystyrene foam ",
+                                "value": "polystyrene foam",
+                                "label": "polystyrene foam",
                                 "synonyms": [],
                                 "children": []
                             },
@@ -5754,8 +5754,8 @@
                             {
                                 "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/analogue_modelling_material-viscous_modelling_material-synthetic_viscous_material-polytungstate",
                                 "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                                "value": "polytungstate ",
-                                "label": "polytungstate ",
+                                "value": "polytungstate",
+                                "label": "polytungstate",
                                 "synonyms": [],
                                 "children": []
                             },
@@ -6020,8 +6020,8 @@
             {
                 "uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/synthesized_material-fabricated_glass",
                 "vocab_uri": "https:\/\/epos-msl.uu.nl\/voc\/materials\/1.0\/",
-                "value": "fabricated glass ",
-                "label": "fabricated glass ",
+                "value": "fabricated glass",
+                "label": "fabricated glass",
                 "synonyms": [],
                 "children": []
             },
