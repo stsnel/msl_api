@@ -13,6 +13,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - URI generation for vocabularies and specific terms
 - Specific vocabulary versions
 - Several export formats for vocabularies: xlsx, json, ttl and and xml (linked data)
+- Keyword mapping no longer removes matched keywords from tag_string field
 
 ## [1.2.0] - 2022-11-11
 

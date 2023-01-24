@@ -39,7 +39,8 @@ class KeywordHelper
                 }
             }
             
-            $keyword = trim($keyword);
+            $keyword = trim($keyword);            
+            $dataset->tag_string[] = $this->cleanKeyword($keyword);
             
             $searchKeywords = KeywordSearch::where('search_value', strtolower($keyword))->get();
             
@@ -55,9 +56,8 @@ class KeywordHelper
                         $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name]);
                     }
                 }
-            } else {
-                $dataset->tag_string[] = $this->cleanKeyword($keyword);
-            }
+            }            
+            
         }
                         
         return $dataset;
