@@ -33,9 +33,13 @@ class Keyword extends Model
         ])->get();
     }
     
-    public function getChildren()
+    public function getChildren($sort = true)
     {
-        return Keyword::where('parent_id', $this->id)->get();                
+        if($sort) {
+            return Keyword::where('parent_id', $this->id)->orderBy('value', 'asc')->get();
+        } else {
+            return Keyword::where('parent_id', $this->id)->get();
+        }                
     }
     
     public function getAncestors()

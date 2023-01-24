@@ -23,7 +23,7 @@ class FilterTreeExport
                     'filterName' => '',
                     'filterValue' => ''
                 ],
-                'children' => $this->getVocabAsFilters(1, 'msl_material_')
+                'children' => $this->getVocabAsFilters(1, 'msl_material_', true)
             ],
             [
                 'text' => 'Geological age',
@@ -39,7 +39,7 @@ class FilterTreeExport
                     'filterName' => '',
                     'filterValue' => ''
                 ],
-                'children' => $this->getVocabAsFilters(5, 'msl_geologicalage_')
+                'children' => $this->getVocabAsFilters(5, 'msl_geologicalage_', false, false)
             ],
             [
                 'text' => 'Pore fluid',
@@ -191,8 +191,12 @@ class FilterTreeExport
     }
     
     
-    private function getVocabAsFilters($vocabId, $filterPrefix = "") {
-        $topNodes = Keyword::where(['vocabulary_id' => $vocabId, 'level' => 1])->get();
+    private function getVocabAsFilters($vocabId, $filterPrefix = "", $sortToplevel = false, $sortChildren = true) {
+        if($sortToplevel) {
+            $topNodes = Keyword::where(['vocabulary_id' => $vocabId, 'level' => 1])->orderBy('value', 'asc')->get();
+        } else {
+            $topNodes = Keyword::where(['vocabulary_id' => $vocabId, 'level' => 1])->get();
+        }        
         $vocabFilters = [];
         
         foreach ($topNodes as $node) {
@@ -211,7 +215,7 @@ class FilterTreeExport
                     'filterName' => $filterPrefix . $node->level,
                     'filterValue' => $node->getFullPath()
                 ],
-                'children' => $this->getChildren($node, $filterPrefix)                
+                'children' => $this->getChildren($node, $filterPrefix, $sortChildren)                
             ];
             
             $vocabFilters[] = $filter;
@@ -220,9 +224,9 @@ class FilterTreeExport
         return $vocabFilters;        
     }
     
-    private function getChildren($keyword, $filterPrefix = "")
+    private function getChildren($keyword, $filterPrefix = "", $sort = true)
     {
-        $children = $keyword->getChildren();
+        $children = $keyword->getChildren($sort);
         $childFilters = [];
         
         foreach ($children as $child) {
@@ -241,7 +245,7 @@ class FilterTreeExport
                     'filterName' => $filterPrefix . $child->level,
                     'filterValue' => $child->getFullPath()
                 ],
-                'children' => $this->getChildren($child, $filterPrefix)
+                'children' => $this->getChildren($child, $filterPrefix, $sort)
             ];
             
             $childFilters[] = $filter;
