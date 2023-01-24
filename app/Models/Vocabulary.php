@@ -11,5 +11,11 @@ class Vocabulary extends Model
         'uri'
     ];
              
+    public function keywords() {
+        return $this->hasMany(Keyword::class);
+    }
     
+    public function maxLevel() {
+        return Keyword::where('vocabulary_id', $this->id)->max('level');
+    }
 }

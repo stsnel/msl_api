@@ -102,7 +102,7 @@ class GeologicalSettingConverter
             return trim($parts[0]);
         }
         
-        return $string;
+        return trim($string);
     }
     
     private function extractSynonyms($string) 

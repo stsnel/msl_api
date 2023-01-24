@@ -142,7 +142,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "Triaxe ",
+                                "value": "Triaxe",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -406,7 +406,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "Triaxe ",
+                                "value": "Triaxe",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -735,17 +735,6 @@
                                     "DynoMag AC susceptometer"
                                 ],
                                 "subTerms": []
-                            },
-                            {
-                                "value": "Sapphire Instruments susceptibility meter",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [
-                                    "Sapphire Instruments susceptometer"
-                                ],
-                                "subTerms": []
                             }
                         ]
                     }
@@ -934,7 +923,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "Triaxe ",
+                                "value": "Triaxe",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -1928,7 +1917,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "magnetic anisotropy through crystallographic preferred orientation (CPO) ",
+                                "value": "magnetic anisotropy through crystallographic preferred orientation (CPO)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -1937,7 +1926,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "magnetic anisotropy through shape preferred orientation (SPO) ",
+                                "value": "magnetic anisotropy through shape preferred orientation (SPO)",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -2070,7 +2059,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "magnetic foliation ",
+                        "value": "magnetic foliation",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
