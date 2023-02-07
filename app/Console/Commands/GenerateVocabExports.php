@@ -51,25 +51,29 @@ class GenerateVocabExports extends Command
             $basePath = 'vocabs/' . $vocabulary->name . '/' . $vocabulary->version . '/';
             
             //store Excel export                        
-            $path = $basePath . $vocabulary->name . '.xlsx';                       
+            $path = $basePath . $vocabulary->name . '_' . $this->versionFileName($vocabulary->version) . '.xlsx';                       
             Excel::store(new ExcelExport($vocabulary), $path, 'public');
             
             //store json export
             $exporter = new JsonExport($vocabulary);
-            $path = $basePath . $vocabulary->name . '.json';
+            $path = $basePath . $vocabulary->name . '_' . $this->versionFileName($vocabulary->version) . '.json';
             Storage::disk('public')->put($path, $exporter->export());
             
             //store turtle export
             $exporter = new RdfExport($vocabulary);
-            $path = $basePath . $vocabulary->name . '.ttl';
+            $path = $basePath . $vocabulary->name . '_' . $this->versionFileName($vocabulary->version) . '.ttl';
             Storage::disk('public')->put($path, $exporter->export('turtle'));
                
             //store rdfxml export
-            $path = $basePath . $vocabulary->name . '.xml';
+            $path = $basePath . $vocabulary->name . '_' . $this->versionFileName($vocabulary->version) . '.xml';
             Storage::disk('public')->put($path, $exporter->export('rdfxml'));
         }        
         
         $this->line("Finished exporting vocabularies.");
         return 0;
+    }
+    
+    private function versionFileName($version) {
+        return str_replace('.', '-', $version);        
     }
 }
