@@ -1,0 +1,902 @@
+[
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21789452.v1",
+        "title": "Data related to the research of alkenones in Lake Luming sediment core in northeastern China",
+        "posted_date": "2022-12-29T12:48:24",
+        "authors": "[01] Yuan Yao",
+        "categories": "Geochemistry",
+        "keywords": "Alkenone; Northeastern China; Paleotemperature"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21678938.v1",
+        "title": "The time series geochemical records and paleomagnetic data from the Gantang section in the Yuanmou Basin, Southwest China",
+        "posted_date": "2022-12-19T10:28:41",
+        "authors": "[01] Ze Zhang",
+        "categories": "Geochemistry; Geology; Geophysics",
+        "keywords": "Climate Change Conditions; Orbital forcing; Paleomagnetics; Pliocene; South Asian summer monsoon"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21640148.v2",
+        "title": "Geothermal Project on TU Delft Campus - DAPGEO-02 Drilling Report",
+        "posted_date": "2022-12-09T07:53:50",
+        "authors": "[01] Philip Vardon; [02] Hemmo A Abels; [03] Auke Barnhoorn; [04] Stijn Beernink; [05] Anne-Catherine Dieudonn\u00e9; [06] Guy Drijkoningen; [07] Pieter Geris; [08] Pieter Pauw; [09] Erika Neeft; [10] Susanne Laumann; [11] Tobias Schmiedel; [12] Jens van den Berg; [13] Liliana Vargas Meleza",
+        "categories": "Geology; Geophysics; Other Earth Sciences",
+        "keywords": "DAPGEO-02; DAPwell; Maassluis Formation; Paleogene clays; drilling report; geothermal research; research borehole"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21528819.v1",
+        "title": "Geothermal Project on TU Delft Campus - DAPGEO-02 Core CT-Scan Data",
+        "posted_date": "2022-12-09T07:48:50",
+        "authors": "[01] Philip Vardon; [02] Anne-Catherine Dieudonn\u00e9; [03] Stijn Beernink; [04] Hemmo A Abels; [05] Auke Barnhoorn; [06] Susanne Laumann; [07] Ellen Meijvogel-de Koning; [08] Liliana Vargas Meleza",
+        "categories": "Geology; Geophysics; Other Earth Sciences",
+        "keywords": "DAPGEO-02; DAPwell; X-ray tomographic images; computer tomographic scan; ct-scans; geothermal research; rock core"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/20299644.v1",
+        "title": "Geothermal Project on TU Delft Campus - DAPGEO-02 Initial Borehole Dataset",
+        "posted_date": "2022-12-08T09:34:06",
+        "authors": "[01] Philip Vardon; [02] Hemmo A Abels; [03] Auke Barnhoorn; [04] Stijn Beernink; [05] Anne-Catherine Dieudonn\u00e9; [06] Susanne Laumann; [07] Guy Drijkoningen; [08] Liliana Vargas Meleza",
+        "categories": "Geology; Geophysics; Other Earth Sciences",
+        "keywords": "Borehole; DAPGEO-02; DAPwell; EPOS-NL; Geothermal energy; Seismic monitoring technologies; Wireline logging; drill core; drill cuttings; drill hole site; drillers log; maassluis formation; paleogene"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21523512.v2",
+        "title": "Data for paper : The Initiation of Frictional Motion - the nucleation dynamics of of frictional ruptures",
+        "posted_date": "2022-11-23T14:02:29",
+        "authors": "[01] Shahar Gvirtzman; [02] J. (Jay) Fineberg",
+        "categories": "Classical Physics; Geophysics",
+        "keywords": "earthquakes; fracture; friction; nucleation; rupture fronts"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21533988.v1",
+        "title": "Physical properties and mechanical parameters of limestone rocks from Central Apennines (Italy) by laboratory test on intact rock specimens",
+        "posted_date": "2022-11-11T07:34:52",
+        "authors": "[01] Marco Emanuele Discenza",
+        "categories": "Geology; Other Earth Sciences",
+        "keywords": "Intact rock; Limestone; Physical properties; Stiffness parameters; Strength parameters; laboratory tests profile"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21510030.v1",
+        "title": "Dataset of Cone Penetration Tests (CPTs) to study soil heterogeneity",
+        "posted_date": "2022-11-09T09:10:07",
+        "authors": "[01] Mark van der Krogt",
+        "categories": "Geology; Physical Geography and Environmental Geoscience; Soil Sciences; Soils",
+        "keywords": "CPT resistance; CPTS; Cone Penetration Test (CPT); Soil heterogeneity; Spatial Variability; vane shear test"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21316563.v1",
+        "title": "Data related to the research of alkenones in Lake Ngoring sediment core on the northeastern Tibetan Plateau",
+        "posted_date": "2022-10-12T13:34:55",
+        "authors": "[01] Yuan Yao",
+        "categories": "Geochemistry",
+        "keywords": "Alkenones; Tibetan Plateau"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/21187270.v1",
+        "title": "Supplementary data for the package DIMOPREC (Development of a Well Impairment Model for Predicting Geothermal Clogging)",
+        "posted_date": "2022-09-28T12:09:34",
+        "authors": "[01] Ahmed Hussain; [02] Karl-Heinz Wollf; [03] Bernard Meulenbroek; [04] Negar Khoshnevis Gargar; [05] Wouter van der Star; [06] Hans Bruining; [07] Han Claringbould; [08] Isabelle Llaneza",
+        "categories": "Energy Exploration; Environmentally Sustainable Energy Activities; Geochemistry; Geology; Mining and Extraction of Energy Resources; Preparation and Production of Energy Sources; Renewable Energy",
+        "keywords": "DIMOPREC; Geothermal; Mineralization; Scaling"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/15153594.v1",
+        "title": "Supporting information for publication \"Protracted thermal evolution of a migmatitic terrane as revealed by multiple geochronometers from the retro-arc of the early Paleozoic Famatinian orogen in NW Argentina\"",
+        "posted_date": "2022-09-08T07:28:00",
+        "authors": "[01] Roberto Weinberg",
+        "categories": "Geochemistry; Geology",
+        "keywords": "U-Pb dating; geochronology; mineral chemistry; monazite; petrochronology; rock dating; titanite; whole-rock chemistry; zircon"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/20469435.v1",
+        "title": "Code and data accompanying the paper entitled \"Seismic fault slip behaviour predicted from internal microphysical processes\"",
+        "posted_date": "2022-08-12T08:49:38",
+        "authors": "[01] Jianye Chen",
+        "categories": "Geophysics",
+        "keywords": "Earthquake simulation; high velocity friction; microphysical model; seismic slip"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14820342.v6",
+        "title": "The time series geochemical records and paleomagnetic data from the Huangdigou section in the Fenwei Basin, North China",
+        "posted_date": "2022-07-04T06:23:28",
+        "authors": "[01] Ze Zhang",
+        "categories": "Geochemistry; Geology; Geophysics",
+        "keywords": "Paleomagnetics; climatic conditions"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/20179856.v1",
+        "title": "Data accompanying the paper entitled \"Fault weakening during short seismic slip pulse experiments: Implications for induced earthquakes in the Groningen gas field\"",
+        "posted_date": "2022-06-29T12:58:21",
+        "authors": "[01] Jianye Chen; [02] Andr\u00e9 R Niemeijer",
+        "categories": "Geophysics",
+        "keywords": "Seismic slip pulse; dynamic weakening; earthquake rupture; induced earthquakes; local fluid pressurization"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/19500344.v2",
+        "title": "Data accompanying the paper entitled \"Rapid normal stress oscillations cause dilatation and weakening in gouge-bearing faults\"",
+        "posted_date": "2022-06-29T12:57:24",
+        "authors": "[01] Jianye Chen; [02] Andr\u00e9 R Niemeijer",
+        "categories": "Geophysics",
+        "keywords": "fault dilatation; friction experiment; induced seismicity; stress perturbation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/20141567.v1",
+        "title": "A dataset of 10-year regional-scale soil moisture and soil temperature measurements at multiple depths on the Tibetan Plateau",
+        "posted_date": "2022-06-28T12:40:17",
+        "authors": "[01] Pei Zhang; [02] D. (Donghai) Zheng; [03] R. (Rogier) van der Velde; [04] J. (Jun) Wen; [05] Y.(Yaoming) Ma; [06] Y. (Yijian) Zeng; [07] X. (Xin) Wang; [08] Z. (Zuoliang) Wang; [09] J. (Jiali) Chen; [10] Z. (Bob) Su",
+        "categories": "Geology; Physical Geography and Environmental Geoscience; Soil Sciences",
+        "keywords": "Tibetan Plateau; soil moisture and soil temperature; three climate regions"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/19664427.v1",
+        "title": "Matlab files used to produce the figures in publication \"Induced aseismic slip and the onset of seismicity in displaced faults\"",
+        "posted_date": "2022-05-02T09:35:36",
+        "authors": "[01] Jan Dirk Jansen; [02] Bernard Meulenbroek",
+        "categories": "Geophysics",
+        "keywords": "Chebyshev polynomials; Displaced fault; Fault slip; Induced Seismicity; Poro-elasticity; Singular integral equations"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/19519861.v1",
+        "title": "Dataset accompanying the manuscript: The existence and origin of multiple equilibria in sand-mud sediment beds",
+        "posted_date": "2022-04-08T07:21:20",
+        "authors": "[01] Ana Colina Alonso; [02] Bas van Maren; [03] Peter Herman; [04] Roy van Weerdenburg; [05] Ymkje Huismans; [06] Sander Holthuijsen; [07] L.L. (Laura) Govers; [08] Allert Bijleveld; [09] Zheng-Bing Wang",
+        "categories": "Geology; Oceanography",
+        "keywords": "Wadden Sea; morphodynamics; sand-mud; sediment composition; tidal basins"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/12707453.v2",
+        "title": "Flow and bed morphology response to the introduction of large wood for sediment management",
+        "posted_date": "2022-04-06T07:41:06",
+        "authors": "[01] Judith Zomer",
+        "categories": "Geology; Physical Geography and Environmental Geoscience",
+        "keywords": "Bed morphology; Conveyance capacity; Flow patterns; Physical scale model; Sediment management; Sediment transport; Submerged vanes"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/19390835.v1",
+        "title": "Data underlying the publication: Long-term infrasonic monitoring of land and marine-terminating glaciers in Greenland",
+        "posted_date": "2022-04-01T09:51:29",
+        "authors": "[01] L\u00e4slo Evers",
+        "categories": "Geophysics",
+        "keywords": "Geophysic; Greenland Ice Sheet; glaceology; infrasound"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/16974109.v1",
+        "title": "Data support for \"Multiple heat transport maxima in confined-rotating Rayleigh-B\u00e9nard convection\"",
+        "posted_date": "2022-03-28T14:11:34",
+        "authors": "[01] Robert Hartmann",
+        "categories": "Classical Physics; Geophysics",
+        "keywords": "Direct numerical simulations; Fluid dynamics; Heat transport; Rayleigh-B\u00e9nard convection; Rotating flows; Turbulence"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/17121380.v1",
+        "title": "Data underlying the survey on Elasticity of hcp Fe-H alloy.",
+        "posted_date": "2021-12-06T12:41:25",
+        "authors": "[01] Shichuan Sun; [02] Yu He; [03] Duck Young Kim; [04] Heping Li; [05] Ho-Kwang Mao",
+        "categories": "Geophysics; Other Earth Sciences",
+        "keywords": "Ab Initio Molecular Dynamics Calculations; Earth's inner core; Elasticity; Seismic velocity; Superionic state; hexagonal close-packed (HCP)"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/17076044.v1",
+        "title": "Age and long chain diol index from four sediment cores from the Arabian Sea",
+        "posted_date": "2021-11-29T10:35:30",
+        "authors": "[01] Zeynep Erdem; [02] Jullie Lattaud; [03] Marit M. van Erk; [04] Gert-Jan Reichart; [05] Andreas L\u00fcckge; [06] Jaap S. Sinninghe Damst\u00e9; [07] Stefan Schouten",
+        "categories": "Geochemistry; Oceanography",
+        "keywords": "Arabian Sea; Long chain diol index; Sea Surface Temperature; biomarkers analysis; deglaciation; proxy data"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/17014052.v1",
+        "title": "Alkenones and planktonic foraminifera oxygen isotope, Mg\/Ca data from PASOM3",
+        "posted_date": "2021-11-16T15:05:32",
+        "authors": "[01] Zeynep Erdem; [02] Jullie Lattaud; [03] Marit M. van Erk; [04] Eveline Mezger; [05] Gert-Jan Reichart; [06] Jaap S. Sinninghe Damst\u00e9; [07] Stefan Schouten",
+        "categories": "Geochemistry; Oceanography",
+        "keywords": "Arabian Sea; Globigerinoides ruber; Mg\/Ca-derived SST; Sea Surface Temperature; alkenone temperature; proxy data"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/17013755.v1",
+        "title": "Long chain diols from four Arabian Sea sediment cores, data from 4 different expeditions",
+        "posted_date": "2021-11-16T15:05:19",
+        "authors": "[01] Zeynep Erdem; [02] Jullie Lattaud; [03] Marit M. van Erk; [04] Gert-Jan Reichart; [05] Andreas L\u00fcckge; [06] Jaap S. Sinninghe Damst\u00e9; [07] Stefan Schouten",
+        "categories": "Geochemistry; Oceanography",
+        "keywords": "Arabian Sea; biomarker measurement; deglaciation; long-chain diols"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/17004049.v1",
+        "title": "Dataset of Element Compositions and Mean Zircon Hafnium Isotopes of Igneous Rocks underlying the research: A test of the hypothesis that syn-collisional felsic magmatism contributes to continental crustal growth",
+        "posted_date": "2021-11-15T15:31:55",
+        "authors": "[01] Xin Lin; [02] Domenico Cicchella; [03] Jun Hong; [04] Ganggang Meng",
+        "categories": "Geochemistry",
+        "keywords": "Crustal growth; Igneous Rocks; Principal component analysis; Whole-rock geochemistry; deep learning; zircon Hf isotopes"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/16864147.v1",
+        "title": "LiDAR Datasets for Hypogenic and Epigenic Caves in Bahia, Brazil (2019)",
+        "posted_date": "2021-11-01T15:20:29",
+        "authors": "[01] Stephan de Hoop; [02] Rahul Prabhakaran; [03] G. (Giovanni) Bertotti; [04] H. (Hilario) Bezerra; [05] Cayo Pontes; [06] Rebecca Lima; [07] Philippe Audra; [08] Augusto Auler",
+        "categories": "Geochemistry; Geology",
+        "keywords": "cave systems; epigenic; fieldwork; geochemistry; geology; hypogenic; lidar; point cloud; speleogenesis"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/16864108.v1",
+        "title": "LiDAR Datasets for Hypogenic and Epigenic Caves in Bahia, Brazil (2018)",
+        "posted_date": "2021-11-01T15:20:17",
+        "authors": "[01] Stephan de Hoop; [02] Rahul Prabhakaran; [03] G. (Giovanni) Bertotti; [04] H. (Hilario) Bezerra; [05] Cayo Pontes; [06] Rebecca Lima; [07] Philippe Audra; [08] Augusto Auler",
+        "categories": "Geochemistry; Geology",
+        "keywords": "cave systems; epigenic; fieldwork; geochemistry; geology; hypogenic; lidar; point cloud; speleogenesis"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/16832254.v1",
+        "title": "LiDAR Dataset for Hypogenic Morro Vermelho Cave in Bahia, Brazil (2018)",
+        "posted_date": "2021-11-01T15:20:03",
+        "authors": "[01] Stephan de Hoop; [02] Rahul Prabhakaran; [03] G. (Giovanni) Bertotti; [04] H. (Hilario) Bezerra; [05] Cayo Pontes; [06] Rebecca Lima; [07] Philippe Audra; [08] Augusto Auler",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Point cloud; brazil; cave interior; chemistry; fieldwork; geochemistry; geology; hypogenic; las; lidar data; speleogenesis"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14464893.v2",
+        "title": "Supplementary data to the article: Fractal and Multifractal Characterization of Stochastic Fracture Networks and Real Outcrops",
+        "posted_date": "2021-10-26T13:27:30",
+        "authors": "[01] Weiwei Zhu",
+        "categories": "Geology; Other Earth Sciences",
+        "keywords": "Characterizations; Fractal; Multifractal; Outcrops; stochastic fracture networks"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/16837138.v1",
+        "title": "Data underlying the research of  Mg isotope compositions of river water and suspended load in the southeastern coastal region of China",
+        "posted_date": "2021-10-21T08:15:42",
+        "authors": "[01] Tong Zhao",
+        "categories": "Geochemistry",
+        "keywords": "Mg isotope; river water; suspended load"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/12721394.v3",
+        "title": "Low frequency dataset for tight sandstones and carbonates",
+        "posted_date": "2021-10-19T08:46:55",
+        "authors": "[01] Hui Li",
+        "categories": "Geophysics",
+        "keywords": "Vp\/Vs Ratio; attenuation and dispersion; forced oscillation; low frequency; tight rocks"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13469325.v1",
+        "title": "Data from 'Seasonal River Export of Nitrogen to Guanting and Baiyangdian Lakes in the Hai He Basin'",
+        "posted_date": "2021-10-11T05:55:54",
+        "authors": "[01] Jing Yang",
+        "categories": "Geophysics",
+        "keywords": "Baiyangdian Lake; Guangting reservoir; Haihe basin; River Export of Nitrogen; Seasonality"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/12852113.v1",
+        "title": "NIOZ racetrack sand-shell experiment, data belonging to the paper: Sediment shell-content diminishes current-driven sand ripple development and migration",
+        "posted_date": "2021-10-05T12:20:12",
+        "authors": "[01] Chiu H. Cheng",
+        "categories": "Environmental Engineering; Geology; Oceanography",
+        "keywords": "Armoring; Bed roughness; Erodibility; Incipient motion; Ripple behavior; Shell"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/16632559.v1",
+        "title": "DEM simulation data containing micro- and macro-scale quantities of granular materials under triaxial compression",
+        "posted_date": "2021-09-23T12:06:26",
+        "authors": "[01] Hongyang Cheng",
+        "categories": "Civil Engineering; Condensed Matter Physics; Geophysics; Mechanical Engineering; Other Earth Sciences",
+        "keywords": "DEM; GrainLearning; Granular materials; Multi-scale; Triaxial compression; YADE"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/16404870.v1",
+        "title": "Appendices to the master thesis: Understanding environmental risks related to geothermal fluids: An integrated approach from natural and social sciences in three countries",
+        "posted_date": "2021-08-23T15:03:21",
+        "authors": "[01] Jeanne Steijn",
+        "categories": "Geochemistry",
+        "keywords": "Geothermal; geochemistry"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14865096.v2",
+        "title": "Supplementary data to the article: Enhancing Fracture Network Characterization: A Data-Driven, Outcrop-Based Analysis",
+        "posted_date": "2021-07-05T07:39:13",
+        "authors": "[01] Weiwei Zhu",
+        "categories": "Geology",
+        "keywords": "fracture detection; fracture geometries; outcrop maps"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14537856.v1",
+        "title": "Supporting information for the article: Elastic geobarometry for anisotropic inclusions in anisotropic host minerals: quartz-in-zircon.",
+        "posted_date": "2021-06-03T11:28:23",
+        "authors": "[01] Joseph Gonzalez; [02] Mattia Mazzucchelli; [03] Ross John Angel; [04] Matteo Alvaro",
+        "categories": "Geophysics; Other Earth Sciences",
+        "keywords": "anisotropy; elastic thermobarometry; elasticity; quartz; thermobarometry; zircon"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14701947.v1",
+        "title": "Research data for Geo-electric assessment for groundwater potential at permanent site of Waziri Umaru Federal Polytechnic",
+        "posted_date": "2021-06-02T06:46:15",
+        "authors": "[01] Ibrahim Mohammed; [02] Suleiman Taofiq",
+        "categories": "Geophysics; Land and Water Management",
+        "keywords": "Electric conductivity; Hydrogeology; Vertical electrical sounding (VES); groundwater assessment"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14697138.v1",
+        "title": "Data for paper - How Friction starts: Nucleation Fronts trigger Interface Rupture",
+        "posted_date": "2021-05-31T12:10:39",
+        "authors": "[01] Shahar Gvirtzman; [02] J. (Jay) Fineberg",
+        "categories": "Classical Physics; Geophysics",
+        "keywords": "Earthquakes; Rupture; fracture mechanics principles; friction; nonlinear physics"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14634021.v1",
+        "title": "Data resulting from slide-hold-slide friction experiments on three types of carbonate faults rocks.",
+        "posted_date": "2021-05-21T06:29:03",
+        "authors": "[01] Yohan Park; [02] Takehiro Hirose; [03] Jin-Han Ree",
+        "categories": "Geophysics",
+        "keywords": "Earth and related environmental sciences; Friction experiments; Frictional healing; Slide-hold-slide test"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14619222.v1",
+        "title": "Data underlying the publication: Dominantly Aseismic Nucleation of Laboratory Earthquakes: A Quantitative Investigation",
+        "posted_date": "2021-05-21T06:26:36",
+        "authors": "[01] Samson Marty",
+        "categories": "Geophysics",
+        "keywords": "acoustic emission; foreshocks; nucleation; seismology; stick-slip"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14602119.v1",
+        "title": "Supplementary data to the article: Fracture sealing and its impact on percolation in the subsurface fracture networks: a simulation study.",
+        "posted_date": "2021-05-17T13:30:02",
+        "authors": "[01] Weiwei Zhu",
+        "categories": "Geology; Other Earth Sciences; Physical Geography and Environmental Geoscience",
+        "keywords": "Fracture network; Fracture sealing; Percolation; Simulation; Stimulated reservoir volume"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/14247125.v1",
+        "title": "Supporting information for 'A two-stage cooling of the Georgetown Inlier in NE Australia after 1.6 Ga Nuna assembly: new insights into the late-orogenic crustal tectono-magmatic history'",
+        "posted_date": "2021-03-19T09:25:21",
+        "authors": "[01] Jiangyu Li; [02] Z. (ZhengXiang) Li; [03] A. (Amaury) Pourteau; [04] F. (Fred) Jourdan; [05] S. (Silvia ) Volante; [06] Hugo K. H. Olierook; [07] Adam Richmond Nordsvan; [08] William J. Collins",
+        "categories": "Geology",
+        "keywords": "Ar-Ar dating; Georgetown Inlier, North Queensland; plateau ages; supplementary materials; thermochronological analyses"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13785643.v1",
+        "title": "Pb isotopic data of the Jianchuan, Yinggehai and Qiongdongnan basins",
+        "posted_date": "2021-02-10T07:48:40",
+        "authors": "[01] Zengjie Zhang",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Jianchuan Basin; Pb isotope data; Red River; Yangtze River; Yinggehai Basin"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:3ed61ee6-ce13-4792-af76-ea5226aea3cc",
+        "title": "Data underlying the publication: Ion-species in pore fluids with opposite effects on limestone fracturing",
+        "posted_date": "2021-01-19T07:41:14",
+        "authors": "[01] Audrey Ougier-Simonin; [02] Auke Barnhoorn; [03] Anne Pluymakers",
+        "categories": "Geology; Geophysics; Other Earth Sciences",
+        "keywords": "Comiso limestone; Ragusa Formation; carbonate; deformation; fluid-rock interactions; limestone; rock physics; triaxial testing"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13561979.v1",
+        "title": "The Early Evaporation of Pb on the Proto-Earth",
+        "posted_date": "2021-01-14T14:25:27",
+        "authors": "[01] Tong Fang",
+        "categories": "Astronomical and Space Sciences; Geochemistry",
+        "keywords": "Collisional melting; N-body simulation; Pb evaporation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13567319.v1",
+        "title": "Data underlying the research on: Carbon fluxes and methane cycling in Lake Wudalianchi, northeastern China",
+        "posted_date": "2021-01-14T00:36:54",
+        "authors": "[01] Yuan Yao",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Lake Wudalianchi; alkenone isomer index; carbon fluxes; iGDGT indices; methane cycling"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13551695.v1",
+        "title": "Simulation data of 2D quasi-perpendicular shock",
+        "posted_date": "2021-01-12T07:37:16",
+        "authors": "[01] Huanyu Wang",
+        "categories": "Geophysics",
+        "keywords": "Magnetic reconnection; Particle-in-cell (PIC) simulation data; shock"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13352363.v1",
+        "title": "Pb data of Cenozoic deposits inTaiwan",
+        "posted_date": "2020-12-10T09:11:56",
+        "authors": "[01] Zengjie Zhang",
+        "categories": "Geochemistry; Geology",
+        "keywords": "K-feldspar; Pb isotopic data; Taiwan"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/12917615.v1",
+        "title": "Post-processed video files of simulations in Delft3D of multiple turbidity currents (included as part of phase C Equinor-TU Delft contract)",
+        "posted_date": "2020-12-04T12:41:47",
+        "authors": "[01] Maria Azpiroz Zabala; [02] Joep Storms; [03] Helena van der Vegt; [04] Joris Eggenhuisen; [05] Dirk-Jan Walstra",
+        "categories": "Geology; Oceanography; Other Earth Sciences",
+        "keywords": "3-Dimensional; Delft3D; Low-density; Simulations; Turbidity currents; post-processed video files; sediment deposition; sediment transport processes; submarine canyon"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13280417.v1",
+        "title": "Dataset: Caldera collapse as the trigger of Chaos and fractured craters on the Moon and Mars",
+        "posted_date": "2020-11-30T09:43:07",
+        "authors": "[01] Erica Luzzi; [02] Angelo pio Rossi; [03] Matteo Massironi; [04] Pozzobon, Riccardo; [05] Maestrelli, Daniele; [06] Giacomo Corti",
+        "categories": "Astronomical and Space Sciences; Geology",
+        "keywords": "analogue modelling; caldera collapse; chaotic terrains; floor-fractured craters; magmatic processes; mars; moon"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13246616.v1",
+        "title": "Data belonging to the publication 'Evaluation of oxygen isotopes and trace elements in planktonic foraminifera from the Mediterranean Sea as recorders of seawater oxygen isotopes and salinity'",
+        "posted_date": "2020-11-25T08:55:00",
+        "authors": "[01] Lennart de Nooijer; [02] Linda Daemmer; [03] Erik van Sebille; [04] Jan Haak; [05] Gert-Jan Reichart",
+        "categories": "Geochemistry; Oceanography",
+        "keywords": "Mediterranean Sea waters; foraminifera geochemistry; salinity"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13121978.v1",
+        "title": "Pb isotopic data of the Yangtze Gravel",
+        "posted_date": "2020-10-22T08:26:53",
+        "authors": "[01] Zengjie Zhang",
+        "categories": "Geochemistry; Geology",
+        "keywords": "K-feldspar; Pb isotopic; Yangtze River region"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/13106063.v1",
+        "title": "Supporting information for: Large-Scale Rotational Motion Within the Main Central Thrust Zone in the Darjeeling-Sikkim Himalaya, India. Tectonics.",
+        "posted_date": "2020-10-21T06:43:30",
+        "authors": "[01] ALICE GEORGINA ROBERTS; [02] Roberto Weinberg",
+        "categories": "Geology",
+        "keywords": "Himalayas; Main Central Thrust; Microstructures; Structural Geology; Temperature of deformation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/12966782.v1",
+        "title": "Data underlying the research on: An n-alkane-based Holocene climate reconstruction in the Altai Mountains, Arid Central Asia",
+        "posted_date": "2020-09-21T13:38:07",
+        "authors": "[01] MIN RAN",
+        "categories": "Climate and Climate Change; Geochemistry",
+        "keywords": "Altai Mountains; Arid Central Asia; Holocene climate; Peat Sediment; n-alkane"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/12853844.v1",
+        "title": "Data associated to the research on Titanite geochronology and thermometry",
+        "posted_date": "2020-08-27T08:47:12",
+        "authors": "[01] Pablo Farias",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Geochronology; Titanite geochronology"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/12771332.v1",
+        "title": "Datasets: ZFT, ZHe, and AHe ages from the Indus Basin in central Ladakh, northwest India",
+        "posted_date": "2020-08-12T13:07:15",
+        "authors": "[01] Gourab Bhattacharya; [02] Delores M. Robinson; [03] Devon A. Orme; [04] Yani Najman; [05] Andy Carter",
+        "categories": "Geology; Geophysics",
+        "keywords": "(U-Th)\/He dating; Detrital thermochronology; Zircon fission track ages"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:24085453-5c83-47ff-9e62-14a7f564bc1c",
+        "title": "Sikkim Rock Samples - Neutron diffraction raw files for anaylsing quartz crystallographic preferred orientation for the paper: \"Large-Scale Rotational Motion Within the Main Central Thrust Zone in the Darjeeling-Sikkim Himalaya, India\"",
+        "posted_date": "2020-07-20T00:00:00",
+        "authors": "[01] N.J.R. (Nicholas) Hunter; [02] V. (Vladimir) Luzin",
+        "categories": "Geology",
+        "keywords": "Crystallographic preferred orientation; Microstructure; Neutron diffraction; Preferred orientation; Quartz; Structural geology"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:4c7bf8dc-9e81-4716-aa7c-363388fa95f6",
+        "title": "Data related to the research of trace elements and inferred hydroclimate change in stalagmite from Shangxiaofeng Cave",
+        "posted_date": "2020-07-16T00:00:00",
+        "authors": "[01] G. (Gang) Xue",
+        "categories": "Geochemistry; Geology; Physical Geography and Environmental Geoscience",
+        "keywords": "Penultimate deglacial; Speleothems; cave deposit; deglacial; hydroclimate; trace elements"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:41e5298a-e5e0-4de3-a2a2-96d0087e2c56",
+        "title": "Data underlying the research into the role of fluids in assisting the healing process of micro-cracks in fault damage zones.",
+        "posted_date": "2020-07-13T00:00:00",
+        "authors": "[01] Alissar Yehya",
+        "categories": "Geophysics",
+        "keywords": "fault zone; fluid migration; healing; micro-cracks; permeability; surface diffusion"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:f5bd2da9-4822-40b5-9b4f-067aa5dc675c",
+        "title": "Supplementary data for the publication: Late Miocene climate cooling contributed to the disappearance of hominoids in Yunnan region, southwestern China",
+        "posted_date": "2020-07-08T00:00:00",
+        "authors": "[01] Pei Li",
+        "categories": "Climate and Climate Change; Geochemistry; Soils",
+        "keywords": "Late Miocene; climate; geochemical; hominoids; sediment; weathering process"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:59635658-97ce-4cc8-93d9-f1670b8876fa",
+        "title": "Anisotropy of magnetic susceptibility (AMS) and rockmagnetic data for Nandurbar-Dhule Deccan dyke swarm",
+        "posted_date": "2020-06-29T00:00:00",
+        "authors": "[01] J. (Jyotirmoy) Mallik; [02] Ayanangshu Das",
+        "categories": "Geology; Geophysics",
+        "keywords": "Anisotropy of magnetic susceptibility (AMS); Deccan dykes; Rockmagnetism"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:bce04d86-732a-4d17-971d-f97a8947088e",
+        "title": "Data belonging to 'Rapid post-mortem oxygen isotope exchange in biogenic silica'",
+        "posted_date": "2020-06-29T00:00:00",
+        "authors": "[01] Shaun Akse",
+        "categories": "Geochemistry",
+        "keywords": "Oxygen isotopes; biogenic silica; nanoSIMS"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:b9d712d9-a325-4d7a-b36e-ef017d88808c",
+        "title": "Data related to the research of Alkenones and inferred salinity in Lake Sayram core",
+        "posted_date": "2020-06-11T00:00:00",
+        "authors": "[01] Yuan Yao",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Alkenone; Group I Isochrysidales; Lake Sayram; Salinity; arid central Asia"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:fccd7c19-ec6f-438a-876c-bcab3b59b221",
+        "title": "Raw data files for white mica geochemistry and in-situ 40Ar\/39Ar geochronology of white mica from the Tsakkok Lens, Seve Nappe Complex, Scandinavian Caledonides - Revised",
+        "posted_date": "2020-05-24T00:00:00",
+        "authors": "[01] Christopher Barnes; [02] A. (Alfredo) Camacho; [03] A. (Adam) Wlodek",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Scandinavian Caledonides; Seve Nappe Complex; argon-argon dating; geochemistry; geochronology; white mica"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:1230fbe6-df86-4a91-a37c-2ac19c212fdb",
+        "title": "Data of major and trace elements of mafic-intermediate intrusive rocks",
+        "posted_date": "2020-04-30T00:00:00",
+        "authors": "[01] jinlei sun",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Isotope geochemistry; Mafic rock; dissertation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:53d4dfe9-b115-42e5-b8b0-5b95b10884c1",
+        "title": "Fe and the other trace elements in a shallow ice core, East Antarctica",
+        "posted_date": "2020-04-24T00:00:00",
+        "authors": "[01] DU ZHIHENG",
+        "categories": "Geochemistry; Other Earth Sciences",
+        "keywords": "Antarctic ice sheet; Bioavaiable iron; Climate; Ice core; Metal elements; Trace elements; glacial\u2013interglacial cycles"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:ea9282ed-2464-4ec2-82e8-d0d91aa1f770",
+        "title": "Experimental Investigation of Hydraulic Fracturing and Stress Sensitivity of Fracture Permeability under changing Polyaxial Stress Conditions",
+        "posted_date": "2020-04-23T00:00:00",
+        "authors": "[01] Andrew Fraser-Harris",
+        "categories": "Geology; Other Earth Sciences; Physical Geography and Environmental Geoscience",
+        "keywords": "Fracture fluid flow; Fractures; hydraulic fracturing; laboratory experiments"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:299c1e20-a606-4ed6-9fe2-ba0283df39d6",
+        "title": "Data underlying the Numerical simulation of a three-phase system using a coupled reactive chemo-mechanical model",
+        "posted_date": "2020-04-16T00:00:00",
+        "authors": "[01] S.P. (Santiago Pe\u00f1a) Clavijo",
+        "categories": "Geology; Geomatic Engineering; Geophysics",
+        "keywords": "Chemo-mechanical interactions; Metamorphic rocks; Multicomponent solids"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:63a7dbde-e223-43ad-b184-bc7f111f883c",
+        "title": "Data accompanying the paper entitled \"Flow-to-Friction Transition in Simulated Calcite Gouge: Experiments and Microphysical Modelling\"",
+        "posted_date": "2020-04-15T00:00:00",
+        "authors": "[01] Jianye Chen",
+        "categories": "Geology; Other Earth Sciences",
+        "keywords": "Calcite gouge friction; Dilatational granular flow; Microphysical modelling"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:e78bb406-a011-4aa8-a2c4-3f51a8ad5fbb",
+        "title": "Data underlying the research on: Influence of moisture transport, mixing and convective processes on the isotopic composition (\u03b4\u00b9\u2078O and \u03b4\u00b2H) of summer and winter precipitation at Srinagar, Kashmir",
+        "posted_date": "2020-04-14T00:00:00",
+        "authors": "[01] Shaakir Shabir Dar; [02] P. (Prosenjit) Ghosh",
+        "categories": "Atmosphere and Weather; Atmospheric Sciences; Geochemistry; Other Chemical Sciences",
+        "keywords": "Atmospheric thermodynamics; Indian summer monsoon; Large scale convection; Oxygen and hydrogen isotopes; Precipitation; Stable isotope; Western disturbances"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:6cb0bf79-7467-4e78-a531-cc91655d9fd0",
+        "title": "Raw data of Geochemical Compositions of Surface Sediments in Northern China",
+        "posted_date": "2020-03-30T00:00:00",
+        "authors": "[01] Xin Lin",
+        "categories": "Geochemistry; Physical Geography and Environmental Geoscience",
+        "keywords": "Geochemical Compositions; Loess Plateau; Surface Sediments; northern China; surface processes"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:d635e12b-6110-44aa-8afb-6ed02070a39f",
+        "title": "Research on Radionuclides of the Earth \u2013 Jupyter Notebook",
+        "posted_date": "2020-03-23T00:00:00",
+        "authors": "[01] Ond\u0159ej \u0160r\u00e1mek",
+        "categories": "Atomic, Molecular, Nuclear, Particle and Plasma Physics; Geochemistry; Geophysics",
+        "keywords": "Natural radionuclides; Neutrino luminosity; Radioactive decays; Radiogenic heating"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:dc3627dd-8434-4fa3-a4f0-b886c31c1ce2",
+        "title": "Acoustic, mechanical, and microstructure data used in: Ultrasonic Imaging of the Onset and Growth of Fractures within Partially Saturated Whitby Mudstone using Coda-Wave Decorrelation Inversion",
+        "posted_date": "2020-03-05T00:00:00",
+        "authors": "[01] Reuben Zotz-wilson; [02] L.A.N.R. (Lisanne) Douma; [03] J. (Joel) Sarout; [04] J. (Jeremie) Dautriat; [05] D. N. (David) Dewhurst; [06] A. (Auke) Barnhoorn",
+        "categories": "Geology; Geophysics; Mineral Exploration",
+        "keywords": "Coda-Wave Decorrelation; Monitoring; Mudstones"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:41f45b0b-fe19-4007-a4aa-7234e08f40f1",
+        "title": "Table 1, supplementary data for the paper: Detachment faulting in the Xigaz\u00ea ophiolite: New constraints on its formation and implications for other ophiolites in the YZSZ, southern Tibet",
+        "posted_date": "2020-03-05T00:00:00",
+        "authors": "[01] Yuan Li; [02] R.B. Li; [03] P.T. Robinson; [04] S.B. (Shengbiao) Yang; [05] J. Zhang; [06] J.S. Yang",
+        "categories": "Geochemistry; Geology; Other Earth Sciences",
+        "keywords": "Imaging mass; Mass; Mass Spectrometry; Matrix-Assisted Laser Desorption-Ionization; Ophiolite; Spectrometry; Uranium-lead dating"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:d7f99f4f-28f3-4767-86a4-a6d110f26d63",
+        "title": "Supporting Information for the publication: Climate-dependent Sediment Composition and Transport of the Mountainous Rivers in Tectonically Stable, Subtropical East Asia",
+        "posted_date": "2020-02-24T00:00:00",
+        "authors": "[01] Xing Jian; [02] W. (Wei) Zhang; [03] S. (Shouye) Yang; [04] S-J. (Shuh-Ji) Kao",
+        "categories": "Geochemistry; Geology; Oceanography",
+        "keywords": "Sr-Nd isotopes; heavy mineral; petrography"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:e3071a50-7310-4609-95a1-6f8e69e556e2",
+        "title": "Rate-of-change",
+        "posted_date": "2020-02-18T00:00:00",
+        "authors": "[01] Reuben Zotz-wilson",
+        "categories": "Geology",
+        "keywords": "Coda-Wave Interferometry; Rock mechanics; Ultrasonic monitoring; Unconfined Compressive strength"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:9951e801-5574-498e-b375-fa6941a0f071",
+        "title": "Supplementary data to \"Distribution of Cl and F in benthic foraminifera\"",
+        "posted_date": "2019-11-19T00:00:00",
+        "authors": "[01] Anne Roepert",
+        "categories": "Geochemistry",
+        "keywords": "chlorine; fluorine; foraminifera; nanoSIMS"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:9e8b2c47-b8e4-4be9-aba3-36eccbf71a26",
+        "title": "Code to the article: Patch-based multiscale algorithm for flow and reactive transport in fracture-microcrack systems in shales",
+        "posted_date": "2019-10-23T00:00:00",
+        "authors": "[01] Ziyan Wang",
+        "categories": "Geology",
+        "keywords": "Fracture; Microcrack; Microfractures; Multiscale Simulation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:3f499e5e-065d-46ac-8a81-1f8976ac6542",
+        "title": "Supplementary data to the article: Patch-based multiscale algorithm for flow and reactive transport in fracture-microcrack systems in shales",
+        "posted_date": "2019-10-21T00:00:00",
+        "authors": "[01] Ziyan Wang",
+        "categories": "Geology; Other Earth Sciences",
+        "keywords": "Fracture; Microcrack; Microfractures; Multiscale Simulation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:fabdd80b-02c8-4e83-81cb-4891459b3e9e",
+        "title": "Supplementary material for the manuscript entitled: Mechanical Controls on Horizontal Stresses and Fracture Behaviour in Layered Rocks: A Numerical Sensitivity Analysis",
+        "posted_date": "2019-10-09T00:00:00",
+        "authors": "[01] Quinten Boersma",
+        "categories": "Geology; Physical Geography and Environmental Geoscience",
+        "keywords": "Contrasting Elastic Properties; Layered Rock; Mechanical Modelling; Natural Fractures"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:e25699b4-0a1d-4ed0-9333-626b49f73ad0",
+        "title": "Table of K-Ar data from Shimanto paleoseismic Faults",
+        "posted_date": "2019-10-09T00:00:00",
+        "authors": "[01] Donald Fisher",
+        "categories": "Geology; Geophysics",
+        "keywords": "Fault dating; Radiometric dating; Regional tectonics; Structural geology"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:1f714ece-28b8-46ba-93ad-ac3174b6ebe3",
+        "title": "The peat \u03b1-cellulose \u03b413C record from and chronology of core ATM10-C7 in southern Altai Mountains",
+        "posted_date": "2019-09-26T00:00:00",
+        "authors": "[01] Z. (Zhiguo) Rao",
+        "categories": "Atmospheric Sciences; Geochemistry; Other Earth Sciences",
+        "keywords": "Altai Mountains; Arid central Asia; Holocene; Peat \u03b1-cellulose \u03b413C record; Summer temperature indicator"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:6b199dd2-ab7d-4b87-87b8-ad72f55e0d78",
+        "title": "Experimental Data of Micromechanical testing of smooth flat quartz surfaces with gouges",
+        "posted_date": "2019-09-13T00:00:00",
+        "authors": "[01] Sathwik Sarvadevabhatla",
+        "categories": "Civil Engineering; Geophysics",
+        "keywords": "Clay and silt; Gouges; Micromechanics; Stick-slip"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:add3354a-d86c-485e-8df7-f27848aa0374",
+        "title": "Thermal simulation results of the paper 'Hydrocarbon Generation from Coal-measure Source Rocks in Carboniferous-Permian by Different Geological Processes in East China'",
+        "posted_date": "2019-08-29T00:00:00",
+        "authors": "[01] Jinjun Xu",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Thermal simulation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:45955068-7b0b-4b51-84f0-500a1c4cf63a",
+        "title": "Acoustic, mechanical, and microstructure data used in: Coda-Wave Based Monitoring of Pore-Pressure Depletion-driven Compaction of Slochteren Sandstone Samples from the Groningen Gas Field",
+        "posted_date": "2019-07-08T00:00:00",
+        "authors": "[01] Reuben Zotz-wilson",
+        "categories": "Environmentally Sustainable Mineral Resource Activities; Geology; Geophysics; Other Earth Sciences",
+        "keywords": "Compaction; Inelastic deformation; Intrinsic Attenuation; Seismicity"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:1b121d28-39f4-40ff-b5e8-c3ae5aa90767",
+        "title": "Plaxis 2D results for production from a reservoir with a 60-deg displaced fault",
+        "posted_date": "2019-06-24T00:00:00",
+        "authors": "[01] Femke Vossepoel",
+        "categories": "Geophysics; Mining and Extraction of Energy Resources; Resources Engineering and Extractive Metallurgy",
+        "keywords": "Fault; Fault slip; Injection; Plaxis 2D; Production; Reservoir"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:d8ca79ae-17fb-4c60-b86b-08c495b2722f",
+        "title": "Matlab files used to produce the figures in the publication: Insights from closed-form expressions for injection- and production-induced stresses in displaced faults.",
+        "posted_date": "2019-06-21T00:00:00",
+        "authors": "[01] Jan Dirk Jansen",
+        "categories": "Geophysics",
+        "keywords": "Displaced fault; Earthquake; Gas production; Groningen; Inclusion theory; Induced seismicity; Matlab; Nucleus of strain; Water injection"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:fbd8e340-1943-4d13-ac75-0bc038690f43",
+        "title": "Unprocessed Accelerometer and Tiltmeter Data from Fraeylemaborg, Slochteren, during 08.08.2018 Appingedam Earthquake of ML1.9",
+        "posted_date": "2019-06-13T00:00:00",
+        "authors": "[01] Ihsan Engin Bal; [02] E. (Eleni) Smyrou; [03] D. (Dimitris) Dais",
+        "categories": "Civil Engineering; Geophysics",
+        "keywords": "acceleration data; earthquakes; induced seismicity; tiltmeter data"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:46b9b3c9-5d5f-468c-aab8-980260c7a0d2",
+        "title": "Unprocessed Accelerometer Data from Fraeylemaborg, Slochteren, during 22.05.2019 Westerwijtwerd Earthquake of ML3.4",
+        "posted_date": "2019-06-03T00:00:00",
+        "authors": "[01] Ihsan Engin Bal; [02] E. (Eleni) Smyrou",
+        "categories": "Civil Engineering; Geophysics",
+        "keywords": "acceleration data; earthquakes; induced seismicity"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:b2d046b5-e4f1-4214-8356-3a10e49f7d6d",
+        "title": "Data for the characterisation of carbonate-rich diatomite ores",
+        "posted_date": "2019-05-14T00:00:00",
+        "authors": "[01] Adriana Guatame-Garcia",
+        "categories": "Environmentally Sustainable Mineral Resource Activities; Geology; Primary Mining and Extraction of Mineral Resources; Resources Engineering and Extractive Metallurgy",
+        "keywords": "Carbonates; Diatomite; Environmental scanning electron microscopy (ESEM); Long wavelength infrared spectroscopy (LWIR); Mid wavelength infrared spectroscopy (MWIR); Short wavelength infrared spectroscopy (SWIR); dissertation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:c1b54e6e-6951-4557-b942-b8f99065fa83",
+        "title": "Data for the characterisation of chemical impurities of Perlite ore",
+        "posted_date": "2019-05-07T00:00:00",
+        "authors": "[01] Adriana Guatame-Garcia",
+        "categories": "Geochemistry; Geology; Other Mineral Resources (excl. Energy Resources); Resources Engineering and Extractive Metallurgy",
+        "keywords": "Laser-induced breakdown spectroscopy (LIBS); Long wave infrared (LWIR); Non-renewable resource; Perlite; Short wave infrared (SWIR); dissertation"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:9a0774a1-39d1-4fde-9e83-b64e9f81e4e0",
+        "title": "Information on the data belonging to \u201cElement banding and organic linings within chamber walls of two benthic foraminifera\u201d",
+        "posted_date": "2019-04-23T00:00:00",
+        "authors": "[01] Lennart de Nooijer; [02] E. (Esmee) Geerken",
+        "categories": "Geochemistry",
+        "keywords": "Foraminifera; Geochemistry; NanoSIMS"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:e6fec088-761a-4984-a66c-b544e1172965",
+        "title": "Supplementary data for the paper: \"Multiscale evaluation of potential damage in jetted laterals\u201d",
+        "posted_date": "2019-03-25T00:00:00",
+        "authors": "[01] Richard Bakker; [02] A. (Auke) Barnhoorn",
+        "categories": "Civil Engineering; Geology; Other Earth Sciences; Renewable Energy",
+        "keywords": "Jet drilling; Lateral damage; True Triaxial testing; UCS testing; Uniaxial Compressive Strength Testing (UCS Testing)"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:19cafe4a-8398-4612-9a65-4e250050d377",
+        "title": "CT scan data of jetted boreholes",
+        "posted_date": "2019-03-11T00:00:00",
+        "authors": "[01] Richard Bakker; [02] A. (Auke) Barnhoorn",
+        "categories": "Geophysics; Mining and Extraction of Energy Resources; Other Earth Sciences",
+        "keywords": "Borehole geometry; CT scan data; Radial Jet Drilling; True triaxial"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:9f44c16a-ccc1-4bef-8e98-d01320797271",
+        "title": "Laser ablation Mn\/Ca ratios of single foraminiferal shells from the Gulf of Lions",
+        "posted_date": "2018-10-19T00:00:00",
+        "authors": "[01] Gert-Jan Reichart; [02] S. (Shauna) N\u00ed Fhlaithearta; [03] C. (Christophe) Fontanier; [04] F. (Frans) Jorissen; [05] A. (Aur\u00e9lia) Mouret; [06] A. (Adriana) Due\u00f1as-Boh\u00f3rquez; [07] P. (Pierre) Anschutz; [08] M.B. (Mattias) Fricker; [09] D. (Detlef) G\u00fcnther; [10] G.J. (Gert) de Lange",
+        "categories": "Geochemistry",
+        "keywords": "Foraminiferal trace elements; Geochemistry"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:f47a3eaf-7cd0-4e4a-ac48-91a293314134",
+        "title": "Stress, strain, velocity and attenuation data of shale, limestone and sandstone samples brought to failure",
+        "posted_date": "2018-05-18T00:00:00",
+        "authors": "[01] Auke Barnhoorn; [02] J. (Jeroen) Verheij; [03] M. (Marcel) Frehner; [04] A. (Alimzhan) Zhubayev; [05] M.E. (Maartje) Houben",
+        "categories": "Geophysics",
+        "keywords": "geophysics; rock mechanics"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:1e68f2e9-f0c7-4fe7-a24b-82d0302a350e",
+        "title": "Data presented in the paper \"The impacts of seawater Mg\/Ca and temperature on element incorporation in benthic foraminiferal calcite\"",
+        "posted_date": "2018-02-20T00:00:00",
+        "authors": "[01] Lennart de Nooijer",
+        "categories": "Environmental Biotechnology; Geochemistry",
+        "keywords": "Calcification; Foraminifera; Geochemistry; Magnesium"
+    },
+    {
+        "IF MSL --> \"1\" ": 1,
+        "doi": "10.4121\/uuid:61e23451-efa5-4176-828d-72de11b8c5cf",
+        "title": "EMP and LA-ICP-MS analysis of clinopyroxene and olivine crystals from the activity of Mt. Somma-Vesuvius",
+        "posted_date": "2016-01-12T00:00:00",
+        "authors": "[01] Redi D. (Daniele)",
+        "categories": "Geochemistry; Geology",
+        "keywords": "Electron-microprobe (EMP); LA-ICP-MS; Somma-Vesuvius; clinopyroxene; earth science; laser ablation ion coupled plasma mass spectrometer; mineral chemistry; olivine; volcanic eruption"
+    }
+]
