@@ -18,7 +18,8 @@ class ImportingSeeder extends Seeder
         $this->call([
             ImportGFZSeeder::class,
             ImportYodaSeeder::class,
-            ImportCsicSeeder::class
+            ImportCsicSeeder::class,
+            Import4TUSeeder::class
         ]);
     }
 }
