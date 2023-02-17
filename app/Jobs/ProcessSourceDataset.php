@@ -14,6 +14,7 @@ use App\Mappers\GfzMapper;
 use App\Mappers\YodaMapper;
 use App\Mappers\CsicMapper;
 use App\Mappers\FourTUMapper;
+use App\Mappers\MagicMapper;
 
 class ProcessSourceDataset implements ShouldQueue
 {
@@ -49,6 +50,8 @@ class ProcessSourceDataset implements ShouldQueue
             $mapper = new CsicMapper();
         } elseif($importer->options['sourceDatasetProcessor']['type'] == 'FourTUMapper') {
             $mapper = new FourTUMapper();
+        } elseif($importer->options['sourceDatasetProcessor']['type'] == 'MagicMapper') {
+            $mapper = new MagicMapper();
         } else {
             throw new \Exception('Invalid sourceDatasetProcessor defined in importer config.');
         }                                
