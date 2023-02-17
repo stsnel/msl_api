@@ -338,7 +338,7 @@ class FourTUMapper
         $dataset->owner_org = $sourceDataset->source_dataset_identifier->import->importer->data_repository->ckan_name;
         
         //set publisher
-        $dataset->msl_publisher = 'YoDa Data Repository, Utrecht University, Netherlands';
+        $dataset->msl_publisher = '4TU.ResearchData';
         
         //extract spatial coordinates
         $spatialResults = $xmlDocument->xpath("/dc:resource/dc:geoLocations/dc:geoLocation/dc:geoLocationBox");        
