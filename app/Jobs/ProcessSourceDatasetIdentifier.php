@@ -48,6 +48,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
             if($result) {
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $importer->id,
                     'source_dataset' => $result->asXML()
                 ]);
                 
@@ -69,6 +70,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                 
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $importer->id,
                     'source_dataset' => $xml
                 ]);
                 
@@ -88,6 +90,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                 
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $importer->id,
                     'source_dataset' => $fileContent
                 ]);
                 
