@@ -40,6 +40,7 @@ class ProcessSourceDataset implements ShouldQueue
     public function handle()
     {
         $importer = $this->sourceDataset->source_dataset_identifier->import->importer;
+        $import = $this->sourceDataset->source_dataset_identifier->import;
         
         if($importer->options['sourceDatasetProcessor']['type'] == 'gfzMapper') {
             $mapper = new GfzMapper();
@@ -59,7 +60,7 @@ class ProcessSourceDataset implements ShouldQueue
             'dataset_type' => $dataset::class,
             'dataset' => (array)$dataset,
             'source_dataset_id' => $this->sourceDataset->id,
-            'import_id' => $importer->id
+            'import_id' => $import->id
         ]);
         
         if($datasetCreate) {
