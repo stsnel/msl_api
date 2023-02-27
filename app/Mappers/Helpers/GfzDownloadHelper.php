@@ -20,7 +20,12 @@ class GfzDownloadHelper
         
         // Go to downloadpage
         $crawler = $this->client->request('GET', $dataset->msl_source);
-        $link = $crawler->selectLink('Download data and description')->link();
+        
+        try {
+            $link = $crawler->selectLink('Download data and description')->link();
+        } catch (\Exception $e) {
+            return $dataset;
+        }
         $crawler = $this->client->click($link);
         
         // extract link elements, all links are grouped within <pre> element. First 4 <a> elements are UI elements
