@@ -327,7 +327,7 @@ class MagicMapper
         
         //extract notes
         $result = $xmlDocument->xpath('/dc:resource[1]/dc:descriptions[1]/dc:description[1]/node()[1]');
-        $dataset->notes = '-';
+        //$dataset->notes = '-';
         if(isset($result[0])) {
             $dataset->notes = (string)$result[0];
         }
