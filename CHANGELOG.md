@@ -16,6 +16,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Keyword mapping no longer removes matched keywords from tag_string field
 - Change sorting of specific nodes in filter tree export used by frontend
 - Include 4TU importer/harvesting
+- Replace FTP based download harvester for GFZ with web crawling method
 
 ## [1.2.0] - 2022-11-11
 
