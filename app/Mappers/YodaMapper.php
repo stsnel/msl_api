@@ -532,8 +532,8 @@ class YodaMapper
                     'msl_lab_name' => (string)$extraPayload['LabName'],
                     'msl_lab_id' => (string)$extraPayload['labIdentifier']
                 ];
-                
-                $dataset->msl_laboratories[] = $lab;
+                                
+                $dataset->addLab($lab);
             }
         }
                 

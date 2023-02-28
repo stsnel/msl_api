@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Analogue
+class Analogue extends Keyword
 {
     public $msl_analogue_combined = '';
     

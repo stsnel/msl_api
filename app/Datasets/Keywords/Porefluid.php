@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Porefluid
+class Porefluid extends Keyword
 {
     public $msl_porefluid_combined = '';
     

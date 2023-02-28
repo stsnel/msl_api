@@ -356,7 +356,7 @@ class CsicMapper
                 
                 $this->log('WARNING', "Lab with name: \"" . $lab['msl_lab_name'] . "\" has no id.", $sourceDataset);
                                
-                $dataset->msl_laboratories[] = $lab;
+                $dataset->addLab($lab);               
             }
         }
                                                 

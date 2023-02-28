@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Paleomagnetism
+class Paleomagnetism extends Keyword
 {
     public $msl_paleomagnetism_combined = '';
     

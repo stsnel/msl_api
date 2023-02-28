@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class GeologicalAge
+class GeologicalAge extends Keyword
 {
     public $msl_geologicalage_combined = '';
     

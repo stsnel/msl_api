@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Rockphysic
+class Rockphysic extends Keyword
 {
     public $msl_rockphysic_combined = '';
     

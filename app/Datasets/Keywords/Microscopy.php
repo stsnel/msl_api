@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Microscopy
+class Microscopy extends Keyword
 {
     public $msl_microscopy_combined = '';
     

@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class GeologicalSetting
+class GeologicalSetting extends Keyword
 {
     public $msl_geologicalsetting_combined = '';
     

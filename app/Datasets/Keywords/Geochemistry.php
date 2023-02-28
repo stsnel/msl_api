@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Geochemistry
+class Geochemistry extends Keyword
 {
     public $msl_geochemistry_combined = '';
     

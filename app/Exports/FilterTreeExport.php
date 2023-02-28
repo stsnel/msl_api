@@ -18,10 +18,10 @@ class FilterTreeExport
                     'checked' => false
                 ],            
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_material',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(1, 'msl_material_', true)
             ],
@@ -34,10 +34,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_geologicalage',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(5, 'msl_geologicalage_', false, false)
             ],
@@ -50,10 +50,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_porefluid',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(2, 'msl_porefluid_')
             ],
@@ -66,10 +66,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_geologicalsetting',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(6, 'msl_geologicalsetting_')
             ],
@@ -82,10 +82,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_analogue',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(4, 'msl_analogue_')
             ],
@@ -98,10 +98,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_geochemistry',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(8, 'msl_geochemistry_')
             ],
@@ -114,10 +114,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_microscopy',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(9, 'msl_microscopy_')
             ],
@@ -130,10 +130,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_paleomagnetism',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(7, 'msl_paleomagnetism_')
             ],
@@ -146,10 +146,10 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_rockphysic',
+                    'filterValue' => 'true'
                 ],
                 'children' => $this->getVocabAsFilters(3, 'msl_rockphysic_')
             ],
@@ -162,10 +162,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'facet',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => 'msl_lab_name',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_lab',
+                    'filterValue' => 'true',
+                    'includeFacet' => true,
+                    'facetName' => 'msl_lab_name'
                 ],
                 'children' => []
             ],
@@ -178,10 +180,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'facet',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => 'organization',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_organization',
+                    'filterValue' => 'true',
+                    'includeFacet' => true,
+                    'facetName' => 'organization'
                 ],
                 'children' => []
             ],

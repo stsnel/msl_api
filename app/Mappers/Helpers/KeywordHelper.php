@@ -49,7 +49,8 @@ class KeywordHelper
                     $keyword = $searchKeyword->keyword;                                                            
                     $datasetKeyword = KeywordFactory::create($keyword);
                     
-                    $dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
+                    //$dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
+                    $dataset->addKeyword($datasetKeyword);
                     
                     //add subdomain to dataset if keyword is from specified vocabulary
                     if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
@@ -74,7 +75,8 @@ class KeywordHelper
                     $keyword = $searchKeyword->keyword;
                     
                     $datasetKeyword = KeywordFactory::create($keyword);                    
-                    $dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
+                    //$dataset->{$this->vocabularyMapping[$keyword->vocabulary->name]}[] = $datasetKeyword->toArray();
+                    $dataset->addKeyword($datasetKeyword);
                     
                     //add subdomain to dataset if keyword is from specified vocabulary
                     if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
@@ -117,4 +119,3 @@ class KeywordHelper
     
     
 }
-

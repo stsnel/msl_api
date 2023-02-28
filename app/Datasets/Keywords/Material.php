@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Material
+class Material extends Keyword
 {
     public $msl_material_combined = '';
     
