@@ -34,7 +34,17 @@ class Geochemistry extends Keyword
         }
     }
     
-    public function toArray() {
+    public function toArray($original = false) {
+        if($original) {
+            return [
+                'msl_geochemistry_combined_original' => $this->msl_geochemistry_combined,
+                'msl_geochemistry_1_original' => $this->msl_geochemistry_1,
+                'msl_geochemistry_2_original' => $this->msl_geochemistry_2,
+                'msl_geochemistry_3_original' => $this->msl_geochemistry_3,
+                'msl_geochemistry_4_original' => $this->msl_geochemistry_4
+            ];
+        }
+        
         return [
             'msl_geochemistry_combined' => $this->msl_geochemistry_combined,
             'msl_geochemistry_1' => $this->msl_geochemistry_1,

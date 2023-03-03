@@ -265,8 +265,17 @@ class ToolsController extends Controller
         $exporter = new FilterTreeExport();
                 
         return response()->streamDownload(function () use($exporter) {
-            echo $exporter->export();
-        }, 'test.json');
+            echo $exporter->exportInterpreted();
+        }, 'interpreted.json');
+    }
+    
+    public function filterTreeDownloadOriginal()
+    {
+        $exporter = new FilterTreeExport();
+        
+        return response()->streamDownload(function () use($exporter) {
+            echo $exporter->exportOriginal();
+        }, 'original.json');
     }
     
     public function viewUnmatchedKeywords()
