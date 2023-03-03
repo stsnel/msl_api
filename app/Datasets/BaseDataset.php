@@ -165,7 +165,7 @@ class BaseDataset
                     }
                 } else {
                     if(!$this->hasInterpretedSubDomain($subDomain)) {
-                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'rock and melt physics'];
+                        $this->msl_subdomains_interpreted[] = ['msl_subdomain_interpreted' => 'rock and melt physics'];
                     }
                 }
                 break;
@@ -180,7 +180,7 @@ class BaseDataset
                     }
                 } else {
                     if(!$this->hasInterpretedSubDomain($subDomain)) {
-                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'analogue modelling of geologic processes'];
+                        $this->msl_subdomains_interpreted[] = ['msl_subdomain_interpreted' => 'analogue modelling of geologic processes'];
                     }
                 }
                 break;
@@ -195,7 +195,7 @@ class BaseDataset
                     }
                 } else {
                     if(!$this->hasInterpretedSubDomain($subDomain)) {
-                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'microscopy and tomography'];
+                        $this->msl_subdomains_interpreted[] = ['msl_subdomain_interpreted' => 'microscopy and tomography'];
                     }
                 }
                 break;
@@ -210,7 +210,7 @@ class BaseDataset
                     }
                 } else {
                     if(!$this->hasInterpretedSubDomain($subDomain)) {
-                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'paleomagnetism'];
+                        $this->msl_subdomains_interpreted[] = ['msl_subdomain_interpreted' => 'paleomagnetism'];
                     }
                 }
                 break;
@@ -225,7 +225,7 @@ class BaseDataset
                     }
                 } else {
                     if(!$this->hasInterpretedSubDomain($subDomain)) {
-                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'geochemistry'];
+                        $this->msl_subdomains_interpreted[] = ['msl_subdomain_interpreted' => 'geochemistry'];
                     }
                 }
                 break;
