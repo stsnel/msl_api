@@ -33,44 +33,7 @@ class CsicMapper
         $this->dataciteHelper = new DataciteCitationHelper();
         $this->keywordHelper = new KeywordHelper();
     }
-    
-    private function getSubDomains(BaseDataset $dataset, $sourceDataset)
-    {
-        $sourceIdentifier = $sourceDataset->source_dataset_identifier;
-        
-        $extraPayload = $sourceIdentifier->extra_payload;
-        
-        if(isset($extraPayload['subDomain'])) {
-            switch ($extraPayload['subDomain']) {
-                case 'Rock physics':
-                    $dataset->addSubDomain('rock and melt physics');
-                    return $dataset;
-                    
-                case 'Analogue modelling':
-                    $dataset->addSubDomain('analogue modelling of geologic processes');
-                    return $dataset;
-                    
-                case 'Paleomagnetism':
-                    $dataset->addSubDomain('paleomagnetism');                    
-                    return $dataset;                    
-                    
-                case 'Microscopy data':
-                    $dataset->addSubDomain('microscopy and tomography');
-                    return $dataset;                    
-                    
-                default:
-                    $sourceDataset->status = 'error';
-                    $sourceDataset->save();
-                    $this->log('ERROR', 'Invalid subdomains given', $sourceDataset);
-                    throw new \Exception('Invalid subdomains given');
-            }
-        }
-        $sourceDataset->status = 'error';
-        $sourceDataset->save();
-        $this->log('ERROR', 'No subdomains given', $sourceDataset);
-        throw new \Exception('No subdomains given');
-    }
-    
+            
     private function createDatasetNameFromDoi($doiString) 
     {        
         return md5($doiString);

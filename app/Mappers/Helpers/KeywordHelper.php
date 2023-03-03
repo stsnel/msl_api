@@ -53,7 +53,7 @@ class KeywordHelper
                     
                     //add subdomain to dataset if keyword is from specified vocabulary
                     if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
-                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name]);
+                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name], false);
                     }
                 }
             }            
@@ -78,7 +78,7 @@ class KeywordHelper
                     
                     //add subdomain to dataset if keyword is from specified vocabulary
                     if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
-                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name]);
+                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name], false);
                     }
                 }
             }

@@ -20,6 +20,10 @@ class BaseDataset
     
     public $msl_subdomains = [];
     
+    public $msl_subdomains_original = [];
+    
+    public $msl_subdomains_interpreted = [];
+    
     public $msl_source;
     
     public $name;
@@ -149,17 +153,35 @@ class BaseDataset
     public $msl_has_organization = true;
     
     
-    public function addSubDomain($subDomain) {
+    public function addSubDomain($subDomain, $original = true) {
         switch($subDomain) {
             case "rock and melt physics":
                 if(!$this->hasSubDomain($subDomain)) {
                     $this->msl_subdomains[] = ['msl_subdomain' => 'rock and melt physics'];
-                }                
+                }
+                if($original) {
+                    if(!$this->hasOriginalSubDomain($subDomain)) {
+                        $this->msl_subdomains_original[] = ['msl_subdomain_original' => 'rock and melt physics'];
+                    }
+                } else {
+                    if(!$this->hasInterpretedSubDomain($subDomain)) {
+                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'rock and melt physics'];
+                    }
+                }
                 break;
             
             case "analogue modelling of geologic processes":
                 if(!$this->hasSubDomain($subDomain)) {
                     $this->msl_subdomains[] = ['msl_subdomain' => 'analogue modelling of geologic processes'];
+                }
+                if($original) {
+                    if(!$this->hasOriginalSubDomain($subDomain)) {
+                        $this->msl_subdomains_original[] = ['msl_subdomain_original' => 'analogue modelling of geologic processes'];
+                    }
+                } else {
+                    if(!$this->hasInterpretedSubDomain($subDomain)) {
+                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'analogue modelling of geologic processes'];
+                    }
                 }
                 break;
                 
@@ -167,17 +189,44 @@ class BaseDataset
                 if(!$this->hasSubDomain($subDomain)) {
                     $this->msl_subdomains[] = ['msl_subdomain' => 'microscopy and tomography'];
                 }
+                if($original) {
+                    if(!$this->hasOriginalSubDomain($subDomain)) {
+                        $this->msl_subdomains_original[] = ['msl_subdomain_original' => 'microscopy and tomography'];
+                    }
+                } else {
+                    if(!$this->hasInterpretedSubDomain($subDomain)) {
+                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'microscopy and tomography'];
+                    }
+                }
                 break;
                 
             case "paleomagnetism":
                 if(!$this->hasSubDomain($subDomain)) {
                     $this->msl_subdomains[] = ['msl_subdomain' => 'paleomagnetism'];
                 }
+                if($original) {
+                    if(!$this->hasOriginalSubDomain($subDomain)) {
+                        $this->msl_subdomains_original[] = ['msl_subdomain_original' => 'paleomagnetism'];
+                    }
+                } else {
+                    if(!$this->hasInterpretedSubDomain($subDomain)) {
+                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'paleomagnetism'];
+                    }
+                }
                 break;
                 
             case "geochemistry":
                 if(!$this->hasSubDomain($subDomain)) {
                     $this->msl_subdomains[] = ['msl_subdomain' => 'geochemistry'];
+                }
+                if($original) {
+                    if(!$this->hasOriginalSubDomain($subDomain)) {
+                        $this->msl_subdomains_original[] = ['msl_subdomain_original' => 'geochemistry'];
+                    }
+                } else {
+                    if(!$this->hasInterpretedSubDomain($subDomain)) {
+                        $this->msl_subdomain_interpreted[] = ['msl_subdomain_interpreted' => 'geochemistry'];
+                    }
                 }
                 break;
                                 
@@ -189,6 +238,26 @@ class BaseDataset
     public function hasSubDomain($subDomain) {
         foreach ($this->msl_subdomains as $key => $value) {            
             if($value['msl_subdomain'] == $subDomain) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public function hasInterpretedSubDomain($subDomain) {
+        foreach ($this->msl_subdomains_original as $key => $value) {
+            if($value['msl_subdomain_original'] == $subDomain) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public function hasOriginalSubDomain($subDomain) {
+        foreach ($this->msl_subdomains_interpreted as $key => $value) {
+            if($value['msl_subdomain_interpreted'] == $subDomain) {
                 return true;
             }
         }
