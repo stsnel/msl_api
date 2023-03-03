@@ -245,7 +245,7 @@ class BaseDataset
         return false;
     }
     
-    public function hasInterpretedSubDomain($subDomain) {
+    public function hasOriginalSubDomain($subDomain) {
         foreach ($this->msl_subdomains_original as $key => $value) {
             if($value['msl_subdomain_original'] == $subDomain) {
                 return true;
@@ -255,7 +255,7 @@ class BaseDataset
         return false;
     }
     
-    public function hasOriginalSubDomain($subDomain) {
+    public function hasInterpretedSubDomain($subDomain) {
         foreach ($this->msl_subdomains_interpreted as $key => $value) {
             if($value['msl_subdomain_interpreted'] == $subDomain) {
                 return true;
