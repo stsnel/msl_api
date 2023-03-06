@@ -17,6 +17,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Change sorting of specific nodes in filter tree export used by frontend
 - Include 4TU importer/harvesting
 - Replace FTP based download harvester for GFZ with web crawling method
+- Add seperate keyword section in data structure to indicate original and interpreted keywords
+- Split JSON tree export for use in frontend into interpreted and original types
+- Enlarge databasefields to store larger response objects
 
 ## [1.2.0] - 2022-11-11
 
