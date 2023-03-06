@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Material
+class Material extends Keyword
 {
     public $msl_material_combined = '';
     
@@ -36,7 +36,18 @@ class Material
         }
     }
     
-    public function toArray() {
+    public function toArray($original = false) {
+        if($original) {
+            return [
+                'msl_material_combined_original' => $this->msl_material_combined,
+                'msl_material_1_original' => $this->msl_material_1,
+                'msl_material_2_original' => $this->msl_material_2,
+                'msl_material_3_original' => $this->msl_material_3,
+                'msl_material_4_original' => $this->msl_material_4,
+                'msl_material_5_original' => $this->msl_material_5
+            ];
+        }
+        
         return [
             'msl_material_combined' => $this->msl_material_combined,
             'msl_material_1' => $this->msl_material_1,

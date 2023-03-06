@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Microscopy
+class Microscopy extends Keyword
 {
     public $msl_microscopy_combined = '';
     
@@ -37,7 +37,18 @@ class Microscopy
         }
     }
     
-    public function toArray() {
+    public function toArray($original = false) {
+        if($original) {
+            return [
+                'msl_microscopy_combined_original' => $this->msl_microscopy_combined,
+                'msl_microscopy_1_original' => $this->msl_microscopy_1,
+                'msl_microscopy_2_original' => $this->msl_microscopy_2,
+                'msl_microscopy_3_original' => $this->msl_microscopy_3,
+                'msl_microscopy_4_original' => $this->msl_microscopy_4,
+                'msl_microscopy_5_original' => $this->msl_microscopy_5
+            ];
+        }
+        
         return [
             'msl_microscopy_combined' => $this->msl_microscopy_combined,
             'msl_microscopy_1' => $this->msl_microscopy_1,

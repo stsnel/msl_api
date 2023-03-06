@@ -16,7 +16,8 @@
                 <div class="card-header">Generate filter menu/tree</div>
                 <div class="card-body">				
 					<p>Download generated export of data used by portal to display filter menu in search results.</p>
-					<a class="btn btn-primary" href="{{ route('filter-tree-download') }}">Download</a>
+					<a class="btn btn-primary" href="{{ route('filter-tree-download') }}">Download tree with interpreted keywords</a>
+					<a class="btn btn-primary" href="{{ route('filter-tree-download-original') }}">Download tree with orginal assigned keywords</a>
                 </div>
             </div>
         </div>

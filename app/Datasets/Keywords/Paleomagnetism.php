@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Paleomagnetism
+class Paleomagnetism extends Keyword
 {
     public $msl_paleomagnetism_combined = '';
     
@@ -37,7 +37,18 @@ class Paleomagnetism
         }
     }
     
-    public function toArray() {
+    public function toArray($original = false) {
+        if($original) {
+            return [
+                'msl_paleomagnetism_combined_original' => $this->msl_paleomagnetism_combined,
+                'msl_paleomagnetism_1_original' => $this->msl_paleomagnetism_1,
+                'msl_paleomagnetism_2_original' => $this->msl_paleomagnetism_2,
+                'msl_paleomagnetism_3_original' => $this->msl_paleomagnetism_3,
+                'msl_paleomagnetism_4_original' => $this->msl_paleomagnetism_4,
+                'msl_paleomagnetism_5_original' => $this->msl_paleomagnetism_5
+            ];
+        }
+        
         return [
             'msl_paleomagnetism_combined' => $this->msl_paleomagnetism_combined,
             'msl_paleomagnetism_1' => $this->msl_paleomagnetism_1,
