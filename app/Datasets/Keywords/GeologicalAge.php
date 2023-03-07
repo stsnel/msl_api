@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class GeologicalAge
+class GeologicalAge extends Keyword
 {
     public $msl_geologicalage_combined = '';
     
@@ -39,7 +39,19 @@ class GeologicalAge
         }
     }
     
-    public function toArray() {
+    public function toArray($original = false) {
+        if($original) {
+            return [
+                'msl_geologicalage_combined_original' => $this->msl_geologicalage_combined,
+                'msl_geologicalage_1_original' => $this->msl_geologicalage_1,
+                'msl_geologicalage_2_original' => $this->msl_geologicalage_2,
+                'msl_geologicalage_3_original' => $this->msl_geologicalage_3,
+                'msl_geologicalage_4_original' => $this->msl_geologicalage_4,
+                'msl_geologicalage_5_original' => $this->msl_geologicalage_5,
+                'msl_geologicalage_6_original' => $this->msl_geologicalage_6
+            ];
+        }
+        
         return [
             'msl_geologicalage_combined' => $this->msl_geologicalage_combined,
             'msl_geologicalage_1' => $this->msl_geologicalage_1,

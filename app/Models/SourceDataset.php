@@ -8,6 +8,7 @@ class SourceDataset extends Model
 {
     protected $fillable = [
         'source_dataset_identifier_id',
+        'import_id',
         'status',
         'source_dataset'
     ];

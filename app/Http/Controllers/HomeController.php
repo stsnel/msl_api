@@ -36,6 +36,7 @@ use App\Mappers\YodaMapper;
 use App\Models\Keyword;
 use App\Exports\FilterTreeExport;
 use App\Datasets\BaseDataset;
+use App\Datasets\Keywords\KeywordFactory;
 use App\Mappers\CsicMapper;
 use EasyRdf;
 

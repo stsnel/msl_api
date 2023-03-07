@@ -10,7 +10,8 @@ class DatasetCreate extends Model
     protected $fillable = [
         'dataset_type',
         'dataset',
-        'source_dataset_id'
+        'source_dataset_id',
+        'import_id'
     ];
     
     protected $casts = [

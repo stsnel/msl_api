@@ -17,6 +17,7 @@ use App\Models\MeasuredPropertyKeyword;
 use App\Models\InferredDeformationBehaviorKeyword;
 use App\Datasets\BaseDataset;
 use App\Mappers\Helpers\KeywordHelper;
+use App\Mappers\Helpers\GfzDownloadHelper;
 
 class GfzMapper
 {
@@ -26,11 +27,14 @@ class GfzMapper
     
     protected $keywordHelper;
     
+    protected $gfzDownloadHelper;
+    
     public function __construct()
     {
         $this->client = new \GuzzleHttp\Client();
         $this->dataciteHelper = new DataciteCitationHelper();
         $this->keywordHelper = new KeywordHelper();
+        $this->gfzDownloadHelper = new GfzDownloadHelper();
     }
     
     private function createDatasetNameFromDoi($doiString) 
@@ -99,72 +103,6 @@ class GfzMapper
         $packageSearchResponse = new PackageSearchResponse(json_decode($response->getBody(), true), $response->getStatusCode());
         
         return $packageSearchResponse->getNameList();
-    }
-    
-    private function getFTPDirectoryListing($path, $sourceDataset)
-    {
-        $ftpHost = "datapub.gfz-potsdam.de";
-        $ftpUser = "anonymous";
-        $ftpPassword = "";
-        
-        $ftp = ftp_connect($ftpHost);
-        
-        if(!$ftp) {
-            $this->log('ERROR', 'Could not connect to ftphost: "' . $ftpHost . '"', $sourceDataset);
-            return [];
-        }
-        
-        if (@ftp_login($ftp, $ftpUser, $ftpPassword)) {
-            $mode = ftp_pasv($ftp, true);
-            
-            try {
-                ftp_chdir($ftp, $path);
-            } catch (\Exception $e) {
-                $this->log('ERROR', 'Path: "' . $path . '"could not be found on ftp server.', $sourceDataset);
-                ftp_close($ftp);
-                return [];
-            }                        
-            
-            $contents = ftp_mlsd($ftp, $path);
-            
-            $files = [];
-            if(count($contents) > 0) {
-                foreach ($contents as $content) {
-                    if($content['type'] == 'file') {
-                        $files[] = $content;
-                    }
-                }
-            }
-            
-            return $files;
-            
-        } else {
-            $this->log('ERROR', 'Could not connect to ftphost as user: "' . $ftpUser . '"', $sourceDataset);
-            return [];
-        }
-    }
-    
-    private function extractPath($ftpLink)
-    {
-        $parts = parse_url($ftpLink);
-        
-        if($parts) {
-            if(isset($parts['path'])) {
-                return $parts['path'];
-            }
-        }
-        
-        return '';        
-    }
-    
-    private function extractExtension($filename)
-    {
-        $fileInfo = pathinfo($filename);
-        if(isset($fileInfo['extension'])) {
-            return $fileInfo['extension'];
-        }
-        
-        return '';
     }
     
     private function getYear($date)
@@ -405,8 +343,8 @@ class GfzMapper
                 } else {
                     $this->log('WARNING', "Lab with name: \"" . $lab['msl_lab_name'] . "\" has no id.", $sourceDataset);
                 }
-                
-                $dataset->msl_laboratories[] = $lab;
+                                
+                $dataset->addLab($lab);
             }
         }
                
@@ -498,27 +436,8 @@ class GfzMapper
             $dataset->msl_source = (string)$result[0];
         }
         
-        //extract ftp information
-        $result = $xmlDocument->xpath("/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource[./gmd:description/gco:CharacterString/node()='FTP Access']/gmd:linkage/gmd:URL/node()");
-        if(isset($result[0])) {
-            $path = $this->extractPath((string)$result[0]);
-            if($path !== '') {
-                $files = $this->getFTPDirectoryListing($path, $sourceDataset);
-                                
-                if(count($files) > 0) {
-                    foreach($files as $fileResult) {
-                        $file = [
-                            'msl_file_name' => $fileResult['name'],
-                            'msl_download_link' => (string)$result[0] . '/' . $fileResult['name'],
-                            'msl_extension' => $this->extractExtension($fileResult['name']),
-                            'msl_timestamp' => $fileResult['modify']
-                        ];
-                        
-                        $dataset->msl_downloads[] = $file;
-                    }
-                }                               
-            }
-        }
+        //extract file information
+        $dataset = $this->gfzDownloadHelper->addData($dataset);
               
         return $dataset;
     }

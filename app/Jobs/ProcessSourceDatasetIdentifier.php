@@ -39,6 +39,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
     public function handle()
     {
         $importer = $this->sourceDatasetIdentifier->import->importer;
+        $import = $this->sourceDatasetIdentifier->import;
         
         if($importer->options['identifierProcessor']['type'] == 'oaiRetrieval') {        
             $endPoint = Endpoint::build($importer->options['identifierProcessor']['options']['oaiEndpoint']);
@@ -48,6 +49,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
             if($result) {
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $import->id,
                     'source_dataset' => $result->asXML()
                 ]);
                 
@@ -69,6 +71,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                 
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $import->id,
                     'source_dataset' => $xml
                 ]);
                 
@@ -88,6 +91,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                 
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $import->id,
                     'source_dataset' => $fileContent
                 ]);
                 

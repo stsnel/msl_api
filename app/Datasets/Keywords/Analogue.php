@@ -1,7 +1,7 @@
 <?php
 namespace App\Datasets\Keywords;
 
-class Analogue
+class Analogue extends Keyword
 {
     public $msl_analogue_combined = '';
     
@@ -37,7 +37,18 @@ class Analogue
         }
     }
     
-    public function toArray() {
+    public function toArray($original = false) {
+        if($original) {
+            return [
+                'msl_analogue_combined_original' => $this->msl_analogue_combined,
+                'msl_analogue_1_original' => $this->msl_analogue_1,
+                'msl_analogue_2_original' => $this->msl_analogue_2,
+                'msl_analogue_3_original' => $this->msl_analogue_3,
+                'msl_analogue_4_original' => $this->msl_analogue_4,
+                'msl_analogue_5_original' => $this->msl_analogue_5
+            ];
+        }
+        
         return [
             'msl_analogue_combined' => $this->msl_analogue_combined,
             'msl_analogue_1' => $this->msl_analogue_1,

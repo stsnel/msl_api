@@ -3,6 +3,7 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\DB;
 
 class Import extends Model
 {
@@ -19,6 +20,14 @@ class Import extends Model
         return $this->hasMany(SourceDatasetIdentifier::class);
     }
     
+    public function source_datasets() {
+        return $this->hasMany(SourceDataset::class);
+    }
+    
+    public function dataset_creates() {
+        return $this->hasMany(DatasetCreate::class);
+    }
+    
     public function mapping_logs()
     {
         return $this->hasMany(MappingLog::class);
@@ -26,41 +35,15 @@ class Import extends Model
     
     public function getStatsOverview()
     {        
-        $results = [
-            'step_1_success' => 0,
-            'step_1_total' => 0,
-            'step_2_success' => 0,
-            'step_2_total' => 0,
-            'step_3_success' => 0,
-            'step_3_total' => 0
+        $results = [            
+            'step_1_success' => DB::table('source_dataset_identifiers')->where('import_id', $this->id)->where('response_code', '=', 200)->count(),
+            'step_1_total' => DB::table('source_dataset_identifiers')->where('import_id', $this->id)->count(),
+            'step_2_success' => DB::table('source_datasets')->where('import_id', $this->id)->where('status', '=', 'succes')->count(),
+            'step_2_total' => DB::table('source_datasets')->where('import_id', $this->id)->count(),
+            'step_3_success' => $this->dataset_creates->where('response_code', '=', 200)->where('response_code', '=', 200)->count(),
+            'step_3_total' => DB::table('dataset_creates')->where('import_id', $this->id) ->count()
         ];
         
-        $sourceDatasetIdentifiers = $this->source_dataset_identifiers;
-        if(count($sourceDatasetIdentifiers) > 0) {
-            foreach ($sourceDatasetIdentifiers as $sourceDatasetIdentifier) {
-                $results['step_1_total']++;
-                if($sourceDatasetIdentifier->response_code == 200) {
-                    $results['step_1_success']++;
-                }
-                
-                $sourceDataset = $sourceDatasetIdentifier->source_dataset;
-                if($sourceDataset) {
-                    $results['step_2_total']++;
-                    if($sourceDataset->status == 'succes') {
-                        $results['step_2_success']++;                                                
-                    }
-                    
-                    $datasetCreate = $sourceDataset->dataset_create;
-                    if($datasetCreate) {
-                        $results['step_3_total']++;
-                        if($datasetCreate->response_code == 200) {
-                            $results['step_3_success']++;
-                        }
-                    }
-                }                                
-            }
-        }
-                
         return $results;
     }
 }

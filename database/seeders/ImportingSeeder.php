@@ -19,7 +19,8 @@ class ImportingSeeder extends Seeder
             ImportGFZSeeder::class,
             ImportYodaSeeder::class,
             ImportCsicSeeder::class,
-            Import4TUSeeder::class
+            Import4TUSeeder::class,
+            ImportMagicSeeder::class
         ]);
     }
 }
