@@ -20,6 +20,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Add seperate keyword section in data structure to indicate original and interpreted keywords
 - Split JSON tree export for use in frontend into interpreted and original types
 - Enlarge databasefields to store larger response objects
+- Add turtle file and mockup webservice for EPOS TNA pitch
 
 ## [1.2.0] - 2022-11-11
 
