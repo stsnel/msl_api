@@ -6,6 +6,7 @@ use App\Ckan\Request\PackageSearch;
 use App\Response\ErrorResponse;
 use Illuminate\Http\Request;
 use App\Response\MainResponse;
+use App\Models\TnaMockup;
 
 class ApiController extends Controller
 {
@@ -242,6 +243,20 @@ class ApiController extends Controller
         
         //return response object
         return $paleoResponse->getAsLaravelResponse();
+    }
+    
+    public function tna() {
+        $data = TnaMockup::all()->toArray();
+                        
+        return response()->json([
+            'success' => true,
+            'message' => '',
+            'result' => [
+                'count' => count($data),
+                'resultCount' => count($data),
+                'results' => $data
+            ]
+        ], 200);
     }
     
     private function buildQuery(Request $request, $queryMappings)
