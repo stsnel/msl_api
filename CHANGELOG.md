@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added 
+
+
+## [1.3.0] - 2023-03-08
+
 - Geochemistry vocab now uses two top levels
 - Update microscopy vocab
 - URI generation for vocabularies and specific terms
