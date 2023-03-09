@@ -25,11 +25,11 @@ class UpdateImportStageTables extends Migration
         });
         
         // Update newly created columns to contain correct references to imports
-        DB::statement('UPDATE epos_msl.source_datasets AS U1, epos_msl.source_dataset_identifiers AS U2 
+        DB::statement('UPDATE source_datasets AS U1, source_dataset_identifiers AS U2 
             SET U1.import_id = U2.import_id
             WHERE U2.id = U1.source_dataset_identifier_id;');
         
-        DB::statement('UPDATE epos_msl.dataset_creates AS U1, epos_msl.source_datasets AS U2 
+        DB::statement('UPDATE dataset_creates AS U1, source_datasets AS U2 
             SET U1.import_id = U2.import_id
             WHERE U2.id = U1.source_dataset_id;');
         
