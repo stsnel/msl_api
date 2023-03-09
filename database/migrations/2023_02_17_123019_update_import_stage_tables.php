@@ -15,14 +15,17 @@ class UpdateImportStageTables extends Migration
     public function up()
     {
         // Add import id columns to source_datasets and dataset_creates tables
-        Schema::table('source_datasets', function (Blueprint $table) {
-            $table->unsignedBigInteger('import_id')->after('source_dataset_identifier_id');
-        });
+        if(!Schema::hasColumn('source_datasets', 'import_id')) {
+            Schema::table('source_datasets', function (Blueprint $table) {
+                $table->unsignedBigInteger('import_id')->after('source_dataset_identifier_id');
+            });
+        }        
         
-        
-        Schema::table('dataset_creates', function (Blueprint $table) {
-            $table->unsignedBigInteger('import_id')->after('source_dataset_id');
-        });
+        if(!Schema::hasColumn('dataset_creates', 'import_id')) {
+            Schema::table('dataset_creates', function (Blueprint $table) {
+                $table->unsignedBigInteger('import_id')->after('source_dataset_id');
+            });
+        }
         
         // Update newly created columns to contain correct references to imports
         DB::statement('UPDATE source_datasets AS U1, source_dataset_identifiers AS U2 
