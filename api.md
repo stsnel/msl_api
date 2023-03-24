@@ -39,6 +39,8 @@ This endpoint gives access to all data-publications available that are marked as
         + Default: ``
     + tags (text, optional) - Tags to search for. 
         + Default: ``
+    + hasDownloads (boolean, optional) - Filter results to only include results with download links.
+        + Default: `true`
 
         
 + Response 200 (application/json)
@@ -288,6 +290,8 @@ This endpoint gives access to all data-publications available that are marked as
         + Default: ``
     + tags (text, optional) - Tags to search for. 
         + Default: ``
+    + hasDownloads (boolean, optional) - Filter results to only include results with download links.
+        + Default: `true`
 
         
 + Response 200 (application/json)
@@ -864,6 +868,8 @@ This endpoint gives access to all data-publications available that are marked as
         + Default: ``
     + tags (text, optional) - Tags to search for. 
         + Default: ``
+    + hasDownloads (boolean, optional) - Filter results to only include results with download links.
+        + Default: `true`
 
         
 + Response 200 (application/json)
@@ -989,6 +995,8 @@ This endpoint gives access to all data-publications available that are marked as
         + Default: ``
     + tags (text, optional) - Tags to search for. 
         + Default: ``
+    + hasDownloads (boolean, optional) - Filter results to only include results with download links.
+        + Default: `true`
 
         
 + Response 200 (application/json)
@@ -1212,6 +1220,8 @@ This endpoint gives access to all data-publications available that are marked as
         + Default: ``
     + tags (text, optional) - Tags to search for. 
         + Default: ``
+    + hasDownloads (boolean, optional) - Filter results to only include results with download links.
+        + Default: `true`
 
         
 + Response 200 (application/json)
@@ -1255,6 +1265,8 @@ This endpoint gives access to all data-publications available that are marked as
         + Default: ``
     + tags (text, optional) - Tags to search for. 
         + Default: ``
+    + hasDownloads (boolean, optional) - Filter results to only include results with download links.
+        + Default: `true`
 
         
 + Response 200 (application/json)

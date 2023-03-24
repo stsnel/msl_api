@@ -38,7 +38,12 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();
                 
         $searchRequest->setbyRequest($request, $this->buildQuery($request, $this->queryMappings));
-        $searchRequest->filterQuery = 'msl_subdomain:"rock and melt physics"';
+        
+        if($request->boolean('hasDownloads', true)) {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"rock and melt physics" AND msl_download_link:*';
+        } else {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"rock and melt physics"';
+        }        
 
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
@@ -73,8 +78,12 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();               
         
         $searchRequest->setbyRequest($request, $this->buildQuery($request, $this->queryMappings));
-        $searchRequest->filterQuery = 'msl_subdomain:"analogue modelling of geologic processes"';
         
+        if($request->boolean('hasDownloads', true)) {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"analogue modelling of geologic processes" AND msl_download_link:*';
+        } else {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"analogue modelling of geologic processes"';
+        }        
         
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
@@ -109,8 +118,12 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();
         
         $searchRequest->setbyRequest($request, $this->buildQuery($request, $this->queryMappings));
-        $searchRequest->filterQuery = 'msl_subdomain:"paleomagnetism"';
         
+        if($request->boolean('hasDownloads', true)) {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"paleomagnetism" AND msl_download_link:*';
+        } else {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"paleomagnetism"';
+        }        
         
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
@@ -146,8 +159,12 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();
         
         $searchRequest->setbyRequest($request, $this->buildQuery($request, $this->queryMappings));
-        $searchRequest->filterQuery = 'msl_subdomain:"microscopy and tomography"';
         
+        if($request->boolean('hasDownloads', true)) {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"microscopy and tomography" AND msl_download_link:*';
+        } else {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"microscopy and tomography"';
+        }                
         
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
@@ -183,8 +200,12 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();
         
         $searchRequest->setbyRequest($request, $this->buildQuery($request, $this->queryMappings));
-        $searchRequest->filterQuery = 'msl_subdomain:"geochemistry"';
         
+        if($request->boolean('hasDownloads', true)) {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"geochemistry" AND msl_download_link:*';
+        } else {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_subdomain:"geochemistry"';
+        }
         
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
@@ -220,7 +241,12 @@ class ApiController extends Controller
         $searchRequest = new PackageSearch();
         
         $searchRequest->setbyRequest($request, $this->buildQuery($request, $this->queryMappingsAll));  
-        $searchRequest->filterQuery = 'type:"data-publication"';
+        
+        if($request->boolean('hasDownloads', true)) {
+            $searchRequest->filterQuery = 'type:"data-publication" AND msl_download_link:*';
+        } else {
+            $searchRequest->filterQuery = 'type:"data-publication"';
+        }        
         
         try {
             $response = $client->request('GET', $endpoint, $searchRequest->getAsQueryArray());
