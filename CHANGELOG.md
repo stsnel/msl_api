@@ -9,6 +9,7 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ### Added 
 - Update 4TU import to not use specific version doi references
+- Add parameter to APIs to exclude results without downloadlinks
 
 ## [1.3.2] - 2023-03-08
 - Adjust migrationscript to work with partial database update
