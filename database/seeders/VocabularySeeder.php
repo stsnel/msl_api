@@ -228,7 +228,7 @@ class VocabularySeeder extends Seeder
         }
     }
     
-    private function processNode($node, $vocabulary, $parentId = null, $excludeAbstractMapping = false, $forceExcludeAbstractMapping = false)
+    private function processNode($node, $vocabulary, $parentId = null, $excludeAbstractMapping = false, $forceExcludeAbstractMapping = false, $excludeSubdomainMapping = false, $forceExcludeSubdomainMapping = false)
     {
                 
         $keyword = Keyword::create([
@@ -254,12 +254,14 @@ class VocabularySeeder extends Seeder
         
         if(count($node->synonyms)) {
             foreach ($node->synonyms as $synonym) {
-                KeywordSearch::create([
-                    'keyword_id' => $keyword->id,
-                    'search_value' => strtolower($synonym),
-                    'isSynonym' => true,
-                    'exclude_abstract_mapping' => $excludeAbstractMapping
-                ]);
+                if($synonym !== "") {
+                    KeywordSearch::create([
+                        'keyword_id' => $keyword->id,
+                        'search_value' => strtolower($synonym),
+                        'isSynonym' => true,
+                        'exclude_abstract_mapping' => $excludeAbstractMapping
+                    ]);
+                }
             }
         }        
         

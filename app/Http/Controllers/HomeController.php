@@ -285,47 +285,7 @@ class HomeController extends Controller
     public function test()
     {
        
-                
-        /*
-        $graph = new EasyRdf\Graph();
-        $graph->addResource("http://epos.example/modeled-structure", "rdf:type", "skos:Concept");
-        $graph->add("http://epos.example/modeled-structure", "skos:narrower", "http://epos.example/magmatic-structure");
-        $graph->add("http://epos.example/modeled-structure", "skos:narrower", "http://epos.example/magmatic-structure2");
-        $graph->add("http://epos.example/modeled-structure", "rdfs:label", "corn perception telephone");
-        */
-        
-        
-        $graph = new EasyRdf\Graph();
-        $keywords = Keyword::where(['vocabulary_id' => '1'])->get();
-        
-        $counter = 0;
-        
-        foreach ($keywords as $keyword) {
-            if($counter > 10) {
-                break;
-            }
-            
-            $graph->addResource($keyword->uri, "rdf:type", "skos:Concept");            
-            
-            $children = $keyword->getChildren();
-            foreach ($children as $child) {
-                $graph->add($keyword->uri, "skos:narrower", $child->uri);
-            }
-            
-            $parent = $keyword->parent;            
-            if($parent) {
-                $graph->add($keyword->uri, "skos:broader", $parent->uri);
-            }
-            
-            $counter++;
-        }
-        
-        
-        $output = $graph->serialise('turtle');
-        dd($output);
-                
-        
-        return dd('test');
+         dd('test');
     }
     
     

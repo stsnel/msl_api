@@ -12,7 +12,8 @@ class Keyword extends Model
         'uri',
         'vocubulary_id',
         'level',
-        'hyperlink'
+        'hyperlink',
+        'exclude_domain_mapping'
     ];
  
     public function parent()
