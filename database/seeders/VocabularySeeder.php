@@ -85,7 +85,13 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary, null, true);
+            if ($topNode->value == "Ancillary equipment") {
+                $this->processNode($topNode, $vocabulary, null, true, false, true, true);
+            }
+            else
+            {
+                $this->processNode($topNode, $vocabulary, null, true);
+            }
         }
         
         //create analogue modelling vocabulary
@@ -112,7 +118,12 @@ class VocabularySeeder extends Seeder
             }
             elseif ($topNode->value == "Modeled geomorphological feature") {
                 $this->processNode($topNode, $vocabulary, null, true, true);
-            } else {
+            }
+            elseif ($topNode->value == "Ancillary equipment") {
+                $this->processNode($topNode, $vocabulary, null, true, false, true, true);
+            } 
+            else 
+            {
                 $this->processNode($topNode, $vocabulary, null, true);
             }         
         }
@@ -224,7 +235,13 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary, null, true);
+            if ($topNode->value == "Ancillary equipment") {
+                $this->processNode($topNode, $vocabulary, null, true, false, true, true);
+            }
+            else
+            {
+                $this->processNode($topNode, $vocabulary, null, true);
+            }
         }
     }
     
@@ -239,7 +256,8 @@ class VocabularySeeder extends Seeder
             'external_uri' => $node->uri,
             'level' => $node->level,
             'hyperlink' => $node->hyperlink,
-            'label' => $node->value
+            'label' => $node->value,
+            'exclude_domain_mapping' => $excludeSubdomainMapping
         ]);
         
         $this->generateURI($keyword, $vocabulary);
@@ -267,9 +285,13 @@ class VocabularySeeder extends Seeder
         
         if(count($node->subTerms)) {
             foreach ($node->subTerms as $subNode) {
-                if($forceExcludeAbstractMapping) {
-                    $this->processNode($subNode, $vocabulary, $keyword->id, true, true);
-                } else {                
+                if($forceExcludeAbstractMapping && $forceExcludeSubdomainMapping) {
+                    $this->processNode($subNode, $vocabulary, $keyword->id, true, true, true, true);
+                } elseif($forceExcludeAbstractMapping) {                    
+                    $this->processNode($subNode, $vocabulary, $keyword->id, true, true);                
+                } elseif($forceExcludeSubdomainMapping) {
+                    $this->processNode($subNode, $vocabulary, $keyword->id, false, false, true, true);
+                } else {
                     $this->processNode($subNode, $vocabulary, $keyword->id);
                 }
             }

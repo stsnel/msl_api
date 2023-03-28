@@ -51,9 +51,11 @@ class KeywordHelper
                     
                     $dataset->addKeyword($datasetKeyword);
                     
-                    //add subdomain to dataset if keyword is from specified vocabulary
-                    if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
-                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name], false);
+                    //add subdomain to dataset if keyword is from specified vocabulary and not excluded
+                    if(!$keyword->exclude_domain_mapping) {
+                        if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
+                            $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name], false);
+                        }
                     }
                 }
             }            
@@ -76,9 +78,11 @@ class KeywordHelper
                     $datasetKeyword = KeywordFactory::create($keyword);                    
                     $dataset->addKeyword($datasetKeyword, false);
                     
-                    //add subdomain to dataset if keyword is from specified vocabulary
-                    if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
-                        $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name], false);
+                    //add subdomain to dataset if keyword is from specified vocabulary and not excluded
+                    if(!$keyword->exclude_domain_mapping) {
+                        if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
+                            $dataset->addSubDomain($this->vocabularySubDomainMapping[$keyword->vocabulary->name], false);
+                        }
                     }
                 }
             }
