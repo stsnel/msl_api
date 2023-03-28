@@ -36,7 +36,7 @@ class VocabularySeeder extends Seeder
         );
                         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/materials.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/materials.json'));
         $vocabData = json_decode($fileString);               
         
         //loop over top nodes and add sub-nodes
@@ -58,7 +58,7 @@ class VocabularySeeder extends Seeder
         );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/porefluids.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/porefluids.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -80,7 +80,7 @@ class VocabularySeeder extends Seeder
         );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/rockphysics.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/rockphysics.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -108,7 +108,7 @@ class VocabularySeeder extends Seeder
         );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/analogue.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/analogue.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -142,7 +142,7 @@ class VocabularySeeder extends Seeder
         );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/geological-age.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/geological-age.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -164,7 +164,7 @@ class VocabularySeeder extends Seeder
         );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/geological-setting.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/geological-setting.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -186,7 +186,7 @@ class VocabularySeeder extends Seeder
         );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/paleomagnetism.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/paleomagnetism.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -208,7 +208,7 @@ class VocabularySeeder extends Seeder
         );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/geochemistry.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/geochemistry.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -230,7 +230,7 @@ class VocabularySeeder extends Seeder
             );
         
         //load jsonData from file
-        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/microscopy.json'));
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-0/microscopy.json'));
         $vocabData = json_decode($fileString);
         
         //loop over top nodes and add sub-nodes
@@ -281,7 +281,7 @@ class VocabularySeeder extends Seeder
                     ]);
                 }
             }
-        }        
+        }
         
         if(count($node->subTerms)) {
             foreach ($node->subTerms as $subNode) {
