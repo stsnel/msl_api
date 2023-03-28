@@ -492,7 +492,8 @@ class VocabularySeeder extends Seeder
             'keyword_id' => $keyword->id,
             'search_value' => strtolower($node->value),
             'isSynonym' => false,
-            'exclude_abstract_mapping' => $excludeAbstractMapping
+            'exclude_abstract_mapping' => $excludeAbstractMapping,
+            'version' => $vocabulary->version
         ]);
         
         
@@ -503,7 +504,8 @@ class VocabularySeeder extends Seeder
                         'keyword_id' => $keyword->id,
                         'search_value' => strtolower($synonym),
                         'isSynonym' => true,
-                        'exclude_abstract_mapping' => $excludeAbstractMapping
+                        'exclude_abstract_mapping' => $excludeAbstractMapping,
+                        'version' => $vocabulary->version
                     ]);
                 }
             }

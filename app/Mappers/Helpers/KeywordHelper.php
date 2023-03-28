@@ -42,7 +42,7 @@ class KeywordHelper
             $keyword = trim($keyword);            
             $dataset->tag_string[] = $this->cleanKeyword($keyword);
             
-            $searchKeywords = KeywordSearch::where('search_value', strtolower($keyword))->get();
+            $searchKeywords = KeywordSearch::where('search_value', strtolower($keyword))->where('version', '1.1')->get();
             
             if(count($searchKeywords) > 0) {
                 foreach ($searchKeywords as $searchKeyword) {
@@ -67,7 +67,7 @@ class KeywordHelper
     
     public function mapKeywordsFromText(BaseDataset $dataset, $text) 
     {
-        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->get();
+        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', '1.1')->get();
         
         foreach ($searchKeywords as $searchKeyword) {
             if($searchKeyword->search_value !== '') {
@@ -93,7 +93,7 @@ class KeywordHelper
     
     public function extractFromText($text)
     {
-        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->get();
+        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', '1.1')->get();
         $matchedKeywords = [];
         
         foreach ($searchKeywords as $searchKeyword) {

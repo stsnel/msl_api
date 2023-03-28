@@ -10,7 +10,8 @@ class KeywordSearch extends Model
         'keyword_id',
         'value',
         'is_synonym',
-        'exclude_abstract_mapping'
+        'exclude_abstract_mapping',
+        'version'
     ];
     
     protected $table = 'keywords_search';

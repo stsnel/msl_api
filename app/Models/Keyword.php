@@ -26,6 +26,11 @@ class Keyword extends Model
         return $this->belongsTo(Vocabulary::class, 'vocabulary_id');
     }
     
+    public function keyword_search()
+    {
+        return $this->hasMany(KeywordSearch::class, 'keyword_id');
+    }
+    
     public function getSynonyms()
     {
         return KeywordSearch::where([
