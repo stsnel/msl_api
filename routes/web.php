@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\User;
 use App\Http\Controllers\ToolsController;
+use App\Http\Controllers\SeederController;
 
 /*
 |--------------------------------------------------------------------------
@@ -35,6 +36,8 @@ Route::get('/importer/{importer_id}/imports/{import_id}/flow', [HomeController::
 Route::get('/importer/{importer_id}/imports/{import_id}/log', [HomeController::class, 'importerImportsLog'])->name('importer-imports-log');
 Route::get('/importer/{importer_id}/imports/{import_id}/log-export', [HomeController::class, 'exportImportLog'])->name('importer-imports-log-export');
 Route::get('/importer/{importer_id}/imports/{import_id}/detail/{source_dataset_identifier_id}', [HomeController::class, 'importerImportsDetail'])->name('importer-imports-detail');
+
+Route::get('/seeders', [SeederController::class, 'index'])->name('seeders');
 
 Route::get('tools/convert-keywords', [ToolsController::class, 'convertKeywords'])->name('convert-keywords');
 Route::post('tools/convert-keywords', [ToolsController::class, 'processMaterialsFile'])->name('process-materials-file');

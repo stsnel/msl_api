@@ -85,8 +85,12 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('importers') }}">{{ __('Importers') }}</a>
+                                <a class="nav-link" href="{{ route('seeders') }}">{{ __('Seeders') }}</a>
                             </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('importers') }}">{{ __('Importers') }}</a>
+                            </li>                           
                             
                             <li class="nav-item dropdown">
                             	<a id="navbarDropdownActions" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
