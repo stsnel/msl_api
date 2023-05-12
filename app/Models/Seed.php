@@ -16,5 +16,9 @@ class Seed extends Model
         return $this->belongsTo(Seeder::class);
     }
     
+    public function creates()
+    {
+        return $this->hasMany(OrganizationCreate::class);
+    }
        
 }

@@ -40,6 +40,7 @@ Route::get('/importer/{importer_id}/imports/{import_id}/detail/{source_dataset_i
 Route::get('/seeders', [SeederController::class, 'index'])->name('seeders');
 Route::post('/create-seed', [SeederController::class, 'createSeed'])->name('create-seed');
 Route::get('/seeder/{id}/seeds', [SeederController::class, 'seederSeeds'])->name('seeder-seeds');
+Route::get('/seeds/{id}', [SeederController::class, 'seeds'])->name('seeds');
 
 
 Route::get('tools/convert-keywords', [ToolsController::class, 'convertKeywords'])->name('convert-keywords');

@@ -4,31 +4,33 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-        <h1>Seeds for seeder {{ $seeder->name }}</h1>
+        <h1>Creates for seed #{{ $seed->id }}</h1>
             <div class="card">
-                <div class="card-header">Seeds</div>
+                <div class="card-header">Creates/Updates</div>
                 <div class="card-body">
-					@if($seeds->count() > 0)
+					@if($creates->count() > 0)
 						<table class="table">
 							<thead>
 								<tr>
 									<th>#</th>
 									<th>created_at</th>
-									<th>actions</th>
+									<th>type</th>
+									<th>response code</th>
 								</tr>
 							</thead>
 							<tbody>
-								@foreach($seeds as $seed)								
+								@foreach($creates as $create)								
     								<tr>
-    									<td>{{ $seed->id }}</td>																		
-    									<td>{{ $seed->created_at }}</td>
-    									<td><a href="{{ route('seeds', ['id' => $seed->id]) }}" title="view details">View details</a></td>
+    									<td>{{ $create->id }}</td>																		
+    									<td>{{ $create->created_at }}</td>
+    									<td>{{ $create->processed_type }}</td>
+    									<td>{{ $create->response_code }}</td>
     								</tr>
 								@endforeach
 							</tbody>
 						</table>
 					@else
-						<p>No seeds found for this seeder.</p>
+						<p>No creates/updates found for this seed.</p>
 					@endif
                 </div>
             </div>                                    
