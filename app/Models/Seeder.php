@@ -17,4 +17,7 @@ class Seeder extends Model
         'options' => 'array'
     ];
     
+    public function seeds() {
+        return $this->hasMany(Seed::class);
+    }
 }

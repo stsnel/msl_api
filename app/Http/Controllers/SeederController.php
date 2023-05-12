@@ -13,6 +13,7 @@ use App\Jobs\ProcessDatasetDelete;
 use App\Models\DataRepository;
 use App\Models\Importer;
 use App\Models\Import;
+use App\Models\Seed;
 use App\Jobs\ProcessImport;
 use App\Models\SourceDatasetIdentifier;
 use App\Models\SourceDataset;
@@ -40,6 +41,7 @@ use App\Datasets\Keywords\KeywordFactory;
 use App\Mappers\CsicMapper;
 use EasyRdf;
 use App\Models\Seeder;
+use App\Jobs\ProcessSeed;
 
 class SeederController extends Controller
 {
@@ -65,7 +67,31 @@ class SeederController extends Controller
         return view('seeders', ['seeders' => $seeders]);
     }
     
+    public function seederSeeds($id)
+    {
+        $seeder = Seeder::where('id', $id)->first();
+        $seeds = $seeder->seeds;
+        
+        return view('seeder-seeds', ['seeder' => $seeder, 'seeds' => $seeds]);        
+    }
     
-    
+    public function createseed(Request $request)
+    {
+        if($request->has('seeder-id')) {
+            $seederId = $request->input('seeder-id');
+            
+            $seed = Seed::create([
+                'seeder_id' => $seederId
+            ]);
+            
+            ProcessSeed::dispatch($seed);
+            
+            //ProcessImport::dispatch($import);
+            
+            $request->session()->flash('status', 'Seeder started');
+        }
+        
+        return redirect()->route('seeders');
+    }
     
 }

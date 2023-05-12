@@ -59,11 +59,11 @@
                       			</tr>
                       		</tbody>
                       	</table>
-                      	<form method="post" action="{{ route('create-import') }}">
+                      	<form method="post" action="{{ route('create-seed') }}">
                       		@csrf
-                      		<input name="importer-id" type="hidden" value="{{ $seeder->id }}">
+                      		<input name="seeder-id" type="hidden" value="{{ $seeder->id }}">
                       		<button type="submit" class="btn btn-primary">Start seeder</button>
-                      		<a class="btn btn-warning" href="{{ route('importer-imports', ['id' => $seeder->id]) }}" title="view imports">View seeds</a>
+                      		<a class="btn btn-warning" href="{{ route('seeder-seeds', ['id' => $seeder->id]) }}" title="view seeds">View seeds</a>
                       	</form>                      	
                       </div>
                     </div>

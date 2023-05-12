@@ -16,9 +16,5 @@ class Seed extends Model
         return $this->belongsTo(Seeder::class);
     }
     
-    public function source_dataset_identifiers() {
-        return $this->hasMany(SourceDatasetIdentifier::class);
-    }
-    
-    
+       
 }

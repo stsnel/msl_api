@@ -38,6 +38,9 @@ Route::get('/importer/{importer_id}/imports/{import_id}/log-export', [HomeContro
 Route::get('/importer/{importer_id}/imports/{import_id}/detail/{source_dataset_identifier_id}', [HomeController::class, 'importerImportsDetail'])->name('importer-imports-detail');
 
 Route::get('/seeders', [SeederController::class, 'index'])->name('seeders');
+Route::post('/create-seed', [SeederController::class, 'createSeed'])->name('create-seed');
+Route::get('/seeder/{id}/seeds', [SeederController::class, 'seederSeeds'])->name('seeder-seeds');
+
 
 Route::get('tools/convert-keywords', [ToolsController::class, 'convertKeywords'])->name('convert-keywords');
 Route::post('tools/convert-keywords', [ToolsController::class, 'processMaterialsFile'])->name('process-materials-file');
