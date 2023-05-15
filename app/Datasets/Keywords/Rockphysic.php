@@ -14,9 +14,8 @@ class Rockphysic extends Keyword
     public $msl_rockphysic_4 = '';
     
     public $msl_rockphysic_5 = ''; 
-
     
-    private $levels = [
+    protected $levels = [
         1 => 'msl_rockphysic_1',
         2 => 'msl_rockphysic_2',
         3 => 'msl_rockphysic_3',
@@ -41,11 +40,11 @@ class Rockphysic extends Keyword
         if($original) {
             return [
                 'msl_rockphysic_combined_original' => $this->msl_rockphysic_combined,
-                'msl_rockphysic_1_original' => $this->msl_rockphysic_1,
-                'msl_rockphysic_2_original' => $this->msl_rockphysic_2,
-                'msl_rockphysic_3_original' => $this->msl_rockphysic_3,
-                'msl_rockphysic_4_original' => $this->msl_rockphysic_4,
-                'msl_rockphysic_5_original' => $this->msl_rockphysic_5
+                'msl_rockphysic_1_original' => ($this->getTopLevel() == 'msl_rockphysic_1') ? $this->msl_rockphysic_1 : "",
+                'msl_rockphysic_2_original' => ($this->getTopLevel() == 'msl_rockphysic_2') ? $this->msl_rockphysic_2 : "",
+                'msl_rockphysic_3_original' => ($this->getTopLevel() == 'msl_rockphysic_3') ? $this->msl_rockphysic_3 : "",
+                'msl_rockphysic_4_original' => ($this->getTopLevel() == 'msl_rockphysic_4') ? $this->msl_rockphysic_4 : "",
+                'msl_rockphysic_5_original' => ($this->getTopLevel() == 'msl_rockphysic_5') ? $this->msl_rockphysic_5 : ""
             ];
         }
         

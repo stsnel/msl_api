@@ -12,9 +12,8 @@ class GeologicalSetting extends Keyword
     public $msl_geologicalsetting_3 = '';
     
     public $msl_geologicalsetting_4 = '';
-    
-    
-    private $levels = [
+        
+    protected $levels = [
         1 => 'msl_geologicalsetting_1',
         2 => 'msl_geologicalsetting_2',
         3 => 'msl_geologicalsetting_3',
@@ -38,10 +37,10 @@ class GeologicalSetting extends Keyword
         if($original) {
             return [
                 'msl_geologicalsetting_combined_original' => $this->msl_geologicalsetting_combined,
-                'msl_geologicalsetting_1_original' => $this->msl_geologicalsetting_1,
-                'msl_geologicalsetting_2_original' => $this->msl_geologicalsetting_2,
-                'msl_geologicalsetting_3_original' => $this->msl_geologicalsetting_3,
-                'msl_geologicalsetting_4_original' => $this->msl_geologicalsetting_4
+                'msl_geologicalsetting_1_original' => ($this->getTopLevel() == 'msl_geologicalsetting_1') ? $this->msl_geologicalsetting_1 : "",
+                'msl_geologicalsetting_2_original' => ($this->getTopLevel() == 'msl_geologicalsetting_2') ? $this->msl_geologicalsetting_2 : "",
+                'msl_geologicalsetting_3_original' => ($this->getTopLevel() == 'msl_geologicalsetting_3') ? $this->msl_geologicalsetting_3 : "",
+                'msl_geologicalsetting_4_original' => ($this->getTopLevel() == 'msl_geologicalsetting_4') ? $this->msl_geologicalsetting_4 : ""
             ];
         }
         

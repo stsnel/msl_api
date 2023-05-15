@@ -14,7 +14,7 @@ class Geochemistry extends Keyword
     public $msl_geochemistry_4 = '';
 
     
-    private $levels = [
+    protected $levels = [
         1 => 'msl_geochemistry_1',
         2 => 'msl_geochemistry_2',
         3 => 'msl_geochemistry_3',
@@ -38,10 +38,10 @@ class Geochemistry extends Keyword
         if($original) {
             return [
                 'msl_geochemistry_combined_original' => $this->msl_geochemistry_combined,
-                'msl_geochemistry_1_original' => $this->msl_geochemistry_1,
-                'msl_geochemistry_2_original' => $this->msl_geochemistry_2,
-                'msl_geochemistry_3_original' => $this->msl_geochemistry_3,
-                'msl_geochemistry_4_original' => $this->msl_geochemistry_4
+                'msl_geochemistry_1_original' => ($this->getTopLevel() == 'msl_geochemistry_1') ? $this->msl_geochemistry_1 : "",
+                'msl_geochemistry_2_original' => ($this->getTopLevel() == 'msl_geochemistry_2') ? $this->msl_geochemistry_2 : "",
+                'msl_geochemistry_3_original' => ($this->getTopLevel() == 'msl_geochemistry_3') ? $this->msl_geochemistry_3 : "",
+                'msl_geochemistry_4_original' => ($this->getTopLevel() == 'msl_geochemistry_4') ? $this->msl_geochemistry_4 : ""
             ];
         }
         

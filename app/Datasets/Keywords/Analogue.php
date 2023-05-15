@@ -16,7 +16,7 @@ class Analogue extends Keyword
     public $msl_analogue_5 = '';
 
     
-    private $levels = [
+    protected $levels = [
         1 => 'msl_analogue_1',
         2 => 'msl_analogue_2',
         3 => 'msl_analogue_3',
@@ -41,11 +41,11 @@ class Analogue extends Keyword
         if($original) {
             return [
                 'msl_analogue_combined_original' => $this->msl_analogue_combined,
-                'msl_analogue_1_original' => $this->msl_analogue_1,
-                'msl_analogue_2_original' => $this->msl_analogue_2,
-                'msl_analogue_3_original' => $this->msl_analogue_3,
-                'msl_analogue_4_original' => $this->msl_analogue_4,
-                'msl_analogue_5_original' => $this->msl_analogue_5
+                'msl_analogue_1_original' => ($this->getTopLevel() == 'msl_analogue_1') ? $this->msl_analogue_1 : "",
+                'msl_analogue_2_original' => ($this->getTopLevel() == 'msl_analogue_2') ? $this->msl_analogue_2 : "",
+                'msl_analogue_3_original' => ($this->getTopLevel() == 'msl_analogue_3') ? $this->msl_analogue_3 : "",
+                'msl_analogue_4_original' => ($this->getTopLevel() == 'msl_analogue_4') ? $this->msl_analogue_4 : "",
+                'msl_analogue_5_original' => ($this->getTopLevel() == 'msl_analogue_5') ? $this->msl_analogue_5 : ""
             ];
         }
         

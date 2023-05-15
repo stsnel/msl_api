@@ -10,9 +10,8 @@ class Porefluid extends Keyword
     public $msl_porefluid_2 = '';
     
     public $msl_porefluid_3 = '';
-
     
-    private $levels = [
+    protected $levels = [
         1 => 'msl_porefluid_1',
         2 => 'msl_porefluid_2',
         3 => 'msl_porefluid_3'
@@ -35,9 +34,9 @@ class Porefluid extends Keyword
         if($original) {
             return [
                 'msl_porefluid_combined_original' => $this->msl_porefluid_combined,
-                'msl_porefluid_1_original' => $this->msl_porefluid_1,
-                'msl_porefluid_2_original' => $this->msl_porefluid_2,
-                'msl_porefluid_3_original' => $this->msl_porefluid_3
+                'msl_porefluid_1_original' => ($this->getTopLevel() == 'msl_porefluid_1') ? $this->msl_porefluid_1 : "",
+                'msl_porefluid_2_original' => ($this->getTopLevel() == 'msl_porefluid_2') ? $this->msl_porefluid_2 : "",
+                'msl_porefluid_3_original' => ($this->getTopLevel() == 'msl_porefluid_3') ? $this->msl_porefluid_3 : ""
             ];
         }
         

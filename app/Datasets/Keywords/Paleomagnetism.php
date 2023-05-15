@@ -14,9 +14,8 @@ class Paleomagnetism extends Keyword
     public $msl_paleomagnetism_4 = '';
     
     public $msl_paleomagnetism_5 = '';
-
     
-    private $levels = [
+    protected $levels = [
         1 => 'msl_paleomagnetism_1',
         2 => 'msl_paleomagnetism_2',
         3 => 'msl_paleomagnetism_3',
@@ -41,11 +40,11 @@ class Paleomagnetism extends Keyword
         if($original) {
             return [
                 'msl_paleomagnetism_combined_original' => $this->msl_paleomagnetism_combined,
-                'msl_paleomagnetism_1_original' => $this->msl_paleomagnetism_1,
-                'msl_paleomagnetism_2_original' => $this->msl_paleomagnetism_2,
-                'msl_paleomagnetism_3_original' => $this->msl_paleomagnetism_3,
-                'msl_paleomagnetism_4_original' => $this->msl_paleomagnetism_4,
-                'msl_paleomagnetism_5_original' => $this->msl_paleomagnetism_5
+                'msl_paleomagnetism_1_original' => ($this->getTopLevel() == 'msl_paleomagnetism_1') ? $this->msl_paleomagnetism_1 : "",
+                'msl_paleomagnetism_2_original' => ($this->getTopLevel() == 'msl_paleomagnetism_2') ? $this->msl_paleomagnetism_2 : "",
+                'msl_paleomagnetism_3_original' => ($this->getTopLevel() == 'msl_paleomagnetism_3') ? $this->msl_paleomagnetism_3 : "",
+                'msl_paleomagnetism_4_original' => ($this->getTopLevel() == 'msl_paleomagnetism_4') ? $this->msl_paleomagnetism_4 : "",
+                'msl_paleomagnetism_5_original' => ($this->getTopLevel() == 'msl_paleomagnetism_5') ? $this->msl_paleomagnetism_5 : ""
             ];
         }
         

@@ -14,9 +14,8 @@ class Microscopy extends Keyword
     public $msl_microscopy_4 = '';
     
     public $msl_microscopy_5 = ''; 
-
     
-    private $levels = [
+    protected $levels = [
         1 => 'msl_microscopy_1',
         2 => 'msl_microscopy_2',
         3 => 'msl_microscopy_3',
@@ -41,11 +40,11 @@ class Microscopy extends Keyword
         if($original) {
             return [
                 'msl_microscopy_combined_original' => $this->msl_microscopy_combined,
-                'msl_microscopy_1_original' => $this->msl_microscopy_1,
-                'msl_microscopy_2_original' => $this->msl_microscopy_2,
-                'msl_microscopy_3_original' => $this->msl_microscopy_3,
-                'msl_microscopy_4_original' => $this->msl_microscopy_4,
-                'msl_microscopy_5_original' => $this->msl_microscopy_5
+                'msl_microscopy_1_original' => ($this->getTopLevel() == 'msl_microscopy_1') ? $this->msl_microscopy_1 : "",
+                'msl_microscopy_2_original' => ($this->getTopLevel() == 'msl_microscopy_2') ? $this->msl_microscopy_2 : "",
+                'msl_microscopy_3_original' => ($this->getTopLevel() == 'msl_microscopy_3') ? $this->msl_microscopy_3 : "",
+                'msl_microscopy_4_original' => ($this->getTopLevel() == 'msl_microscopy_4') ? $this->msl_microscopy_4 : "",
+                'msl_microscopy_5_original' => ($this->getTopLevel() == 'msl_microscopy_5') ? $this->msl_microscopy_5 : ""
             ];
         }
         
