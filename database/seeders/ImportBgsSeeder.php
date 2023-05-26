@@ -46,7 +46,7 @@ class ImportBgsSeeder extends Seeder
                         'options' => []
                     ],
                     'sourceDatasetProcessor' => [
-                        'type' => 'bgsMapper',
+                        'type' => 'BgsMapper',
                         'options' => []
                     ]
                 ],
