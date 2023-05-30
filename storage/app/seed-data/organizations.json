@@ -23,5 +23,10 @@
 		"name": "yoda-repository",
 		"image_url": "/repositories/Yoda UU.png",
 		"organization_display_name": "Yoda data services"
-	}	
+	},
+	{
+		"name": "bgs",
+		"image_url": "/repositories/BGS.png",
+		"organization_display_name": "British Geological Survey"
+	}
 ]
