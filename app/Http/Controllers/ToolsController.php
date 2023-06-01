@@ -41,6 +41,7 @@ use App\Exports\UnmatchedKeywordsExport;
 use App\Mappers\Helpers\KeywordHelper;
 use App\Exports\AbstractMatchingExport;
 use App\Converters\MicroscopyConverter;
+use App\Models\Vocabulary;
 
 class ToolsController extends Controller
 {
@@ -394,6 +395,34 @@ class ToolsController extends Controller
     public function abstractMatchingDownload($dataRepo) 
     {
         return Excel::download(new AbstractMatchingExport($dataRepo), 'abstract-matching.xlsx');
+    }
+    
+    public function queryGenerator()
+    {
+        /*
+         * Produce and display query for testing with datacite
+         * Results of query should contain one word from two large groups:
+         * 1. Material or Geologic setting vocabularies
+         * 2. Apparatus and Technique sections of domain specific vocabularies
+         */
+        
+        $materialVocab = Vocabulary::where('name', 'materials')->where('version', '1.1')->first();
+        $materialTerms = $materialVocab->search_keywords;
+        $terms = array();
+        
+        foreach ($materialTerms as $materialTerm) {
+            $terms[] = '"' . $materialTerm->search_value . '"';
+        }
+        
+        //dd($terms);
+        
+        //dd(implode(' OR ', $terms));
+        
+        $query = implode(' OR ', $terms);
+        
+        //dd($materialVocab, $materialTerms);
+        
+        return view('query-generator', ['query' => $query]);
     }
   
 }
