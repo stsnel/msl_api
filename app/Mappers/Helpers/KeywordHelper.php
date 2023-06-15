@@ -51,6 +51,9 @@ class KeywordHelper
                     
                     $dataset->addKeyword($datasetKeyword);
                     
+                    $dataset->addOriginalKeyword($keyword->value, $keyword->uri, $keyword->vocabulary->uri);
+                    $dataset->addEnrichedKeyword($keyword->value, $keyword->uri, $keyword->vocabulary->uri);
+                    
                     //add subdomain to dataset if keyword is from specified vocabulary and not excluded
                     if(!$keyword->exclude_domain_mapping) {
                         if(isset($this->vocabularySubDomainMapping[$keyword->vocabulary->name])) {
@@ -77,6 +80,8 @@ class KeywordHelper
                     
                     $datasetKeyword = KeywordFactory::create($keyword);                    
                     $dataset->addKeyword($datasetKeyword, false);
+                    
+                    $dataset->addEnrichedKeyword($keyword->value, $keyword->uri, $keyword->vocabulary->uri);
                     
                     //add subdomain to dataset if keyword is from specified vocabulary and not excluded
                     if(!$keyword->exclude_domain_mapping) {
