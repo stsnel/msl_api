@@ -148,6 +148,10 @@ class BaseDataset
     
     public $msl_has_microscopy_original = false;
     
+    public $msl_enriched_keywords = [];
+    
+    public $msl_original_keywords = [];
+    
     public $msl_has_lab = false;
     
     public $msl_has_organization = true;
@@ -263,6 +267,22 @@ class BaseDataset
         }
         
         return false;
+    }
+    
+    public function addOriginalKeyword($label, $uri = "", $vocabUri = "") {
+        $this->msl_original_keywords[] = [
+            'msl_original_keyword_label' => $label,
+            'msl_original_keyword_uri' => $uri,
+            'msl_original_keyword_vocab_uri' => $vocabUri
+        ];
+    }
+    
+    public function addEnrichedKeyword($label, $uri = "", $vocabUri = "") {
+        $this->msl_enriched_keywords[] = [
+            'msl_enriched_keyword_label' => $label,
+            'msl_enriched_keyword_uri' => $uri,
+            'msl_enriched_keyword_vocab_uri' => $vocabUri
+        ];
     }
     
     public function addKeyword(Keyword $keyword, $includeOriginal = true) {
