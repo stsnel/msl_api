@@ -46,13 +46,17 @@ class KeywordHelper
             
             if(count($searchKeywords) > 0) {
                 foreach ($searchKeywords as $searchKeyword) {
-                    $keyword = $searchKeyword->keyword;                                                            
-                    $datasetKeyword = KeywordFactory::create($keyword);
+                    $keyword = $searchKeyword->keyword;                
                     
+                    $datasetKeyword = KeywordFactory::create($keyword);                    
                     $dataset->addKeyword($datasetKeyword);
                     
                     $dataset->addOriginalKeyword($keyword->value, $keyword->uri, $keyword->vocabulary->uri);
-                    $dataset->addEnrichedKeyword($keyword->value, $keyword->uri, $keyword->vocabulary->uri);
+                    
+                    foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
+                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri);
+                    }
+                    
                     
                     //add subdomain to dataset if keyword is from specified vocabulary and not excluded
                     if(!$keyword->exclude_domain_mapping) {
@@ -81,7 +85,10 @@ class KeywordHelper
                     $datasetKeyword = KeywordFactory::create($keyword);                    
                     $dataset->addKeyword($datasetKeyword, false);
                     
-                    $dataset->addEnrichedKeyword($keyword->value, $keyword->uri, $keyword->vocabulary->uri);
+                    
+                    foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
+                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri);
+                    }                    
                     
                     //add subdomain to dataset if keyword is from specified vocabulary and not excluded
                     if(!$keyword->exclude_domain_mapping) {

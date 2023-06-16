@@ -270,19 +270,43 @@ class BaseDataset
     }
     
     public function addOriginalKeyword($label, $uri = "", $vocabUri = "") {
-        $this->msl_original_keywords[] = [
-            'msl_original_keyword_label' => $label,
-            'msl_original_keyword_uri' => $uri,
-            'msl_original_keyword_vocab_uri' => $vocabUri
-        ];
+        if(!$this->hasOriginalKeyword($uri)) {
+            $this->msl_original_keywords[] = [
+                'msl_original_keyword_label' => $label,
+                'msl_original_keyword_uri' => $uri,
+                'msl_original_keyword_vocab_uri' => $vocabUri
+            ];
+        }
     }
     
     public function addEnrichedKeyword($label, $uri = "", $vocabUri = "") {
-        $this->msl_enriched_keywords[] = [
-            'msl_enriched_keyword_label' => $label,
-            'msl_enriched_keyword_uri' => $uri,
-            'msl_enriched_keyword_vocab_uri' => $vocabUri
-        ];
+        if(!$this->hasEnrichedKeywors($uri)) {
+            $this->msl_enriched_keywords[] = [
+                'msl_enriched_keyword_label' => $label,
+                'msl_enriched_keyword_uri' => $uri,
+                'msl_enriched_keyword_vocab_uri' => $vocabUri
+            ];
+        }
+    }
+    
+    public function hasOriginalKeyword($uri) {
+        foreach ($this->msl_original_keywords as $keyword) {
+            if($keyword['msl_original_keyword_uri'] == $uri) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public function hasEnrichedKeywors($uri) {
+        foreach ($this->msl_enriched_keywords as $keyword) {
+            if($keyword['msl_enriched_keyword_uri'] == $uri) {
+                return true;
+            }
+        }
+        
+        return false;
     }
     
     public function addKeyword(Keyword $keyword, $includeOriginal = true) {
