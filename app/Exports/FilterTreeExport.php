@@ -210,7 +210,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_material_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(28, 'msl_material_', true, true, '_original')
+                'children' => $this->getVocabAsFilters(28, 'msl_original_keyword_uri', true, true)
             ],
             [
                 'text' => 'Geological age',
@@ -226,7 +226,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_geologicalage_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(32, 'msl_geologicalage_', false, false, '_original')
+                'children' => $this->getVocabAsFilters(32, 'msl_original_keyword_uri', false, false)
             ],
             [
                 'text' => 'Pore fluid',
@@ -242,7 +242,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_porefluid_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(29, 'msl_porefluid_', false, true, '_original')
+                'children' => $this->getVocabAsFilters(29, 'msl_original_keyword_uri', false, true)
             ],
             [
                 'text' => 'Geological setting',
@@ -258,7 +258,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_geologicalsetting_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(33, 'msl_geologicalsetting_', false, true, '_original')
+                'children' => $this->getVocabAsFilters(33, 'msl_original_keyword_uri', false, true)
             ],
             [
                 'text' => 'Analogue modelling of geological processes',
@@ -274,7 +274,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_analogue_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(31, 'msl_analogue_', false, true, '_original')
+                'children' => $this->getVocabAsFilters(31, 'msl_original_keyword_uri', false, true)
             ],
             [
                 'text' => 'Geochemistry',
@@ -290,7 +290,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_geochemistry_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(35, 'msl_geochemistry_', false, true, '_original')
+                'children' => $this->getVocabAsFilters(35, 'msl_original_keyword_uri', false, true)
             ],
             [
                 'text' => 'Microscopy and tomography',
@@ -306,7 +306,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_microscopy_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(36, 'msl_microscopy_', false, true, '_original')
+                'children' => $this->getVocabAsFilters(36, 'msl_original_keyword_uri', false, true)
             ],
             [
                 'text' => 'Paleomagnetism',
@@ -322,7 +322,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_paleomagnetism_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(34, 'msl_paleomagnetism_', false, true, '_original')
+                'children' => $this->getVocabAsFilters(34, 'msl_original_keyword_uri', false, true)
             ],
             [
                 'text' => 'Rock and melt physics',
@@ -338,7 +338,7 @@ class FilterTreeExport
                     'filterName' => 'msl_has_rockphysic_original',
                     'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(30, 'msl_rockphysic_', false, true, '_original')
+                'children' => $this->getVocabAsFilters(30, 'msl_original_keyword_uri', false, true)
             ],
             [
                 'text' => 'Research Institute',
