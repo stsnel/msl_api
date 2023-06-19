@@ -367,35 +367,7 @@ class BaseResult
             }
         }
         
-        return $keywords;
-        
-        $keywords = [];
-        
-        if(isset($data['msl_geochemistry'])) {
-            if(count($data['msl_geochemistry']) > 0) {
-                foreach ($data['msl_geochemistry'] as $keywordData) {
-                    if(isset($keywordData['msl_geochemistry_combined'])) {
-                        $term = $keywordData['msl_geochemistry_combined'];
-                        
-                        if(str_contains($term, '>')) {
-                            $terms = explode('>', $term);
-                            $keywords[] = trim($terms[count($terms) - 1]);
-                        }
-                    }
-                }
-            }
-            $keywords = array_values(array_unique($keywords));
-        }
-        
-        return $keywords;
+        return $keywords;        
     }
     
-    
-    private function extractEndTerm($term) {
-        if(str_contains($term, '>')) {
-            $terms = explode('>', $term);
-            return trim($terms[count($terms) - 1]);
-        }
-        return $term;
-    }
 }
