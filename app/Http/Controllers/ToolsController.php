@@ -41,6 +41,7 @@ use App\Exports\UnmatchedKeywordsExport;
 use App\Mappers\Helpers\KeywordHelper;
 use App\Exports\AbstractMatchingExport;
 use App\Converters\MicroscopyConverter;
+use App\Exports\UriLabelExport;
 
 class ToolsController extends Controller
 {
@@ -255,10 +256,24 @@ class ToolsController extends Controller
         ->with('status','Error');
     }
     
+    public function uriLabels()
+    {
+        return view('uri-labels');
+    }
+    
+    public function uriLabelsDownload()
+    {
+        $exporter = new UriLabelExport();
+        
+        return response()->streamDownload(function () use($exporter) {
+            echo $exporter->export();
+        }, 'uri-labels.json');
+    }
+    
     public function filterTree()
     {
         return view('filter-tree');
-    }
+    }            
     
     public function filterTreeDownload()
     {
