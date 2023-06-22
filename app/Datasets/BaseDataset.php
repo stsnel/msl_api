@@ -74,79 +74,47 @@ class BaseDataset
     
     public $msl_collection_period = [];
     
-    // vocabulary/keyword related fields
-    
-    public $msl_materials = [];
+    // vocabulary/keyword related fields   
     
     public $msl_has_material = false;
     
-    public $msl_materials_original = [];
-    
     public $msl_has_material_original = false;
-    
-    public $msl_porefluids = [];
-    
+
     public $msl_has_porefluid = false;
-    
-    public $msl_porefluids_original = [];
     
     public $msl_has_porefluid_original = false;
     
-    public $msl_rockphysics = [];
-    
     public $msl_has_rockphysic = false;
-    
-    public $msl_rockphysics_original = [];
     
     public $msl_has_rockphysic_original = false;
     
-    public $msl_analogue = [];
-    
     public $msl_has_analogue = false;
-    
-    public $msl_analogue_original = [];
     
     public $msl_has_analogue_original = false;        
     
-    public $msl_geologicalages = [];
-    
     public $msl_has_geologicalage = false;
-    
-    public $msl_geologicalages_original = [];
     
     public $msl_has_geologicalage_original = false;
     
-    public $msl_geologicalsettings = [];
-    
     public $msl_has_geologicalsetting = false;
-    
-    public $msl_geologicalsettings_original = [];
     
     public $msl_has_geologicalsetting_original = false;
     
-    public $msl_paleomagnetism = [];
-    
     public $msl_has_paleomagnetism = false;
-    
-    public $msl_paleomagnetism_original = [];
     
     public $msl_has_paleomagnetism_original = false;
     
-    public $msl_geochemistry = [];
-    
     public $msl_has_geochemistry = false;
-    
-    public $msl_geochemistry_original = [];
     
     public $msl_has_geochemistry_original = false;
     
-    public $msl_microscopy = [];
-    
     public $msl_has_microscopy = false;
     
-    public $msl_microscopy_original = [];
-    
     public $msl_has_microscopy_original = false;
+    
+    public $msl_enriched_keywords = [];
+    
+    public $msl_original_keywords = [];
     
     public $msl_has_lab = false;
     
@@ -265,104 +233,134 @@ class BaseDataset
         return false;
     }
     
-    public function addKeyword(Keyword $keyword, $includeOriginal = true) {
-        switch (true) {
-            case $keyword instanceof Material:
-                if($includeOriginal) {
-                    $this->msl_materials_original[] = $keyword->toArray(true);
-                    $this->msl_has_material_original = true;
-                }                
-
-                $this->msl_materials[] = $keyword->toArray();
-                $this->msl_has_material = true;
-                break;
-                
-            case $keyword instanceof Porefluid:
-                if($includeOriginal) {
-                    $this->msl_porefluids_original[] = $keyword->toArray(true);
-                    $this->msl_has_porefluid_original = true;
-                }
-                
-                $this->msl_porefluids[] = $keyword->toArray();
-                $this->msl_has_porefluid = true;
-                break;
-                
-            case $keyword instanceof Rockphysic:
-                if($includeOriginal) {
-                    $this->msl_rockphysics_original[] = $keyword->toArray(true);
-                    $this->msl_has_rockphysic_original = true;
-                }
-                
-                $this->msl_rockphysics[] = $keyword->toArray();
-                $this->msl_has_rockphysic = true;
-                break;
-            
-            case $keyword instanceof Analogue:
-                if($includeOriginal) {
-                    $this->msl_analogue_original[] = $keyword->toArray(true);
-                    $this->msl_has_analogue_original = true;
-                }
-                
-                $this->msl_analogue[] = $keyword->toArray();
-                $this->msl_has_analogue = true;
-                break;
-                
-            case $keyword instanceof GeologicalAge:
-                if($includeOriginal) {
-                    $this->msl_geologicalages_original[] = $keyword->toArray(true);
-                    $this->msl_has_geologicalage_original = true;
-                }
-                
-                $this->msl_geologicalages[] = $keyword->toArray();
-                $this->msl_has_geologicalage = true;
-                break;
-                
-            case $keyword instanceof GeologicalSetting:
-                if($includeOriginal) {
-                    $this->msl_geologicalsettings_original[] = $keyword->toArray(true);
-                    $this->msl_has_geologicalsetting_original = true;
-                }
-                
-                $this->msl_geologicalsettings[] = $keyword->toArray();
-                $this->msl_has_geologicalsetting = true;
-                break;
-                
-            case $keyword instanceof Paleomagnetism:
-                if($includeOriginal) {
-                    $this->msl_paleomagnetism_original[] = $keyword->toArray(true);
-                    $this->msl_has_paleomagnetism_original = true;
-                }
-                
-                $this->msl_paleomagnetism[] = $keyword->toArray();
-                $this->msl_has_paleomagnetism = true;
-                break;
-                
-            case $keyword instanceof Geochemistry:
-                if($includeOriginal) {
-                    $this->msl_geochemistry_original[] = $keyword->toArray(true);
-                    $this->msl_has_geochemistry_original = true;
-                }
-                
-                $this->msl_geochemistry[] = $keyword->toArray();
-                $this->msl_has_geochemistry = true;
-                break;
-                
-            case $keyword instanceof Microscopy:
-                if($includeOriginal) {
-                    $this->msl_microscopy_original[] = $keyword->toArray(true);
-                    $this->msl_has_microscopy_original = true;
-                }
-                
-                $this->msl_microscopy[] = $keyword->toArray();
-                $this->msl_has_microscopy = true;
-                break;
-                
-            default:
-                throw new \Exception('invalid keyword type added');                   
+    public function addOriginalKeyword($label, $uri = "", $vocabUri = "") {
+        if(!$this->hasOriginalKeyword($uri)) {
+            $this->msl_original_keywords[] = [
+                'msl_original_keyword_label' => $label,
+                'msl_original_keyword_uri' => $uri,
+                'msl_original_keyword_vocab_uri' => $vocabUri
+            ];
+            $this->setHasVocabKeyword('original', $vocabUri);
         }
-        
     }
     
+    public function addEnrichedKeyword($label, $uri = "", $vocabUri = "") {
+        if(!$this->hasEnrichedKeywors($uri)) {
+            $this->msl_enriched_keywords[] = [
+                'msl_enriched_keyword_label' => $label,
+                'msl_enriched_keyword_uri' => $uri,
+                'msl_enriched_keyword_vocab_uri' => $vocabUri
+            ];
+            $this->setHasVocabKeyword('enriched', $vocabUri);
+        }
+    }
+    
+    public function hasOriginalKeyword($uri) {
+        foreach ($this->msl_original_keywords as $keyword) {
+            if($keyword['msl_original_keyword_uri'] == $uri) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    public function hasEnrichedKeywors($uri) {
+        foreach ($this->msl_enriched_keywords as $keyword) {
+            if($keyword['msl_enriched_keyword_uri'] == $uri) {
+                return true;
+            }
+        }
+        
+        return false;
+    }
+    
+    private function setHasVocabKeyword($type, $vocabUri) {
+        if($type == 'enriched') {
+            switch (true) {
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/materials'):
+                    $this->msl_has_material = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/porefluids'):
+                    $this->msl_has_porefluid = true;
+                    break;
+                
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/rockphysics'):
+                    $this->msl_has_rockphysic = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/analoguemodelling'):
+                    $this->msl_has_analogue = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/geologicalage'):
+                    $this->msl_has_geologicalage = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/geologicalsetting'):
+                    $this->msl_has_geologicalsetting = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/paleomagnetism'):
+                    $this->msl_has_paleomagnetism = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/geochemistry'):
+                    $this->msl_has_geochemistry = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/microscopy'):
+                    $this->msl_has_microscopy = true;
+                    break;
+                    
+                default:
+                    throw new \Exception('invalid keyword type added');
+            }
+        } elseif ($type == 'original') {
+            switch (true) {
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/materials'):
+                    $this->msl_has_material_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/porefluids'):
+                    $this->msl_has_porefluid_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/rockphysics'):
+                    $this->msl_has_rockphysic_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/analoguemodelling'):
+                    $this->msl_has_analogue_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/geologicalage'):
+                    $this->msl_has_geologicalage_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/geologicalsetting'):
+                    $this->msl_has_geologicalsetting_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/paleomagnetism'):
+                    $this->msl_has_paleomagnetism_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/geochemistry'):
+                    $this->msl_has_geochemistry_original = true;
+                    break;
+                    
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/microscopy'):
+                    $this->msl_has_microscopy_original = true;
+                    break;
+                    
+                default:
+                    throw new \Exception('invalid keyword type added');
+            }
+        }
+    }
+        
     public function addLab($lab) {
         $this->msl_laboratories[] = $lab;
         $this->msl_has_lab = true;

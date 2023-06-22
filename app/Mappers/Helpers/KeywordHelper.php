@@ -2,23 +2,10 @@
 namespace App\Mappers\Helpers;
 
 use App\Models\KeywordSearch;
-use App\Datasets\Keywords\KeywordFactory;
 use App\Datasets\BaseDataset;
 
 class KeywordHelper
-{
-    private $vocabularyMapping = [
-        'materials' => 'msl_materials',
-        'porefluids' => 'msl_porefluids',
-        'rockphysics' => 'msl_rockphysics',
-        'analogue' => 'msl_analogue',
-        'geologicalage' => 'msl_geologicalages',
-        'geologicalsetting' => 'msl_geologicalsettings',
-        'paleomagnetism' => 'msl_paleomagnetism',
-        'geochemistry' => 'msl_geochemistry',
-        'microscopy' => 'msl_microscopy'
-    ];
-    
+{        
     private $vocabularySubDomainMapping = [
         'rockphysics' => 'rock and melt physics',
         'analogue' => 'analogue modelling of geologic processes',
@@ -46,10 +33,14 @@ class KeywordHelper
             
             if(count($searchKeywords) > 0) {
                 foreach ($searchKeywords as $searchKeyword) {
-                    $keyword = $searchKeyword->keyword;                                                            
-                    $datasetKeyword = KeywordFactory::create($keyword);
+                    $keyword = $searchKeyword->keyword;                
+                                       
+                    $dataset->addOriginalKeyword($keyword->value, $keyword->uri, $keyword->vocabulary->uri);
                     
-                    $dataset->addKeyword($datasetKeyword);
+                    foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
+                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri);
+                    }
+                    
                     
                     //add subdomain to dataset if keyword is from specified vocabulary and not excluded
                     if(!$keyword->exclude_domain_mapping) {
@@ -74,9 +65,10 @@ class KeywordHelper
                 $expr = '/\b' . preg_quote($searchKeyword->search_value, '/') . '\b/i';
                 if (preg_match($expr, $text)) {
                     $keyword = $searchKeyword->keyword;
-                    
-                    $datasetKeyword = KeywordFactory::create($keyword);                    
-                    $dataset->addKeyword($datasetKeyword, false);
+                                                            
+                    foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
+                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri);
+                    }                    
                     
                     //add subdomain to dataset if keyword is from specified vocabulary and not excluded
                     if(!$keyword->exclude_domain_mapping) {
