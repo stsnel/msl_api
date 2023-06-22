@@ -271,131 +271,103 @@ class BaseResult
 
     }
     
-    private function getRockPhysicsKeywords($data) {        
-        $topNodes = ['Measured property', 'Inferred deformation behavior'];
-        $keywords = [];                
+    private function getRockPhysicsKeywords($data) {
+        $uriStarts = [
+            'https://epos-msl.uu.nl/voc/rockphysics/1.1/measured_property-', 
+            'https://epos-msl.uu.nl/voc/rockphysics/1.1/inferred_deformation_behavior-'            
+        ];
+        $keywords = [];
         
-        if(isset($data['msl_rockphysics'])) {
-            if(count($data['msl_rockphysics']) > 0) {                
-                foreach ($data['msl_rockphysics'] as $keywordData) {                        
-                    if(isset($keywordData['msl_rockphysic_combined'])) {
-                        $term = $keywordData['msl_rockphysic_combined'];
-                        
-                        if(str_contains($term, '>')) {
-                            $terms = explode('>', $term);
-                            if(in_array($terms[0], $topNodes)) {
-                                $keywords[] = trim($terms[count($terms) - 1]);
-                            }                            
-                        }                        
+        if(isset($data['msl_enriched_keywords'])) {
+            foreach ($data['msl_enriched_keywords'] as $enrichedKeyword) {
+                foreach ($uriStarts as $uriStart) {
+                    if(str_starts_with($enrichedKeyword['msl_enriched_keyword_uri'], $uriStart)) {
+                        $keywords[] = $enrichedKeyword['msl_enriched_keyword_label'];
                     }
-                }
+                }                
             }
-            $keywords = array_values(array_unique($keywords));
         }
         
         return $keywords;
     }
     
     private function getAnalogueKeywords($data) {
-        $topNodes = ['Modeled structure', 'Modeled geomorphological feature', 'Measured property'];
+        $uriStarts = [
+            'https://epos-msl.uu.nl/voc/analoguemodelling/1.1/modeled_structure-',
+            'https://epos-msl.uu.nl/voc/analoguemodelling/1.1/modeled_geomorphological_feature-',
+            'https://epos-msl.uu.nl/voc/analoguemodelling/1.1/measured_property-'
+        ];
         $keywords = [];
         
-        if(isset($data['msl_analogue'])) {
-            if(count($data['msl_analogue']) > 0) {                
-                foreach ($data['msl_analogue'] as $keywordData) {
-                    if(isset($keywordData['msl_analogue_combined'])) {
-                        $term = $keywordData['msl_analogue_combined'];
-                        
-                        if(str_contains($term, '>')) {
-                            $terms = explode('>', $term);
-                            if(in_array($terms[0], $topNodes)) {
-                                $keywords[] = trim($terms[count($terms) - 1]);
-                            }
-                        }
+        if(isset($data['msl_enriched_keywords'])) {
+            foreach ($data['msl_enriched_keywords'] as $enrichedKeyword) {
+                foreach ($uriStarts as $uriStart) {
+                    if(str_starts_with($enrichedKeyword['msl_enriched_keyword_uri'], $uriStart)) {
+                        $keywords[] = $enrichedKeyword['msl_enriched_keyword_label'];
                     }
                 }
             }
-            $keywords = array_values(array_unique($keywords));
         }
         
-        return $keywords;
+        return $keywords;        
     }
     
     private function getGeologicalSettingKeywords($data) {
+        $uriStarts = [
+            'https://epos-msl.uu.nl/voc/geologicalsetting/1.1/'
+        ];
         $keywords = [];
         
-        if(isset($data['msl_geologicalsettings'])) {            
-            if(count($data['msl_geologicalsettings']) > 0) {
-                foreach ($data['msl_geologicalsettings'] as $keywordData) {
-                    if(isset($keywordData['msl_geologicalsetting_combined'])) {
-                        $term = $keywordData['msl_geologicalsetting_combined'];
-                        
-                        if(str_contains($term, '>')) {
-                            $terms = explode('>', $term);
-                            $keywords[] = trim($terms[count($terms) - 1]);                            
-                        }
+        if(isset($data['msl_enriched_keywords'])) {
+            foreach ($data['msl_enriched_keywords'] as $enrichedKeyword) {
+                foreach ($uriStarts as $uriStart) {
+                    if(str_starts_with($enrichedKeyword['msl_enriched_keyword_uri'], $uriStart)) {
+                        $keywords[] = $enrichedKeyword['msl_enriched_keyword_label'];
                     }
                 }
             }
-            $keywords = array_values(array_unique($keywords));
         }
         
         return $keywords;
     }
     
     private function getPaleomagneticKeywords($data) {
-        $topNodes = ['Measured property', 'Inferred behavior'];
+        $uriStarts = [
+            'https://epos-msl.uu.nl/voc/paleomagnetism/1.1/measured_property-',
+            'https://epos-msl.uu.nl/voc/paleomagnetism/1.1/inferred_behavior-'
+        ];
         $keywords = [];
         
-        if(isset($data['msl_paleomagnetism'])) {
-            if(count($data['msl_paleomagnetism']) > 0) {
-                foreach ($data['msl_paleomagnetism'] as $keywordData) {
-                    if(isset($keywordData['msl_paleomagnetism_combined'])) {
-                        $term = $keywordData['msl_paleomagnetism_combined'];
-                        
-                        if(str_contains($term, '>')) {
-                            $terms = explode('>', $term);
-                            if(in_array($terms[0], $topNodes)) {
-                                $keywords[] = trim($terms[count($terms) - 1]);
-                            }
-                        }
+        if(isset($data['msl_enriched_keywords'])) {
+            foreach ($data['msl_enriched_keywords'] as $enrichedKeyword) {
+                foreach ($uriStarts as $uriStart) {
+                    if(str_starts_with($enrichedKeyword['msl_enriched_keyword_uri'], $uriStart)) {
+                        $keywords[] = $enrichedKeyword['msl_enriched_keyword_label'];
                     }
                 }
             }
-            $keywords = array_values(array_unique($keywords));
         }
         
         return $keywords;        
     }
     
     private function getGeochemistryKeywords($data) {
+        $uriStarts = [
+            'https://epos-msl.uu.nl/voc/geochemistry/1.1/'
+        ];
         $keywords = [];
         
-        if(isset($data['msl_geochemistry'])) {
-            if(count($data['msl_geochemistry']) > 0) {
-                foreach ($data['msl_geochemistry'] as $keywordData) {
-                    if(isset($keywordData['msl_geochemistry_combined'])) {
-                        $term = $keywordData['msl_geochemistry_combined'];
-                        
-                        if(str_contains($term, '>')) {
-                            $terms = explode('>', $term);
-                            $keywords[] = trim($terms[count($terms) - 1]);
-                        }
+        if(isset($data['msl_enriched_keywords'])) {
+            foreach ($data['msl_enriched_keywords'] as $enrichedKeyword) {
+                foreach ($uriStarts as $uriStart) {
+                    if(str_starts_with($enrichedKeyword['msl_enriched_keyword_uri'], $uriStart)) {
+                        $keywords[] = $enrichedKeyword['msl_enriched_keyword_label'];
                     }
                 }
             }
-            $keywords = array_values(array_unique($keywords));
         }
         
-        return $keywords;
+        return $keywords;        
     }
     
-    
-    private function extractEndTerm($term) {
-        if(str_contains($term, '>')) {
-            $terms = explode('>', $term);
-            return trim($terms[count($terms) - 1]);
-        }
-        return $term;
-    }
 }
