@@ -43,6 +43,7 @@ use App\Exports\AbstractMatchingExport;
 use App\Converters\MicroscopyConverter;
 use App\Models\Vocabulary;
 use App\Exports\UriLabelExport;
+use App\Models\Keyword;
 
 class ToolsController extends Controller
 {
@@ -415,7 +416,7 @@ class ToolsController extends Controller
     public function queryGenerator()
     {
         /*
-         * Produce and display query for testing with datacite
+         //* Produce and display query for testing with datacite
          * Results of query should contain one word from two large groups:
          * 1. Material or Geologic setting vocabularies
          * 2. Apparatus and Technique sections of domain specific vocabularies
@@ -424,18 +425,83 @@ class ToolsController extends Controller
         $materialVocab = Vocabulary::where('name', 'materials')->where('version', '1.1')->first();
         $materialTerms = $materialVocab->search_keywords;
         $terms = array();
-        
+        $query = "";
+        $total = 0;
+                        
         foreach ($materialTerms as $materialTerm) {
             $terms[] = '"' . $materialTerm->search_value . '"';
         }
+                
+        $geologicalSettingsVocab = Vocabulary::where('name', 'geologicalsetting')->where('version', '1.1')->first();
+        $geologicalSettingsTerms = $geologicalSettingsVocab->search_keywords;
         
-        //dd($terms);
+        foreach ($geologicalSettingsTerms as $geologicalSettingsTerm) {
+            $terms[] = '"' . $geologicalSettingsTerm->search_value . '"';
+        }
         
-        //dd(implode(' OR ', $terms));
+        $query .= "(" . implode(' OR ', $terms) . ")";
         
-        $query = implode(' OR ', $terms);
+        $query .= " AND ";
         
-        //dd($materialVocab, $materialTerms);
+        $total += count($terms);
+        
+        $terms = [];
+                
+        //analogue modeling apparatus        
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/analoguemodelling/1.1/apparatus-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $terms[] = '"' . $searchKeyword->search_value . '"';
+            }
+        }
+        
+        //geochemistry technique
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/geochemistry/1.1/technique-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $terms[] = '"' . $searchKeyword->search_value . '"';
+            }
+        }
+        
+        //microscopy apparatus        
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/microscopy/1.1/apparatus-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $terms[] = '"' . $searchKeyword->search_value . '"';
+            }
+        }
+        
+        //microscopy technique
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/microscopy/1.1/technique-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $terms[] = '"' . $searchKeyword->search_value . '"';
+            }
+        }
+        
+        //paleomagnetism apparatus        
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/paleomagnetism/1.1/apparatus-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $terms[] = '"' . $searchKeyword->search_value . '"';
+            }
+        }
+        
+        //rockphysics apparatus
+        $terms = [];
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/rockphysics/1.1/apparatus-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $terms[] = '"' . $searchKeyword->search_value . '"';
+            }
+        }
+        dd(count($terms));
+        
+        
+        $query .= "(" . implode(' OR ', $terms) . ")";
+        $total += count($terms);
+        
+        dd($total);
         
         return view('query-generator', ['query' => $query]);
     }
