@@ -1,16 +1,6 @@
 <?php
 namespace App\Datasets;
 
-use app\Datasets\Keywords\Keyword;
-use App\Datasets\Keywords\Material;
-use App\Datasets\Keywords\Porefluid;
-use App\Datasets\Keywords\Rockphysic;
-use App\Datasets\Keywords\Analogue;
-use App\Datasets\Keywords\GeologicalAge;
-use App\Datasets\Keywords\GeologicalSetting;
-use App\Datasets\Keywords\Paleomagnetism;
-use App\Datasets\Keywords\Geochemistry;
-use App\Datasets\Keywords\Microscopy;
 
 class BaseDataset
 {
