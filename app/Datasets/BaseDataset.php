@@ -6,6 +6,8 @@ class BaseDataset
 {
     public $title;
     
+    public $msl_title_annotated;
+    
     public $type = 'data-publication';
     
     public $msl_subdomains = [];
@@ -23,6 +25,8 @@ class BaseDataset
     public $owner_org;
     
     public $notes;
+    
+    public $msl_notes_annotated;
     
     public $msl_technical_description;
 
@@ -234,13 +238,16 @@ class BaseDataset
         }
     }
     
-    public function addEnrichedKeyword($label, $uri = "", $vocabUri = "") {
+    public function addEnrichedKeyword($label, $uri = "", $vocabUri = "", $associatedSubDomains = []) {
         if(!$this->hasEnrichedKeywors($uri)) {
-            $this->msl_enriched_keywords[] = [
+            $enrichedKeyword = [
                 'msl_enriched_keyword_label' => $label,
                 'msl_enriched_keyword_uri' => $uri,
-                'msl_enriched_keyword_vocab_uri' => $vocabUri
-            ];
+                'msl_enriched_keyword_vocab_uri' => $vocabUri,
+                'msl_enriched_keyword_associated_subdomains' => $associatedSubDomains
+            ];          
+            
+            $this->msl_enriched_keywords[] = $enrichedKeyword;
             $this->setHasVocabKeyword('enriched', $vocabUri);
         }
     }
