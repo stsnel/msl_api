@@ -13,6 +13,7 @@ use App\Jobs\ProcessDatasetDelete;
 use App\Models\DataRepository;
 use App\Models\Importer;
 use App\Models\Import;
+use App\Models\KeywordSearch;
 use App\Jobs\ProcessImport;
 use App\Models\SourceDatasetIdentifier;
 use App\Models\SourceDataset;

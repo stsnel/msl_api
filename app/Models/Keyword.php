@@ -15,10 +15,23 @@ class Keyword extends Model
         'hyperlink',
         'exclude_domain_mapping'
     ];
+    
+    protected $casts = [
+        'exclude_domain_mapping' => 'boolean'        
+    ];
  
     public function parent()
     {
         return $this->belongsTo(Keyword::class, 'parent_id');
+    }
+    
+    public function hasParent()
+    {
+        if($this->parent_id) {
+            return true;
+        }
+        
+        return false;
     }
     
     public function vocabulary()
@@ -33,10 +46,7 @@ class Keyword extends Model
     
     public function getSynonyms()
     {
-        return KeywordSearch::where([
-            ['keyword_id', $this->id],
-            ['isSynonym', true]
-        ])->get();
+        return $this->hasMany(KeywordSearch::class, 'keyword_id')->where('isSynonym', '=', 1)->get();        
     }
     
     public function getChildren($sort = true)
