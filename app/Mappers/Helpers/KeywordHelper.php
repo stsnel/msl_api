@@ -43,9 +43,9 @@ class KeywordHelper
                         } else {
                             if(isset($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name])) {
                                 $dataset->addSubDomain($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name], false);
-                                $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]]);
+                                $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], ['keyword']);
                             } else {
-                                $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, []);
+                                $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], ['keyword']);
                             }
                             
                         }
@@ -75,18 +75,24 @@ class KeywordHelper
                         if (preg_match($expr, $text)) {
                             $keyword = $searchKeyword->keyword;
                             
+                            //set keyword origin to parent if parent instead of source match
+                            
                             foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
+                                $sourceRelation = $source;
+                                if($enrichedKeyword->value !== $keyword->value) {
+                                    $sourceRelation = 'parent';
+                                }
+                                                                                                    
                                 if($enrichedKeyword->exclude_domain_mapping) {
-                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri);
+                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
                                 } else {
                                     if(isset($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name])) {
                                         $dataset->addSubDomain($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name], false);
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]]);
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], [$sourceRelation]);
                                     } else {
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, []);
-                                    }
-                                    
-                                }
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
+                                    }                                    
+                                }                                
                             }
                                                         
                             $matches = [];
@@ -132,17 +138,22 @@ class KeywordHelper
                     if($searchKeyword->search_value !== '') {
                         $expr = '/\b' . preg_quote($searchKeyword->search_value, '/') . '\b/i';
                         if (preg_match($expr, $text)) {
-                            $keyword = $searchKeyword->keyword;
+                            $keyword = $searchKeyword->keyword;                                                       
                             
                             foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
+                                $sourceRelation = $source;
+                                if($enrichedKeyword->value !== $keyword->value) {
+                                    $sourceRelation = 'parent';
+                                }
+                                
                                 if($enrichedKeyword->exclude_domain_mapping) {
-                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri);
+                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
                                 } else {
                                     if(isset($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name])) {
                                         $dataset->addSubDomain($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name], false);
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]]);
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], [$sourceRelation]);
                                     } else {
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, []);
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
                                     }
                                     
                                 }
