@@ -2,9 +2,6 @@
 namespace App\Mappers;
 
 use App\Models\SourceDataset;
-use App\Datasets\RockPhysicsDataset;
-use App\Datasets\AnalogueModelingDataset;
-use App\Datasets\PaleoMagneticDataset;
 use App\Models\MappingLog;
 use App\Ckan\Request\PackageSearch;
 use App\Ckan\Response\PackageSearchResponse;
@@ -456,7 +453,8 @@ class FourTUMapper
         }
         
         //attempt to map keywords from abstract and title
-        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes . ' ' . $dataset->title);
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
         
         //add downloadlinks from figshare/4tu
         $files = $this->figshareHelper->getFileListByDOI($sourceDataset->source_dataset_identifier->identifier);

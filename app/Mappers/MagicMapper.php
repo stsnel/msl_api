@@ -2,9 +2,6 @@
 namespace App\Mappers;
 
 use App\Models\SourceDataset;
-use App\Datasets\RockPhysicsDataset;
-use App\Datasets\AnalogueModelingDataset;
-use App\Datasets\PaleoMagneticDataset;
 use App\Models\MappingLog;
 use App\Ckan\Request\PackageSearch;
 use App\Ckan\Response\PackageSearchResponse;
@@ -454,7 +451,8 @@ class MagicMapper
         }
         
         //attempt to map keywords from abstract and title
-        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes . ' ' . $dataset->title);
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
                         
         return $dataset;
     }
