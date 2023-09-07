@@ -483,7 +483,8 @@ class YodaMapper
         }
         
         //attempt to map keywords from abstract and title
-        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes . ' ' . $dataset->title);
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
         
         //add downloadlinks from extra_payload
         $sourceIdentifier = $sourceDataset->source_dataset_identifier;        

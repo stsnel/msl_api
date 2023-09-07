@@ -5,8 +5,11 @@ namespace App\Http\Controllers;
 use App\Ckan\Request\PackageSearch;
 use App\Response\ErrorResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 use App\Response\MainResponse;
 use App\Models\TnaMockup;
+use App\Models\Keyword;
+use App\Http\Resources\KeywordResource;
 
 class ApiController extends Controller
 {
@@ -284,6 +287,37 @@ class ApiController extends Controller
             ]
         ], 200);
     }
+    
+    public function term(Request $request) {
+        
+        $validator = Validator::make(request()->all(), [
+            'uri' => 'required'
+        ]);
+        
+        if ($validator->fails()) {
+            $errorResponse = new ErrorResponse();
+            $errorResponse->message = $validator->errors();
+            return $errorResponse->getAsLaravelResponse();            
+        }
+        
+        $keyword = Keyword::where('uri', $request->get('uri'))->first();
+        
+        if($keyword) {
+            $resource = new KeywordResource($keyword);
+            return $resource->toArray($request);
+        } else {
+            return response()->json([
+                'success' => false,
+                'message' => 'term not found',
+                'result' => [
+                    
+                ]
+            ], 200);
+        }
+        
+        
+    }
+    
     
     private function buildQuery(Request $request, $queryMappings)
     {
