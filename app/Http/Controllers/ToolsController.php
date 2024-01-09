@@ -642,7 +642,7 @@ class ToolsController extends Controller
         }
         
         $rockTerms = $terms;
-        dd(count($rockTerms), $rockTerms); //176
+        //dd(count($rockTerms), $rockTerms); //176
         
         
         
@@ -660,37 +660,87 @@ class ToolsController extends Controller
         $total = 0;
                         
         foreach ($materialTerms as $materialTerm) {
-            $terms[] = '"' . $materialTerm->search_value . '"';
+            //$terms[] = '"' . $materialTerm->search_value . '"';
+            $term = $materialTerm->search_value;            
+            $term = str_replace('(', '\\\\(', $term);
+            $term = str_replace(')', '\\\\)', $term);
+            $term = str_replace('.', '\\\\.', $term);
+            $term = str_replace('*', '\\\\*', $term);
+            
+            $term = "\"\\\\b" . $term . "\\\\b\""; 
+            $terms[] = $term;
         }
                 
         $geologicalSettingsVocab = Vocabulary::where('name', 'geologicalsetting')->where('version', '1.1')->first();
         $geologicalSettingsTerms = $geologicalSettingsVocab->search_keywords;
         
         foreach ($geologicalSettingsTerms as $geologicalSettingsTerm) {
-            $terms[] = '"' . $geologicalSettingsTerm->search_value . '"';
+            //$terms[] = '"' . $geologicalSettingsTerm->search_value . '"';
+            $term = $geologicalSettingsTerm->search_value;
+            $term = str_replace('(', '\\\\(', $term);
+            $term = str_replace(')', '\\\\)', $term);
+            $term = str_replace('.', '\\\\.', $term);
+            $term = str_replace('*', '\\\\*', $term);
+            
+            $term = "\"\\\\b" . $term . "\\\\b\"";
+            $terms[] = $term;
         }
         
-        $query .= "(" . implode(' OR ', $terms) . ")";
+        //$query .= "(" . implode(' OR ', $terms) . ")";
+        //$query .= implode('|', $terms);
+        $query .= implode(', ', $terms);
+        //dd($query);
         
-        $query .= " AND ";
+        //$query .= " AND ";
         
         $total += count($terms);
         
         $terms = [];
+        $query = "";
                 
         //analogue modeling apparatus        
         $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/analoguemodelling/1.1/apparatus-%')->get();
         foreach ($keywords as $keyword) {
             foreach ($keyword->keyword_search as $searchKeyword) {
-                $terms[] = '"' . $searchKeyword->search_value . '"';
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
             }
         }
+        
+        //analogue modeling measured property
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/analoguemodelling/1.1/measured_property-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
+            }
+        }
+        
         
         //geochemistry technique
         $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/geochemistry/1.1/technique-%')->get();
         foreach ($keywords as $keyword) {
             foreach ($keyword->keyword_search as $searchKeyword) {
-                $terms[] = '"' . $searchKeyword->search_value . '"';
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
             }
         }
         
@@ -698,7 +748,14 @@ class ToolsController extends Controller
         $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/microscopy/1.1/apparatus-%')->get();
         foreach ($keywords as $keyword) {
             foreach ($keyword->keyword_search as $searchKeyword) {
-                $terms[] = '"' . $searchKeyword->search_value . '"';
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
             }
         }
         
@@ -706,33 +763,148 @@ class ToolsController extends Controller
         $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/microscopy/1.1/technique-%')->get();
         foreach ($keywords as $keyword) {
             foreach ($keyword->keyword_search as $searchKeyword) {
-                $terms[] = '"' . $searchKeyword->search_value . '"';
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
             }
         }
+        
+        //microscopy analyzed feature
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/microscopy/1.1/analyzed_feature-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
+            }
+        }
+        
+        //microscopy inferred behavior
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/microscopy/1.1/inferred_parameter-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
+            }
+        }         
         
         //paleomagnetism apparatus        
         $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/paleomagnetism/1.1/apparatus-%')->get();
         foreach ($keywords as $keyword) {
             foreach ($keyword->keyword_search as $searchKeyword) {
-                $terms[] = '"' . $searchKeyword->search_value . '"';
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
+            }
+        }
+        
+        //paleomagnetism measured property
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/paleomagnetism/1.1/measured_property-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
+            }
+        }
+        
+        //paleomagnetism inferred behavior
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/paleomagnetism/1.1/inferred_behavior-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
             }
         }
         
         //rockphysics apparatus
-        $terms = [];
         $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/rockphysics/1.1/apparatus-%')->get();
         foreach ($keywords as $keyword) {
             foreach ($keyword->keyword_search as $searchKeyword) {
-                $terms[] = '"' . $searchKeyword->search_value . '"';
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
             }
         }
-        dd(count($terms));
+        
+        //rockphysics measured property
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/rockphysics/1.1/measured_property-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
+            }
+        }
+        
+        //rockphysics inferred deformation behavior
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/rockphysics/1.1/inferred_deformation_behavior-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                $term = $searchKeyword->search_value;
+                $term = str_replace('(', '\\\\(', $term);
+                $term = str_replace(')', '\\\\)', $term);
+                $term = str_replace('.', '\\\\.', $term);
+                $term = str_replace('*', '\\\\*', $term);
+                
+                $term = "\"\\\\b" . $term . "\\\\b\"";
+                $terms[] = $term;
+            }
+        }
+        //dd(count($terms), count(array_unique($terms)));
+        
+        $terms = array_unique($terms);
+        
+        $query .= implode(', ', $terms);
+        dd($query);
         
         
-        $query .= "(" . implode(' OR ', $terms) . ")";
+        $query .= implode('|', $terms);
         $total += count($terms);
         
-        dd($total);
+        //dd($total);
         
         return view('query-generator', ['query' => $query]);
     }
