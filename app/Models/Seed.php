@@ -3,7 +3,6 @@
 namespace App\Models;
 
 use Illuminate\Database\Eloquent\Model;
-use Illuminate\Support\Facades\DB;
 
 class Seed extends Model
 {
@@ -18,7 +17,13 @@ class Seed extends Model
     
     public function creates()
     {
-        return $this->hasMany(OrganizationCreate::class);
+        if($this->seeder->type == "organization") {
+            return $this->hasMany(OrganizationCreate::class);
+        } elseif ($this->seeder->type == "lab") {
+            return $this->hasMany(LaboratoryCreate::class);
+        }
+        
+        throw new \Exception('Invalid Seeder configuration.');
     }
        
 }
