@@ -30,6 +30,23 @@ class SeederSeeder extends dbSeeder
                 ]
             ]
         );
+        
+        //laboratory seeder
+        Seeder::updateOrCreate(
+            [
+                'name' => 'Laboratory seeder'
+            ],
+            [
+                'name' => 'Laboratory seeder',
+                'description' => 'create/update laboratories in ckan',
+                'type' => 'lab',
+                'options' => [
+                    'type' => 'fileSeeder',
+                    'filePath' => '/seed-data/labs.json'
+                ]
+            ]
+            );
+        
     }
        
 }

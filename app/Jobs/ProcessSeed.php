@@ -9,11 +9,9 @@ use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use Illuminate\Support\Facades\Storage;
-use Phpoaipmh\Endpoint;
-use App\Models\Import;
 use App\Models\Seed;
-use App\Models\SourceDatasetIdentifier;
 use App\Models\OrganizationCreate;
+use App\Models\LaboratoryCreate;
 
 
 class ProcessSeed implements ShouldQueue
@@ -56,6 +54,24 @@ class ProcessSeed implements ShouldQueue
                         ]);
                         
                         ProcessOrganizationCreate::dispatch($organizationCreate);
+                    }
+                }
+            }
+        } elseif ($seeder->type == "lab") {
+            if($seeder->options['type'] == 'fileSeeder') {
+                $filePath = $seeder->options['filePath'];
+                
+                if(Storage::disk()->exists($filePath)) {
+                    $jsonEntries = json_decode(Storage::get($filePath), true);
+                    
+                    foreach ($jsonEntries as $jsonEntry) {
+                        $LaboratoryCreate = LaboratoryCreate::create([
+                            'laboratory_type' => 'organization',
+                            'laboratory' => $jsonEntry,
+                            'seed_id' => $this->seed->id
+                        ]);
+                        
+                        ProcessLaboratoryCreate::dispatch($LaboratoryCreate);
                     }
                 }
             }

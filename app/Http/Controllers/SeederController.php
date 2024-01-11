@@ -86,9 +86,7 @@ class SeederController extends Controller
                 'seeder_id' => $seederId
             ]);
             
-            ProcessSeed::dispatch($seed);
-            
-            //ProcessImport::dispatch($import);
+            ProcessSeed::dispatch($seed);           
             
             $request->session()->flash('status', 'Seeder started');
         }
