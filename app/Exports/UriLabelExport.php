@@ -10,7 +10,7 @@ class UriLabelExport
     
     public function export() {
         
-        $vocabularies = Vocabulary::where('version', '1.1')->get();
+        $vocabularies = Vocabulary::where('version', '1.2')->get();
         
         $uriLabels = [];
         
