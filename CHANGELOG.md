@@ -17,6 +17,8 @@ CKAN data publication schema. Data models changed in harvesting backend, API and
 - Add API endpoint to retrieve keyword information by uri
 - Add text annotation for title and notes/description fields to keyword processor, mappers updated to use this function
 - Add match source information to (enriched)keyword information
+- Add exports published exports of vocabulary versions 1.1
+- Add and publish vocabulary versions 1.2
 
 ## [1.4.0] - 2023-03-29
 - Update 4TU import to not use specific version doi references
