@@ -22,6 +22,230 @@ class VocabularySeeder extends Seeder
         Keyword::truncate();
         KeywordSearch::truncate();
         
+        // vocabularies version 1.2
+        
+        //create materials vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'materials',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'materials',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/materials/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/materials.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, true);
+        }
+        
+        //create porefluids vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'porefluids',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'porefluids',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/porefluids/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/porefluids.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, true);
+        }
+        
+        //create rockphysics vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'rockphysics',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'rockphysics',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/rockphysics/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/rockphysics.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            if ($topNode->value == "Ancillary equipment") {
+                $this->processNode($topNode, $vocabulary, null, true, false, true, true);
+            }
+            else
+            {
+                $this->processNode($topNode, $vocabulary, null, true);
+            }
+        }
+        
+        //create analogue modelling vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'analogue',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'analogue',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/analoguemodelling/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/analogue.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            if($topNode->value == "Modeled structure") {
+                $this->processNode($topNode, $vocabulary, null, true, true);
+            }
+            elseif ($topNode->value == "Modeled geomorphological feature") {
+                $this->processNode($topNode, $vocabulary, null, true, true);
+            }
+            elseif ($topNode->value == "Ancillary equipment") {
+                $this->processNode($topNode, $vocabulary, null, true, false, true, true);
+            }
+            else
+            {
+                $this->processNode($topNode, $vocabulary, null, true);
+            }
+        }
+        
+        //create geological age vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'geologicalage',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'geologicalage',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/geologicalage/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/geological-age.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, true);
+        }
+        
+        //create geological settting vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'geologicalsetting',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'geologicalsetting',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/geologicalsetting/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/geological-setting.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, true);
+        }
+        
+        //create paleomagnetism vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'paleomagnetism',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'paleomagnetism',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/paleomagnetism/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/paleomagnetism.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, true);
+        }
+        
+        //create geochemistry settting vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'geochemistry',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'geochemistry',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/geochemistry/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/geochemistry.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, false);
+        }
+        
+        //create microscopy vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'microscopy',
+                'version' => '1.2'
+            ],
+            [
+                'name' => 'microscopy',
+                'version' => '1.2',
+                'uri' => 'https://epos-msl.uu.nl/voc/microscopy/1.2/'
+            ]
+        );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-2/microscopy.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            if ($topNode->value == "Ancillary equipment") {
+                $this->processNode($topNode, $vocabulary, null, true, false, true, true);
+            }
+            else
+            {
+                $this->processNode($topNode, $vocabulary, null, true);
+            }
+        }
+        
         // vocabularies version 1.1
         
         //create materials vocabulary
@@ -35,7 +259,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/materials/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/materials.json'));
@@ -57,7 +281,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/porefluids/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/porefluids.json'));
@@ -79,7 +303,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/rockphysics/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/rockphysics.json'));
@@ -107,7 +331,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/analoguemodelling/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/analogue.json'));
@@ -141,7 +365,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/geologicalage/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/geological-age.json'));
@@ -163,7 +387,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/geologicalsetting/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/geological-setting.json'));
@@ -185,7 +409,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/paleomagnetism/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/paleomagnetism.json'));
@@ -207,7 +431,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/geochemistry/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/geochemistry.json'));
@@ -229,7 +453,7 @@ class VocabularySeeder extends Seeder
                 'version' => '1.1',
                 'uri' => 'https://epos-msl.uu.nl/voc/microscopy/1.1/'
             ]
-            );
+        );
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-1/microscopy.json'));

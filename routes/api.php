@@ -26,3 +26,4 @@ Route::get('/microscopy', [ApiController::class, 'microscopy']);
 Route::get('/geochemistry', [ApiController::class, 'geochemistry']);
 Route::get('/all', [ApiController::class, 'all']);
 Route::get('/tna', [ApiController::class, 'tna']);
+Route::get('/vocabularies/term', [ApiController::class, 'term']);

@@ -2,9 +2,6 @@
 namespace App\Mappers;
 
 use App\Models\SourceDataset;
-use App\Datasets\RockPhysicsDataset;
-use App\Datasets\AnalogueModelingDataset;
-use App\Datasets\PaleoMagneticDataset;
 use App\Models\MappingLog;
 use App\Ckan\Request\PackageSearch;
 use App\Ckan\Response\PackageSearchResponse;
@@ -361,7 +358,8 @@ class GfzMapper
         }
         
         //attempt to map keywords from abstract and title
-        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes . ' ' . $dataset->title);
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
         
         //extract spatial coordinates
         $spatialResults = $xmlDocument->xpath("/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement");
