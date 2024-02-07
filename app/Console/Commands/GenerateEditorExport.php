@@ -14,14 +14,14 @@ class GenerateEditorExport extends Command
      *
      * @var string
      */
-    protected $signature = 'vocabs:editor-export';
+    protected $signature = 'vocabs:editor-export {version}';
 
     /**
      * The console command description.
      *
      * @var string
      */
-    protected $description = 'create json export for editor';
+    protected $description = 'create json export for editor for specific vocabulary version number';
 
     /**
      * Create a new command instance.
@@ -40,10 +40,10 @@ class GenerateEditorExport extends Command
      */
     public function handle()
     {
-        $vocabularies = Vocabulary::where('version', '1.0')->get();
+        $vocabularies = Vocabulary::where('version', $this->argument('version'))->get();
         $this->line($vocabularies->count() . " vocabularies found.");
         
-        $path = 'editor.json';
+        $path = 'editor_' . $this->versionFileName($this->argument('version')) . '.json';
         Storage::disk('public')->put($path, $this->export($vocabularies));
         
         $this->line("export generated");
@@ -110,5 +110,7 @@ class GenerateEditorExport extends Command
         return $tree;
     }
     
-    
+    private function versionFileName($version) {
+        return str_replace('.', '-', $version);
+    }
 }
