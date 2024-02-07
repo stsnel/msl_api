@@ -672,15 +672,8 @@ class ToolsController extends Controller
             if(in_array($materialTerm->id, $skipSearchKeywords)) {
                 continue;
             }
-            //$terms[] = '"' . $materialTerm->search_value . '"';
-            $term = $materialTerm->search_value;            
-            $term = str_replace('(', '\\\\(', $term);
-            $term = str_replace(')', '\\\\)', $term);
-            $term = str_replace('.', '\\\\.', $term);
-            $term = str_replace('*', '\\\\*', $term);
             
-            $term = "\"\\\\b" . $term . "\\\\b\""; 
-            $terms[] = $term;
+            $terms[] = $this->createKeywordSearchRegex($materialTerm->search_value);
         }
                 
         $geologicalSettingsVocab = Vocabulary::where('name', 'geologicalsetting')->where('version', '1.2')->first();
@@ -693,24 +686,13 @@ class ToolsController extends Controller
             if(in_array($geologicalSettingsTerm->id, $skipSearchKeywords)) {
                 continue;
             }
-            //$terms[] = '"' . $geologicalSettingsTerm->search_value . '"';
-            $term = $geologicalSettingsTerm->search_value;
-            $term = str_replace('(', '\\\\(', $term);
-            $term = str_replace(')', '\\\\)', $term);
-            $term = str_replace('.', '\\\\.', $term);
-            $term = str_replace('*', '\\\\*', $term);
             
-            $term = "\"\\\\b" . $term . "\\\\b\"";
-            $terms[] = $term;
+            $terms[] = $this->createKeywordSearchRegex($geologicalSettingsTerm->search_value);
         }
         
-        //dd(array_unique($terms)); //1133 // 1174 // 1152 // 1119
-
-        //dd($terms, array_unique($terms));
         $query .= implode(',', array_unique($terms));
         //dd($query);
         
-        //$query .= " AND ";
         
         $total += count($terms);
         
@@ -728,14 +710,7 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -750,14 +725,7 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -773,14 +741,22 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
+            }
+        }
+        
+        //geochemistry measured property
+        $keywords = Keyword::where('uri', 'like', 'https://epos-msl.uu.nl/voc/geochemistry/1.2/measured_property-%')->get();
+        foreach ($keywords as $keyword) {
+            foreach ($keyword->keyword_search as $searchKeyword) {
+                if(in_array($searchKeyword->keyword_id, $skipKeywords)) {
+                    continue;
+                }
+                if(in_array($searchKeyword->id, $skipSearchKeywords)) {
+                    continue;
+                }
                 
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -794,15 +770,8 @@ class ToolsController extends Controller
                 if(in_array($searchKeyword->id, $skipSearchKeywords)) {
                     continue;
                 }
-                
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                                
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -816,15 +785,8 @@ class ToolsController extends Controller
                 if(in_array($searchKeyword->id, $skipSearchKeywords)) {
                     continue;
                 }
-                
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                                
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -839,14 +801,7 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -861,14 +816,7 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }         
         
@@ -883,14 +831,7 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -904,15 +845,8 @@ class ToolsController extends Controller
                 if(in_array($searchKeyword->id, $skipSearchKeywords)) {
                     continue;
                 }
-                
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                                
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -926,15 +860,8 @@ class ToolsController extends Controller
                 if(in_array($searchKeyword->id, $skipSearchKeywords)) {
                     continue;
                 }
-                
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                                
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -949,14 +876,7 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -970,15 +890,8 @@ class ToolsController extends Controller
                 if(in_array($searchKeyword->id, $skipSearchKeywords)) {
                     continue;
                 }
-                
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         
@@ -993,14 +906,7 @@ class ToolsController extends Controller
                     continue;
                 }
                 
-                $term = $searchKeyword->search_value;
-                $term = str_replace('(', '\\\\(', $term);
-                $term = str_replace(')', '\\\\)', $term);
-                $term = str_replace('.', '\\\\.', $term);
-                $term = str_replace('*', '\\\\*', $term);
-                
-                $term = "\"\\\\b" . $term . "\\\\b\"";
-                $terms[] = $term;
+                $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
         //dd(count($terms), count(array_unique($terms))); // 1728 // 1738 // 1708
@@ -1009,14 +915,22 @@ class ToolsController extends Controller
         
         $query .= implode(',', $terms);
         dd($query);
-        
-        
-        $query .= implode('|', $terms);
-        $total += count($terms);
-        
-        //dd($total);
-        
+                        
         return view('query-generator', ['query' => $query]);
+    }
+    
+    private function createKeywordSearchRegex($searchValue) {
+        $term = $searchValue;
+        
+        $term = str_replace('(', '\\\\(', $term);
+        $term = str_replace(')', '\\\\)', $term);
+        $term = str_replace('.', '\\\\.', $term);
+        $term = str_replace('*', '\\\\*', $term);                        
+        
+        if(str_ends_with($searchValue, ',')) {
+            return "\"\\\\b" . $term . "\"";;
+        }
+        return "\"\\\\b" . $term . "\\\\b\"";
     }
     
     private function extractSynonyms($string)
