@@ -3,32 +3,11 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Storage;
 use Maatwebsite\Excel\Facades\Excel;
-use PhpOffice\PhpSpreadsheet\IOFactory;
-use Phpoaipmh\Endpoint;
 use App\Ckan\Request\PackageSearch;
-use App\Models\DatasetDelete;
-use App\Jobs\ProcessDatasetDelete;
-use App\Models\Importer;
-use App\Models\Import;
-use App\Jobs\ProcessImport;
-use App\Models\SourceDatasetIdentifier;
-use App\Models\SourceDataset;
-use App\Mappers\GfzMapper;
-use App\Models\DatasetCreate;
-use App\Ckan\Request\PackageCreate;
-use App\Ckan\Request\PackageShow;
-use App\Ckan\Response\PackageShowResponse;
-use App\Ckan\Request\PackageUpdate;
 use App\Ckan\Request\OrganizationList;
 use App\Ckan\Response\OrganizationListResponse;
-use App\Models\MappingLog;
-use App\Ckan\Response\PackageSearchResponse;
-use App\Mappers\Helpers\DataciteCitationHelper;
 use App\Converters\MaterialsConverter;
-use App\Exports\MappingLogsExport;
-use App\Models\MaterialKeyword;
 use App\Converters\RockPhysicsConverter;
 use App\Converters\ExcelToJsonConverter;
 use App\Exports\FilterTreeExport;
@@ -415,243 +394,30 @@ class ToolsController extends Controller
     }
     
     public function queryGenerator()
-    {
-        /*
-         * Produce Datacite query by using adusted vocabulary files in Excel format
-         */
-        
-        $terms = [];
-        
-        /*
-        // Materials
-        $filepath = base_path('storage/app/datacite-input/materials_1-0 Reduced.xlsx');
-        $spreadsheet = IOFactory::load($filepath);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        foreach ($worksheet->getRowIterator(2, $worksheet->getHighestDataRow()) as $row) {
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE);
-            
-            $rowData = [];
-            
-            foreach ($cellIterator as $cell) {
-                $rowData[$cell->getColumn()] = $cell->getValue();
-            }
-            
-            if(strlen($rowData['E']) > 0) {
-                $terms[] = $rowData['E'];               
-            } elseif(strlen($rowData['D']) > 0) {
-                $terms[] = $rowData['D'];
-            } elseif(strlen($rowData['C']) > 0) {
-                $terms[] = $rowData['C'];
-            } elseif(strlen($rowData['B']) > 0) {
-                $terms[] = $rowData['B'];
-            } elseif(strlen($rowData['A']) > 0) {
-                $terms[] = $rowData['A'];
-            }
-            
-            // add synonyms
-            if(strlen($rowData['F']) > 0) {
-                $terms = array_merge($terms, $this->extractSynonyms($rowData['F']));
-            }            
-        }
-        
-        $materialTerms = $terms;
-        //dd(count($materialTerms)); //454
-        
-        $terms = [];
-        //analogue modeling
-        $filepath = base_path('storage/app/datacite-input/analogue_reduced.xlsx');
-        $spreadsheet = IOFactory::load($filepath);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        foreach ($worksheet->getRowIterator(2, $worksheet->getHighestDataRow()) as $row) {
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE);
-            
-            $rowData = [];
-            
-            foreach ($cellIterator as $cell) {
-                $rowData[$cell->getColumn()] = $cell->getValue();
-            }                      
-            
-            if(strlen($rowData['E']) > 0) {
-                $terms[] = $rowData['E'];
-            } elseif(strlen($rowData['D']) > 0) {
-                $terms[] = $rowData['D'];
-            } elseif(strlen($rowData['C']) > 0) {
-                $terms[] = $rowData['C'];
-            } elseif(strlen($rowData['B']) > 0) {
-                $terms[] = $rowData['B'];
-            } elseif(strlen($rowData['A']) > 0) {
-                $terms[] = $rowData['A'];
-            }
-            
-            // add synonyms
-            if(strlen($rowData['F']) > 0) {
-                $terms = array_merge($terms, $this->extractSynonyms($rowData['F']));
-            }
-        }
-        
-        $analogueTerms = $terms;
-        //dd(count($analogueTerms)); // 40
-        
-        
-        $terms = [];
-        //geochemistry
-        $filepath = base_path('storage/app/datacite-input/geochemistry_1-0 reduced.xlsx');
-        $spreadsheet = IOFactory::load($filepath);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        foreach ($worksheet->getRowIterator(2, $worksheet->getHighestDataRow()) as $row) {
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE);
-            
-            $rowData = [];
-            
-            foreach ($cellIterator as $cell) {
-                $rowData[$cell->getColumn()] = $cell->getValue();
-            }
-                        
-            if(strlen($rowData['D']) > 0) {
-                $terms[] = $rowData['D'];
-            } elseif(strlen($rowData['C']) > 0) {
-                $terms[] = $rowData['C'];
-            } elseif(strlen($rowData['B']) > 0) {
-                $terms[] = $rowData['B'];
-            } elseif(strlen($rowData['A']) > 0) {
-                $terms[] = $rowData['A'];
-            }
-            
-            // add synonyms
-            if(strlen($rowData['E']) > 0) {
-                $terms = array_merge($terms, $this->extractSynonyms($rowData['F']));
-            }
-        }
-        
-        $geochemistryTerms = $terms;
-        //dd(count($geochemistryTerms), $geochemistryTerms); //68
-        
-        $terms = [];
-        //microscopy
-        $filepath = base_path('storage/app/datacite-input/microscopy_1-0 reduced.xlsx');
-        $spreadsheet = IOFactory::load($filepath);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        foreach ($worksheet->getRowIterator(2, $worksheet->getHighestDataRow()) as $row) {
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE);
-            
-            $rowData = [];
-            
-            foreach ($cellIterator as $cell) {
-                $rowData[$cell->getColumn()] = $cell->getValue();
-            }
-                        
-            if(strlen($rowData['E']) > 0) {
-                $terms[] = $rowData['E'];
-            } elseif(strlen($rowData['D']) > 0) {
-                $terms[] = $rowData['D'];
-            } elseif(strlen($rowData['C']) > 0) {
-                $terms[] = $rowData['C'];
-            } elseif(strlen($rowData['B']) > 0) {
-                $terms[] = $rowData['B'];
-            } elseif(strlen($rowData['A']) > 0) {
-                $terms[] = $rowData['A'];
-            }
-            
-            // add synonyms
-            if(strlen($rowData['F']) > 0) {
-                $terms = array_merge($terms, $this->extractSynonyms($rowData['F']));
-            }
-        }
-        
-        $microscopyTerms = $terms;
-        //dd(count($microscopyTerms), $microscopyTerms); //164
-        
-        
-        $terms = [];
-        //paleo
-        $filepath = base_path('storage/app/datacite-input/paleomagnetism_1-0 reduced.xlsx');
-        $spreadsheet = IOFactory::load($filepath);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        foreach ($worksheet->getRowIterator(2, $worksheet->getHighestDataRow()) as $row) {
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE);
-            
-            $rowData = [];
-            
-            foreach ($cellIterator as $cell) {
-                $rowData[$cell->getColumn()] = $cell->getValue();
-            }
-                        
-            if(strlen($rowData['E']) > 0) {
-                $terms[] = $rowData['E'];
-            } elseif(strlen($rowData['D']) > 0) {
-                $terms[] = $rowData['D'];
-            } elseif(strlen($rowData['C']) > 0) {
-                $terms[] = $rowData['C'];
-            } elseif(strlen($rowData['B']) > 0) {
-                $terms[] = $rowData['B'];
-            } elseif(strlen($rowData['A']) > 0) {
-                $terms[] = $rowData['A'];
-            }
-            
-            // add synonyms
-            if(strlen($rowData['F']) > 0) {
-                $terms = array_merge($terms, $this->extractSynonyms($rowData['F']));
-            }
-        }
-        
-        $paleoTerms = $terms;
-        //dd(count($paleoTerms), $paleoTerms); //94
-        
-        
-        $terms = [];
-        //rock
-        $filepath = base_path('storage/app/datacite-input/rockphysics_1-0 reduced.xlsx');
-        $spreadsheet = IOFactory::load($filepath);
-        $worksheet = $spreadsheet->getActiveSheet();
-        
-        foreach ($worksheet->getRowIterator(2, $worksheet->getHighestDataRow()) as $row) {
-            $cellIterator = $row->getCellIterator();
-            $cellIterator->setIterateOnlyExistingCells(FALSE);
-            
-            $rowData = [];
-            
-            foreach ($cellIterator as $cell) {
-                $rowData[$cell->getColumn()] = $cell->getValue();
-            }
-                        
-            if(strlen($rowData['E']) > 0) {
-                $terms[] = $rowData['E'];
-            } elseif(strlen($rowData['D']) > 0) {
-                $terms[] = $rowData['D'];
-            } elseif(strlen($rowData['C']) > 0) {
-                $terms[] = $rowData['C'];
-            } elseif(strlen($rowData['B']) > 0) {
-                $terms[] = $rowData['B'];
-            } elseif(strlen($rowData['A']) > 0) {
-                $terms[] = $rowData['A'];
-            }
-            
-            // add synonyms
-            if(strlen($rowData['F']) > 0) {
-                $terms = array_merge($terms, $this->extractSynonyms($rowData['F']));
-            }
-        }
-        
-        $rockTerms = $terms;
-        //dd(count($rockTerms), $rockTerms); //176
-        */
-        
+    {        
+        $terms = [];        
         
         /*
          //* Produce and display query for testing with datacite
          * Results of query should contain one word from two large groups:
-         * 1. Material or Geologic setting vocabularies
-         * 2. Apparatus and Technique sections of domain specific vocabularies
+         * GROUP #1
+         *  - Materials
+         *  - Geological setting
+         * GROUP #2
+         *  - Analogue modelling -> Apparatus
+         *  - Analogue modelling -> Measured property
+         *  - Geochemistry -> Technique
+         *  - Geochemistry -> Measured property
+         *  - Microscopy -> Apparatus
+         *  - Microscopy -> Technique
+         *  - Microscopy -> Analyzed feature
+         *  - Microscopy -> Inferred behavior
+         *  - Paleomagnetism -> Apparatus
+         *  - Paleomagnetism -> Measured property
+         *  - Paleomagnetism -> Inferred behavior
+         *  - Rock physics -> Apparatus
+         *  - Rock physics -> Measured property
+         *  - Rock physics -> Inferred deformation behavior
          */
         
         //Keyword identifiers to be ignored while gathering terms (based on vocab 1.2)
