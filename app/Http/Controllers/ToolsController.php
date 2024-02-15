@@ -675,7 +675,7 @@ class ToolsController extends Controller
                 $terms[] = $this->createKeywordSearchRegex($searchKeyword->search_value);
             }
         }
-        //dd(count($terms), count(array_unique($terms))); // 1728 // 1738 // 1708
+        //dd(count($terms), count(array_unique($terms)));
         
         $terms = array_unique($terms);
         
