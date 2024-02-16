@@ -558,24 +558,6 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "rift shoulder",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
-                                "value": "rift valley",
-                                "level": 4,
-                                "hyperlink": "",
-                                "vocabUri": "",
-                                "uri": "",
-                                "synonyms": [],
-                                "subTerms": []
-                            },
-                            {
                                 "value": "mantle exhumation",
                                 "level": 4,
                                 "hyperlink": "",
@@ -1258,6 +1240,259 @@
         ]
     },
     {
+        "value": "tectonic deformation structure",
+        "level": 1,
+        "hyperlink": "",
+        "vocabUri": "",
+        "uri": "",
+        "synonyms": [
+            "tectonic rock deformation structures",
+            "rock deformation structure",
+            "rock deformation structures",
+            "crust deformation structure",
+            "crustal deformation structure",
+            "crust deformation structures",
+            "crustal deformations structures"
+        ],
+        "subTerms": [
+            {
+                "value": "tectonic fault",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "tectonic faults",
+                    "tectonic fracture",
+                    "tectonic faulting",
+                    "tectonic fracturing",
+                    "fault zone",
+                    "fault zones",
+                    "seismic fault",
+                    "aseismic fault",
+                    "fault slip",
+                    "fault weakening",
+                    "fault reactivation",
+                    "fault reactivating",
+                    "faults reactivating",
+                    "slip weakening",
+                    "fault gouge",
+                    "fault rock",
+                    "faultrelatedmaterial",
+                    "fault rocks",
+                    "faultrocks",
+                    "faultrock",
+                    "natural fault rocks",
+                    "fault microstructure",
+                    "faults rock",
+                    "faults rocks",
+                    "fault mirror",
+                    "fault mirrors",
+                    "fault movement",
+                    "crustal fault",
+                    "crustal faults",
+                    "fault friction",
+                    "displaced fault",
+                    "faults in the crust"
+                ],
+                "subTerms": [
+                    {
+                        "value": "oblique-slip fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "oblique slip fault",
+                            "oblique slip fault",
+                            "oblique slip faulting",
+                            "oblique-slip faults",
+                            "oblique slip faults"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "reverse fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "reverse faulting",
+                            "reverse faults"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "scissor fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "scissor faulting",
+                            "scissor faults"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "strike-slip fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "strike slip fault",
+                            "strike slip faulting",
+                            "strike-slip faulting",
+                            "strike-slip faults",
+                            "strike slip faults",
+                            "strikeslip faults",
+                            "strikeslip fault"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "normal fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "normal faulting",
+                            "normal faults"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "thrust fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "thrust faulting",
+                            "thrust deformation",
+                            "thrust displacement",
+                            "thrust faults",
+                            "megathrust",
+                            "megathrusts"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "wrench fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "wrench faulting",
+                            "wrench faults"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "detachment fault",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "detachment faulting",
+                            "detachment faults"
+                        ],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "tectonic fold",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "tectonic folds",
+                    "tectonic folding"
+                ],
+                "subTerms": [
+                    {
+                        "value": "anticline",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "anticlyne",
+                            "anti-cline",
+                            "anti-clyne"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "antiform",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "anti-form"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "syncline",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "synclyne",
+                            "syn-clyne",
+                            "syn-cline"
+                        ],
+                        "subTerms": []
+                    },
+                    {
+                        "value": "synform",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "syn-form"
+                        ],
+                        "subTerms": []
+                    }
+                ]
+            },
+            {
+                "value": "tectonic shear zone",
+                "level": 2,
+                "hyperlink": "",
+                "vocabUri": "",
+                "uri": "",
+                "synonyms": [
+                    "tectonic shear zones"
+                ],
+                "subTerms": [
+                    {
+                        "value": "Riedel shear",
+                        "level": 3,
+                        "hyperlink": "",
+                        "vocabUri": "",
+                        "uri": "",
+                        "synonyms": [
+                            "Riedel shears"
+                        ],
+                        "subTerms": []
+                    }
+                ]
+            }
+        ]
+    },
+    {
         "value": "extra-terrestrial setting",
         "level": 1,
         "hyperlink": "",
@@ -1740,7 +1975,8 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "induced earthquake"
+                    "induced earthquake",
+                    "induced seismic"
                 ],
                 "subTerms": []
             },

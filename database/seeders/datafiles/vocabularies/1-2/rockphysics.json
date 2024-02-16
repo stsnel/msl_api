@@ -1193,7 +1193,9 @@
                     "distributed fibre",
                     "distributed fiber",
                     "fiber optics",
-                    "fibre optics"
+                    "fibre optics",
+                    "optical fibers",
+                    "optical fibres"
                 ],
                 "subTerms": [
                     {
@@ -2486,7 +2488,7 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "fracturing",
+                            "shear fracturing",
                             "cataclastic deformation",
                             "Mohr-Coulomb",
                             "Mohr",
@@ -2508,7 +2510,9 @@
                             "friction coefficient",
                             "frictional",
                             "fault microstructure",
-                            "fault gouge microstructure"
+                            "fault gouge microstructure",
+                            "slip behavior",
+                            "Fault weakening"
                         ],
                         "subTerms": []
                     },
@@ -2930,7 +2934,8 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "flash heating",
+                            "frictional flash heating",
+                            "flash frictional heating",
                             "friction heating",
                             "shear heating",
                             "pseudotachylite"
