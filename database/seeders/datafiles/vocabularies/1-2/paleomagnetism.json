@@ -594,8 +594,9 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "SQUID",
-                                    "(SQUID)"
+                                    "(SQUID)",
+                                    "superconducting quantum interference device",
+                                    "super-conducting quantum interference device"
                                 ],
                                 "subTerms": []
                             },

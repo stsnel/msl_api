@@ -13,7 +13,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/limestone",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/limestone",
-                "synonyms": [],
+                "synonyms": [
+                    "limestones"
+                ],
                 "subTerms": [
                     {
                         "value": "Anstrude limestone",
@@ -230,7 +232,9 @@
                 "hyperlink": "https:\/\/www.mindat.org\/min-49153.html",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "marls"
+                ],
                 "subTerms": []
             },
             {
@@ -333,7 +337,9 @@
                         "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/claystone",
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/claystone",
-                        "synonyms": [],
+                        "synonyms": [
+                            "claystones"
+                        ],
                         "subTerms": [
                             {
                                 "value": "Boom clay",
@@ -361,7 +367,9 @@
                         "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/shale",
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/shale",
-                        "synonyms": [],
+                        "synonyms": [
+                            "shales"
+                        ],
                         "subTerms": [
                             {
                                 "value": "Barnett shale",
@@ -494,7 +502,9 @@
                         "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/siltstone",
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/siltstone",
-                        "synonyms": [],
+                        "synonyms": [
+                            "siltstones"
+                        ],
                         "subTerms": []
                     }
                 ]
@@ -505,7 +515,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/clastic_sandstone",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/clastic_sandstone",
-                "synonyms": [],
+                "synonyms": [
+                    "sandstones"
+                ],
                 "subTerms": [
                     {
                         "value": "arenite",
@@ -789,7 +801,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/evaporite",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/evaporite",
-                "synonyms": [],
+                "synonyms": [
+                    "evaporites"
+                ],
                 "subTerms": [
                     {
                         "value": "gypsum or anhydrite",
@@ -861,7 +875,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/granite",
                         "synonyms": [
-                            "granitic"
+                            "granitic",
+                            "granites"
                         ],
                         "subTerms": [
                             {
@@ -1021,7 +1036,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/granodiorite",
                         "synonyms": [
-                            "granodioritic"
+                            "granodioritic",
+                            "granodiorites"
                         ],
                         "subTerms": [
                             {
@@ -1117,7 +1133,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/diorite",
                         "synonyms": [
-                            "dioritic"
+                            "dioritic",
+                            "diorites"
                         ],
                         "subTerms": []
                     },
@@ -1193,7 +1210,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/gabbro",
                         "synonyms": [
-                            "gabbroic"
+                            "gabbroic",
+                            "gabbros"
                         ],
                         "subTerms": [
                             {
@@ -1264,7 +1282,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/peridotite",
                         "synonyms": [
-                            "peridotitic"
+                            "peridotitic",
+                            "peridotites"
                         ],
                         "subTerms": [
                             {
@@ -1330,7 +1349,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/pyroxenite",
                         "synonyms": [
-                            "pyroxenitic"
+                            "pyroxenitic",
+                            "pyroxenites"
                         ],
                         "subTerms": [
                             {
@@ -1384,7 +1404,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/rhyolite",
                         "synonyms": [
-                            "rhyolitic"
+                            "rhyolitic",
+                            "rhyolites"
                         ],
                         "subTerms": []
                     },
@@ -1430,7 +1451,8 @@
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/andesite",
                         "synonyms": [
                             "andesitic",
-                            "andesytic"
+                            "andesytic",
+                            "andesites"
                         ],
                         "subTerms": []
                     },
@@ -1487,7 +1509,8 @@
                         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/basalt",
                         "synonyms": [
-                            "basaltic"
+                            "basaltic",
+                            "basalts"
                         ],
                         "subTerms": [
                             {
@@ -1783,7 +1806,9 @@
         "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/metamorphic_rock",
         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/metamorphic_rock",
-        "synonyms": [],
+        "synonyms": [
+            "metamorphic rocks"
+        ],
         "subTerms": [
             {
                 "value": "quartzite",
@@ -1867,7 +1892,10 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/amphibolite",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/amphibolite",
-                "synonyms": [],
+                "synonyms": [
+                    "amphibolites",
+                    "amphibolitic"
+                ],
                 "subTerms": []
             },
             {
@@ -1876,7 +1904,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/mylonitic_rock",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/mylonitic_rock",
-                "synonyms": [],
+                "synonyms": [
+                    "mylonites"
+                ],
                 "subTerms": []
             },
             {
@@ -1885,7 +1915,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/slate",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/slate",
-                "synonyms": [],
+                "synonyms": [
+                    "slates"
+                ],
                 "subTerms": []
             },
             {
@@ -1895,6 +1927,7 @@
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/phyllite",
                 "synonyms": [
+                    "phyllites",
                     "phyllitic"
                 ],
                 "subTerms": []
@@ -1906,6 +1939,7 @@
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/schist",
                 "synonyms": [
+                    "schists",
                     "schistosity"
                 ],
                 "subTerms": [
@@ -1962,7 +1996,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/marble",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/marble",
-                "synonyms": [],
+                "synonyms": [
+                    "marbles"
+                ],
                 "subTerms": [
                     {
                         "value": "Carrara marble",
@@ -2065,7 +2101,8 @@
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/eclogite",
                 "synonyms": [
-                    "eclogitic"
+                    "eclogitic",
+                    "eclogites"
                 ],
                 "subTerms": []
             },
@@ -2075,7 +2112,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/serpentinite",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/serpentinite",
-                "synonyms": [],
+                "synonyms": [
+                    "serpentinites"
+                ],
                 "subTerms": []
             },
             {
@@ -2084,7 +2123,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/granulite",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/granulite",
-                "synonyms": [],
+                "synonyms": [
+                    "granulites"
+                ],
                 "subTerms": []
             },
             {
@@ -2094,7 +2135,8 @@
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/migmatite",
                 "synonyms": [
-                    "migmatitic"
+                    "migmatitic",
+                    "migmatites"
                 ],
                 "subTerms": []
             }
@@ -2112,7 +2154,11 @@
             "faultrocks",
             "faultrock",
             "natural fault rocks",
-            "fault microstructure"
+            "fault microstructure",
+            "faults rock",
+            "faults rocks",
+            "fault mirror",
+            "fault mirrors"
         ],
         "subTerms": [
             {
@@ -2123,7 +2169,11 @@
                 "uri": "",
                 "synonyms": [
                     "fault gouges",
-                    "fault gouge microstructure"
+                    "fault gouge microstructure",
+                    "gouge-bearing faults",
+                    "gouge bearing faults",
+                    "fault gauge",
+                    "fault gauges"
                 ],
                 "subTerms": [
                     {
@@ -2133,7 +2183,9 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "simulated fault gouges"
+                            "simulated fault gouges",
+                            "simulated fault gauge",
+                            "simulated fault gauges"
                         ],
                         "subTerms": []
                     }
@@ -2147,7 +2199,8 @@
                 "uri": "",
                 "synonyms": [
                     "cataclasiteseries",
-                    "cataclistic"
+                    "cataclistic",
+                    "cataclasites"
                 ],
                 "subTerms": []
             },
@@ -2161,7 +2214,8 @@
                     "mylonite foliation",
                     "mylonitic",
                     "mylonitization",
-                    "mylonitizised"
+                    "mylonitizised",
+                    "mylonites"
                 ],
                 "subTerms": []
             },
@@ -2175,7 +2229,8 @@
                     "pseudotachylyte",
                     "pseudotachilite",
                     "pseudotachylite microstructure",
-                    "pseudotachylitic"
+                    "pseudotachylitic",
+                    "pseudotachylites"
                 ],
                 "subTerms": []
             },
@@ -2345,7 +2400,9 @@
         "hyperlink": "https:\/\/www.mindat.org\/min-49514.html",
         "vocabUri": "",
         "uri": "",
-        "synonyms": [],
+        "synonyms": [
+            "meteorites"
+        ],
         "subTerms": [
             {
                 "value": "chondrite meteorite",
@@ -2439,7 +2496,8 @@
         "uri": "",
         "synonyms": [
             "impact breccia",
-            "suevite"
+            "suevite",
+            "impact rocks"
         ],
         "subTerms": []
     },
@@ -2695,7 +2753,7 @@
                 ]
             },
             {
-                "value": "sulfides",
+                "value": "sulfide minerals",
                 "level": 2,
                 "hyperlink": "https:\/\/www.mindat.org\/strunz.php?a=2",
                 "vocabUri": "",
@@ -3146,7 +3204,7 @@
                 ]
             },
             {
-                "value": "halides",
+                "value": "halide minerals",
                 "level": 2,
                 "hyperlink": "https:\/\/www.mindat.org\/strunz.php?a=3",
                 "vocabUri": "",
@@ -3228,7 +3286,7 @@
                 ]
             },
             {
-                "value": "oxide",
+                "value": "oxide mineral",
                 "level": 2,
                 "hyperlink": "https:\/\/www.mindat.org\/strunz.php?a=4",
                 "vocabUri": "",
@@ -3670,15 +3728,18 @@
                 ]
             },
             {
-                "value": "carbonates",
+                "value": "carbonate minerals",
                 "level": 2,
                 "hyperlink": "https:\/\/www.mindat.org\/strunz.php?a=5",
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
+                    "carbonates",
                     "carbonate sedimentary rock",
                     "carbonate rock",
-                    "carbonitic rock"
+                    "carbonitic rock",
+                    "carbonate fault",
+                    "carbonate faults"
                 ],
                 "subTerms": [
                     {
@@ -3855,7 +3916,7 @@
                 "subTerms": []
             },
             {
-                "value": "sulfates",
+                "value": "sulfate minerals",
                 "level": 2,
                 "hyperlink": "https:\/\/www.mindat.org\/strunz.php?a=7",
                 "vocabUri": "",
@@ -3946,7 +4007,7 @@
                 ]
             },
             {
-                "value": "phosphates",
+                "value": "phosphate minerals",
                 "level": 2,
                 "hyperlink": "https:\/\/www.mindat.org\/strunz.php?a=8",
                 "vocabUri": "",
@@ -4001,7 +4062,7 @@
                 ]
             },
             {
-                "value": "silicates",
+                "value": "silicate minerals",
                 "level": 2,
                 "hyperlink": "https:\/\/www.mindat.org\/glossary\/silicate",
                 "vocabUri": "",
@@ -4684,7 +4745,9 @@
                                 "hyperlink": "https:\/\/www.mindat.org\/min-43755.html",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "kaolinite"
+                                ],
                                 "subTerms": [
                                     {
                                         "value": "chrysocolla",
@@ -4731,7 +4794,8 @@
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "swelling clay"
+                                    "swelling clay",
+                                    "smectite"
                                 ],
                                 "subTerms": [
                                     {
@@ -5214,7 +5278,9 @@
         "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/sediment",
         "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
         "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/sediment",
-        "synonyms": [],
+        "synonyms": [
+            "sediments"
+        ],
         "subTerms": [
             {
                 "value": "biogenic sediment",
@@ -5222,7 +5288,9 @@
                 "hyperlink": "http:\/\/cgi.vocabs.ga.gov.au\/object?vocab_uri=http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology&uri=http%3A\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/biogenic_sediment",
                 "vocabUri": "http:\/\/resource.geosciml.org\/classifierScheme\/cgi\/2016.01\/simplelithology",
                 "uri": "http:\/\/resource.geosciml.org\/classifier\/cgi\/lithology\/biogenic_sediment",
-                "synonyms": [],
+                "synonyms": [
+                    "biogenic sediments"
+                ],
                 "subTerms": [
                     {
                         "value": "carbonate ooze",
@@ -5250,7 +5318,11 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "organic rich sediments",
+                    "organic-rich sediment",
+                    "organic-rich sediments"
+                ],
                 "subTerms": [
                     {
                         "value": "peat",
@@ -5278,7 +5350,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "carbonate sediments"
+                ],
                 "subTerms": [
                     {
                         "value": "carbonate mud",
@@ -5306,7 +5380,9 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "clastic sediments"
+                ],
                 "subTerms": [
                     {
                         "value": "diamicton",
@@ -5416,16 +5492,21 @@
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "pyroclastites"
+                    "pyroclastites",
+                    "pyroclastite"
                 ],
                 "subTerms": [
                     {
-                        "value": "ash",
+                        "value": "volcanic ash",
                         "level": 3,
                         "hyperlink": "https:\/\/inspire.ec.europa.eu\/codelist\/LithologyValue\/ashAndLapilli",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "volcanic ashes",
+                            "ash deposit",
+                            "ash deposits"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -6248,7 +6329,7 @@
                                     "polydimethylsiloxane PDMS",
                                     "SiliconSilly puttyPDMS",
                                     "PDMS",
-                                    "Silicon  Silly putty  PDMS"
+                                    "Silicon Silly putty"
                                 ],
                                 "subTerms": []
                             },

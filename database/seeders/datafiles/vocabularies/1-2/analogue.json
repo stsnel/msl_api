@@ -25,7 +25,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "vein",
+                        "value": "magmatic vein",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -34,7 +34,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "fissure",
+                        "value": "magmatic fissure",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -43,7 +43,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "ring dike",
+                        "value": "magmatic ring dike",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -52,7 +52,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "radial dike",
+                        "value": "magmatic radial dike",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -61,7 +61,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "sill",
+                        "value": "magmatic sill",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -70,7 +70,7 @@
                         "subTerms": []
                     },
                     {
-                        "value": "dike",
+                        "value": "magmatic dike",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -117,18 +117,18 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "oblique-slip fault",
+                                "value": "modelled oblique-slip fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "oblique slip fault"
+                                    "modelled oblique slip fault"
                                 ],
                                 "subTerms": []
                             },
                             {
-                                "value": "reverse fault",
+                                "value": "modelled reverse fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -137,7 +137,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "scissor fault",
+                                "value": "modelled scissor fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -146,18 +146,18 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "strike-slip fault",
+                                "value": "modelled strike-slip fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
                                 "synonyms": [
-                                    "strike slip fault"
+                                    "modelled strike slip fault"
                                 ],
                                 "subTerms": []
                             },
                             {
-                                "value": "normal fault",
+                                "value": "modelled normal fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -166,7 +166,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "thrust fault",
+                                "value": "modelled thrust fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -175,7 +175,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "wrench fault",
+                                "value": "modelled wrench fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -184,7 +184,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "detachment fault",
+                                "value": "modelled detachment fault",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -212,7 +212,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "detachment shear zone",
+                                "value": "modelled detachment shear zone",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -240,7 +240,7 @@
                         "synonyms": [],
                         "subTerms": [
                             {
-                                "value": "anticline",
+                                "value": "modelled anticline",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -249,7 +249,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "antiform",
+                                "value": "modelled antiform",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -258,7 +258,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "syncline",
+                                "value": "modelled syncline",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -267,7 +267,7 @@
                                 "subTerms": []
                             },
                             {
-                                "value": "synform",
+                                "value": "modelled synform",
                                 "level": 4,
                                 "hyperlink": "",
                                 "vocabUri": "",
@@ -293,8 +293,8 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "orogen structure",
-                            "orogenic process"
+                            "modelled orogen structure",
+                            "modelled orogenic process"
                         ],
                         "subTerms": [
                             {

@@ -75,7 +75,8 @@
                         "uri": "",
                         "synonyms": [
                             "scanning electrone microscope",
-                            "scanning electron microscope"
+                            "scanning electron microscope",
+                            "SEM images"
                         ],
                         "subTerms": []
                     },
@@ -159,7 +160,13 @@
                     "X-ray tomograph",
                     "Xray tomograph",
                     "X-ray computed tomographic (CT) scanning of analogue models",
-                    "X-ray imaging during testing"
+                    "X-ray imaging during testing",
+                    "CT-scan",
+                    "CT-scans",
+                    "CT scan",
+                    "CT scans",
+                    "CT scanning",
+                    "CT-scanning"
                 ],
                 "subTerms": []
             },
@@ -2374,7 +2381,9 @@
                                 "hyperlink": "",
                                 "vocabUri": "",
                                 "uri": "",
-                                "synonyms": [],
+                                "synonyms": [
+                                    "particle size distribution"
+                                ],
                                 "subTerms": []
                             }
                         ]

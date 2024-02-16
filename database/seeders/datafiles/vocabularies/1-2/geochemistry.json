@@ -877,8 +877,7 @@
                     "SEM-Energy Dispersive X-Ray spectroscopy",
                     "SEM-EDS",
                     "SEM-EDX",
-                    "EDS",
-                    "EDX",
+                    "(EDS)",
                     "(EDX)"
                 ],
                 "subTerms": []
