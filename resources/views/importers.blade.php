@@ -4,7 +4,7 @@
 <div class="container">
     <div class="row justify-content-center">
         <div class="col-md-10">
-        <h1>importers</h1>
+        <h1>Importers</h1>
         
         <div class="card-body">
             @if (session('status'))

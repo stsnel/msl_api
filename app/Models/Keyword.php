@@ -12,7 +12,12 @@ class Keyword extends Model
         'uri',
         'vocubulary_id',
         'level',
-        'hyperlink'
+        'hyperlink',
+        'exclude_domain_mapping'
+    ];
+    
+    protected $casts = [
+        'exclude_domain_mapping' => 'boolean'        
     ];
  
     public function parent()
@@ -20,17 +25,28 @@ class Keyword extends Model
         return $this->belongsTo(Keyword::class, 'parent_id');
     }
     
+    public function hasParent()
+    {
+        if($this->parent_id) {
+            return true;
+        }
+        
+        return false;
+    }
+    
     public function vocabulary()
     {
         return $this->belongsTo(Vocabulary::class, 'vocabulary_id');
     }
     
+    public function keyword_search()
+    {
+        return $this->hasMany(KeywordSearch::class, 'keyword_id');
+    }
+    
     public function getSynonyms()
     {
-        return KeywordSearch::where([
-            ['keyword_id', $this->id],
-            ['isSynonym', true]
-        ])->get();
+        return $this->hasMany(KeywordSearch::class, 'keyword_id')->where('isSynonym', '=', 1)->get();        
     }
     
     public function getChildren($sort = true)

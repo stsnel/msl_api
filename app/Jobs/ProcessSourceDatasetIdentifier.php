@@ -39,6 +39,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
     public function handle()
     {
         $importer = $this->sourceDatasetIdentifier->import->importer;
+        $import = $this->sourceDatasetIdentifier->import;
         
         if($importer->options['identifierProcessor']['type'] == 'oaiRetrieval') {        
             $endPoint = Endpoint::build($importer->options['identifierProcessor']['options']['oaiEndpoint']);
@@ -48,6 +49,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
             if($result) {
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $import->id,
                     'source_dataset' => $result->asXML()
                 ]);
                 
@@ -69,6 +71,7 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                 
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $import->id,
                     'source_dataset' => $xml
                 ]);
                 
@@ -82,12 +85,30 @@ class ProcessSourceDatasetIdentifier implements ShouldQueue
                 $this->sourceDatasetIdentifier->response_code = 404;
                 $this->sourceDatasetIdentifier->save();
             }
+        } elseif ($importer->options['identifierProcessor']['type'] == 'urlXmlRetrieval') {
+            $client = new \GuzzleHttp\Client();
+            
+            $response = $client->request('GET', $this->sourceDatasetIdentifier->identifier);
+                        
+            if($response->getStatusCode() == 200) {
+                $SourceDataset = SourceDataset::create([
+                    'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $import->id,
+                    'source_dataset' => $response->getBody()->getContents()
+                ]);
+                
+                ProcessSourceDataset::dispatch($SourceDataset);
+            }
+            
+            $this->sourceDatasetIdentifier->response_code = $response->getStatusCode();
+            $this->sourceDatasetIdentifier->save();            
         } elseif ($importer->options['identifierProcessor']['type'] == 'fileRetrieval') {
             if(Storage::disk()->exists($this->sourceDatasetIdentifier->identifier)) {
                 $fileContent = Storage::get($this->sourceDatasetIdentifier->identifier);
                 
                 $SourceDataset = SourceDataset::create([
                     'source_dataset_identifier_id'=> $this->sourceDatasetIdentifier->id,
+                    'import_id' => $import->id,
                     'source_dataset' => $fileContent
                 ]);
                 

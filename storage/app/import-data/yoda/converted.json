@@ -9,7 +9,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-sandstone-compaction\/Mehranpour_et_al_2021_DEModeling%5B1621322230%5D\/original\/Mehranpour_et-al_2021-description.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A2+1",
@@ -21,7 +21,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-seismic-slip-pulse-experiments\/research-seismic-slip-pulse-experiments%5B1618835278%5D\/original\/Data_explanation.pdf",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A3+1",
@@ -68,7 +68,7 @@
         "Meta data scheme": "Default",
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-papaku-rockmagnetism\/Greve_et_al_2021%5B1611243312%5D\/original\/Notes.docx",
         "Data": null,
-        "LabIdentifier": "0cf823da3e5c151a2bd825a91d3b8454",
+        "LabIdentifier": null,
         "LabName": "Paleomagnetic Laboratory Fort Hoofddijk (Utrecht University, The Netherlands)"
     },
     {
@@ -81,7 +81,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-biemiller\/Biemiller_et_al_2020%5B1591878065%5D\/original\/Biemiller_et_al_2020_Data_description.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A8+1",
@@ -93,7 +93,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-coal-friction-data\/Liu_et_al_2020_Solid_Earth%5B1585573908%5D\/original\/Fan-et-al-2020-Data-Description.pdf",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A9+1",
@@ -105,7 +105,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-earrift-friction\/Hellebrekers_et_al_2019_Tectonophysics%5B1565076039%5D\/original\/Hellebrekers_et_al_2019_Data_explanation.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A10+1",
@@ -117,7 +117,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-groningen-friction\/Hunfeld_et_al_2019_G-cubed%5B1556028966%5D\/original\/Hunfeld-et-al-2019-Data-explanation.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A11+1",
@@ -129,7 +129,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-groningen-sandstone-compaction\/Pijnenburg_et_al_2019_Splitcylinder_tests%5B1573723940%5D\/original\/Pijnenburg-et-al_2019_data-description.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A12+1",
@@ -141,7 +141,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-groningen-sandstone-compaction\/CuestaCano_et_al_2020_CT_imaging_sand%5B1606487657%5D\/original\/Cuesta_Cano_et-al_2020_data-description.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A13+1",
@@ -153,7 +153,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-gypsum-fault\/Buijze_2019_Solid_Earth%5B1575390815%5D\/original\/Buijze_2019_Data_description_sheet.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A14+1",
@@ -165,7 +165,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-healing-of-simulated-groningen-faults\/Hunfeld_et_al_2020_Solid_Earth%5B1587107518%5D\/original\/Hunfeld_et_al_2020_Data_explanation.pdf",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A15+1",
@@ -177,7 +177,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-heterogeneous-faults\/Buijze_2020_EPSL%5B1606216647%5D\/original\/Buijze_2020_EPSL_Data_description_sheet.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A16+1",
@@ -189,7 +189,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-rotary-shear-experiments-on-glass-bead-aggregates\/Korkolis_2021%5B1613641324%5D\/original\/Korkolis_et_al_2021_Data_documentation.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A17+1",
@@ -201,7 +201,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-sand-compaction-chemistry-effects\/Schimmel_et_al_2020_Cyclic_compaction_sand%5B1599588494%5D\/original\/Schimmel_et_al_2020_Data_description.docx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A18+1",
@@ -213,7 +213,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-shale-coal-fault-gouges\/Friction_data_of_simulated_shale-coal_fault_gouges%5B1574861084%5D\/original\/Liu-et-al-2019-Data-description.pdf",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A19+1",
@@ -237,7 +237,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-png-dfm-mech\/Mizera_et_al_2020%5B1595186737%5D\/original\/EBSD_sample_locations_and_structural_orientations.xlsx",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": "=A21+1",
@@ -261,7 +261,7 @@
         "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-pt63253a1-d2\/Wolterbeek-et-al-2021%5B1627637555%5D\/original\/Brief data description.pdf",
         "Data": null,
         "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
-        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University,  The Netherlands)"
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
     },
     {
         "Nr": 23,
@@ -278,11 +278,11 @@
     {
         "Nr": 24,
         "Title": "Microstructural data and microscopic stress measurements of natural mineral-hydration reactions",
-        "DOI": "10.24416\/UU01-XVJYBS",
-        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/XVJYBS.html",
+        "DOI": "10.24416\/UU01-Z7A6R8",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/Z7A6R8.html",
         "Subdomain": "Microscopy data",
         "Meta data scheme": "Rock physics",
-        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-hydration\/research-hydration%5B1638268339%5D\/original\/readme.txt",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-hydration\/research-hydration%5B1657638346%5D\/original\/readme.txt",
         "Data": null,
         "LabIdentifier": "f9e0f3b0be7565fb3b95d1c2ece8978c",
         "LabName": "Electron Microscopy Facilities (Utrecht University, The Netherlands)"
@@ -298,5 +298,113 @@
         "Data": "https:\/\/geo.public.data.uu.nl\/vault-gan\/research-gan%5B1647946088%5D\/original\/data.zip",
         "LabIdentifier": "f9e0f3b0be7565fb3b95d1c2ece8978c",
         "LabName": "Electron Microscopy Facilities (Utrecht University, The Netherlands)"
+    },
+    {
+        "Nr": 26,
+        "Title": "Microstructural data used in \u201cDrill core from seismically active sandstone gas reservoir yields clues to internal deformation mechanisms\u201d",
+        "DOI": "10.24416\/UU01-KEW4XN",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/KEW4XN.html",
+        "Subdomain": "Microscopy data",
+        "Meta data scheme": "Default",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-groningen-zandsteencompactie\/research-groningen-zandsteencompactie%5B1667459035%5D\/original\/Additional_explanation_to_the_data.pdf",
+        "Data": "https:\/\/geo.public.data.uu.nl\/vault-groningen-zandsteencompactie\/research-groningen-zandsteencompactie%5B1667459035%5D\/original\/Data_Verberne_et_al_2020.zip",
+        "LabIdentifier": "f9e0f3b0be7565fb3b95d1c2ece8978c",
+        "LabName": "Electron Microscopy Facilities (Utrecht University, The Netherlands)"
+    },
+    {
+        "Nr": 27,
+        "Title": "Microstructural data and trace element concentration measurements of recrystallised zircons",
+        "DOI": "10.24416\/UU01-769PD8",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/769PD8.html",
+        "Subdomain": "Microscopy data",
+        "Meta data scheme": "Rock physics",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-zircon-recrystallisation-microstructures\/research-zircon-recrystallisation-microstructures%5B1669081941%5D\/original\/readme.txt",
+        "Data": "https:\/\/geo.public.data.uu.nl\/vault-zircon-recrystallisation-microstructures\/research-zircon-recrystallisation-microstructures%5B1669081941%5D\/original\/data.zip",
+        "LabIdentifier": "f9e0f3b0be7565fb3b95d1c2ece8978c",
+        "LabName": "Electron Microscopy Facilities (Utrecht University, The Netherlands)"
+    },
+    {
+        "Nr": 28,
+        "Title": "Geomechanical, seismological, and geodetic data pertaining to the Groningen gas field: a data package used in the \"Mmax II Workshop\", on constraining the maximum earthquake magnitude in the Groningen field",
+        "DOI": "10.24416\/UU01-RHHRPY",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/RHHRPY.html",
+        "Subdomain": null,
+        "Meta data scheme": "Default",
+        "Data documentation": null,
+        "Data": "https:\/\/geo.public.data.uu.nl\/vault-mmax-workshop-on-groningen-induced-seismicity\/research-mmax-workshop-on-groningen-induced-seismicity%5B1663686698%5D\/original\/Mmax_II_data_V1.zip",
+        "LabIdentifier": null,
+        "LabName": null
+    },
+    {
+        "Nr": 29,
+        "Title": "Petrel geological model of the Groningen gas field, the Netherlands",
+        "DOI": "10.24416\/UU01-1QH0MW",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/1QH0MW.html",
+        "Subdomain": null,
+        "Meta data scheme": "Default",
+        "Data documentation": null,
+        "Data": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/Publication%5B1605778324%5D\/original\/Groningen field - static reservoir model V6 (NAM).zip",
+        "LabIdentifier": null,
+        "LabName": null
+    },
+    {
+        "Nr": 30,
+        "Title": "In-situ Distributed Strain Sensing data from the Zeerijp-3a well of the Groningen gas field, Netherlands. Period 2015-2019.",
+        "DOI": "10.24416\/UU01-BMRLAP",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/BMRLAP.html",
+        "Subdomain": null,
+        "Meta data scheme": "Default",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/Publication_DSS_Zeerijp-2015-2019%5B1632838091%5D\/original\/readme.txt",
+        "Data": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/Publication_DSS_Zeerijp-2015-2019%5B1632838091%5D\/original\/ZRP-C (ZRP-3)_DSS data export Aug2019.csv",
+        "LabIdentifier": null,
+        "LabName": null
+    },
+    {
+        "Nr": 31,
+        "Title": "In-situ Distributed Strain Sensing (DSS) data from the Zeerijp-3a well in the Groningen gas field, the Netherlands. Period 2015-2021",
+        "DOI": "10.24416\/UU01-82HIJ4",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/82HIJ4.html",
+        "Subdomain": null,
+        "Meta data scheme": "Default",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/Publication_DSS_Zeerijp-2015-2021%5B1669890990%5D\/original\/readme.txt",
+        "Data": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/Publication_DSS_Zeerijp-2015-2021%5B1669890990%5D\/original\/2015-2021.zip",
+        "LabIdentifier": null,
+        "LabName": null
+    },
+    {
+        "Nr": 32,
+        "Title": "Shallow compaction data of the Groningen gas field and other locations in the Netherlands \u2013 period 1970 to 2021.",
+        "DOI": "10.24416\/UU01-VQENLO",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/VQENLO.html",
+        "Subdomain": null,
+        "Meta data scheme": "Default",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/Publication_shallow%20compaction%20data%5B1659696390%5D\/original\/Additional explanation to shallow compaction data.pdf",
+        "Data": null,
+        "LabIdentifier": "e3a4f5d02528d02c516dbea19c20b32c",
+        "LabName": "Experimental rock deformation\/HPT-Lab (Utrecht University, The Netherlands)"
+    },
+    {
+        "Nr": 33,
+        "Title": "Core photographs of the Rotliegend reservoir of the Groningen gas field and surrounding areas",
+        "DOI": "10.24416\/UU01-6JHXY9",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/6JHXY9.html",
+        "Subdomain": null,
+        "Meta data scheme": "Default",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/NAM%20core%20photos%20without%20core%20viewer%5B1670504605%5D\/original\/Data description.docx",
+        "Data": "https:\/\/geo.public.data.uu.nl\/vault-nam-geological-model\/NAM%20core%20photos%20without%20core%20viewer%5B1670504605%5D\/original\/data.zip",
+        "LabIdentifier": null,
+        "LabName": null
+    },
+    {
+        "Nr": 34,
+        "Title": "Friction data of simulated basaltic fault gouge under hydrothermal conditions",
+        "DOI": "10.24416\/UU01-Q0VVEX",
+        "URL": "https:\/\/public.yoda.uu.nl\/geo\/UU01\/Q0VVEX.html",
+        "Subdomain": "Rock physics",
+        "Meta data scheme": "Rock physics",
+        "Data documentation": "https:\/\/geo.public.data.uu.nl\/vault-alteredbasaltfriction\/research-alteredbasaltfriction%5B1671698883%5D\/original\/Okuda-et-al-2022-Data-Description.pdf",
+        "Data": null,
+        "LabIdentifier": null,
+        "LabName": null
     }
 ]

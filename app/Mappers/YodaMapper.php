@@ -2,9 +2,6 @@
 namespace App\Mappers;
 
 use App\Models\SourceDataset;
-use App\Datasets\RockPhysicsDataset;
-use App\Datasets\AnalogueModelingDataset;
-use App\Datasets\PaleoMagneticDataset;
 use App\Models\MappingLog;
 use App\Ckan\Request\PackageSearch;
 use App\Ckan\Response\PackageSearchResponse;
@@ -58,16 +55,12 @@ class YodaMapper
                     return $dataset;                    
                     
                 default:
-                    $sourceDataset->status = 'error';
-                    $sourceDataset->save();
-                    $this->log('ERROR', 'Invalid subdomains given', $sourceDataset);
-                    throw new \Exception('Invalid subdomains given');
+                    $this->log('WARNING', 'Invalid subdomains given', $sourceDataset);
+                    return $dataset;
             }
         }
-        $sourceDataset->status = 'error';
-        $sourceDataset->save();
-        $this->log('ERROR', 'No subdomains given', $sourceDataset);
-        throw new \Exception('No subdomains given');
+        $this->log('WARNING', 'Invalid subdomains given', $sourceDataset);
+        return $dataset;
     }
     
     private function createDatasetNameFromDoi($doiString) 
@@ -490,7 +483,8 @@ class YodaMapper
         }
         
         //attempt to map keywords from abstract and title
-        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes . ' ' . $dataset->title);
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
         
         //add downloadlinks from extra_payload
         $sourceIdentifier = $sourceDataset->source_dataset_identifier;        
@@ -527,13 +521,13 @@ class YodaMapper
         $extraPayload = $sourceIdentifier->extra_payload;
         
         if(isset($extraPayload['labIdentifier']) && isset($extraPayload['LabName'])) {
-            if((strlen($extraPayload['labIdentifier']) > 1) && (strlen($extraPayload['LabName']) > 1)) {                
+            if((strlen($extraPayload['labIdentifier']) > 1) || (strlen($extraPayload['LabName']) > 1)) {                
                 $lab = [
                     'msl_lab_name' => (string)$extraPayload['LabName'],
                     'msl_lab_id' => (string)$extraPayload['labIdentifier']
                 ];
-                
-                $dataset->msl_laboratories[] = $lab;
+                                
+                $dataset->addLab($lab);
             }
         }
                 

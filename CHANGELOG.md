@@ -8,6 +8,33 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added 
+- Add (CKAN)seeding functions from admin interface. Create/Update organizations described in JSON file using queue system
+- Only send lowest level vocabulary terms to CKAN for originally assigned keyword fields/facets.
+- BGS data harvesting. Initial setup for reviewing.
+- Rework of keyword structure. Vocabulary specific keywords are repalced with generic original and enriched fields within 
+CKAN data publication schema. Data models changed in harvesting backend, API and tree exports. 
+- Update BaseDateset to reflect schema changes in CKAN
+- Add API endpoint to retrieve keyword information by uri
+- Add text annotation for title and notes/description fields to keyword processor, mappers updated to use this function
+- Add match source information to (enriched)keyword information
+- Add exports published exports of vocabulary versions 1.1
+- Add and publish vocabulary versions 1.2
+
+## [1.4.0] - 2023-03-29
+- Update 4TU import to not use specific version doi references
+- Add parameter to APIs to exclude results without downloadlinks
+- Add new version of vocabularies and change code to work with specific versions
+- Exclude parts of vocabs from sub-domain matching
+
+## [1.3.2] - 2023-03-08
+- Adjust migrationscript to work with partial database update
+
+## [1.3.1] - 2023-03-08
+
+- Bugfix: remove databasename from query
+
+## [1.3.0] - 2023-03-08
+
 - Geochemistry vocab now uses two top levels
 - Update microscopy vocab
 - URI generation for vocabularies and specific terms
@@ -16,6 +43,11 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Keyword mapping no longer removes matched keywords from tag_string field
 - Change sorting of specific nodes in filter tree export used by frontend
 - Include 4TU importer/harvesting
+- Replace FTP based download harvester for GFZ with web crawling method
+- Add seperate keyword section in data structure to indicate original and interpreted keywords
+- Split JSON tree export for use in frontend into interpreted and original types
+- Enlarge databasefields to store larger response objects
+- Add turtle file and mockup webservice for EPOS TNA pitch
 
 ## [1.2.0] - 2022-11-11
 

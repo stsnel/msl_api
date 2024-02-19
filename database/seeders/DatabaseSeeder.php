@@ -16,7 +16,8 @@ class DatabaseSeeder extends Seeder
         $this->call([
             //AdminUserSeeder::class,
             ImportingSeeder::class,
-            VocabularySeeder::class
+            VocabularySeeder::class,
+            SeederSeeder::class
         ]);
     }
 }

@@ -7,7 +7,7 @@ class FilterTreeExport
 {
     
     
-    public function export() {
+    public function exportInterpreted() {
         $tree = [
             [
                 'text' => 'Material',
@@ -18,12 +18,12 @@ class FilterTreeExport
                     'checked' => false
                 ],            
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_material',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(1, 'msl_material_', true)
+                'children' => $this->getVocabAsFilters(37, 'msl_enriched_keyword_uri', true)
             ],
             [
                 'text' => 'Geological age',
@@ -34,12 +34,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_geologicalage',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(5, 'msl_geologicalage_', false, false)
+                'children' => $this->getVocabAsFilters(41, 'msl_enriched_keyword_uri', false, false)
             ],
             [
                 'text' => 'Pore fluid',
@@ -50,12 +50,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_porefluid',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(2, 'msl_porefluid_')
+                'children' => $this->getVocabAsFilters(38, 'msl_enriched_keyword_uri')
             ],
             [
                 'text' => 'Geological setting',
@@ -66,12 +66,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_geologicalsetting',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(6, 'msl_geologicalsetting_')
+                'children' => $this->getVocabAsFilters(42, 'msl_enriched_keyword_uri')
             ],
             [
                 'text' => 'Analogue modelling of geological processes',
@@ -82,12 +82,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_analogue',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(4, 'msl_analogue_')
+                'children' => $this->getVocabAsFilters(40, 'msl_enriched_keyword_uri')
             ],
             [
                 'text' => 'Geochemistry',
@@ -98,12 +98,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_geochemistry',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(8, 'msl_geochemistry_')
+                'children' => $this->getVocabAsFilters(44, 'msl_enriched_keyword_uri')
             ],
             [
                 'text' => 'Microscopy and tomography',
@@ -114,12 +114,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_microscopy',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(9, 'msl_microscopy_')
+                'children' => $this->getVocabAsFilters(45, 'msl_enriched_keyword_uri')
             ],
             [
                 'text' => 'Paleomagnetism',
@@ -130,12 +130,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_paleomagnetism',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(7, 'msl_paleomagnetism_')
+                'children' => $this->getVocabAsFilters(43, 'msl_enriched_keyword_uri')
             ],
             [
                 'text' => 'Rock and melt physics',
@@ -146,12 +146,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'node',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => '',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_rockphysic',
+                    'filterValue' => 'true'
                 ],
-                'children' => $this->getVocabAsFilters(3, 'msl_rockphysic_')
+                'children' => $this->getVocabAsFilters(39, 'msl_enriched_keyword_uri')
             ],
             [
                 'text' => 'Research Institute',
@@ -162,10 +162,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'facet',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => 'msl_lab_name',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_lab',
+                    'filterValue' => 'true',
+                    'includeFacet' => true,
+                    'facetName' => 'msl_lab_name'
                 ],
                 'children' => []
             ],
@@ -178,10 +180,12 @@ class FilterTreeExport
                     'checked' => false
                 ],
                 'extra' => [
-                    'type' => 'facet',
+                    'type' => 'filter',
                     'url' => '',
-                    'filterName' => 'organization',
-                    'filterValue' => ''
+                    'filterName' => 'msl_has_organization',
+                    'filterValue' => 'true',
+                    'includeFacet' => true,
+                    'facetName' => 'organization'
                 ],
                 'children' => []
             ],
@@ -190,8 +194,195 @@ class FilterTreeExport
         return (json_encode($tree, JSON_PRETTY_PRINT));
     }
     
+    public function exportOriginal() {
+        $tree = [
+            [
+                'text' => 'Material',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_material_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(37, 'msl_original_keyword_uri', true, true)
+            ],
+            [
+                'text' => 'Geological age',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_geologicalage_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(41, 'msl_original_keyword_uri', false, false)
+            ],
+            [
+                'text' => 'Pore fluid',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_porefluid_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(38, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Geological setting',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_geologicalsetting_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(42, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Analogue modelling of geological processes',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_analogue_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(40, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Geochemistry',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_geochemistry_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(44, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Microscopy and tomography',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_microscopy_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(45, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Paleomagnetism',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_paleomagnetism_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(43, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Rock and melt physics',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_rockphysic_original',
+                    'filterValue' => 'true'
+                ],
+                'children' => $this->getVocabAsFilters(39, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Research Institute',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_lab',
+                    'filterValue' => 'true',
+                    'includeFacet' => true,
+                    'facetName' => 'msl_lab_name'
+                ],
+                'children' => []
+            ],
+            [
+                'text' => 'Data repository',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => 'msl_has_organization',
+                    'filterValue' => 'true',
+                    'includeFacet' => true,
+                    'facetName' => 'organization'
+                ],
+                'children' => []
+            ],
+        ];
+        
+        return (json_encode($tree, JSON_PRETTY_PRINT));
+    }
     
-    private function getVocabAsFilters($vocabId, $filterPrefix = "", $sortToplevel = false, $sortChildren = true) {
+    
+    private function getVocabAsFilters($vocabId, $filterPrefix = "", $sortToplevel = false, $sortChildren = true, $filterSuffix = "") {
         if($sortToplevel) {
             $topNodes = Keyword::where(['vocabulary_id' => $vocabId, 'level' => 1])->orderBy('value', 'asc')->get();
         } else {
@@ -201,7 +392,7 @@ class FilterTreeExport
         
         foreach ($topNodes as $node) {
             $filter = [
-                'id' => $filterPrefix . $node->id,
+                'id' => $filterPrefix . $node->id . $filterSuffix,
                 'text' => $node->value,
                 'state' => [
                     'opened' => false,
@@ -212,10 +403,10 @@ class FilterTreeExport
                 'extra' => [
                     'type' => 'filter',
                     'url' => '',
-                    'filterName' => $filterPrefix . $node->level,
-                    'filterValue' => $node->getFullPath()
+                    'filterName' => $filterPrefix,
+                    'filterValue' => $node->uri
                 ],
-                'children' => $this->getChildren($node, $filterPrefix, $sortChildren)                
+                'children' => $this->getChildren($node, $filterPrefix, $sortChildren, $filterSuffix)                
             ];
             
             $vocabFilters[] = $filter;
@@ -224,14 +415,14 @@ class FilterTreeExport
         return $vocabFilters;        
     }
     
-    private function getChildren($keyword, $filterPrefix = "", $sort = true)
+    private function getChildren($keyword, $filterPrefix = "", $sort = true, $filterSuffix = "")
     {
         $children = $keyword->getChildren($sort);
         $childFilters = [];
         
         foreach ($children as $child) {
             $filter = [
-                'id' => $filterPrefix . $child->id,
+                'id' => $filterPrefix . $child->id . $filterSuffix,
                 'text' => $child->value,
                 'state' => [
                     'opened' => false,
@@ -242,10 +433,10 @@ class FilterTreeExport
                 'extra' => [
                     'type' => 'filter',
                     'url' => '',
-                    'filterName' => $filterPrefix . $child->level,
-                    'filterValue' => $child->getFullPath()
+                    'filterName' => $filterPrefix,
+                    'filterValue' => $child->uri
                 ],
-                'children' => $this->getChildren($child, $filterPrefix, $sort)
+                'children' => $this->getChildren($child, $filterPrefix, $sort, $filterSuffix)
             ];
             
             $childFilters[] = $filter;

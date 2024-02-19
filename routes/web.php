@@ -7,6 +7,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Models\User;
 use App\Http\Controllers\ToolsController;
+use App\Http\Controllers\SeederController;
 
 /*
 |--------------------------------------------------------------------------
@@ -36,6 +37,11 @@ Route::get('/importer/{importer_id}/imports/{import_id}/log', [HomeController::c
 Route::get('/importer/{importer_id}/imports/{import_id}/log-export', [HomeController::class, 'exportImportLog'])->name('importer-imports-log-export');
 Route::get('/importer/{importer_id}/imports/{import_id}/detail/{source_dataset_identifier_id}', [HomeController::class, 'importerImportsDetail'])->name('importer-imports-detail');
 
+Route::get('/seeders', [SeederController::class, 'index'])->name('seeders');
+Route::post('/create-seed', [SeederController::class, 'createSeed'])->name('create-seed');
+Route::get('/seeder/{id}/seeds', [SeederController::class, 'seederSeeds'])->name('seeder-seeds');
+Route::get('/seeds/{id}', [SeederController::class, 'seeds'])->name('seeds');
+
 Route::get('tools/convert-keywords', [ToolsController::class, 'convertKeywords'])->name('convert-keywords');
 Route::post('tools/convert-keywords', [ToolsController::class, 'processMaterialsFile'])->name('process-materials-file');
 Route::post('tools/convert-porefluids', [ToolsController::class, 'processPorefluidsFile'])->name('process-porefluids-file');
@@ -48,12 +54,18 @@ Route::post('tools/convert-geochemistry', [ToolsController::class, 'processGeoch
 Route::post('tools/convert-microscopy', [ToolsController::class, 'processMiscroscopyFile'])->name('process-microscopy-file');
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
+
+Route::get('tools/urilabels', [ToolsController::class, 'uriLabels'])->name('uri-labels');
+Route::get('tools/urilabelsdownload', [ToolsController::class, 'uriLabelsDownload'])->name('uri-label-download');
+
 Route::get('tools/filtertree', [ToolsController::class, 'filterTree'])->name('filter-tree');
 Route::get('tools/filtertreedownload', [ToolsController::class, 'filterTreeDownload'])->name('filter-tree-download');
+Route::get('tools/filtertreedownloadoriginal', [ToolsController::class, 'filterTreeDownloadOriginal'])->name('filter-tree-download-original');
 Route::get('tools/unmatchedkeywords', [ToolsController::class, 'viewUnmatchedKeywords'])->name('view-unmatched-keywords');
 Route::get('tools/unmatchedkeywordsdownload', [ToolsController::class, 'downloadUnmatchedKeywords'])->name('download-unmatched-keywords');
 Route::get('tools/abstract-matching', [ToolsController::class, 'abstractMatching'])->name('abstract-matching');
 Route::get('tools/abstract-matching-download/{data_repo}', [ToolsController::class, 'abstractMatchingDownload'])->name('abstract-matching-download');
+Route::get('tools/query-generator', [ToolsController::class, 'queryGenerator'])->name('query-generator');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
 Route::get('/imports', [HomeController::class, 'imports'])->name('imports');

@@ -69,6 +69,10 @@
                                     <a class="dropdown-item" href="{{ route('filter-tree') }}">                                                                              
                                         Download filter tree export
                                     </a>
+                                                                        
+                                    <a class="dropdown-item" href="{{ route('uri-labels') }}">                                                                              
+                                        Download uri-labels export
+                                    </a>
                                     
                                     <a class="dropdown-item" href="{{ route('view-unmatched-keywords') }}">                                                                              
                                         View unmatched keywords
@@ -76,6 +80,10 @@
                                     
                                     <a class="dropdown-item" href="{{ route('abstract-matching') }}">                                                                              
                                         Abstract matching
+                                    </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('query-generator') }}">                                                                              
+                                        Query generator
                                     </a>
                                 </div>
                             </li>
@@ -85,8 +93,12 @@
                             </li>
                             
                             <li class="nav-item">
-                                <a class="nav-link" href="{{ route('importers') }}">{{ __('Importers') }}</a>
+                                <a class="nav-link" href="{{ route('seeders') }}">{{ __('Seeders') }}</a>
                             </li>
+                            
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ route('importers') }}">{{ __('Importers') }}</a>
+                            </li>                           
                             
                             <li class="nav-item dropdown">
                             	<a id="navbarDropdownActions" class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>

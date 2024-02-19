@@ -1,7 +1,7 @@
 [
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21789452.v1",
+        "doi": "10.4121\/21789452",
         "title": "Data related to the research of alkenones in Lake Luming sediment core in northeastern China",
         "posted_date": "2022-12-29T12:48:24",
         "authors": "[01] Yuan Yao",
@@ -10,7 +10,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21678938.v1",
+        "doi": "10.4121\/21678938",
         "title": "The time series geochemical records and paleomagnetic data from the Gantang section in the Yuanmou Basin, Southwest China",
         "posted_date": "2022-12-19T10:28:41",
         "authors": "[01] Ze Zhang",
@@ -19,7 +19,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21640148.v2",
+        "doi": "10.4121\/21640148",
         "title": "Geothermal Project on TU Delft Campus - DAPGEO-02 Drilling Report",
         "posted_date": "2022-12-09T07:53:50",
         "authors": "[01] Philip Vardon; [02] Hemmo A Abels; [03] Auke Barnhoorn; [04] Stijn Beernink; [05] Anne-Catherine Dieudonn\u00e9; [06] Guy Drijkoningen; [07] Pieter Geris; [08] Pieter Pauw; [09] Erika Neeft; [10] Susanne Laumann; [11] Tobias Schmiedel; [12] Jens van den Berg; [13] Liliana Vargas Meleza",
@@ -28,7 +28,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21528819.v1",
+        "doi": "10.4121\/21528819",
         "title": "Geothermal Project on TU Delft Campus - DAPGEO-02 Core CT-Scan Data",
         "posted_date": "2022-12-09T07:48:50",
         "authors": "[01] Philip Vardon; [02] Anne-Catherine Dieudonn\u00e9; [03] Stijn Beernink; [04] Hemmo A Abels; [05] Auke Barnhoorn; [06] Susanne Laumann; [07] Ellen Meijvogel-de Koning; [08] Liliana Vargas Meleza",
@@ -37,7 +37,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/20299644.v1",
+        "doi": "10.4121\/20299644",
         "title": "Geothermal Project on TU Delft Campus - DAPGEO-02 Initial Borehole Dataset",
         "posted_date": "2022-12-08T09:34:06",
         "authors": "[01] Philip Vardon; [02] Hemmo A Abels; [03] Auke Barnhoorn; [04] Stijn Beernink; [05] Anne-Catherine Dieudonn\u00e9; [06] Susanne Laumann; [07] Guy Drijkoningen; [08] Liliana Vargas Meleza",
@@ -46,7 +46,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21523512.v2",
+        "doi": "10.4121\/21523512",
         "title": "Data for paper : The Initiation of Frictional Motion - the nucleation dynamics of of frictional ruptures",
         "posted_date": "2022-11-23T14:02:29",
         "authors": "[01] Shahar Gvirtzman; [02] J. (Jay) Fineberg",
@@ -55,7 +55,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21533988.v1",
+        "doi": "10.4121\/21533988",
         "title": "Physical properties and mechanical parameters of limestone rocks from Central Apennines (Italy) by laboratory test on intact rock specimens",
         "posted_date": "2022-11-11T07:34:52",
         "authors": "[01] Marco Emanuele Discenza",
@@ -64,7 +64,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21510030.v1",
+        "doi": "10.4121\/21510030",
         "title": "Dataset of Cone Penetration Tests (CPTs) to study soil heterogeneity",
         "posted_date": "2022-11-09T09:10:07",
         "authors": "[01] Mark van der Krogt",
@@ -73,7 +73,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21316563.v1",
+        "doi": "10.4121\/21316563",
         "title": "Data related to the research of alkenones in Lake Ngoring sediment core on the northeastern Tibetan Plateau",
         "posted_date": "2022-10-12T13:34:55",
         "authors": "[01] Yuan Yao",
@@ -82,7 +82,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/21187270.v1",
+        "doi": "10.4121\/21187270",
         "title": "Supplementary data for the package DIMOPREC (Development of a Well Impairment Model for Predicting Geothermal Clogging)",
         "posted_date": "2022-09-28T12:09:34",
         "authors": "[01] Ahmed Hussain; [02] Karl-Heinz Wollf; [03] Bernard Meulenbroek; [04] Negar Khoshnevis Gargar; [05] Wouter van der Star; [06] Hans Bruining; [07] Han Claringbould; [08] Isabelle Llaneza",
@@ -91,7 +91,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/15153594.v1",
+        "doi": "10.4121\/15153594",
         "title": "Supporting information for publication \"Protracted thermal evolution of a migmatitic terrane as revealed by multiple geochronometers from the retro-arc of the early Paleozoic Famatinian orogen in NW Argentina\"",
         "posted_date": "2022-09-08T07:28:00",
         "authors": "[01] Roberto Weinberg",
@@ -100,7 +100,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/20469435.v1",
+        "doi": "10.4121\/20469435",
         "title": "Code and data accompanying the paper entitled \"Seismic fault slip behaviour predicted from internal microphysical processes\"",
         "posted_date": "2022-08-12T08:49:38",
         "authors": "[01] Jianye Chen",
@@ -109,7 +109,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14820342.v6",
+        "doi": "10.4121\/14820342",
         "title": "The time series geochemical records and paleomagnetic data from the Huangdigou section in the Fenwei Basin, North China",
         "posted_date": "2022-07-04T06:23:28",
         "authors": "[01] Ze Zhang",
@@ -118,7 +118,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/20179856.v1",
+        "doi": "10.4121\/20179856",
         "title": "Data accompanying the paper entitled \"Fault weakening during short seismic slip pulse experiments: Implications for induced earthquakes in the Groningen gas field\"",
         "posted_date": "2022-06-29T12:58:21",
         "authors": "[01] Jianye Chen; [02] Andr\u00e9 R Niemeijer",
@@ -127,7 +127,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/19500344.v2",
+        "doi": "10.4121\/19500344",
         "title": "Data accompanying the paper entitled \"Rapid normal stress oscillations cause dilatation and weakening in gouge-bearing faults\"",
         "posted_date": "2022-06-29T12:57:24",
         "authors": "[01] Jianye Chen; [02] Andr\u00e9 R Niemeijer",
@@ -136,7 +136,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/20141567.v1",
+        "doi": "10.4121\/20141567",
         "title": "A dataset of 10-year regional-scale soil moisture and soil temperature measurements at multiple depths on the Tibetan Plateau",
         "posted_date": "2022-06-28T12:40:17",
         "authors": "[01] Pei Zhang; [02] D. (Donghai) Zheng; [03] R. (Rogier) van der Velde; [04] J. (Jun) Wen; [05] Y.(Yaoming) Ma; [06] Y. (Yijian) Zeng; [07] X. (Xin) Wang; [08] Z. (Zuoliang) Wang; [09] J. (Jiali) Chen; [10] Z. (Bob) Su",
@@ -145,7 +145,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/19664427.v1",
+        "doi": "10.4121\/19664427",
         "title": "Matlab files used to produce the figures in publication \"Induced aseismic slip and the onset of seismicity in displaced faults\"",
         "posted_date": "2022-05-02T09:35:36",
         "authors": "[01] Jan Dirk Jansen; [02] Bernard Meulenbroek",
@@ -154,7 +154,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/19519861.v1",
+        "doi": "10.4121\/19519861",
         "title": "Dataset accompanying the manuscript: The existence and origin of multiple equilibria in sand-mud sediment beds",
         "posted_date": "2022-04-08T07:21:20",
         "authors": "[01] Ana Colina Alonso; [02] Bas van Maren; [03] Peter Herman; [04] Roy van Weerdenburg; [05] Ymkje Huismans; [06] Sander Holthuijsen; [07] L.L. (Laura) Govers; [08] Allert Bijleveld; [09] Zheng-Bing Wang",
@@ -163,7 +163,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/12707453.v2",
+        "doi": "10.4121\/12707453",
         "title": "Flow and bed morphology response to the introduction of large wood for sediment management",
         "posted_date": "2022-04-06T07:41:06",
         "authors": "[01] Judith Zomer",
@@ -172,7 +172,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/19390835.v1",
+        "doi": "10.4121\/19390835",
         "title": "Data underlying the publication: Long-term infrasonic monitoring of land and marine-terminating glaciers in Greenland",
         "posted_date": "2022-04-01T09:51:29",
         "authors": "[01] L\u00e4slo Evers",
@@ -181,7 +181,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/16974109.v1",
+        "doi": "10.4121\/16974109",
         "title": "Data support for \"Multiple heat transport maxima in confined-rotating Rayleigh-B\u00e9nard convection\"",
         "posted_date": "2022-03-28T14:11:34",
         "authors": "[01] Robert Hartmann",
@@ -190,7 +190,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/17121380.v1",
+        "doi": "10.4121\/17121380",
         "title": "Data underlying the survey on Elasticity of hcp Fe-H alloy.",
         "posted_date": "2021-12-06T12:41:25",
         "authors": "[01] Shichuan Sun; [02] Yu He; [03] Duck Young Kim; [04] Heping Li; [05] Ho-Kwang Mao",
@@ -199,7 +199,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/17076044.v1",
+        "doi": "10.4121\/17076044",
         "title": "Age and long chain diol index from four sediment cores from the Arabian Sea",
         "posted_date": "2021-11-29T10:35:30",
         "authors": "[01] Zeynep Erdem; [02] Jullie Lattaud; [03] Marit M. van Erk; [04] Gert-Jan Reichart; [05] Andreas L\u00fcckge; [06] Jaap S. Sinninghe Damst\u00e9; [07] Stefan Schouten",
@@ -208,7 +208,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/17014052.v1",
+        "doi": "10.4121\/17014052",
         "title": "Alkenones and planktonic foraminifera oxygen isotope, Mg\/Ca data from PASOM3",
         "posted_date": "2021-11-16T15:05:32",
         "authors": "[01] Zeynep Erdem; [02] Jullie Lattaud; [03] Marit M. van Erk; [04] Eveline Mezger; [05] Gert-Jan Reichart; [06] Jaap S. Sinninghe Damst\u00e9; [07] Stefan Schouten",
@@ -217,7 +217,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/17013755.v1",
+        "doi": "10.4121\/17013755",
         "title": "Long chain diols from four Arabian Sea sediment cores, data from 4 different expeditions",
         "posted_date": "2021-11-16T15:05:19",
         "authors": "[01] Zeynep Erdem; [02] Jullie Lattaud; [03] Marit M. van Erk; [04] Gert-Jan Reichart; [05] Andreas L\u00fcckge; [06] Jaap S. Sinninghe Damst\u00e9; [07] Stefan Schouten",
@@ -226,7 +226,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/17004049.v1",
+        "doi": "10.4121\/17004049",
         "title": "Dataset of Element Compositions and Mean Zircon Hafnium Isotopes of Igneous Rocks underlying the research: A test of the hypothesis that syn-collisional felsic magmatism contributes to continental crustal growth",
         "posted_date": "2021-11-15T15:31:55",
         "authors": "[01] Xin Lin; [02] Domenico Cicchella; [03] Jun Hong; [04] Ganggang Meng",
@@ -235,7 +235,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/16864147.v1",
+        "doi": "10.4121\/16864147",
         "title": "LiDAR Datasets for Hypogenic and Epigenic Caves in Bahia, Brazil (2019)",
         "posted_date": "2021-11-01T15:20:29",
         "authors": "[01] Stephan de Hoop; [02] Rahul Prabhakaran; [03] G. (Giovanni) Bertotti; [04] H. (Hilario) Bezerra; [05] Cayo Pontes; [06] Rebecca Lima; [07] Philippe Audra; [08] Augusto Auler",
@@ -244,7 +244,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/16864108.v1",
+        "doi": "10.4121\/16864108",
         "title": "LiDAR Datasets for Hypogenic and Epigenic Caves in Bahia, Brazil (2018)",
         "posted_date": "2021-11-01T15:20:17",
         "authors": "[01] Stephan de Hoop; [02] Rahul Prabhakaran; [03] G. (Giovanni) Bertotti; [04] H. (Hilario) Bezerra; [05] Cayo Pontes; [06] Rebecca Lima; [07] Philippe Audra; [08] Augusto Auler",
@@ -253,7 +253,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/16832254.v1",
+        "doi": "10.4121\/16832254",
         "title": "LiDAR Dataset for Hypogenic Morro Vermelho Cave in Bahia, Brazil (2018)",
         "posted_date": "2021-11-01T15:20:03",
         "authors": "[01] Stephan de Hoop; [02] Rahul Prabhakaran; [03] G. (Giovanni) Bertotti; [04] H. (Hilario) Bezerra; [05] Cayo Pontes; [06] Rebecca Lima; [07] Philippe Audra; [08] Augusto Auler",
@@ -262,7 +262,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14464893.v2",
+        "doi": "10.4121\/14464893",
         "title": "Supplementary data to the article: Fractal and Multifractal Characterization of Stochastic Fracture Networks and Real Outcrops",
         "posted_date": "2021-10-26T13:27:30",
         "authors": "[01] Weiwei Zhu",
@@ -271,7 +271,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/16837138.v1",
+        "doi": "10.4121\/16837138",
         "title": "Data underlying the research of  Mg isotope compositions of river water and suspended load in the southeastern coastal region of China",
         "posted_date": "2021-10-21T08:15:42",
         "authors": "[01] Tong Zhao",
@@ -280,7 +280,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/12721394.v3",
+        "doi": "10.4121\/12721394",
         "title": "Low frequency dataset for tight sandstones and carbonates",
         "posted_date": "2021-10-19T08:46:55",
         "authors": "[01] Hui Li",
@@ -289,7 +289,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/13469325.v1",
+        "doi": "10.4121\/13469325",
         "title": "Data from 'Seasonal River Export of Nitrogen to Guanting and Baiyangdian Lakes in the Hai He Basin'",
         "posted_date": "2021-10-11T05:55:54",
         "authors": "[01] Jing Yang",
@@ -298,7 +298,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/12852113.v1",
+        "doi": "10.4121\/12852113",
         "title": "NIOZ racetrack sand-shell experiment, data belonging to the paper: Sediment shell-content diminishes current-driven sand ripple development and migration",
         "posted_date": "2021-10-05T12:20:12",
         "authors": "[01] Chiu H. Cheng",
@@ -307,7 +307,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/16632559.v1",
+        "doi": "10.4121\/16632559",
         "title": "DEM simulation data containing micro- and macro-scale quantities of granular materials under triaxial compression",
         "posted_date": "2021-09-23T12:06:26",
         "authors": "[01] Hongyang Cheng",
@@ -316,7 +316,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/16404870.v1",
+        "doi": "10.4121\/16404870",
         "title": "Appendices to the master thesis: Understanding environmental risks related to geothermal fluids: An integrated approach from natural and social sciences in three countries",
         "posted_date": "2021-08-23T15:03:21",
         "authors": "[01] Jeanne Steijn",
@@ -325,7 +325,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14865096.v2",
+        "doi": "10.4121\/14865096",
         "title": "Supplementary data to the article: Enhancing Fracture Network Characterization: A Data-Driven, Outcrop-Based Analysis",
         "posted_date": "2021-07-05T07:39:13",
         "authors": "[01] Weiwei Zhu",
@@ -334,7 +334,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14537856.v1",
+        "doi": "10.4121\/14537856",
         "title": "Supporting information for the article: Elastic geobarometry for anisotropic inclusions in anisotropic host minerals: quartz-in-zircon.",
         "posted_date": "2021-06-03T11:28:23",
         "authors": "[01] Joseph Gonzalez; [02] Mattia Mazzucchelli; [03] Ross John Angel; [04] Matteo Alvaro",
@@ -343,7 +343,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14701947.v1",
+        "doi": "10.4121\/14701947",
         "title": "Research data for Geo-electric assessment for groundwater potential at permanent site of Waziri Umaru Federal Polytechnic",
         "posted_date": "2021-06-02T06:46:15",
         "authors": "[01] Ibrahim Mohammed; [02] Suleiman Taofiq",
@@ -352,7 +352,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14697138.v1",
+        "doi": "10.4121\/14697138",
         "title": "Data for paper - How Friction starts: Nucleation Fronts trigger Interface Rupture",
         "posted_date": "2021-05-31T12:10:39",
         "authors": "[01] Shahar Gvirtzman; [02] J. (Jay) Fineberg",
@@ -361,7 +361,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14634021.v1",
+        "doi": "10.4121\/14634021",
         "title": "Data resulting from slide-hold-slide friction experiments on three types of carbonate faults rocks.",
         "posted_date": "2021-05-21T06:29:03",
         "authors": "[01] Yohan Park; [02] Takehiro Hirose; [03] Jin-Han Ree",
@@ -370,7 +370,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14619222.v1",
+        "doi": "10.4121\/14619222",
         "title": "Data underlying the publication: Dominantly Aseismic Nucleation of Laboratory Earthquakes: A Quantitative Investigation",
         "posted_date": "2021-05-21T06:26:36",
         "authors": "[01] Samson Marty",
@@ -379,7 +379,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14602119.v1",
+        "doi": "10.4121\/14602119",
         "title": "Supplementary data to the article: Fracture sealing and its impact on percolation in the subsurface fracture networks: a simulation study.",
         "posted_date": "2021-05-17T13:30:02",
         "authors": "[01] Weiwei Zhu",
@@ -388,7 +388,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/14247125.v1",
+        "doi": "10.4121\/14247125",
         "title": "Supporting information for 'A two-stage cooling of the Georgetown Inlier in NE Australia after 1.6 Ga Nuna assembly: new insights into the late-orogenic crustal tectono-magmatic history'",
         "posted_date": "2021-03-19T09:25:21",
         "authors": "[01] Jiangyu Li; [02] Z. (ZhengXiang) Li; [03] A. (Amaury) Pourteau; [04] F. (Fred) Jourdan; [05] S. (Silvia ) Volante; [06] Hugo K. H. Olierook; [07] Adam Richmond Nordsvan; [08] William J. Collins",
@@ -397,7 +397,7 @@
     },
     {
         "IF MSL --> \"1\" ": 1,
-        "doi": "10.4121\/13785643.v1",
+        "doi": "10.4121\/13785643",
         "title": "Pb isotopic data of the Jianchuan, Yinggehai and Qiongdongnan basins",
         "posted_date": "2021-02-10T07:48:40",
         "authors": "[01] Zengjie Zhang",
