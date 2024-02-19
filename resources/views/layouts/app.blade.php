@@ -81,6 +81,10 @@
                                     <a class="dropdown-item" href="{{ route('abstract-matching') }}">                                                                              
                                         Abstract matching
                                     </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('query-generator') }}">                                                                              
+                                        Query generator
+                                    </a>
                                 </div>
                             </li>
                         

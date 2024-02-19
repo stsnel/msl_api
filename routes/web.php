@@ -42,7 +42,6 @@ Route::post('/create-seed', [SeederController::class, 'createSeed'])->name('crea
 Route::get('/seeder/{id}/seeds', [SeederController::class, 'seederSeeds'])->name('seeder-seeds');
 Route::get('/seeds/{id}', [SeederController::class, 'seeds'])->name('seeds');
 
-
 Route::get('tools/convert-keywords', [ToolsController::class, 'convertKeywords'])->name('convert-keywords');
 Route::post('tools/convert-keywords', [ToolsController::class, 'processMaterialsFile'])->name('process-materials-file');
 Route::post('tools/convert-porefluids', [ToolsController::class, 'processPorefluidsFile'])->name('process-porefluids-file');
@@ -66,6 +65,7 @@ Route::get('tools/unmatchedkeywords', [ToolsController::class, 'viewUnmatchedKey
 Route::get('tools/unmatchedkeywordsdownload', [ToolsController::class, 'downloadUnmatchedKeywords'])->name('download-unmatched-keywords');
 Route::get('tools/abstract-matching', [ToolsController::class, 'abstractMatching'])->name('abstract-matching');
 Route::get('tools/abstract-matching-download/{data_repo}', [ToolsController::class, 'abstractMatchingDownload'])->name('abstract-matching-download');
+Route::get('tools/query-generator', [ToolsController::class, 'queryGenerator'])->name('query-generator');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
 Route::get('/imports', [HomeController::class, 'imports'])->name('imports');

@@ -71,7 +71,7 @@ class KeywordHelper
                 
                 foreach ($searchKeywords as $searchKeyword) {
                     if($searchKeyword->search_value !== '') {
-                        $expr = '/\b' . preg_quote($searchKeyword->search_value, '/') . '\b/i';
+                        $expr = $this->createKeywordSearchRegex($searchKeyword->search_value);
                         if (preg_match($expr, $text)) {
                             $keyword = $searchKeyword->keyword;
                             
@@ -136,7 +136,7 @@ class KeywordHelper
                 
                 foreach ($searchKeywords as $searchKeyword) {
                     if($searchKeyword->search_value !== '') {
-                        $expr = '/\b' . preg_quote($searchKeyword->search_value, '/') . '\b/i';
+                        $expr = $this->createKeywordSearchRegex($searchKeyword->search_value);
                         if (preg_match($expr, $text)) {
                             $keyword = $searchKeyword->keyword;                                                       
                             
@@ -203,14 +203,21 @@ class KeywordHelper
         
         foreach ($searchKeywords as $searchKeyword) {
             if($searchKeyword->search_value !== '') {
-                $expr = '/\b' . preg_quote($searchKeyword->search_value, '/') . '\b/i';
+                $expr = $this->createKeywordSearchRegex($searchKeyword->search_value);
                 if (preg_match($expr, $text)) {
                     $matchedKeywords[] = $searchKeyword->keyword;
                 }
             }
         }
-                
+                               
         return $matchedKeywords;
+    }
+    
+    private function createKeywordSearchRegex($searchValue) {
+        if(str_ends_with($searchValue, ',')) {
+            return '/\b' . preg_quote($searchValue, '/') . '/i';
+        }
+        return '/\b' . preg_quote($searchValue, '/') . '\b/i';
     }
     
     private function cleanKeyword($string)
