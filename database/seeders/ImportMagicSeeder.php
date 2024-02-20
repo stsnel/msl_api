@@ -38,8 +38,18 @@ class ImportMagicSeeder extends Seeder
                         'type' => 'jsonListing',
                         'options' => [
                             'filePath' => '/import-data/magic/converted.json',
-                            'identifierKey' => 'doi'
-                        ]                        
+                            'identifierKey' => 'identifier'
+                        ],
+                        'extra_data_loader' => [
+                            'type' => 'jsonLoader',
+                            'options' => [
+                                'filePath' => '/import-data/magic/converted.json',
+                                'dataKeyMapping' => [
+                                    'contentUrl' => 'contentUrl',
+                                    'description' => 'description'
+                                ]
+                            ]
+                        ]
                     ],
                     'identifierProcessor' => [
                         'type' => 'dataciteXmlRetrieval',
