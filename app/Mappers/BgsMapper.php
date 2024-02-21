@@ -219,7 +219,9 @@ class BgsMapper
                 }
                 if(isset($identifierType[0])) {
                     if((string)$identifierType[0] == 'ORCID') {
-                        $author['msl_author_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                        if(isset($identifierNode[0])) {
+                            $author['msl_author_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                        }
                     }
                     if((string)$identifierType[0] == 'Author identifier (Scopus)') {
                         $author['msl_author_scopus'] = (string)$identifierNode[0];
@@ -310,13 +312,15 @@ class BgsMapper
                 
                 if(isset($identifierTypeNode[0])) {
                     if((string)$identifierTypeNode[0] == 'DOI') {
-                        $reference['msl_reference_doi'] = $this->cleanDoi((string)$identifierNode[0]);
-                        
-                        $citationString = $this->dataciteHelper->getCitationString($reference['msl_reference_doi']);
-                        if(strlen($citationString) == 0) {
-                            $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_doi'], $sourceDataset);
-                        } else {
-                            $reference['msl_reference_title'] = $citationString;
+                        if(isset($identifierNode[0])) {
+                            $reference['msl_reference_doi'] = $this->cleanDoi((string)$identifierNode[0]);
+                            
+                            $citationString = $this->dataciteHelper->getCitationString($reference['msl_reference_doi']);
+                            if(strlen($citationString) == 0) {
+                                $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_doi'], $sourceDataset);
+                            } else {
+                                $reference['msl_reference_title'] = $citationString;
+                            }
                         }
                     }
                 }
