@@ -6,15 +6,8 @@ use App\Models\MappingLog;
 use App\Ckan\Request\PackageSearch;
 use App\Ckan\Response\PackageSearchResponse;
 use App\Mappers\Helpers\DataciteCitationHelper;
-use App\Models\MaterialKeyword;
-use App\Models\ApparatusKeyword;
-use App\Models\AncillaryEquipmentKeyword;
-use App\Models\PoreFluidKeyword;
-use App\Models\MeasuredPropertyKeyword;
-use App\Models\InferredDeformationBehaviorKeyword;
 use App\Datasets\BaseDataset;
 use App\Mappers\Helpers\KeywordHelper;
-use App\Mappers\Helpers\GfzDownloadHelper;
 use App\Mappers\Helpers\BgsDownloadHelper;
 
 class BgsMapper
@@ -165,79 +158,245 @@ class BgsMapper
         //dd($xmlDocument->getNamespaces(true));
         
         //declare xpath namespaces
-        $xmlDocument->registerXPathNamespace('gmd', 'http://www.isotc211.org/2005/gmd');
-        $xmlDocument->registerXPathNamespace('gco', 'http://www.isotc211.org/2005/gco');
-        $xmlDocument->registerXPathNamespace('xlink', 'http://www.w3.org/1999/xlink');
-                                
+        $xmlDocument->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+        $xmlDocument->registerXPathNamespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance');
+        $xmlDocument->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
+        
         $dataset = new BaseDataset();
         
-        //set owner_org
-        $dataset->owner_org = $sourceDataset->source_dataset_identifier->import->importer->data_repository->ckan_name;
-        
+        // set subdomains
+        // $dataset = $this->getSubDomains($dataset, $sourceDataset);
         
         //extract title
-        $result = $xmlDocument->xpath('/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:title/gco:CharacterString/node()');
+        $result = $xmlDocument->xpath('/dc:resource/dc:titles[1]/dc:title[1]/node()[1]');
         if(isset($result[0])) {
             $dataset->title = (string)$result[0];
         }
         
-        //set publisher
-        $dataset->msl_publisher = 'British Geological Survey';
-        
         //extract name
-        //doi is not available for all records at bgs so use bgs identifier instead
-        $result = $xmlDocument->xpath('/gmd:MD_Metadata/gmd:fileIdentifier/gco:CharacterString/node()');        
-        if(isset($result[0])) {
-            $dataset->name = $this->createDatasetNameFromDoi((string)$result[0]);
-        }
-                
+        $dataset->name = $this->createDatasetNameFromDoi($sourceDataset->source_dataset_identifier->identifier);
+        
         //extract doi
-        $result = $xmlDocument->xpath("/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource[./gmd:name/gco:CharacterString='Digital Object Identifier (DOI)']/gmd:linkage/gmd:URL[1]/node()[1]");
-        if(isset($result[0])) {
-            $dataset->msl_doi = (string)$result[0];
-            
-            
-            $doi = $this->cleanDoi((string)$result[0]);
-            
-            $citationString = $this->dataciteHelper->getCitationString($doi);
-            if(strlen($citationString > 0)) {
-                $dataset->msl_citation = $citationString;
-            }
+        $dataset->msl_doi = $this->cleanDoi($sourceDataset->source_dataset_identifier->identifier);
+        
+        //extract source
+        $dataset->msl_source = "http://dx.doi.org/" . $sourceDataset->source_dataset_identifier->identifier;
+        
+        //set citation
+        $citationString = $this->dataciteHelper->getCitationString($sourceDataset->source_dataset_identifier->identifier);
+        if(strlen($citationString > 0)) {
+            $dataset->msl_citation = $citationString;
         }
         
-        //extract msl_publication_date
-        $result = $xmlDocument->xpath('/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:citation/gmd:CI_Citation/gmd:date/gmd:CI_Date/gmd:date/gco:Date[1]/node()');
+        //extract year
+        $result = $xmlDocument->xpath('/dc:resource[1]/dc:publicationYear[1]/node()[1]');
         if(isset($result[0])) {
-            $dataset->msl_publication_day = $this->getDay((string)$result[0]);
-            $dataset->msl_publication_month = $this->getMonth((string)$result[0]);
-            $dataset->msl_publication_year = $this->getYear((string)$result[0]);
+            $dataset->msl_publication_year = (string)$result[0];
             $dataset->msl_publication_date = $this->formatDate((string)$result[0]);
         }
         
+        //extract authors
+        $authorsResult = $xmlDocument->xpath("/dc:resource[1]/dc:creators/dc:creator");
+        if(count($authorsResult) > 0) {
+            foreach ($authorsResult as $authorResult) {
+                $author = [
+                    'msl_author_name' => '',
+                    'msl_author_orcid' => '',
+                    'msl_author_scopus' => '',
+                    'msl_author_affiliation' => ''
+                ];
+                
+                $authorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                
+                $nameNode = $authorResult->xpath(".//dc:creatorName[1]/node()[1]");
+                $identifierNode =  $authorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
+                $identifierType = $authorResult->xpath(".//dc:nameIdentifier[1]/@nameIdentifierScheme");
+                $affiliationNodes = $authorResult->xpath(".//dc:affiliation/node()");
+                
+                
+                if(isset($nameNode[0])) {
+                    $author['msl_author_name'] = (string)$nameNode[0];
+                }
+                if(isset($identifierType[0])) {
+                    if((string)$identifierType[0] == 'ORCID') {
+                        $author['msl_author_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                    }
+                    if((string)$identifierType[0] == 'Author identifier (Scopus)') {
+                        $author['msl_author_scopus'] = (string)$identifierNode[0];
+                    }
+                }
+                
+                if(count($affiliationNodes) > 0) {
+                    $affilitionString = '';
+                    foreach ($affiliationNodes as $affiliationNode) {
+                        if($affilitionString !== '') {
+                            $affilitionString = $affilitionString . ' ';
+                        }
+                        $affilitionString = $affilitionString . (string)$affiliationNode . ';';
+                    }
+                    $author['msl_author_affiliation'] = $affilitionString;
+                }
+                
+                $dataset->msl_authors[] = $author;
+            }
+        }
+        
+        //extract contributors
+        $contributorsResult = $xmlDocument->xpath("/dc:resource[1]/dc:contributors/dc:contributor");
+        if(count($contributorsResult) > 0) {
+            foreach ($contributorsResult as $contributorResult) {
+                $contributor = [
+                    'msl_contributor_name' => '',
+                    'msl_contributor_role' => '',
+                    'msl_contributor_orcid' => '',
+                    'msl_contributor_scopus' => '',
+                    'msl_contributor_affiliation' => ''
+                ];
+                
+                $contributorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                
+                $nameNode = $contributorResult->xpath(".//dc:contributorName[1]/node()[1]");
+                $roleNode = $contributorResult->xpath(".//@contributorType");
+                $identifierNode =  $contributorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
+                $identifierType = $contributorResult->xpath(".//dc:nameIdentifier[1]/@nameIdentifierScheme");
+                $affiliationNodes = $contributorResult->xpath(".//dc:affiliation/node()");
+                
+                if(isset($nameNode[0])) {
+                    $contributor['msl_contributor_name'] = (string)$nameNode[0];
+                }
+                if(isset($roleNode[0])) {
+                    $contributor['msl_contributor_role'] = (string)$roleNode[0];
+                }
+                if(isset($identifierType[0])) {
+                    if((string)$identifierType[0] == 'ORCID') {
+                        $contributor['msl_contributor_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                    }
+                    if((string)$identifierType[0] == 'Author identifier (Scopus)') {
+                        $contributor['msl_contributor_scopus'] = (string)$identifierNode[0];
+                    }
+                }
+                
+                if(count($affiliationNodes) > 0) {
+                    $affilitionString = '';
+                    foreach ($affiliationNodes as $affiliationNode) {
+                        if($affilitionString !== '') {
+                            $affilitionString = $affilitionString . ' ';
+                        }
+                        $affilitionString = $affilitionString . (string)$affiliationNode . ';';
+                    }
+                    $contributor['msl_contributor_affiliation'] = $affilitionString;
+                }
+                
+                $dataset->msl_contributors[] = $contributor;
+            }
+        }
+        
+        //extract references
+        $referencesResult = $xmlDocument->xpath("/dc:resource[1]/dc:relatedIdentifiers/dc:relatedIdentifier");
+        if(count($referencesResult) > 0) {
+            foreach ($referencesResult as $referenceResult) {
+                $reference = [
+                    'msl_reference_doi' => '',
+                    'msl_reference_handle' => '',
+                    'msl_reference_title' => '',
+                    'msl_reference_type' => ''
+                ];
+                
+                $referenceResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                
+                $identifierNode = $referenceResult->xpath(".//node()[1]");
+                $identifierTypeNode = $referenceResult->xpath(".//@relatedIdentifierType");
+                $referenceTypeNode = $referenceResult->xpath(".//@relationType");
+                
+                if(isset($identifierTypeNode[0])) {
+                    if((string)$identifierTypeNode[0] == 'DOI') {
+                        $reference['msl_reference_doi'] = $this->cleanDoi((string)$identifierNode[0]);
+                        
+                        $citationString = $this->dataciteHelper->getCitationString($reference['msl_reference_doi']);
+                        if(strlen($citationString) == 0) {
+                            $this->log('WARNING', "datacite citation returned empty for DOI: " . $reference['msl_reference_doi'], $sourceDataset);
+                        } else {
+                            $reference['msl_reference_title'] = $citationString;
+                        }
+                    }
+                }
+                
+                if(isset($referenceTypeNode[0])) {
+                    $reference['msl_reference_type'] = (string)$referenceTypeNode[0];
+                }
+                
+                $dataset->msl_references[] = $reference;
+            }
+        }
+        
         //extract notes
-        $result = $xmlDocument->xpath('/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:abstract/gco:CharacterString/node()');
+        $result = $xmlDocument->xpath('/dc:resource[1]/dc:descriptions[1]/dc:description[1]/node()[1]');
+        //$dataset->notes = '-';
         if(isset($result[0])) {
             $dataset->notes = (string)$result[0];
         }
         
-        //extract tags/keywords
-        $results = $xmlDocument->xpath('/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:descriptiveKeywords/gmd:MD_Keywords/gmd:keyword/gco:CharacterString/node()');
-        if(count($results) > 0) {
-            
-            $keywords = [];
-            foreach ($results as $result) {
-                $keywords[] = (string)$result[0];
+        //set owner_org
+        $dataset->owner_org = $sourceDataset->source_dataset_identifier->import->importer->data_repository->ckan_name;
+        
+        //set publisher
+        $dataset->msl_publisher = 'British Geological Survey - National Geoscience Data Centre (UKRI/NERC)';
+        
+        //extract spatial coordinates
+        $spatialResults = $xmlDocument->xpath("/dc:resource/dc:geoLocations/dc:geoLocation/dc:geoLocationBox");
+        if(count($spatialResults) > 0) {
+            foreach ($spatialResults as $spatialResult) {
+                $spatial = [
+                    'msl_elong' => '',
+                    'msl_nLat' => '',
+                    'msl_sLat' => '',
+                    'msl_wLong' => ''
+                ];
+                
+                $spatialResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                
+                $elongNode = $spatialResult->xpath(".//dc:eastBoundLongitude/node()");
+                $nlatNode = $spatialResult->xpath(".//dc:northBoundLatitude/node()");
+                $slatNode = $spatialResult->xpath(".//dc:southBoundLatitude/node()");
+                $wlongNode = $spatialResult->xpath(".//dc:westBoundLongitude/node()");
+                
+                if(isset($elongNode[0])) {
+                    $spatial['msl_elong'] = (string)$elongNode[0];
+                }
+                if(isset($nlatNode[0])) {
+                    $spatial['msl_nLat'] = (string)$nlatNode[0];
+                }
+                if(isset($slatNode[0])) {
+                    $spatial['msl_sLat'] = (string)$slatNode[0];
+                }
+                if(isset($wlongNode[0])) {
+                    $spatial['msl_wLong'] = (string)$wlongNode[0];
+                }
+                
+                $dataset->msl_spatial_coordinates[] = $spatial;
             }
-            
-            $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords, true, '>');
         }
         
-        //attempt to map keywords from abstract and title
-        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
-        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
+        //extract geo locations
+        $locationsResult = $xmlDocument->xpath("/dc:resource/dc:geoLocations/dc:geoLocation/dc:geoLocationPlace");
+        if(count($locationsResult) > 0) {
+            $geoLocations = [];
+            foreach ($locationsResult as $locationResult) {
+                $geoLocation = ['msl_geolocation_place' => (string)$locationResult[0]];
+                $geoLocations[] = $geoLocation;
+            }
+            
+            $dataset->msl_geolocations = $geoLocations;
+        }
+        
+        //extract license id
+        $result = $xmlDocument->xpath('/dc:resource/dc:rightsList/dc:rights[count(@*)=0]');
+        if(isset($result[0])) {
+            $dataset->license_id = (string)$result[0];
+        }
         
         //extract point of contact
-        $contactResults = $xmlDocument->xpath("/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:pointOfContact");
+        $contactResults = $xmlDocument->xpath("/dc:resource[1]/dc:contributors/dc:contributor[@contributorType='ContactPerson']");
         if(count($contactResults) > 0) {
             foreach ($contactResults as $contactResult) {
                 $contact = [
@@ -246,54 +405,63 @@ class BgsMapper
                     'msl_contact_electronic_address' => ''
                 ];
                 
-                $nameNode = $contactResult->xpath(".//gmd:CI_ResponsibleParty/gmd:individualName/gco:CharacterString/node()");
-                $organisationNode = $contactResult->xpath(".//gmd:CI_ResponsibleParty/gmd:organisationName/gco:CharacterString/node()");
-                $electronicAddressNode = $contactResult->xpath(".//gmd:CI_ResponsibleParty/gmd:contactInfo/gmd:CI_Contact/gmd:address/gmd:CI_Address/gmd:electronicMailAddress/gco:CharacterString/node()");
+                $contactResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                
+                $nameNode = $contributorResult->xpath(".//dc:contributorName[1]/node()[1]");
+                $affiliationNodes = $contributorResult->xpath(".//dc:affiliation/node()");
+                
                 
                 if(isset($nameNode[0])) {
                     $contact['msl_contact_name'] = (string)$nameNode[0];
                 }
-                if(isset($organisationNode[0])) {
-                    $contact['msl_contact_organisation'] = (string)$organisationNode[0];
-                }
-                if(isset($electronicAddressNode[0])) {
-                    $contact['msl_contact_electronic_address'] = (string)$electronicAddressNode[0];
+                if(count($affiliationNodes) > 0) {
+                    $affilitionString = '';
+                    foreach ($affiliationNodes as $affiliationNode) {
+                        if($affilitionString !== '') {
+                            $affilitionString = $affilitionString . ' ';
+                        }
+                        $affilitionString = $affilitionString . (string)$affiliationNode . ';';
+                    }
+                    $contact['msl_contact_organisation'] = $affilitionString;
                 }
                 
                 $dataset->msl_points_of_contact[] = $contact;
             }
         }
-                        
-        //extract source
-        $dataset->msl_source = $sourceDataset->source_dataset_identifier->identifier;        
         
-        //extract file information
-        //extract data link from xml
-        $result = $xmlDocument->xpath("/gmd:MD_Metadata/gmd:distributionInfo/gmd:MD_Distribution/gmd:transferOptions/gmd:MD_DigitalTransferOptions/gmd:onLine/gmd:CI_OnlineResource[./gmd:function/gmd:CI_OnLineFunctionCode='download']/gmd:linkage/gmd:URL[1]/node()[1]");
+        //extract collection period
+        $result = $xmlDocument->xpath("/dc:resource/dc:dates/dc:date[@dateType='Collected'][1]");
         if(isset($result[0])) {
-            //extract identifier from retrieved link
-            $linkUrl = $result[0];
-                        
-            if(str_contains($linkUrl, "http://www.bgs.ac.uk/ukccs/accessions")) {
-                $baseUrl = "https://webservices.bgs.ac.uk/ccsAccessions/item";
-            } else {
-                $baseUrl = "https://webservices.bgs.ac.uk/accessions/item";
-            }                        
-
-            if(str_contains($linkUrl, "https://www.bgs.ac.uk/services/ngdc/accessions/index.html#item")) {
-                $identifier = str_replace("https://www.bgs.ac.uk/services/ngdc/accessions/index.html#item", '', $linkUrl);                
-                $dataset = $this->fileHelper->addData($dataset, $identifier, $baseUrl);
-            } elseif (str_contains($linkUrl, "https://www.bgs.ac.uk/services/ngdc/accessions/index.html?#item")) {
-                $identifier = str_replace("https://www.bgs.ac.uk/services/ngdc/accessions/index.html?#item", '', $linkUrl);            
-                $dataset = $this->fileHelper->addData($dataset, $identifier, $baseUrl);            
-            } elseif (str_contains($linkUrl, "http://www.bgs.ac.uk/ukccs/accessions/index.html#item")) {                
-                $identifier = str_replace("http://www.bgs.ac.uk/ukccs/accessions/index.html#item", '', $linkUrl);
-                $dataset = $this->fileHelper->addData($dataset, $identifier, $baseUrl);
+            $dateString = (string)$result[0];
+            //dd($dateString);
+            if(str_contains($dateString, '/') && (strlen($dateString) > 2)) {
+                $parts = explode('/', $dateString);
+                if(count($parts) == 2) {
+                    $collectionPeriod['msl_collection_start_date'] = $parts[0];
+                    $collectionPeriod['msl_collection_end_date'] = $parts[1];
+                    
+                    $dataset->msl_collection_period[] = $collectionPeriod;
+                }
             }
         }
-                                
         
-        return $dataset;        
+        //extract tags/keywords
+        $results = $xmlDocument->xpath('/dc:resource/dc:subjects/dc:subject');
+        if(count($results) > 0) {
+            $keywords = [];
+            foreach ($results as $result) {
+                $keywords[] = (string)$result[0];
+            }
+            
+            
+            $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords, true, '>');
+        }
+        
+        //attempt to map keywords from abstract and title
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
+        
+        return $dataset;                                      
     }
 }
 
