@@ -153,8 +153,16 @@ class FourTUMapper
         
         //dd($xmlDocument->getNamespaces(true));
         
+        $nameSpaces = $xmlDocument->getNamespaces(true);
+        
+        if(isset($nameSpaces[""])) {
+            $mainNamespace = $nameSpaces[""];
+        } else {
+            $mainNamespace = "http://datacite.org/schema/kernel-4";
+        }
+        
         //declare xpath namespaces        
-        $xmlDocument->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+        $xmlDocument->registerXPathNamespace('dc', $mainNamespace);
         $xmlDocument->registerXPathNamespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance');
         $xmlDocument->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
                                         
@@ -202,7 +210,7 @@ class FourTUMapper
                     'msl_author_affiliation' => ''
                 ];
                 
-                $authorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $authorResult->registerXPathNamespace('dc', $mainNamespace);
                 
                 $nameNode = $authorResult->xpath(".//dc:creatorName[1]/node()[1]");                                
                 $identifierNode =  $authorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
@@ -249,9 +257,14 @@ class FourTUMapper
                     'msl_contributor_affiliation' => ''
                 ];
                 
-                $contributorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $contributorResult->registerXPathNamespace('dc', $mainNamespace);
                 
-                $nameNode = $contributorResult->xpath(".//dc:contributorName[1]/node()[1]");
+                if($mainNamespace === "http://datacite.org/schema/kernel-3") {
+                    $nameNode = $contributorResult->xpath(".//dc:contributorName[1]//node()[1]");
+                } else {
+                    $nameNode = $contributorResult->xpath(".//node()[1]");
+                }
+                
                 $roleNode = $contributorResult->xpath(".//@contributorType");
                 $identifierNode =  $contributorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
                 $identifierType = $contributorResult->xpath(".//dc:nameIdentifier[1]/@nameIdentifierScheme");
@@ -298,7 +311,7 @@ class FourTUMapper
                     'msl_reference_type' => ''
                 ];
                 
-                $referenceResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $referenceResult->registerXPathNamespace('dc', $mainNamespace);
                 
                 $identifierNode = $referenceResult->xpath(".//node()[1]");
                 $identifierTypeNode = $referenceResult->xpath(".//@relatedIdentifierType");
@@ -348,7 +361,7 @@ class FourTUMapper
                     'msl_wLong' => ''
                 ];
                 
-                $spatialResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $spatialResult->registerXPathNamespace('dc', $mainNamespace);
                 
                 $elongNode = $spatialResult->xpath(".//dc:eastBoundLongitude/node()");
                 $nlatNode = $spatialResult->xpath(".//dc:northBoundLatitude/node()");
@@ -400,7 +413,7 @@ class FourTUMapper
                     'msl_contact_electronic_address' => ''
                 ];
                 
-                $contactResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $contactResult->registerXPathNamespace('dc', $mainNamespace);
                 
                 $nameNode = $contributorResult->xpath(".//dc:contributorName[1]/node()[1]");
                 $affiliationNodes = $contributorResult->xpath(".//dc:affiliation/node()");
