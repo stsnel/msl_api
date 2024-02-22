@@ -31,18 +31,18 @@ class ImportBgsSeeder extends Seeder
             ],
             [
                 'name' => 'bgs importer',
-                'description' => 'imports bgs data using fixed JSON list and custom API',
+                'description' => 'imports bgs data using fixed JSON list and DataCite',
                 'type' => 'bgs',
                 'options' => [
                     'importProcessor' => [
                         'type' => 'jsonListing',
                         'options' => [
                             'filePath' => '/import-data/bgs/converted.json',
-                            'identifierKey' => 'xml-url'
+                            'identifierKey' => 'doi'
                         ]
                     ],
                     'identifierProcessor' => [
-                        'type' => 'urlXmlRetrieval',
+                        'type' => 'dataciteXmlRetrieval',
                         'options' => []
                     ],
                     'sourceDatasetProcessor' => [

@@ -50,18 +50,8 @@ class ProcessImport implements ShouldQueue
             }
             
             if($results->getTotalRecordCount() > 0) {
-                $counter = 0;
-                foreach($results as $item) {                    
-                    /*
-                    $counter++;
-                    if($counter > 4) {
-                       break;
-                    }
-                    */
-                    
-                    
-                    
-                    
+                
+                foreach($results as $item) {                                       
                     $identifier = SourceDatasetIdentifier::create([
                         'import_id' => $this->import->id,
                         'identifier' => (string)$item->identifier,
@@ -85,8 +75,13 @@ class ProcessImport implements ShouldQueue
                 $jsonEntries = json_decode(Storage::get($filePath), true);
                 $identifierKey = $importer->options['importProcessor']['options']['identifierKey'];
                 
+                $counter = 0;
                 foreach ($jsonEntries as $jsonEntry)
                 {
+                    $counter++;
+                    if($counter >= 100) {
+                        break;
+                    }
                     if(isset($jsonEntry[$identifierKey])) {
                         $identifier = SourceDatasetIdentifier::create([
                             'import_id' => $this->import->id,
