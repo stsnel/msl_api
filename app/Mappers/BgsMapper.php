@@ -157,8 +157,15 @@ class BgsMapper
         
         //dd($xmlDocument->getNamespaces(true));
         
-        //declare xpath namespaces
-        $xmlDocument->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+        $nameSpaces = $xmlDocument->getNamespaces(true);
+        
+        if(isset($nameSpaces[""])) {
+            $mainNamespace = $nameSpaces[""];
+        } else {
+            $mainNamespace = "http://datacite.org/schema/kernel-4";
+        }
+                
+        $xmlDocument->registerXPathNamespace('dc', $mainNamespace);        
         $xmlDocument->registerXPathNamespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance');
         $xmlDocument->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
         
@@ -206,8 +213,8 @@ class BgsMapper
                     'msl_author_affiliation' => ''
                 ];
                 
-                $authorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
-                
+                $authorResult->registerXPathNamespace('dc', $mainNamespace);
+                                                                
                 $nameNode = $authorResult->xpath(".//dc:creatorName[1]/node()[1]");
                 $identifierNode =  $authorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
                 $identifierType = $authorResult->xpath(".//dc:nameIdentifier[1]/@nameIdentifierScheme");
@@ -255,7 +262,7 @@ class BgsMapper
                     'msl_contributor_affiliation' => ''
                 ];
                 
-                $contributorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $contributorResult->registerXPathNamespace('dc', $mainNamespace);                
                 
                 $nameNode = $contributorResult->xpath(".//dc:contributorName[1]/node()[1]");
                 $roleNode = $contributorResult->xpath(".//@contributorType");
@@ -271,7 +278,9 @@ class BgsMapper
                 }
                 if(isset($identifierType[0])) {
                     if((string)$identifierType[0] == 'ORCID') {
-                        $contributor['msl_contributor_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                        if(isset($identifierNode[0])) {
+                            $contributor['msl_contributor_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
+                        }
                     }
                     if((string)$identifierType[0] == 'Author identifier (Scopus)') {
                         $contributor['msl_contributor_scopus'] = (string)$identifierNode[0];
@@ -304,7 +313,7 @@ class BgsMapper
                     'msl_reference_type' => ''
                 ];
                 
-                $referenceResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $referenceResult->registerXPathNamespace('dc', $mainNamespace);                                
                 
                 $identifierNode = $referenceResult->xpath(".//node()[1]");
                 $identifierTypeNode = $referenceResult->xpath(".//@relatedIdentifierType");
@@ -357,7 +366,7 @@ class BgsMapper
                     'msl_wLong' => ''
                 ];
                 
-                $spatialResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $spatialResult->registerXPathNamespace('dc', $mainNamespace);                                
                 
                 $elongNode = $spatialResult->xpath(".//dc:eastBoundLongitude/node()");
                 $nlatNode = $spatialResult->xpath(".//dc:northBoundLatitude/node()");
@@ -409,7 +418,7 @@ class BgsMapper
                     'msl_contact_electronic_address' => ''
                 ];
                 
-                $contactResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $contactResult->registerXPathNamespace('dc', $mainNamespace);                                
                 
                 $nameNode = $contributorResult->xpath(".//dc:contributorName[1]/node()[1]");
                 $affiliationNodes = $contributorResult->xpath(".//dc:affiliation/node()");
@@ -441,8 +450,24 @@ class BgsMapper
             if(str_contains($dateString, '/') && (strlen($dateString) > 2)) {
                 $parts = explode('/', $dateString);
                 if(count($parts) == 2) {
-                    $collectionPeriod['msl_collection_start_date'] = $parts[0];
-                    $collectionPeriod['msl_collection_end_date'] = $parts[1];
+                    //add first day of month if only year month has been declared
+                    $dateParts = explode('-', $parts[0]);
+                    if(count($dateParts) == 2) {
+                        $collectionPeriod['msl_collection_start_date'] = $parts[0] . "-01";
+                    } elseif (count($dateParts) == 1) {
+                        $collectionPeriod['msl_collection_start_date'] = $parts[0] . "-01-01";
+                    } else {
+                        $collectionPeriod['msl_collection_start_date'] = $parts[0];
+                    }
+                    
+                    $dateParts = explode('-', $parts[0]);
+                    if(count($dateParts) == 2) {
+                        $collectionPeriod['msl_collection_end_date'] = $parts[1] . "-01";
+                    } elseif (count($dateParts) == 1) {
+                        $collectionPeriod['msl_collection_end_date'] = $parts[1] . "-01-01";
+                    } else {
+                        $collectionPeriod['msl_collection_end_date'] = $parts[1];
+                    }                    
                     
                     $dataset->msl_collection_period[] = $collectionPeriod;
                 }
