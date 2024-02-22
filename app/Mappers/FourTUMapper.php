@@ -262,14 +262,14 @@ class FourTUMapper
                 if($mainNamespace === "http://datacite.org/schema/kernel-3") {
                     $nameNode = $contributorResult->xpath(".//dc:contributorName[1]//node()[1]");
                 } else {
-                    $nameNode = $contributorResult->xpath(".//node()[1]");
+                    $nameNode = $contributorResult->xpath(".//dc:contributorName[1]//node()[1]");
                 }
                 
                 $roleNode = $contributorResult->xpath(".//@contributorType");
                 $identifierNode =  $contributorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
                 $identifierType = $contributorResult->xpath(".//dc:nameIdentifier[1]/@nameIdentifierScheme");
                 $affiliationNodes = $contributorResult->xpath(".//dc:affiliation/node()");
-                
+                                
                 if(isset($nameNode[0])) {
                     $contributor['msl_contributor_name'] = (string)$nameNode[0];
                 }
@@ -277,7 +277,7 @@ class FourTUMapper
                     $contributor['msl_contributor_role'] = (string)$roleNode[0];
                 }
                 if(isset($identifierType[0])) {
-                    if((string)$identifierType[0] == 'ORCID') {
+                    if((string)$identifierType[0] == 'ORCID' || (string)$identifierType[0] == 'https://orcid.org/') {
                         $contributor['msl_contributor_orcid'] = $this->cleanOrcid((string)$identifierNode[0]);
                     }
                     if((string)$identifierType[0] == 'Author identifier (Scopus)') {
