@@ -243,7 +243,11 @@ class CsicMapper
                 
                 $contributorResult->registerXPathNamespace('dc', $mainNamespace);
                 
-                $nameNode = $contributorResult->xpath(".//node()[1]");
+                if($mainNamespace === "http://datacite.org/schema/kernel-3") {
+                    $nameNode = $contributorResult->xpath(".//dc:contributorName[1]//node()[1]");
+                } else {
+                    $nameNode = $contributorResult->xpath(".//node()[1]");
+                }                
                 $roleNode = $contributorResult->xpath(".//@contributorType");
                 $identifierNode =  $contributorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
                 $identifierType = $contributorResult->xpath(".//dc:nameIdentifier[1]/@nameIdentifierScheme");
@@ -258,7 +262,7 @@ class CsicMapper
                                 
                 $dataset->msl_contributors[] = $contributor;
             }
-        }        
+        }
         
         //extract references
         $referencesResult = $xmlDocument->xpath("/dc:resource[1]/dc:relatedIdentifiers/dc:relatedIdentifier");
