@@ -19,13 +19,13 @@ class ExcelToJsonConverter
             $cellIterator = $row->getCellIterator();
             $cellIterator->setIterateOnlyExistingCells(FALSE);
             
-            $observation = [];
+            $observation = [];                        
             
             foreach ($cellIterator as $cell) {
                 if($row->getRowIndex() == 1) {
-                    $fields[$cell->getColumn()] = $cell->getValue();
+                    $fields[trim($cell->getColumn())] = $cell->getValue();
                 } else {
-                    $observation[$fields[$cell->getColumn()]] = $cell->getValue();
+                    $observation[$fields[trim($cell->getColumn())]] = $cell->getValue();
                 }
             }
             if(count($observation) > 0) {
