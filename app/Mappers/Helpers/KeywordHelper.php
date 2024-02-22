@@ -26,8 +26,11 @@ class KeywordHelper
                 }
             }
             
-            $keyword = trim($keyword);            
-            $dataset->tag_string[] = $this->cleanKeyword($keyword);
+            $keyword = trim($keyword);
+            $keywordTag = $this->cleanKeyword($keyword);
+            if(strlen($keywordTag) > 1) {
+                $dataset->tag_string[] = $keywordTag;
+            }
             
             $searchKeywords = KeywordSearch::where('search_value', strtolower($keyword))->where('version', '1.2')->get();
             

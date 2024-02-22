@@ -112,6 +112,16 @@ class BaseDataset
     public $msl_has_lab = false;
 
     public $msl_has_organization = true;
+    
+    /**
+     * Validation rules to be used after mapping stage of importing data. If rules fail processing of this dataset will be stopped.
+     * 
+     * @var array
+     */
+    public static $importingRules = [
+        'title' => 'required',
+        'msl_authors' => 'required'
+    ];
 
     public function addSubDomain($subDomain, $original = true)
     {

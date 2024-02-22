@@ -166,6 +166,11 @@ class MagicMapper
             $dataset->title = (string)$result[0];
         }
         
+        // empty titled datasets are published with a title containing undefined
+        if($dataset->title === "undefined") {
+            $dataset->title = "";
+        }
+        
         //extract name
         $dataset->name = $this->createDatasetNameFromDoi($sourceDataset->source_dataset_identifier->identifier);
         
@@ -228,6 +233,11 @@ class MagicMapper
                         $affilitionString = $affilitionString . (string)$affiliationNode . ';';
                     }
                     $author['msl_author_affiliation'] = $affilitionString;
+                }
+                
+                // Skip authors with name undefined
+                if($author['msl_author_name'] === 'undefined') {
+                    continue;
                 }
                                 
                 $dataset->msl_authors[] = $author;
@@ -448,6 +458,37 @@ class MagicMapper
             
             
             $dataset = $this->keywordHelper->mapKeywords($dataset, $keywords, true, '>');            
+        }
+        
+        //attempt to map keywords from abstract and title
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->title, 'title');
+        $dataset = $this->keywordHelper->mapKeywordsFromText($dataset, $dataset->notes, 'notes');
+        
+        
+        // add downloadlinks from extra_payload
+        $sourceIdentifier = $sourceDataset->source_dataset_identifier;
+        $extraPayload = $sourceIdentifier->extra_payload;
+        
+        if(isset($extraPayload['contentUrl'])) {
+            if(strlen($extraPayload['contentUrl']) > 1) {
+                $file = [
+                    'msl_file_name' => $this->extractFilename((string)$extraPayload['contentUrl']),
+                    'msl_download_link' => (string)$extraPayload['contentUrl'],
+                    'msl_extension' => $this->extractExtension((string)$extraPayload['contentUrl']),
+                    'msl_timestamp' => ''
+                ];
+                
+                $dataset->msl_downloads[] = $file;
+            }
+        }
+        
+        // extract notes from extra_payload
+        if(strlen($dataset->notes) < 1) {
+            if(isset($extraPayload['description'])) {
+                if(strlen($extraPayload['description']) > 1) {                                
+                    $dataset->notes = strip_tags(html_entity_decode($extraPayload['description']));
+                }
+            }
         }
         
         //attempt to map keywords from abstract and title
