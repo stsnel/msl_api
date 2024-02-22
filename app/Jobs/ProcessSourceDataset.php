@@ -8,6 +8,7 @@ use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
+use Illuminate\Support\Facades\Validator;
 use App\Models\DatasetCreate;
 use App\Models\SourceDataset;
 use App\Mappers\GfzMapper;
@@ -60,20 +61,28 @@ class ProcessSourceDataset implements ShouldQueue
             throw new \Exception('Invalid sourceDatasetProcessor defined in importer config.');
         }                                
         
-        $dataset = $mapper->map($this->sourceDataset);                
+        $dataset = $mapper->map($this->sourceDataset);
         
-        $datasetCreate = DatasetCreate::create([
-            'dataset_type' => $dataset::class,
-            'dataset' => (array)$dataset,
-            'source_dataset_id' => $this->sourceDataset->id,
-            'import_id' => $import->id
-        ]);
+        //Validate if required data for processing is available, abort on error
+        $validator = Validator::make((array)$dataset, $dataset::$importingRules);
         
-        if($datasetCreate) {
-            ProcessDatasetCreate::dispatch($datasetCreate);
-            
-            $this->sourceDataset->status = 'succes';
+        if($validator->fails()) {
+            $this->sourceDataset->status = 'error';
             $this->sourceDataset->save();
+        } else {       
+            $datasetCreate = DatasetCreate::create([
+                'dataset_type' => $dataset::class,
+                'dataset' => (array)$dataset,
+                'source_dataset_id' => $this->sourceDataset->id,
+                'import_id' => $import->id
+            ]);
+            
+            if($datasetCreate) {
+                ProcessDatasetCreate::dispatch($datasetCreate);
+                
+                $this->sourceDataset->status = 'succes';
+                $this->sourceDataset->save();
+            }
         }
     }
 }
