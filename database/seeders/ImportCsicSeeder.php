@@ -31,18 +31,18 @@ class ImportCsicSeeder extends Seeder
             ],
             [
                 'name' => 'CSIC importer',
-                'description' => 'imports csic data using directory listing and datacite',
+                'description' => 'imports CSIC data using fixed JSON list and datacite',
                 'type' => 'datacite',
                 'options' => [
                     'importProcessor' => [
-                        'type' => 'directoryListing',
+                        'type' => 'jsonListing',
                         'options' => [
-                            'directoryPath' => '/import-data/csic/files/',
-                            'recursive' => 'true',
-                        ]                    
+                            'filePath' => '/import-data/csic/converted.json',
+                            'identifierKey' => 'doi'
+                        ]                      
                     ],
                     'identifierProcessor' => [
-                        'type' => 'fileRetrieval',
+                        'type' => 'dataciteXmlRetrieval',
                         'options' => []
                     ],
                     'sourceDatasetProcessor' => [

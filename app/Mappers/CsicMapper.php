@@ -114,15 +114,23 @@ class CsicMapper
         
         //dd($xmlDocument->getNamespaces(true));
         
+        $nameSpaces = $xmlDocument->getNamespaces(true);
+        
+        if(isset($nameSpaces[""])) {
+            $mainNamespace = $nameSpaces[""];
+        } else {
+            $mainNamespace = "http://datacite.org/schema/kernel-4";
+        }
+        
         //declare xpath namespaces        
-        $xmlDocument->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+        $xmlDocument->registerXPathNamespace('dc', $mainNamespace);
         $xmlDocument->registerXPathNamespace('xsi', 'http://www.w3.org/2001/XMLSchema-instance');
         $xmlDocument->registerXPathNamespace('xml', 'http://www.w3.org/XML/1998/namespace');
                                         
         $dataset = new BaseDataset();                                
         
         // set subdomains
-        $dataset->addSubDomain('geochemistry');
+        //$dataset->addSubDomain('geochemistry');
         
         //extract title
         $result = $xmlDocument->xpath('/dc:resource/dc:titles[1]/dc:title[1]/node()[1]');
@@ -189,7 +197,7 @@ class CsicMapper
                     'msl_author_affiliation' => ''
                 ];
                 
-                $authorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $authorResult->registerXPathNamespace('dc', $mainNamespace);
                 
                 $nameNode = $authorResult->xpath(".//dc:creatorName[1]/node()[1]");                                
                 $identifierNode =  $authorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
@@ -233,9 +241,13 @@ class CsicMapper
                     'msl_contributor_affiliation' => ''
                 ];
                 
-                $contributorResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $contributorResult->registerXPathNamespace('dc', $mainNamespace);
                 
-                $nameNode = $contributorResult->xpath(".//node()[1]");
+                if($mainNamespace === "http://datacite.org/schema/kernel-3") {
+                    $nameNode = $contributorResult->xpath(".//dc:contributorName[1]//node()[1]");
+                } else {
+                    $nameNode = $contributorResult->xpath(".//node()[1]");
+                }                
                 $roleNode = $contributorResult->xpath(".//@contributorType");
                 $identifierNode =  $contributorResult->xpath(".//dc:nameIdentifier[1]/node()[1]");
                 $identifierType = $contributorResult->xpath(".//dc:nameIdentifier[1]/@nameIdentifierScheme");
@@ -250,7 +262,7 @@ class CsicMapper
                                 
                 $dataset->msl_contributors[] = $contributor;
             }
-        }        
+        }
         
         //extract references
         $referencesResult = $xmlDocument->xpath("/dc:resource[1]/dc:relatedIdentifiers/dc:relatedIdentifier");
@@ -263,7 +275,7 @@ class CsicMapper
                     'msl_reference_type' => ''
                 ];
                 
-                $referenceResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $referenceResult->registerXPathNamespace('dc', $mainNamespace);
                 
                 $titleNode = $referenceResult->xpath(".//node()[1]");
                 $referenceTypeNode = $referenceResult->xpath(".//@relatedIdentifierType");
@@ -319,6 +331,41 @@ class CsicMapper
                 $dataset->addLab($lab);               
             }
         }
+        
+        //extract spatial coordinates
+        $spatialResults = $xmlDocument->xpath("/dc:resource/dc:geoLocations/dc:geoLocation/dc:geoLocationBox");
+        if(count($spatialResults) > 0) {
+            foreach ($spatialResults as $spatialResult) {
+                $spatial = [
+                    'msl_elong' => '',
+                    'msl_nLat' => '',
+                    'msl_sLat' => '',
+                    'msl_wLong' => ''
+                ];
+                
+                $spatialResult->registerXPathNamespace('dc', $mainNamespace);
+                
+                $elongNode = $spatialResult->xpath(".//dc:eastBoundLongitude/node()");
+                $nlatNode = $spatialResult->xpath(".//dc:northBoundLatitude/node()");
+                $slatNode = $spatialResult->xpath(".//dc:southBoundLatitude/node()");
+                $wlongNode = $spatialResult->xpath(".//dc:westBoundLongitude/node()");
+                
+                if(isset($elongNode[0])) {
+                    $spatial['msl_elong'] = (string)$elongNode[0];
+                }
+                if(isset($nlatNode[0])) {
+                    $spatial['msl_nLat'] = (string)$nlatNode[0];
+                }
+                if(isset($slatNode[0])) {
+                    $spatial['msl_sLat'] = (string)$slatNode[0];
+                }
+                if(isset($wlongNode[0])) {
+                    $spatial['msl_wLong'] = (string)$wlongNode[0];
+                }
+                
+                $dataset->msl_spatial_coordinates[] = $spatial;
+            }
+        }
                                                 
         //extract geo locations
         $locationsResult = $xmlDocument->xpath("/dc:resource/dc:geoLocations/dc:geoLocation/dc:geoLocationPlace");
@@ -348,7 +395,7 @@ class CsicMapper
                     'msl_contact_electronic_address' => ''
                 ];
                 
-                $contactResult->registerXPathNamespace('dc', 'http://datacite.org/schema/kernel-4');
+                $contactResult->registerXPathNamespace('dc', $mainNamespace);
                 
                 $contact['msl_contact_name'] = (string)$contactResult[0];
                                                                                 

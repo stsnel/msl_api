@@ -39,6 +39,7 @@ use App\Exports\FilterTreeExport;
 use App\Datasets\BaseDataset;
 use App\Mappers\CsicMapper;
 use EasyRdf;
+use App\Mappers\BgsMapper;
 
 class HomeController extends Controller
 {
@@ -284,6 +285,14 @@ class HomeController extends Controller
         
     public function test()
     {
+        $sourceDataset = SourceDataset::where('id', 6361)->first(); 
+        //$sourceDataset = SourceDataset::where('id', 6315)->first();       
+        
+        $mapper = new BgsMapper();
+        dd($mapper->map($sourceDataset));
+        
+        dd($sourceDataset);
+        
         dd('test');        
     }
     
