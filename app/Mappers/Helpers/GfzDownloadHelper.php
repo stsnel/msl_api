@@ -24,7 +24,11 @@ class GfzDownloadHelper
         try {
             $link = $crawler->selectLink('Download data and description')->link();
         } catch (\Exception $e) {
-            return $dataset;
+            try {
+                $link = $crawler->selectLink('Download data')->link();
+            } catch (\Exception $e) {
+                return $dataset;
+            }
         }
         $crawler = $this->client->click($link);
         
