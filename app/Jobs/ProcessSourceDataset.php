@@ -3,7 +3,6 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
@@ -17,6 +16,7 @@ use App\Mappers\CsicMapper;
 use App\Mappers\FourTUMapper;
 use App\Mappers\MagicMapper;
 use App\Mappers\BgsMapper;
+use App\Mappers\GFZDataciteMapper;
 
 class ProcessSourceDataset implements ShouldQueue
 {
@@ -57,6 +57,8 @@ class ProcessSourceDataset implements ShouldQueue
             $mapper = new MagicMapper();
         } elseif($importer->options['sourceDatasetProcessor']['type'] == 'BgsMapper') {
             $mapper = new BgsMapper();
+        } elseif($importer->options['sourceDatasetProcessor']['type'] == 'GFZDataciteMapper') {
+            $mapper = new GFZDataciteMapper();
         } else {
             throw new \Exception('Invalid sourceDatasetProcessor defined in importer config.');
         }                                
