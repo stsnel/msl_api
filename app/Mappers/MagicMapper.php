@@ -6,15 +6,8 @@ use App\Models\MappingLog;
 use App\Ckan\Request\PackageSearch;
 use App\Ckan\Response\PackageSearchResponse;
 use App\Mappers\Helpers\DataciteCitationHelper;
-use App\Models\MaterialKeyword;
-use App\Models\ApparatusKeyword;
-use App\Models\AncillaryEquipmentKeyword;
-use App\Models\PoreFluidKeyword;
-use App\Models\MeasuredPropertyKeyword;
-use App\Models\InferredDeformationBehaviorKeyword;
 use App\Datasets\BaseDataset;
 use App\Mappers\Helpers\KeywordHelper;
-use App\Mappers\Helpers\FigshareFilesHelper;
 
 class MagicMapper
 {
