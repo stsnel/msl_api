@@ -19,6 +19,13 @@ CKAN data publication schema. Data models changed in harvesting backend, API and
 - Add match source information to (enriched)keyword information
 - Add exports published exports of vocabulary versions 1.1
 - Add and publish vocabulary versions 1.2
+- Include Nerc/BGS harvesting based on Datacite queries
+- Include second GFZ importer based on Datacite queries
+- Add Magic harvesting based on fixed list scraped from website
+- Add results from Datacite queries to Yoda importer
+- Add results from Datacite queries to Csic importer
+- Add results from Datacite queries to 4TU importer
+- Add function to export dois per organization to admin panel
 
 ## [1.4.0] - 2023-03-29
 - Update 4TU import to not use specific version doi references
