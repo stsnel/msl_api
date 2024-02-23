@@ -85,6 +85,10 @@
                                     <a class="dropdown-item" href="{{ route('query-generator') }}">                                                                              
                                         Query generator
                                     </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('doi-export') }}">                                                                              
+                                        DOI export
+                                    </a>
                                 </div>
                             </li>
                         

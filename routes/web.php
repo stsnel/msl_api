@@ -54,6 +54,7 @@ Route::post('tools/convert-geochemistry', [ToolsController::class, 'processGeoch
 Route::post('tools/convert-microscopy', [ToolsController::class, 'processMiscroscopyFile'])->name('process-microscopy-file');
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
+Route::get('tools/doi-export', [ToolsController::class, 'doiExport'])->name('doi-export');
 
 Route::get('tools/urilabels', [ToolsController::class, 'uriLabels'])->name('uri-labels');
 Route::get('tools/urilabelsdownload', [ToolsController::class, 'uriLabelsDownload'])->name('uri-label-download');
