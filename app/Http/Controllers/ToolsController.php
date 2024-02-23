@@ -393,6 +393,51 @@ class ToolsController extends Controller
         return Excel::download(new AbstractMatchingExport($dataRepo), 'abstract-matching.xlsx');
     }
     
+    public function doiExport(Request $request)
+    {
+        $client = new \GuzzleHttp\Client();
+        $OrganizationListrequest = new OrganizationList();
+        
+        try {
+            $response = $client->request($OrganizationListrequest->method,
+                $OrganizationListrequest->endPoint,
+                $OrganizationListrequest->getPayloadAsArray());
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+        
+        $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
+        $organizations = $organizationListResponse->getOrganizations();
+        
+        if ($request->has('organization')) {
+            $OrganizationId = $request->query('organization');
+            
+            $client = new \GuzzleHttp\Client();
+            
+            $searchRequest = new PackageSearch();
+            $searchRequest->query = 'owner_org:' . $OrganizationId;
+            $searchRequest->rows = 200;
+            try {
+                $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+            } catch (\Exception $e) {
+                
+            }
+            
+            $content = json_decode($response->getBody(), true);
+            $results = $content['result']['results'];
+            
+            $dois = [];
+            
+            foreach ($results as $result) {
+                $dois[] = '"' . strtolower($result['msl_doi']) . '"';
+            }
+            
+            dd(implode(', ', $dois));
+        }
+        
+        return view('export-dois', ['organizations' => $organizations]);
+    }
+    
     public function queryGenerator()
     {        
         $terms = [];        
