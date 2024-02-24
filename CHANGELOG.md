@@ -8,6 +8,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ## [Unreleased]
 
 ### Added 
+
+
+## [1.5.0] - 2024-02-24
+
 - Add (CKAN)seeding functions from admin interface. Create/Update organizations described in JSON file using queue system
 - Only send lowest level vocabulary terms to CKAN for originally assigned keyword fields/facets.
 - BGS data harvesting. Initial setup for reviewing.
@@ -28,12 +32,14 @@ CKAN data publication schema. Data models changed in harvesting backend, API and
 - Add function to export dois per organization to admin panel
 
 ## [1.4.0] - 2023-03-29
+
 - Update 4TU import to not use specific version doi references
 - Add parameter to APIs to exclude results without downloadlinks
 - Add new version of vocabularies and change code to work with specific versions
 - Exclude parts of vocabs from sub-domain matching
 
 ## [1.3.2] - 2023-03-08
+
 - Adjust migrationscript to work with partial database update
 
 ## [1.3.1] - 2023-03-08
