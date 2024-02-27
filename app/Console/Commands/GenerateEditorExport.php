@@ -58,7 +58,8 @@ class GenerateEditorExport extends Command
             $element = [
                 'text' => $vocabulary->name,
                 'extra' => [
-                    'uri' => $vocabulary->uri
+                    'uri' => $vocabulary->uri,
+                    'vocab_uri' => $vocabulary->uri
                 ],
                 'children' => $this->getTopNodes($vocabulary)
             ];
