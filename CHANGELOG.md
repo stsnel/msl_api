@@ -10,6 +10,10 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 ### Added 
 
 
+## [1.5.1] - 2024-02-28
+
+- Bugfix: fix keyword processing in API
+
 ## [1.5.0] - 2024-02-24
 
 - Add (CKAN)seeding functions from admin interface. Create/Update organizations described in JSON file using queue system
