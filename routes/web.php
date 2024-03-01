@@ -69,6 +69,7 @@ Route::get('tools/abstract-matching-download/{data_repo}', [ToolsController::cla
 Route::get('tools/query-generator', [ToolsController::class, 'queryGenerator'])->name('query-generator');
 
 Route::get('labs/import-labdata', [LabController::class, 'importLabData'])->name('import-labdata');
+Route::post('labs/update-fast-data', [LabController::class, 'updateFastData'])->name('update-fast-data');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
 Route::get('/imports', [HomeController::class, 'imports'])->name('imports');

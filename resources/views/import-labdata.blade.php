@@ -15,7 +15,10 @@
             <div class="card">
                 <div class="card-header">Import labdata</div>
                 <div class="card-body">
-					
+					<form method="post" action="{{ route('update-fast-data') }}">
+                  		@csrf
+                  		<button type="submit" class="btn btn-primary">Update data from FAST</button>
+                  	</form>  
                 </div>
             </div>
         </div>
