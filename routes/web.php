@@ -8,6 +8,7 @@ use App\Http\Controllers\HomeController;
 use App\Models\User;
 use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\SeederController;
+use App\Http\Controllers\LabController;
 
 /*
 |--------------------------------------------------------------------------
@@ -55,7 +56,6 @@ Route::post('tools/convert-microscopy', [ToolsController::class, 'processMiscros
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
 Route::get('tools/doi-export', [ToolsController::class, 'doiExport'])->name('doi-export');
-
 Route::get('tools/urilabels', [ToolsController::class, 'uriLabels'])->name('uri-labels');
 Route::get('tools/urilabelsdownload', [ToolsController::class, 'uriLabelsDownload'])->name('uri-label-download');
 
@@ -67,6 +67,8 @@ Route::get('tools/unmatchedkeywordsdownload', [ToolsController::class, 'download
 Route::get('tools/abstract-matching', [ToolsController::class, 'abstractMatching'])->name('abstract-matching');
 Route::get('tools/abstract-matching-download/{data_repo}', [ToolsController::class, 'abstractMatchingDownload'])->name('abstract-matching-download');
 Route::get('tools/query-generator', [ToolsController::class, 'queryGenerator'])->name('query-generator');
+
+Route::get('labs/import-labdata', [LabController::class, 'importLabData'])->name('import-labdata');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
 Route::get('/imports', [HomeController::class, 'imports'])->name('imports');
