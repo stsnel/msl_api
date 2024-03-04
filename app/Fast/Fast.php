@@ -11,9 +11,9 @@ class Fast
     public function __construct()
     {
         if (App::environment('local')) {
-            $this->client = new \GuzzleHttp\Client(['verify' => false]);
+            $this->client = new \GuzzleHttp\Client(['verify' => false, 'http_errors' => false]);
         } else {
-            $this->client = new \GuzzleHttp\Client();
+            $this->client = new \GuzzleHttp\Client(['http_errors' => false]);
         }
     }
     
@@ -25,11 +25,11 @@ class Fast
         try {
             $response = $this->client->request('GET', "https://fast.geo.uu.nl/api/facility/$facilityId", [
                 'headers' => [
-                    'Authorization' => '9c5f2b4bb83ad3c9059f4e2b706244748592402e9a815e6d',
+                    'Authorization' => config('fast.fast_api_token'),
                 ],
             ]);
         } catch (\Exception $e) {
-            dd($e);
+            dd($e->getMessage());
         }
 
         $result->response_code = $response->getStatusCode();
