@@ -159,7 +159,7 @@ class BaseResult
         
         $materials = [];
         $materials = $this->getMaterialKeyword($data);
-        $this->materials = array_unique($materials);
+        $this->materials = array_values(array_unique($materials));
                        
         if(isset($data['msl_spatial_coordinates'])) {
             if(count($data['msl_spatial_coordinates']) > 0) {
