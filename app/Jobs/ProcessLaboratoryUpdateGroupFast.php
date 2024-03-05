@@ -43,7 +43,7 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
     {        
         $labs = Laboratory::whereNotNull('fast_id')->get();
         
-        foreach ($labs as $lab) {                                                
+        foreach ($labs as $lab) {            
             $laboratoryUpdateFast = LaboratoryUpdateFast::create([
                 'laboratory_update_group_fast_id' => $this->laboratoryUpdateGroupFast->id,
                 'laboratory_id' => $lab->id

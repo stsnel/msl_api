@@ -26,8 +26,29 @@ class Laboratory extends Model
         'longitude',
         'external_identifier',
         'fast_domain_id',
-        'fast_domain_name'                        
+        'fast_domain_name',
+        'laboratory_organization_id',
+        'laboratory_contact_person_id',
+        'laboratory_manager_id'
     ];
     
+    public function laboratoryOrganization()
+    {
+        return $this->belongsTo(LaboratoryOrganization::class, 'laboratory_ogranization_id');
+    }
     
+    public function laboratoryContactPerson()
+    {
+        return $this->belongsTo(LaboratoryContactPerson::class, 'laboratory_contact_person_id');
+    }
+    
+    public function laboratoryManager()
+    {
+        return $this->belongsTo(LaboratoryManager::class, 'laboratory_manager_id');
+    }
+    
+    public function laboratoryEquipment()
+    {
+        return $this->hasMany(LaboratoryEquipment::class, 'laboratory_id');
+    }
 }

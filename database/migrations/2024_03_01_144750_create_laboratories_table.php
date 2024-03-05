@@ -15,7 +15,9 @@ class CreateLaboratoriesTable extends Migration
     {
         Schema::create('laboratories', function (Blueprint $table) {
             $table->id();
-            $table->unsignedBigInteger('ogranization_id')->nullable();
+            $table->unsignedBigInteger('laboratory_organization_id')->nullable();
+            $table->unsignedBigInteger('laboratory_contact_person_id')->nullable();
+            $table->unsignedBigInteger('laboratory_manager_id')->nullable();
             $table->unsignedBigInteger('fast_id')->nullable();
             $table->string('msl_identifier');
             $table->string('lab_portal_name');
