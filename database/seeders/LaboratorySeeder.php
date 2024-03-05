@@ -4,6 +4,10 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use App\Models\Laboratory;
+use App\Models\LaboratoryOrganization;
+use App\Models\LaboratoryContactPerson;
+use App\Models\LaboratoryManager;
+use App\Models\LaboratoryEquipment;
 
 class LaboratorySeeder extends Seeder
 {
@@ -15,6 +19,10 @@ class LaboratorySeeder extends Seeder
     public function run()
     {
         Laboratory::truncate();
+        LaboratoryOrganization::truncate();
+        LaboratoryContactPerson::truncate();
+        LaboratoryManager::truncate();
+        LaboratoryEquipment::truncate();
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/labs/converted.json'));
