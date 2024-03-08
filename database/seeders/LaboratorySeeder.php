@@ -48,6 +48,7 @@ class LaboratorySeeder extends Seeder
                 'address_country_code' => '',
                 'latitude' => '',
                 'longitude' => '',
+                'altitude' => '',
                 'external_identifier' => '',
                 'fast_domain_name' => ''
             ]);

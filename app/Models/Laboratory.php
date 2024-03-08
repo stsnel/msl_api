@@ -24,6 +24,7 @@ class Laboratory extends Model
         'address_country_code',
         'latitude',
         'longitude',
+        'altitude',
         'external_identifier',
         'fast_domain_id',
         'fast_domain_name',

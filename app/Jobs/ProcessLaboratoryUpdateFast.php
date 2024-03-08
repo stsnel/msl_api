@@ -61,6 +61,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
             $lab->address_country_code = $data['address_country_code'];
             $lab->latitude = $data['gps_latitude'];
             $lab->longitude = $data['gps_longitude'];
+            $lab->altitude = $data['gps_altitude'];
             $lab->external_identifier = $data['external_identifier'];
             $lab->fast_domain_id = $data['domain']['id'];
             $lab->fast_domain_name = $data['domain']['name'];

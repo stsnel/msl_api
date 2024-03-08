@@ -35,6 +35,7 @@ class CreateLaboratoriesTable extends Migration
             $table->string('address_country_code');
             $table->string('latitude');
             $table->string('longitude');
+            $table->string('altitude');
             $table->string('external_identifier');
             $table->unsignedBigInteger('fast_domain_id')->nullable();
             $table->string('fast_domain_name');                        
