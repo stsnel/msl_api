@@ -70,6 +70,7 @@ Route::get('tools/query-generator', [ToolsController::class, 'queryGenerator'])-
 
 Route::get('labs/import-labdata', [LabController::class, 'importLabData'])->name('import-labdata');
 Route::post('labs/update-fast-data', [LabController::class, 'updateFastData'])->name('update-fast-data');
+Route::get('labs/update-organizations-data', [LabController::class, 'updateLaboratoryOrganizationsByROR'])->name('update-lab-organizations-data');
 Route::get('labs/registry-turtle', [LabController::class, 'registryTurtle'])->name('registry-turtle');
 
 Route::post('/create-import', [HomeController::class, 'createImport'])->name('create-import');
