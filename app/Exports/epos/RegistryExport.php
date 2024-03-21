@@ -70,8 +70,7 @@ class RegistryExport
                 $facilityGraph->set('dct:title', $laboratory->name);
                 $facilityGraph->set('dct:description', $laboratory->description);
                 $facilityGraph->set('dct:type', ['type' => 'uri', 'value' => '<epos:laboratory>']);                
-                // to-do: add dcat:theme
-                // to-do check if notation is correct (latitude -> longitude)
+                $facilityGraph->set('dct:theme', ['type' => 'uri', 'value' => $this->getEPOSlabType($laboratory)]);
                 $facilityGraph->set('dcat:contactPoint', ['type' => 'uri', 'value' => $contactPointGraph->getUri()]);
                 if((strlen($laboratory->latitude) > 0) && (strlen($laboratory->longitude) > 0)) {
                     $facilityLocation = $graph->newBNode('dct:location');
@@ -184,7 +183,31 @@ class RegistryExport
     }
     
     private function generateGeonometryString(Laboratory $laboratory) {        
-        return "POINT(" . str_replace(',', '.', $laboratory->latitude) . " " . str_replace(',', '.', $laboratory->longitude) . " 0)";
+        return "POINT(" . str_replace(',', '.', $laboratory->longitude) . " " . str_replace(',', '.', $laboratory->latitude) . " 0)";
+    }
+    
+    private function getEPOSlabType(Laboratory $laboratory) {
+        $fastLaboratoryDomain = $laboratory->fast_domain_name;
+        
+        switch ($fastLaboratoryDomain) {
+            case 'Analogue modelling':
+                return '<category:AnalogueModelling>';
+            
+            case 'Analytical':
+                return '';
+                
+            case 'Microscopy':
+                return '<category:AnalyticalMicroscopy>';
+                
+            case 'Paleomagnetism':
+                return '<category:Paleomagnetism>';
+                
+            case 'Rock physics':
+                return '<category:RockPhysics>';
+                
+            default:
+                return '';
+        }
     }
 }
 
