@@ -13,11 +13,12 @@
         	</div>
         
             <div class="card">
-                <div class="card-header">Import labdata</div>
+                <div class="card-header">Laboratory data</div>
                 <div class="card-body">
 					<form method="post" action="{{ route('update-fast-data') }}">
                   		@csrf
                   		<button type="submit" class="btn btn-primary">Update data from FAST</button>
+                  		<a class="btn btn-primary" href="{{ route('registry-turtle') }}">Registry turtle file</a>
                   	</form>  
                 </div>
             </div>

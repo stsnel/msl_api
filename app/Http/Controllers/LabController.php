@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Models\LaboratoryUpdateGroupFast;
 use App\Jobs\ProcessLaboratoryUpdateGroupFast;
+use App\Exports\epos\RegistryExport;
+use App\Models\Laboratory;
 
 class LabController extends Controller
 {
@@ -30,6 +32,18 @@ class LabController extends Controller
                             
         $request->session()->flash('status', 'Updating using Fast started');        
         return redirect()->route('importers');        
+    }
+    
+    public function registryTurtle()
+    {
+        $laboratories = Laboratory::where('fast_id', 50)->get();
+        
+        $exporter = new RegistryExport($laboratories);
+        
+        
+        dd($exporter->export());
+        
+        dd('turtle file');
     }
     
   
