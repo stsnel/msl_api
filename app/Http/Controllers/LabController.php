@@ -7,9 +7,9 @@ use App\Models\LaboratoryUpdateGroupFast;
 use App\Jobs\ProcessLaboratoryUpdateGroupFast;
 use App\Exports\epos\RegistryExport;
 use App\Models\Laboratory;
-use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryOrganizationUpdateGroupRor;
+use App\Jobs\ProcessLaboratoryKeywordUpdateGroup;
 
 class LabController extends Controller
 {
@@ -46,18 +46,23 @@ class LabController extends Controller
         return redirect()->route('importers'); 
     }
     
+    public function updateLaboratoryKeywords(Request $request)
+    {
+        ProcessLaboratoryKeywordUpdateGroup::dispatch();
+        
+        $request->session()->flash('status', 'Updating laboratory keywords using vocabularies');
+        return redirect()->route('importers');
+    }
+    
     public function registryTurtle()
     {
         $laboratories = Laboratory::where('fast_id', 50)->get();
         
         $exporter = new RegistryExport($laboratories);
+                
         
         
-        
-        
-        dd($exporter->export());
-        
-        dd('turtle file');
+        dd($exporter->export());        
     }
     
   
