@@ -52,4 +52,9 @@ class Laboratory extends Model
     {
         return $this->hasMany(LaboratoryEquipment::class, 'laboratory_id');
     }
+    
+    public function laboratoryKeywords()
+    {
+        return $this->hasMany(LaboratoryKeyword::class, 'laboratory_id');
+    }
 }
