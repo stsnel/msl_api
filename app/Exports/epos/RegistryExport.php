@@ -14,10 +14,10 @@ use EasyRdf\Literal;
 
 class RegistryExport
 {
-    public $laboratories;
+    public $organizations;
     
-    public function __construct($laboraries) {
-        $this->laboratories = $laboraries;
+    public function __construct($organizations) {
+        $this->organizations = $organizations;
     }
     
     public function export($type = 'turtle')
@@ -25,18 +25,14 @@ class RegistryExport
         $graph = new Graph();
         
         // Set namespaces
-        RdfNamespace::set('epos', 'https://www.epos-eu.org/epos-dcat-ap#');
+        RdfNamespace::delete('dc');
+        RdfNamespace::delete('dcterms');
         RdfNamespace::set('dct', 'http://purl.org/dc/terms/');
+        RdfNamespace::set('epos', 'https://www.epos-eu.org/epos-dcat-ap#');       
         RdfNamespace::set('locn', 'http://www.w3.org/ns/locn#');
         RdfNamespace::set('gsp', 'http://www.opengis.net/ont/geosparql#');
         
-        // Get organizations        
-        $organizations = LaboratoryOrganization::where('fast_id', 13)->get();
-        //$organization = LaboratoryOrganization::where('fast_id', 13)->first();
-        
-        //dd($organization->laboratories);
-        
-        foreach ($organizations as $organization) {
+        foreach ($this->organizations as $organization) {
             // Add organization to graph
             $organizationGraph = $graph->resource($organization->external_identifier, 'schema:Organization');
             $schemaIdentifier = $graph->newBnode('schema:PropertyValue');
@@ -44,18 +40,24 @@ class RegistryExport
             $schemaIdentifier->set('schema:value', $organization->external_identifier);
             $organizationGraph->set('schema:identifier', $schemaIdentifier);
             $organizationGraph->set('schema:legalName', $organization->name);
+            // add address information
+            $organizationAddress = $graph->newBnode('schema:PostalAddress');
+            $organizationAddress->set('schema:addressCountry', $organization->ror_country_code);
+            $organizationGraph->set('schema:address', $organizationAddress);
             
-            /* 
-             * missing information:
-             * - address (country code is required as discussed in meeting @Rome
-             * - schema:logo "http://organization/logo.jpg"^^xsd:anyURI;
-             * - schema:url "http://www.organization.eu/"^^xsd:anyURI; 
-             */ 
-            
-            // set schema:owns after facilities have been added
+            $organizationGraph->set('schema:url', Literal::create($organization->ror_website , null, 'xsd:anyURI'));                                    
             
             // Get laboratories belonging to organization
             foreach ($organization->laboratories as $laboratory) {
+                /*
+                 * Skip if no location data is present
+                 */
+                
+                if((strlen($laboratory->latitude) == 0) || (strlen($laboratory->longitude) == 0)) {
+                    continue;
+                }
+                
+                
                 // Add contactpoint of laboratory to graph
                 $contactPerson = $laboratory->laboratoryContactPerson;
                 
@@ -69,103 +71,50 @@ class RegistryExport
                 $facilityGraph->set('dct:identifier', $facilityGraph->getUri());
                 $facilityGraph->set('dct:title', $laboratory->name);
                 $facilityGraph->set('dct:description', $laboratory->description);
-                $facilityGraph->set('dct:type', ['type' => 'uri', 'value' => '<epos:laboratory>']);                
+                $facilityGraph->set('dct:type', ['type' => 'uri', 'value' => '<epos:Laboratory>']);                
                 $facilityGraph->set('dct:theme', ['type' => 'uri', 'value' => $this->getEPOSlabType($laboratory)]);
                 $facilityGraph->set('dcat:contactPoint', ['type' => 'uri', 'value' => $contactPointGraph->getUri()]);
                 if((strlen($laboratory->latitude) > 0) && (strlen($laboratory->longitude) > 0)) {
-                    $facilityLocation = $graph->newBNode('dct:location');
+                    $facilityLocation = $graph->newBNode('dct:Location');
                     $facilityLocation->add("locn:geometry", Literal::create($this->generateGeonometryString($laboratory), null, 'gsp:wktLiteral'));
                     $facilityGraph->set('dct:spatial', $facilityLocation);
                 }
                 
-                // to-do check generation of keywords
+                // Add keywords
+                $facilityGraph->set('dcat:keyword', $laboratory->fast_domain_name);
+                $facilityKeywords = $laboratory->laboratoryKeywords->pluck('value')->toArray();
+                $facilityKeywords = array_unique($facilityKeywords);
                 
-                /*
-                 * optional
-                 */
-                
+                foreach ($facilityKeywords as $facilityKeyword) {                    
+                    $facilityGraph->add('dcat:keyword', $facilityKeyword);
+                }
+
+                // optional
                 if(strlen($laboratory->website) > 0) {
                     $facilityGraph->add(
                         'foaf:page', Literal::create($laboratory->website, null, 'xsd:anyURI')
                     );
+                }
+                
+                // Add facility to organization owns
+                if ($organizationGraph->hasProperty('schema:owns')) {
+                    $organizationGraph->add('schema:owns', $facilityGraph);
+                } else {
+                    $organizationGraph->set('schema:owns', $facilityGraph);
                 }
                                                
             }
             
         }
         
-        
-        
-        
-        
-        /*
-        // Organization sample
-        $organizationGraph = $graph->resource('test-identifier-organization', 'schema:Organization');
-        $schemaIdentifier = $graph->newBnode('schema:PropertyValue');
-        $schemaIdentifier->set('schema:propertyID', "ROR");
-        $schemaIdentifier->set('schema:value', "0000000000");
-        $organizationGraph->set('schema:identifier', $schemaIdentifier);
-        $organizationGraph->set('schema:legalName', 'name of organization');
-        // add schema:owns
-        
-        
-        // Contact point
-        $contactPointGraph = $graph->resource('test-identifier-contactpoint', 'schema:ContactPoint');
-        $contactPointGraph->set('schema:email', 'test@test.nl');
-        $contactPointGraph->set('schema:availableLanguage', 'en');
-        $contactPointGraph->set('schema:contactType', 'Contact');
-        
-        // Facility sample
-        $facilityGraph = $graph->resource('test-identifier-facility', 'epos:Facility');
-        $facilityGraph->set('dct:identifier', $organizationGraph->getUri());
-        $facilityGraph->set('dct:title', 'title of laboratory');
-        $facilityGraph->set('dct:description', 'description of laboratory');
-        $facilityGraph->set('dct:type', ['type' => 'uri', 'value' => '<epos:laboratory>']);
-        $facilityGraph->set('dcat:theme', ['type' => 'uri', 'value' => '<category:AnalyticalMicroscopy_conc>']);
-        $facilityGraph->set('dcat:contactPoint', ['type' => 'uri', 'value' => $contactPointGraph->getUri()]);
-        // Add location to facility
-        $facilityLocation = $graph->newBNode('dct:location');
-        $facilityLocation->set("locn:geometry", "POINT(5.1767 52.1017 3)\"^^gsp:wktLiteral");
-        $facilityGraph->set('dct:spatial', $facilityLocation);
-        $facilityGraph->set('foaf:page', 'test.nl');
-        */
-        
-        
-        
-        
-        /*
-         * dct:spatial [ a dct:Location ;
-		      locn:geometry  "POINT(5.1767 52.1017 3)"^^gsp:wktLiteral;
-            ];
-         */
-        
-        
+                
         
         // concepts
-        
-        
         $laboratoryConcept = $graph->resource('epos:Laboratory', 'skos:Concept');
         $laboratoryConcept->set('skos:definition', 'Laboratory');
         $laboratoryConcept->set('skos:inScheme', ['type' => 'uri', 'value' => '<epos:Facility_Type>']);
         $laboratoryConcept->set('skos:prefLabel', 'Laboratory');
-        
-        
-
-        
-        // concepts
-        /*
-        $laboratoryConcept = $graph->resource('epos:Laboratory', 'skos:Concept');
-        $laboratoryConcept->set('skos:definition', 'Laboratory');
-        $laboratoryConcept->set('skos:prefLabel', 'Laboratory');
-        */
-
-        //dd($laboratoryConcept->label());
-        
-        
-        
-        //dd($graph->serialise($type))
-
-        
+                
         return $graph->serialise($type);        
     }
     
@@ -174,12 +123,12 @@ class RegistryExport
         if(strlen($contactPerson->orcid) > 5) {
             return 'http://orcid.org/' . $contactPerson->orcid . '/contactperson';
         } else {
-            return 'https://epos-msl/contactperson/' . $contactPerson->fast_id;
+            return 'https:/epos-msl/contactperson/' . $contactPerson->fast_id;
         }        
     }
     
     private function generateFacilityURI(Laboratory $laboratory) {
-        return 'https://epos-msl/facility/' . $laboratory->fast_id;
+        return 'https:/epos-msl/facility/' . $laboratory->fast_id;
     }
     
     private function generateGeonometryString(Laboratory $laboratory) {        
@@ -190,20 +139,20 @@ class RegistryExport
         $fastLaboratoryDomain = $laboratory->fast_domain_name;
         
         switch ($fastLaboratoryDomain) {
-            case 'Analogue modelling':
-                return '<category:AnalogueModelling>';
+            case 'Analogue modelling of geological processes':
+                return '<category:AnalogueModelling_conc>';
             
-            case 'Analytical':
-                return '';
+            case 'Geochemistry':
+                return '<category:Geochemistry_conc>';
                 
-            case 'Microscopy':
-                return '<category:AnalyticalMicroscopy>';
+            case 'Microscopy and tomography':
+                return '<category:MicroscopyAndTomography_conc>';
                 
             case 'Paleomagnetism':
-                return '<category:Paleomagnetism>';
+                return '<category:Paleomagnetism_conc>';
                 
-            case 'Rock physics':
-                return '<category:RockPhysics>';
+            case 'Rock and melt physics':
+                return '<category:RockPhysics_conc>';
                 
             default:
                 return '';
