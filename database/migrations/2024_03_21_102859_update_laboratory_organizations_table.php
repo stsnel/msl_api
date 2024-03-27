@@ -14,9 +14,9 @@ class UpdateLaboratoryOrganizationsTable extends Migration
     public function up()
     {
         Schema::table('laboratory_organizations', function (Blueprint $table) {
-            $table->text('ror_country')->nullable('');
-            $table->text('ror_country_code')->nullable('');
-            $table->text('ror_website')->nullable('');
+            $table->text('ror_country')->nullable();
+            $table->text('ror_country_code')->nullable();
+            $table->text('ror_website')->nullable();
         });
     }
 

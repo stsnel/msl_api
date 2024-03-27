@@ -8,6 +8,7 @@ use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryContactPerson;
 use App\Models\LaboratoryManager;
 use App\Models\LaboratoryEquipment;
+use App\Models\LaboratoryKeyword;
 
 class LaboratorySeeder extends Seeder
 {
@@ -23,6 +24,7 @@ class LaboratorySeeder extends Seeder
         LaboratoryContactPerson::truncate();
         LaboratoryManager::truncate();
         LaboratoryEquipment::truncate();
+        LaboratoryKeyword::truncate();
         
         //load jsonData from file
         $fileString = file_get_contents(base_path('database/seeders/datafiles/labs/converted.json'));

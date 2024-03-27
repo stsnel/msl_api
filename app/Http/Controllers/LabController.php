@@ -7,6 +7,7 @@ use App\Models\LaboratoryUpdateGroupFast;
 use App\Jobs\ProcessLaboratoryUpdateGroupFast;
 use App\Exports\epos\RegistryExport;
 use App\Models\Laboratory;
+use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryKeywordUpdateGroup;
@@ -54,15 +55,14 @@ class LabController extends Controller
         return redirect()->route('importers');
     }
     
-    public function registryTurtle()
+    public function registryTurtle(Request $request)
     {
-        $laboratories = Laboratory::where('fast_id', 50)->get();
+        $organizations = LaboratoryOrganization::where('ror_country_code', '<>', '')->get();               
+        $exporter = new RegistryExport($organizations);         
         
-        $exporter = new RegistryExport($laboratories);
-                
-        
-        
-        dd($exporter->export());        
+        return response()->streamDownload(function () use($exporter, $request) {
+            echo $exporter->export();
+        }, 'msl-labs.ttl');       
     }
     
   
