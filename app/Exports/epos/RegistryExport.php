@@ -132,7 +132,7 @@ class RegistryExport
     }
     
     private function generateGeonometryString(Laboratory $laboratory) {        
-        return "POINT(" . str_replace(',', '.', $laboratory->longitude) . " " . str_replace(',', '.', $laboratory->latitude) . " 0)";
+        return "POINT(" . str_replace(',', '.', $laboratory->longitude) . " " . str_replace(',', '.', $laboratory->latitude) . ")";
     }
     
     private function getEPOSlabType(Laboratory $laboratory) {
