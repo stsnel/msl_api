@@ -70,7 +70,7 @@ class RegistryExport
                 $facilityGraph = $graph->resource($this->generateFacilityURI($laboratory), 'epos:Facility');
                 $facilityGraph->set('dct:identifier', $facilityGraph->getUri());
                 $facilityGraph->set('dct:title', $laboratory->name);
-                $facilityGraph->set('dct:description', $laboratory->description);
+                $facilityGraph->set('dct:description', $this->formatNewlines($laboratory->description));
                 $facilityGraph->set('dct:type', ['type' => 'uri', 'value' => '<epos:Laboratory>']);                
                 $facilityGraph->set('dcat:theme', ['type' => 'uri', 'value' => $this->getEPOSlabType($laboratory)]);
                 $facilityGraph->set('dcat:contactPoint', ['type' => 'uri', 'value' => $contactPointGraph->getUri()]);
@@ -157,6 +157,11 @@ class RegistryExport
             default:
                 return '';
         }
+    }
+    
+    private function formatNewlines($text) {
+        return preg_replace('/\R/', '', nl2br($text, false));
+        return str_replace(PHP_EOL, '', nl2br($text, false));
     }
 }
 
