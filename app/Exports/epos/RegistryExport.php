@@ -72,7 +72,7 @@ class RegistryExport
                 $facilityGraph->set('dct:title', $laboratory->name);
                 $facilityGraph->set('dct:description', $laboratory->description);
                 $facilityGraph->set('dct:type', ['type' => 'uri', 'value' => '<epos:Laboratory>']);                
-                $facilityGraph->set('dct:theme', ['type' => 'uri', 'value' => $this->getEPOSlabType($laboratory)]);
+                $facilityGraph->set('dcat:theme', ['type' => 'uri', 'value' => $this->getEPOSlabType($laboratory)]);
                 $facilityGraph->set('dcat:contactPoint', ['type' => 'uri', 'value' => $contactPointGraph->getUri()]);
                 if((strlen($laboratory->latitude) > 0) && (strlen($laboratory->longitude) > 0)) {
                     $facilityLocation = $graph->newBNode('dct:Location');
