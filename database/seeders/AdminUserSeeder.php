@@ -21,19 +21,8 @@ class AdminUserSeeder extends Seeder
             [
                 'name' => 'Laurens',
                 'email' => 'l.samshuijzen@uu.nl',
-                'password' => 'dlsnclksdmcklsmdkclmsdklcmskldmcsdkldscsdcsdcsdc'
+                'password' => bcrypt('testtest')
             ]
-        );
-        
-        User::updateOrCreate(
-            [
-                'name' => 'Otto'
-            ],
-            [
-                'name' => 'Otto',
-                'email' => 'o.a.lange@uu.nl',
-                'password' => 'skjdcnsdncjksdncjksndjkcnsdjkncjksdsdcsdcsdvewvs'
-            ]
-        );
+        );        
     }
 }

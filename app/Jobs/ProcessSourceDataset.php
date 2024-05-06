@@ -17,6 +17,7 @@ use App\Mappers\FourTUMapper;
 use App\Mappers\MagicMapper;
 use App\Mappers\BgsMapper;
 use App\Mappers\GFZDataciteMapper;
+use App\Mappers\TestMapper;
 
 class ProcessSourceDataset implements ShouldQueue
 {
@@ -59,6 +60,8 @@ class ProcessSourceDataset implements ShouldQueue
             $mapper = new BgsMapper();
         } elseif($importer->options['sourceDatasetProcessor']['type'] == 'GFZDataciteMapper') {
             $mapper = new GFZDataciteMapper();
+        } elseif($importer->options['sourceDatasetProcessor']['type'] == 'TestMapper') {
+            $mapper = new TestMapper();
         } else {
             throw new \Exception('Invalid sourceDatasetProcessor defined in importer config.');
         }                                
