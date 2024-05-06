@@ -42,6 +42,36 @@ class ToolsController extends Controller
         return view('convert-keywords');
     }
     
+    public function geoview()
+    {
+        $client = new \GuzzleHttp\Client();
+        
+        $searchRequest = new PackageSearch();
+        $searchRequest->query = 'type:data-publication';
+        try {
+            $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+        } catch (\Exception $e) {
+            
+        }
+        
+        $content = json_decode($response->getBody(), true);
+        $results = $content['result']['results'];
+        
+        
+        $featureArray = [];
+        
+        foreach ($results as $result) {
+            if(isset($result['msl_geojson_featurecollection'])) {
+                if(strlen($result['msl_geojson_featurecollection']) > 0) {
+                    $featureArray[] = $result['msl_geojson_featurecollection'];
+                }
+            }
+        }
+        //dd(json_encode($featureArray));
+        
+        return view('geoview', ['features' => json_encode($featureArray)]);
+    }
+    
     public function processMaterialsFile(Request $request)
     {
         $request->validate([
