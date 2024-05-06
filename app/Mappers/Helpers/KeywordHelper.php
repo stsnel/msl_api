@@ -3,6 +3,8 @@ namespace App\Mappers\Helpers;
 
 use App\Models\KeywordSearch;
 use App\Datasets\BaseDataset;
+use App\Models\Vocabulary;
+
 
 class KeywordHelper
 {        
@@ -199,9 +201,18 @@ class KeywordHelper
         return $dataset;
     }
     
-    public function extractFromText($text)
-    {
-        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', '1.2')->get();
+    public function extractFromText($text, $domainVocabulariesOnly = false)
+    {        
+        if($domainVocabulariesOnly) {
+            $vocabularies = Vocabulary::where('version', '1.2')->whereIn('name', ['rockphysics', 'analogue', 'paleomagnetism', 'geochemistry', 'microscopy'])->get();
+            $searchKeywords = collect([]);
+            foreach ($vocabularies as $vocabulary) {
+                $searchKeywords = $searchKeywords->merge($vocabulary->search_keywords()->where('exclude_abstract_mapping', false)->get());
+            }                        
+        } else {
+            $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', '1.2')->get();
+        }
+        
         $matchedKeywords = [];
         
         foreach ($searchKeywords as $searchKeyword) {
