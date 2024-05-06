@@ -51,6 +51,8 @@ class BaseDataset
     public $tag_string = [];
 
     public $msl_spatial_coordinates = [];
+    
+    public $msl_geojson_featurecollection;
 
     public $msl_geolocations = [];
 
