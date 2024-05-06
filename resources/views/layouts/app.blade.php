@@ -101,6 +101,10 @@
                                     <a class="dropdown-item" href="{{ route('geoview') }}">                                                                              
                                         Geoview
                                     </a>
+                                    
+                                    <a class="dropdown-item" href="{{ route('geoview-labs') }}">                                                                              
+                                        Geoview Labs
+                                    </a>
                                 </div>
                             </li>
                         

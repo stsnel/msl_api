@@ -24,6 +24,7 @@ use App\Converters\MicroscopyConverter;
 use App\Models\Vocabulary;
 use App\Exports\UriLabelExport;
 use App\Models\Keyword;
+use App\Models\Laboratory;
 
 class ToolsController extends Controller
 {
@@ -70,6 +71,35 @@ class ToolsController extends Controller
         //dd(json_encode($featureArray));
         
         return view('geoview', ['features' => json_encode($featureArray)]);
+    }
+    
+    public function geoviewLabs()
+    {
+        $labs = Laboratory::where('latitude', '<>', '')->get();
+        
+        //dd($labs);
+        $featureArray = [];
+        
+        foreach ($labs as $lab) {
+            $feature = [
+                'type' => 'Feature',
+                'properties' => [
+                    'name' => $lab->name
+                ],
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [str_replace(',', '.', $lab->longitude), str_replace(',', '.', $lab->latitude)]
+                ]
+            ];
+            
+            $featureArray[] = $feature;
+        }
+        
+        //dd(json_encode($featureArray));
+        //dd(htmlspecialchars(json_encode($featureArray), ENT_QUOTES, 'UTF-8'));
+        
+        
+        return view('geoview-labs', ['features' => json_encode($featureArray)]);
     }
     
     public function processMaterialsFile(Request $request)

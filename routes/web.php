@@ -58,6 +58,7 @@ Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'
 Route::get('tools/doi-export', [ToolsController::class, 'doiExport'])->name('doi-export');
 
 Route::get('tools/geoview', [ToolsController::class, 'geoView'])->name('geoview');
+Route::get('tools/geoview-labs', [ToolsController::class, 'geoViewLabs'])->name('geoview-labs');
 
 Route::get('tools/urilabels', [ToolsController::class, 'uriLabels'])->name('uri-labels');
 Route::get('tools/urilabelsdownload', [ToolsController::class, 'uriLabelsDownload'])->name('uri-label-download');
