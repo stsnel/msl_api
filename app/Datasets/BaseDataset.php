@@ -49,6 +49,8 @@ class BaseDataset
     public $msl_references = [];
 
     public $tag_string = [];
+    
+    public $msl_tags = [];
 
     public $msl_spatial_coordinates = [];
 
@@ -122,6 +124,33 @@ class BaseDataset
         'title' => 'required',
         'msl_authors' => 'required'
     ];
+    
+    public function addTag($tagString, $uris = []) {
+        $exists = false;
+        foreach ($this->msl_tags as $tag) {
+            if($tag['msl_tag_string'] == $tagString) {
+                $exists = true;
+                break;
+            }
+        }
+        
+        if(!$exists) {
+            $this->msl_tags[] = [
+                'msl_tag_string' => $tagString,
+                'msl_tag_uris' => $uris
+            ];
+        }
+    }
+    
+    public function addUriToTag($tagString, $uri) {
+        foreach ($this->msl_tags as &$tag) {
+            if($tag['msl_tag_string'] == $tagString) {
+                if(!in_array($uri, $tag['msl_tag_uris'])) {
+                    $tag['msl_tag_uris'][] = $uri;
+                }
+            }
+        }
+    }
 
     public function addSubDomain($subDomain, $original = true)
     {
