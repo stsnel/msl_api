@@ -310,7 +310,7 @@ class BaseDataset
         }
     }
 
-    public function addEnrichedKeyword($label, $uri = "", $vocabUri = "", $associatedSubDomains = [], $matchLocations = [])
+    public function addEnrichedKeyword($label, $uri = "", $vocabUri = "", $associatedSubDomains = [], $matchLocations = [], $matchChildUris = [])
     {
         $exists = false;
         foreach ($this->msl_enriched_keywords as &$keyword) {
@@ -327,7 +327,14 @@ class BaseDataset
                     if(!in_array($matchLocation, $keyword['msl_enriched_keyword_match_locations'])) {
                         $keyword['msl_enriched_keyword_match_locations'][] = $matchLocation;
                     }
-                }                
+                }
+                
+                //add match child uris
+                foreach ($matchChildUris as $matchChildUri) {
+                    if(!in_array($matchChildUri, $keyword['msl_enriched_keyword_match_child_uris'])) {
+                        $keyword['msl_enriched_keyword_match_child_uris'][] = $matchChildUri;
+                    }
+                }
                 
                 $exists = true;
                 break;
@@ -341,7 +348,8 @@ class BaseDataset
                 'msl_enriched_keyword_uri' => $uri,
                 'msl_enriched_keyword_vocab_uri' => $vocabUri,
                 'msl_enriched_keyword_associated_subdomains' => $associatedSubDomains,
-                'msl_enriched_keyword_match_locations' => $matchLocations
+                'msl_enriched_keyword_match_locations' => $matchLocations,
+                'msl_enriched_keyword_match_child_uris' => $matchChildUris
             ];
             
             $this->msl_enriched_keywords[] = $enrichedKeyword;

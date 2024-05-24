@@ -47,7 +47,7 @@ class KeywordHelper
                             if($enrichedKeyword->uri == $keyword->uri) {
                                 $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], ['keyword']);
                             } else {
-                                $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], ['parent']);
+                                $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], ['parent'], [$keyword->uri]);
                             }
                         } else {
                             if(isset($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name])) {
@@ -55,13 +55,13 @@ class KeywordHelper
                                 if($enrichedKeyword->uri == $keyword->uri) {
                                     $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], ['keyword']);
                                 } else {
-                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], ['parent']);
+                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], ['parent'], [$keyword->uri]);
                                 }
                             } else {
                                 if($enrichedKeyword->uri == $keyword->uri) {
                                     $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], ['keyword']);
                                 } else {
-                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], ['parent']);
+                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], ['parent'], [$keyword->uri]);
                                 }
                             }
                             
@@ -96,18 +96,20 @@ class KeywordHelper
                             
                             foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
                                 $sourceRelation = $source;
+                                $childUri = [];
                                 if($enrichedKeyword->value !== $keyword->value) {
                                     $sourceRelation = 'parent';
+                                    $childUri = [$keyword->uri];
                                 }
                                                                                                     
                                 if($enrichedKeyword->exclude_domain_mapping) {
-                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
+                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation], $childUri);
                                 } else {
                                     if(isset($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name])) {
                                         $dataset->addSubDomain($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name], false);
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], [$sourceRelation]);
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], [$sourceRelation], $childUri);
                                     } else {
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation], $childUri);
                                     }                                    
                                 }                                
                             }
@@ -159,18 +161,20 @@ class KeywordHelper
                             
                             foreach ($keyword->getFullHierarchy() as $enrichedKeyword) {
                                 $sourceRelation = $source;
+                                $childUri = [];
                                 if($enrichedKeyword->value !== $keyword->value) {
                                     $sourceRelation = 'parent';
+                                    $childUri = [$keyword->uri];
                                 }
                                 
                                 if($enrichedKeyword->exclude_domain_mapping) {
-                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
+                                    $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation], $childUri);
                                 } else {
                                     if(isset($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name])) {
                                         $dataset->addSubDomain($this->vocabularySubDomainMapping[$enrichedKeyword->vocabulary->name], false);
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], [$sourceRelation]);
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [$this->vocabularySubDomainMapping[$keyword->vocabulary->name]], [$sourceRelation], $childUri);
                                     } else {
-                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation]);
+                                        $dataset->addEnrichedKeyword($enrichedKeyword->value, $enrichedKeyword->uri, $enrichedKeyword->vocabulary->uri, [], [$sourceRelation], $childUri);
                                     }
                                     
                                 }
