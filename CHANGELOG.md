@@ -7,8 +7,12 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added 
+### Added
 
+- Add base organization used by CKAN to organization seeder to ease initial setup
+- Add vocabulary display names to database, seeding, vocabulary api and exports
+- Add new tag field to datapublication schema to work with matched vocabulary terms
+- Add child uri to enriched keywords for displaying connections in frontend 
 
 ## [1.5.1] - 2024-02-28
 

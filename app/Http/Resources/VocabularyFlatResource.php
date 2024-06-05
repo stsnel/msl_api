@@ -16,6 +16,7 @@ class VocabularyFlatResource extends JsonResource
     {
         return [
             'name' => $this->name,
+            'display_name' => $this->display_name,
             'uri' => $this->uri
         ];
     }

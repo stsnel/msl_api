@@ -8,7 +8,8 @@ class Vocabulary extends Model
 {
     public $fillable = [
         'name',
-        'uri'
+        'uri',
+        'display_name'
     ];
              
     public function keywords() {
