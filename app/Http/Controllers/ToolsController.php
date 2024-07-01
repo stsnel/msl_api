@@ -48,7 +48,7 @@ class ToolsController extends Controller
         $client = new \GuzzleHttp\Client();
         
         $searchRequest = new PackageSearch();
-        $searchRequest->query = 'type:data-publication';
+        $searchRequest->query = 'type:data-publication msl_surface_area:[0 TO 500]';
         $searchRequest->rows = 1000;
         try {
             $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());

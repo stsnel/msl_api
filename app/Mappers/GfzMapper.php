@@ -359,6 +359,7 @@ class GfzMapper
         $geometriesBox = [];
         $featuresBox = [];
         $featuresPoint = [];
+        $areaSize = 0;
         
         //extract spatial coordinates
         $spatialResults = $xmlDocument->xpath("/oai:OAI-PMH/oai:GetRecord/oai:record/oai:metadata[1]/gmd:MD_Metadata/gmd:identificationInfo/gmd:MD_DataIdentification/gmd:extent/gmd:EX_Extent/gmd:geographicElement");
@@ -399,9 +400,9 @@ class GfzMapper
                 
                 if (GeoJSON::isCompleteBoundingBox($bbox)) {
                     if (($feature = GeoJSON::coordsToGeoJSONFeatureBBox($bbox, 'Original coordinates')) && $feature != []) {
-                        $featuresBox[] = $feature;
-                        
+                        $featuresBox[] = $feature;                        
                         $featuresPoint[] = GeoJSON::coordsToGeoJSONFeaturePoint($bbox, 'Original coordinates');
+                        $areaSize = $areaSize + GeoJSON::bboxSurfaceSize($bbox);
                     }
                     
                     if (($geometry = GeoJSON::coordsToGeoJSONGeometryBBox($bbox)) && $geometry != []) {
@@ -418,6 +419,8 @@ class GfzMapper
             
             $dataset->msl_geojson_featurecollection = json_encode($featureCollectionBoxes);
             $dataset->msl_geojson_featurecollection_points = json_encode($featureCollectionPoints);
+            
+            $dataset->msl_surface_area = (int)$areaSize;
         }
         
         if (sizeof($geometriesBox)) {

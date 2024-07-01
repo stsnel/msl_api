@@ -269,6 +269,15 @@ class GeoJSON
         return !($bbox['westBoundLongitude']=='' || $bbox['eastBoundLongitude']=='' || $bbox['southBoundLatitude']=='' || $bbox['northBoundLatitude']=='');
     }
     
+    public static function bboxSurfaceSize(array $bbox) {
+        $xmin = $bbox['eastBoundLongitude'];
+        $ymin = $bbox['southBoundLatitude'];
+        $xmax = $bbox['westBoundLongitude'];
+        $ymax = $bbox['northBoundLatitude'];
+        
+        return abs($xmax - $xmin) * abs($ymax - $ymin);
+    }
+    
     /**
      * find in an array where the needle itself is an array
      * @param $haystack
