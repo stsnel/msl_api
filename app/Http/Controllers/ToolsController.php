@@ -49,6 +49,7 @@ class ToolsController extends Controller
         
         $searchRequest = new PackageSearch();
         $searchRequest->query = 'type:data-publication';
+        $searchRequest->rows = 1000;
         try {
             $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
         } catch (\Exception $e) {
@@ -60,6 +61,7 @@ class ToolsController extends Controller
         
         
         $featureArray = [];
+        $featureArrayPoints = [];
         
         foreach ($results as $result) {
             if(isset($result['msl_geojson_featurecollection'])) {
@@ -67,10 +69,54 @@ class ToolsController extends Controller
                     $featureArray[] = $result['msl_geojson_featurecollection'];
                 }
             }
+            
+            /*
+            if(isset($result['msl_geojson_featurecollection_points'])) {
+                if(strlen($result['msl_geojson_featurecollection_points']) > 0) {
+                    $featureArrayPoints[] = $result['msl_geojson_featurecollection_points'];
+                }
+            }
+            */
+            
+            //include extra data in point features for map testing
+            if(isset($result['msl_geojson_featurecollection_points'])) {
+                if(strlen($result['msl_geojson_featurecollection_points']) > 0) {
+                    $pointFeature = json_decode($result['msl_geojson_featurecollection_points']);
+                    
+                    
+                    foreach ($pointFeature->features as &$subFeature) {
+                        $subFeature->properties->name = $result['title'];
+                        $subFeature->properties->ckan_id = $result['name'];
+                        $subFeature->properties->area_geojson = $result['msl_geojson_featurecollection'];
+                    }
+                    
+                    
+                    $pointFeature->features[0]->properties->name = $result['title'];
+                    $pointFeature->features[0]->properties->ckan_id = $result['name'];
+                    $pointFeature->features[0]->properties->area_geojson = $result['msl_geojson_featurecollection'];
+                    
+                    $pointFeature = json_encode($pointFeature);
+                    
+                    $featureArrayPoints[] = $pointFeature;
+                    
+                    //dd($pointFeature);
+                    
+                    
+                    //$featureArrayPoints[] = $result['msl_geojson_featurecollection_points'];
+                }
+            }
+            
+            
         }
-        //dd(json_encode($featureArray));
         
-        return view('geoview', ['features' => json_encode($featureArray)]);
+        
+        
+        //dd($results);
+        //dd(json_encode($featureArray));
+        //dd(json_decode($featureArrayPoints[0]));
+        //dd(json_encode($featureArrayPoints));
+        
+        return view('geoview', ['features' => json_encode($featureArray), 'featuresPoints' => json_encode($featureArrayPoints)]);
     }
     
     public function geoviewLabs()

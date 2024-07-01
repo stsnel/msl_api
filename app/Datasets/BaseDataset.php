@@ -53,6 +53,8 @@ class BaseDataset
     public $msl_spatial_coordinates = [];
     
     public $msl_geojson_featurecollection;
+    
+    public $msl_geojson_featurecollection_points;
 
     public $msl_geolocations = [];
 

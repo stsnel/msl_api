@@ -368,6 +368,7 @@ class TestMapper
          */
         $geometriesBox = [];
         $featuresBox = [];
+        $featuresPoint = [];
         
         //extract spatial coordinates
         $spatialResults = $xmlDocument->xpath("/dc:resource/dc:geoLocations/dc:geoLocation/dc:geoLocationBox");        
@@ -411,6 +412,8 @@ class TestMapper
                 if (GeoJSON::isCompleteBoundingBox($bbox)) {                    
                     if (($feature = GeoJSON::coordsToGeoJSONFeatureBBox($bbox, 'Original coordinates')) && $feature != []) {
                         $featuresBox[] = $feature;
+                        
+                        $featuresPoint[] = GeoJSON::coordsToGeoJSONFeaturePoint($bbox, 'Original coordinates');
                     }
                     
                     if (($geometry = GeoJSON::coordsToGeoJSONGeometryBBox($bbox)) && $geometry != []) {
@@ -422,9 +425,11 @@ class TestMapper
         
         if (sizeof($featuresBox)) {
             // featureCollection is for mapping functionality frontend
-            $featureCollectionBoxes = ["type" => "FeatureCollection", "features" => $featuresBox];            
+            $featureCollectionBoxes = ["type" => "FeatureCollection", "features" => $featuresBox];
+            $featureCollectionPoints = ["type" => "FeatureCollection", "features" => $featuresPoint];
             
             $dataset->msl_geojson_featurecollection = json_encode($featureCollectionBoxes);
+            $dataset->msl_geojson_featurecollection_points = json_encode($featureCollectionPoints);
         }
         
         if (sizeof($geometriesBox)) {
