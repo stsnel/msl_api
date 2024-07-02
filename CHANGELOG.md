@@ -7,8 +7,18 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
-### Added 
+### Added
 
+- Add base organization used by CKAN to organization seeder to ease initial setup
+- Add vocabulary display names to database, seeding, vocabulary api and exports
+- Add new tag field to datapublication schema to work with matched vocabulary terms
+- Add child uri to enriched keywords for displaying connections in frontend 
+- Add new lab data management to msl_api;
+  - Setup facility/equipment and origanization models as setup in FAST
+  - Create update function to synch data from fast to msl_api
+  - Populate facility organization data using ROR identifier as set in FAST
+  - Add function to ass keywords to facilities based on vocabularies and facility description/title
+  - Add option to serialise facility data to RDF/turtle for data exange with EPOS  
 
 ## [1.5.1] - 2024-02-28
 
