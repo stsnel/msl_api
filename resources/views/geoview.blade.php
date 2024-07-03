@@ -87,7 +87,8 @@
                         }).addTo(map);
                         
                         var markers = L.markerClusterGroup({
-                        	zoomToBoundsOnClick:false
+                        	zoomToBoundsOnClick:false,
+                        	showCoverageOnHover:false
                         });
                         
                         var geoJsonLayer = L.layerGroup();
@@ -102,14 +103,7 @@
 								onEachFeature: onEachFeature
 							}).addTo(geoJsonLayer);
         				}
-        				
-        				markers.on('click', function (a) {
-                        	
-                        	//L.geoJSON(testGeoJson).addTo(map);
-                        	
-                        	                        	
-                        });
-                        
+        				                        
                         var curPage = 0;
                     	                      	
                     	var popupContentHeader = '<div class="popupcontent">';
