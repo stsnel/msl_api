@@ -32,6 +32,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'materials',
+                'display_name' => 'Material',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/materials/1.3/'
             ]
@@ -54,6 +55,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'porefluids',
+                'display_name' => 'Pore fluid',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/porefluids/1.3/'
             ]
@@ -76,6 +78,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'rockphysics',
+                'display_name' => 'Rock and melt physics',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/rockphysics/1.3/'
             ]
@@ -104,6 +107,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'analogue',
+                'display_name' => 'Analogue modelling of geological processes',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/analoguemodelling/1.3/'
             ]
@@ -138,6 +142,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'geologicalage',
+                'display_name' => 'Geological age',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/geologicalage/1.3/'
             ]
@@ -160,6 +165,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'geologicalsetting',
+                'display_name' => 'Geological setting',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/geologicalsetting/1.3/'
             ]
@@ -182,6 +188,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'paleomagnetism',
+                'display_name' => 'Paleomagnetism',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/paleomagnetism/1.3/'
             ]
@@ -204,6 +211,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'geochemistry',
+                'display_name' => 'Geochemistry',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/geochemistry/1.3/'
             ]
@@ -226,6 +234,7 @@ class VocabularySeeder extends Seeder
             ],
             [
                 'name' => 'microscopy',
+                'display_name' => 'Microscopy and tomography',
                 'version' => '1.3',
                 'uri' => 'https://epos-msl.uu.nl/voc/microscopy/1.3/'
             ]
