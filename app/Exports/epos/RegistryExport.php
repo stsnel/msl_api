@@ -11,6 +11,7 @@ use EasyRdf\RdfNamespace;
 use App\Models\LaboratoryContactPerson;
 use App\Models\Laboratory;
 use EasyRdf\Literal;
+use App\Models\LaboratoryEquipment;
 
 class RegistryExport
 {
@@ -31,6 +32,7 @@ class RegistryExport
         RdfNamespace::set('epos', 'https://www.epos-eu.org/epos-dcat-ap#');       
         RdfNamespace::set('locn', 'http://www.w3.org/ns/locn#');
         RdfNamespace::set('gsp', 'http://www.opengis.net/ont/geosparql#');
+        RdfNamespace::set('skos', 'http://www.w3.org/2004/02/skos/core#');
         
         foreach ($this->organizations as $organization) {
             // Add organization to graph
@@ -102,6 +104,25 @@ class RegistryExport
                 } else {
                     $organizationGraph->set('schema:owns', $facilityGraph);
                 }
+                
+                // Add equipment belonging to lab
+                foreach ($laboratory->laboratoryEquipment as $equipment) {
+                    $equipmentGraph = $graph->resource($this->generateEquipmentURI($equipment), 'epos:Equipment');
+                    $equipmentGraph->set('schema:identifier', $this->generateEquipmentURI($equipment));
+                    $equipmentGraph->set('schema:name', $equipment->group_name);
+                    $equipmentGraph->set('schema:description', $this->formatNewlines($equipment->description));
+                    
+                    $equipmentGraph->set('dct:type', ['type' => 'uri', 'value' => $this->getEquipmentType($equipment)]);
+                    
+                    $equipmentGraph->set('dct:isPartOf', ['type' => 'uri', 'value' => $facilityGraph->getUri()]);
+                    $equipmentGraph->add('dcat:keyword', $equipment->category_name);
+                    $equipmentGraph->add('dcat:keyword', $equipment->type_name);
+                    
+                    $equipmentLocation = $graph->newBNode('dct:Location');
+                    $equipmentLocation->add("locn:geometry", Literal::create($this->generateGeonometryString($laboratory), null, 'gsp:wktLiteral'));
+                    $equipmentGraph->set('dct:spatial', $equipmentLocation);
+                    
+                }
                                                
             }
             
@@ -110,10 +131,51 @@ class RegistryExport
                 
         
         // concepts
+        
+        // lab concepts
+        
+        $facilityTypeConcept = $graph->resource('epos:Facility_Type', 'skos:ConceptScheme');
+        $facilityTypeConcept->set('dct:description', 'Facility type');        
+        $facilityTypeConcept->set('dct:title', 'Facility type');
+                
         $laboratoryConcept = $graph->resource('epos:Laboratory', 'skos:Concept');
         $laboratoryConcept->set('skos:definition', 'Laboratory');
         $laboratoryConcept->set('skos:inScheme', ['type' => 'uri', 'value' => '<epos:Facility_Type>']);
         $laboratoryConcept->set('skos:prefLabel', 'Laboratory');
+        
+        
+        // equipment concepts
+        
+        $equipmentConcept = $graph->resource('epos:Equipment_Type', 'skos:ConceptScheme');
+        $equipmentConcept->set('dct:description', 'Equipment type');
+        $equipmentConcept->set('dct:title', 'Equipment type');
+                
+        $equipmentDefinition = $graph->resource('epos:Atomic_Force_Microscopy_definition', 'skos:Concept');
+        $equipmentDefinition->set('skos:definition', 'Atomic Force Microscopy');
+        $equipmentDefinition->set('skos:inScheme', ['type' => 'uri', 'value' => '<epos:Equipment_Type>']);
+        $equipmentDefinition->set('skos:prefLabel', 'Atomic Force Microscopy');
+        
+        $equipmentDefinition = $graph->resource('epos:Electron_Microscopy_definition', 'skos:Concept');
+        $equipmentDefinition->set('skos:definition', 'Electron Microscopy');
+        $equipmentDefinition->set('skos:inScheme', ['type' => 'uri', 'value' => '<epos:Equipment_Type>']);
+        $equipmentDefinition->set('skos:prefLabel', 'Electron Microscopy');
+        
+        $equipmentDefinition = $graph->resource('epos:Electron_Probe_Micro_Analyzer_definition', 'skos:Concept');
+        $equipmentDefinition->set('skos:definition', 'Electron Probe Micro Analyzer');
+        $equipmentDefinition->set('skos:inScheme', ['type' => 'uri', 'value' => '<epos:Equipment_Type>']);
+        $equipmentDefinition->set('skos:prefLabel', 'Electron Probe Micro Analyzer');
+        
+        $equipmentDefinition = $graph->resource('epos:Mass_Spectrometer_definition', 'skos:Concept');
+        $equipmentDefinition->set('skos:definition', 'Mass Spectrometer');
+        $equipmentDefinition->set('skos:inScheme', ['type' => 'uri', 'value' => '<epos:Equipment_Type>']);
+        $equipmentDefinition->set('skos:prefLabel', 'Mass Spectrometer');
+        
+        $equipmentDefinition = $graph->resource('epos:X-Ray_Tomography_definition', 'skos:Concept');
+        $equipmentDefinition->set('skos:definition', 'X-Ray Tomography');
+        $equipmentDefinition->set('skos:inScheme', ['type' => 'uri', 'value' => '<epos:Equipment_Type>']);
+        $equipmentDefinition->set('skos:prefLabel', 'X-Ray Tomography');
+        
+        
                 
         return $graph->serialise($type);        
     }
@@ -129,6 +191,10 @@ class RegistryExport
     
     private function generateFacilityURI(Laboratory $laboratory) {
         return 'https:/epos-msl/facility/' . $laboratory->fast_id;
+    }
+    
+    private function generateEquipmentURI(LaboratoryEquipment $equipment) {
+        return 'https:/epos-msl/equipment/' . $equipment->fast_id;
     }
     
     private function generateGeonometryString(Laboratory $laboratory) {        
@@ -154,6 +220,30 @@ class RegistryExport
             case 'Rock and melt physics':
                 return '<category:RockPhysics_conc>';
                 
+            default:
+                return '';
+        }
+    }
+    
+    private function getEquipmentType(LaboratoryEquipment $laboratoryEquipment) {
+        $equipmentType = $laboratoryEquipment->type_name;
+        
+        switch ($equipmentType) {
+            case 'Atomic Force Microscopy':
+                return '<epos:Atomic_Force_Microscopy_definition>';
+                
+            case 'Electron Microscopy':
+                return '<epos:Electron_Microscopy_definition>';
+                
+            case 'Electron Probe Micro Analyzer':
+                return '<epos:Electron_Probe_Micro_Analyzer_definition>';
+                
+            case 'Mass Spectrometer':
+                return '<epos:Mass_Spectrometer_definition>';
+                
+            case 'X-Ray Tomography':
+                return '<epos:X-Ray_Tomography_definition>';
+            
             default:
                 return '';
         }

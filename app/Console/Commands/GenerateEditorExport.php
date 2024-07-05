@@ -56,7 +56,7 @@ class GenerateEditorExport extends Command
         $tree = [];
         foreach ($vocabularies as $vocabulary) {
             $element = [
-                'text' => $vocabulary->name,
+                'text' => $vocabulary->display_name,
                 'extra' => [
                     'uri' => $vocabulary->uri,
                     'vocab_uri' => $vocabulary->uri
