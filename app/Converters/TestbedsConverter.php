@@ -13,7 +13,7 @@ class TestbedsConverter
         
         $data = [
             [
-                'value' => 'Facilty names',
+                'value' => 'Facility names',
                 'level' => 1,
                 'hyperlink' => '',
                 'vocabUri' => '',
