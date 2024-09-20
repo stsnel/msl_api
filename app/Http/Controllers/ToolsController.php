@@ -24,6 +24,7 @@ use App\Converters\MicroscopyConverter;
 use App\Models\Vocabulary;
 use App\Exports\UriLabelExport;
 use App\Models\Keyword;
+use App\Models\Laboratory;
 
 class ToolsController extends Controller
 {
@@ -40,6 +41,111 @@ class ToolsController extends Controller
     public function convertKeywords()
     {        
         return view('convert-keywords');
+    }
+    
+    public function geoview()
+    {
+        $client = new \GuzzleHttp\Client();
+        
+        $searchRequest = new PackageSearch();
+        $searchRequest->query = 'type:data-publication msl_surface_area:[0 TO 500]';
+        $searchRequest->rows = 1000;
+        try {
+            $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
+        } catch (\Exception $e) {
+            
+        }
+        
+        $content = json_decode($response->getBody(), true);
+        $results = $content['result']['results'];
+        
+        
+        $featureArray = [];
+        $featureArrayPoints = [];
+        
+        foreach ($results as $result) {
+            if(isset($result['msl_geojson_featurecollection'])) {
+                if(strlen($result['msl_geojson_featurecollection']) > 0) {
+                    $featureArray[] = $result['msl_geojson_featurecollection'];
+                }
+            }
+            
+            /*
+            if(isset($result['msl_geojson_featurecollection_points'])) {
+                if(strlen($result['msl_geojson_featurecollection_points']) > 0) {
+                    $featureArrayPoints[] = $result['msl_geojson_featurecollection_points'];
+                }
+            }
+            */
+            
+            //include extra data in point features for map testing
+            if(isset($result['msl_geojson_featurecollection_points'])) {
+                if(strlen($result['msl_geojson_featurecollection_points']) > 0) {
+                    $pointFeature = json_decode($result['msl_geojson_featurecollection_points']);
+                    
+                    
+                    foreach ($pointFeature->features as &$subFeature) {
+                        $subFeature->properties->name = $result['title'];
+                        $subFeature->properties->ckan_id = $result['name'];
+                        $subFeature->properties->area_geojson = $result['msl_geojson_featurecollection'];
+                    }
+                    
+                    
+                    $pointFeature->features[0]->properties->name = $result['title'];
+                    $pointFeature->features[0]->properties->ckan_id = $result['name'];
+                    $pointFeature->features[0]->properties->area_geojson = $result['msl_geojson_featurecollection'];
+                    
+                    $pointFeature = json_encode($pointFeature);
+                    
+                    $featureArrayPoints[] = $pointFeature;
+                    
+                    //dd($pointFeature);
+                    
+                    
+                    //$featureArrayPoints[] = $result['msl_geojson_featurecollection_points'];
+                }
+            }
+            
+            
+        }
+        
+        
+        
+        //dd($results);
+        //dd(json_encode($featureArray));
+        //dd(json_decode($featureArrayPoints[0]));
+        //dd(json_encode($featureArrayPoints));
+        
+        return view('geoview', ['features' => json_encode($featureArray), 'featuresPoints' => json_encode($featureArrayPoints)]);
+    }
+    
+    public function geoviewLabs()
+    {
+        $labs = Laboratory::where('latitude', '<>', '')->get();
+        
+        //dd($labs);
+        $featureArray = [];
+        
+        foreach ($labs as $lab) {
+            $feature = [
+                'type' => 'Feature',
+                'properties' => [
+                    'name' => $lab->name
+                ],
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [str_replace(',', '.', $lab->longitude), str_replace(',', '.', $lab->latitude)]
+                ]
+            ];
+            
+            $featureArray[] = $feature;
+        }
+        
+        //dd(json_encode($featureArray));
+        //dd(htmlspecialchars(json_encode($featureArray), ENT_QUOTES, 'UTF-8'));
+        
+        
+        return view('geoview-labs', ['features' => json_encode($featureArray)]);
     }
     
     public function processMaterialsFile(Request $request)

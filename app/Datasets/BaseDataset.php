@@ -53,6 +53,12 @@ class BaseDataset
     public $msl_tags = [];
 
     public $msl_spatial_coordinates = [];
+    
+    public $msl_geojson_featurecollection;
+    
+    public $msl_geojson_featurecollection_points;
+    
+    public $msl_surface_area = 0;
 
     public $msl_geolocations = [];
 

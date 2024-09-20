@@ -56,6 +56,10 @@ Route::post('tools/convert-microscopy', [ToolsController::class, 'processMiscros
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
 Route::get('tools/doi-export', [ToolsController::class, 'doiExport'])->name('doi-export');
+
+Route::get('tools/geoview', [ToolsController::class, 'geoView'])->name('geoview');
+Route::get('tools/geoview-labs', [ToolsController::class, 'geoViewLabs'])->name('geoview-labs');
+
 Route::get('tools/urilabels', [ToolsController::class, 'uriLabels'])->name('uri-labels');
 Route::get('tools/urilabelsdownload', [ToolsController::class, 'uriLabelsDownload'])->name('uri-label-download');
 

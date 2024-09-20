@@ -35,7 +35,7 @@ class KeywordHelper
                 $dataset->addTag($keywordTag);                
             }
             
-            $searchKeywords = KeywordSearch::where('search_value', strtolower($keyword))->where('version', '1.2')->get();
+            $searchKeywords = KeywordSearch::where('search_value', strtolower($keyword))->where('version', config('vocabularies.vocabularies_current_version'))->get();
             
             if(count($searchKeywords) > 0) {
                 foreach ($searchKeywords as $searchKeyword) {
@@ -80,7 +80,7 @@ class KeywordHelper
     
     public function mapKeywordsFromText(BaseDataset $dataset, $text, $source = "") 
     {
-        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', '1.2')->get();
+        $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', config('vocabularies.vocabularies_current_version'))->get();
         
         switch ($source) {
             case 'title':
@@ -222,13 +222,13 @@ class KeywordHelper
     public function extractFromText($text, $domainVocabulariesOnly = false)
     {        
         if($domainVocabulariesOnly) {
-            $vocabularies = Vocabulary::where('version', '1.2')->whereIn('name', ['rockphysics', 'analogue', 'paleomagnetism', 'geochemistry', 'microscopy'])->get();
+            $vocabularies = Vocabulary::where('version', config('vocabularies.vocabularies_current_version'))->whereIn('name', ['rockphysics', 'analogue', 'paleomagnetism', 'geochemistry', 'microscopy'])->get();
             $searchKeywords = collect([]);
             foreach ($vocabularies as $vocabulary) {
                 $searchKeywords = $searchKeywords->merge($vocabulary->search_keywords()->where('exclude_abstract_mapping', false)->get());
             }                        
         } else {
-            $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', '1.2')->get();
+            $searchKeywords = KeywordSearch::where('exclude_abstract_mapping', false)->where('version', config('vocabularies.vocabularies_current_version'))->get();
         }
         
         $matchedKeywords = [];
