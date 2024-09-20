@@ -255,6 +255,52 @@ class VocabularySeeder extends Seeder
             }
         }
         
+        //create subsurface vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'subsurface',
+                'version' => '1.3'
+            ],
+            [
+                'name' => 'subsurface',
+                'display_name' => '(sub)surface utilization setting',
+                'version' => '1.3',
+                'uri' => 'https://epos-msl.uu.nl/voc/subsurface/1.3/'
+            ]
+            );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-3/subsurface.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, false, false, true, true);
+        }
+        
+        //create geo-energy test beds vocabulary
+        $vocabulary = Vocabulary::updateOrCreate(
+            [
+                'name' => 'testbeds',
+                'version' => '1.3'
+            ],
+            [
+                'name' => 'testbeds',
+                'display_name' => 'Geo-energy test beds',
+                'version' => '1.3',
+                'uri' => 'https://epos-msl.uu.nl/voc/testbeds/1.3/'
+            ]
+            );
+        
+        //load jsonData from file
+        $fileString = file_get_contents(base_path('database/seeders/datafiles/vocabularies/1-3/testbeds.json'));
+        $vocabData = json_decode($fileString);
+        
+        //loop over top nodes and add sub-nodes
+        foreach ($vocabData as $topNode) {
+            $this->processNode($topNode, $vocabulary, null, false, false, true, true);
+        }
+        
         
         // vocabularies version 1.2
         

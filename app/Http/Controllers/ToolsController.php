@@ -25,6 +25,8 @@ use App\Models\Vocabulary;
 use App\Exports\UriLabelExport;
 use App\Models\Keyword;
 use App\Models\Laboratory;
+use App\Converters\SubsurfaceConverter;
+use App\Converters\TestbedsConverter;
 
 class ToolsController extends Controller
 {
@@ -313,6 +315,44 @@ class ToolsController extends Controller
             return response()->streamDownload(function () use($converter, $request) {
                 echo $converter->ExcelToJson($request->file('microscopy-file'));
             }, 'microscopy.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processSubsurfaceFile(Request $request)
+    {
+        $request->validate([
+            'subsurface-file' => 'required'
+        ]);
+        
+        if($request->hasFile('subsurface-file')) {
+            $converter = new SubsurfaceConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('subsurface-file'));
+            }, 'subsurface.json');
+                
+        }
+        
+        return back()
+        ->with('status','Error');
+    }
+    
+    public function processTestbedsFile(Request $request)
+    {
+        $request->validate([
+            'testbeds-file' => 'required'
+        ]);
+        
+        if($request->hasFile('testbeds-file')) {
+            $converter = new TestbedsConverter();
+            
+            return response()->streamDownload(function () use($converter, $request) {
+                echo $converter->ExcelToJson($request->file('testbeds-file'));
+            }, 'testbeds.json');
                 
         }
         

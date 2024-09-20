@@ -138,7 +138,36 @@
                         <button type="submit" class="btn btn-primary">Upload file</button>
 					</form>
                 </div>
-            </div>                                      
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">Upload subsurface utilization file</div>
+                <div class="card-body">
+					<form action="{{ route('process-subsurface-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">Subsurface xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="subsurface-file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
+            </div>
+            
+            <div class="card mt-3">
+                <div class="card-header">Upload geo-energy test beds file</div>
+                <div class="card-body">
+					<form action="{{ route('process-testbeds-file') }}" method="POST" enctype="multipart/form-data">
+						@csrf
+						<div class="mb-3">
+                        	<label for="formFile" class="form-label">geo-energy test beds xlsx file</label>
+                        	<input class="form-control" type="file" id="formFile" name="testbeds-file">
+                        </div>
+                        <button type="submit" class="btn btn-primary">Upload file</button>
+					</form>
+                </div>
+            </div>
+                                                  
         </div>
     </div>
 </div>

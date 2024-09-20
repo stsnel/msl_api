@@ -53,6 +53,8 @@ Route::post('tools/convert-geological-setting', [ToolsController::class, 'proces
 Route::post('tools/convert-paleomagnetism', [ToolsController::class, 'processPaleomagnetismFile'])->name('process-paleomagnetism-file');
 Route::post('tools/convert-geochemistry', [ToolsController::class, 'processGeochemistryFile'])->name('process-geochemistry-file');
 Route::post('tools/convert-microscopy', [ToolsController::class, 'processMiscroscopyFile'])->name('process-microscopy-file');
+Route::post('tools/convert-subsurface', [ToolsController::class, 'processSubsurfaceFile'])->name('process-subsurface-file');
+Route::post('tools/convert-testbeds', [ToolsController::class, 'processTestbedsFile'])->name('process-testbeds-file');
 Route::get('tools/convert-excel', [ToolsController::class, 'convertExcel'])->name('convert-excel');
 Route::post('tools/convert-excel', [ToolsController::class, 'processExcelToJson'])->name('process-excel-file');
 Route::get('tools/doi-export', [ToolsController::class, 'doiExport'])->name('doi-export');
