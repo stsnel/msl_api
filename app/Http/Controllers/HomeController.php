@@ -40,7 +40,7 @@ class HomeController extends Controller
     {
         
         
-        return view('home');
+        return view('admin.home');
     }
     
     public function removeDataset()
