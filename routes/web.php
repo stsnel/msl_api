@@ -1,6 +1,6 @@
 <?php
 
-
+use App\Http\Controllers\FrontendController;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
@@ -89,3 +89,5 @@ Route::get('/create-actions', [HomeController::class, 'createActions'])->name('c
 Route::get('/create-action/{id}', [HomeController::class, 'createAction'])->name('create-action');
 
 Route::get('/test', [HomeController::class, 'test'])->name('test');
+
+Route::get('/', [FrontendController::class, 'index'])->name('index');
