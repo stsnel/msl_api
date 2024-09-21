@@ -63,7 +63,7 @@ class SeederController extends Controller
     {
         $seeders = Seeder::all();
                 
-        return view('seeders', ['seeders' => $seeders]);
+        return view('admin.seeders', ['seeders' => $seeders]);
     }
     
     public function seederSeeds($id)
@@ -72,7 +72,7 @@ class SeederController extends Controller
         
         if($seeder) {
             $seeds = $seeder->seeds;        
-            return view('seeder-seeds', ['seeder' => $seeder, 'seeds' => $seeds]);
+            return view('admin.seeder-seeds', ['seeder' => $seeder, 'seeds' => $seeds]);
         }
         abort(404, 'Invalid data requested');
     }
@@ -99,7 +99,7 @@ class SeederController extends Controller
         $seed = Seed::where('id', $id)->first();
         if($seed) {
             $creates = $seed->creates;
-            return view('seeds', ['seed' => $seed, 'creates' => $creates]);
+            return view('admin.seeds', ['seed' => $seed, 'creates' => $creates]);
         }
         
         abort(404, 'Invalid data requested');

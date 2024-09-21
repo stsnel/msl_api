@@ -26,7 +26,7 @@ class LabController extends Controller
         
     public function importLabData()
     {           
-        return view('import-labdata');
+        return view('admin.import-labdata');
     }
     
     public function updateFastData(Request $request)

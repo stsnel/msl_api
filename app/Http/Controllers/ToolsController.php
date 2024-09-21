@@ -42,7 +42,7 @@ class ToolsController extends Controller
         
     public function convertKeywords()
     {        
-        return view('convert-keywords');
+        return view('admin.convert-keywords');
     }
     
     public function geoview()
@@ -118,7 +118,7 @@ class ToolsController extends Controller
         //dd(json_decode($featureArrayPoints[0]));
         //dd(json_encode($featureArrayPoints));
         
-        return view('geoview', ['features' => json_encode($featureArray), 'featuresPoints' => json_encode($featureArrayPoints)]);
+        return view('admin.geoview', ['features' => json_encode($featureArray), 'featuresPoints' => json_encode($featureArrayPoints)]);
     }
     
     public function geoviewLabs()
@@ -147,7 +147,7 @@ class ToolsController extends Controller
         //dd(htmlspecialchars(json_encode($featureArray), ENT_QUOTES, 'UTF-8'));
         
         
-        return view('geoview-labs', ['features' => json_encode($featureArray)]);
+        return view('admin.geoview-labs', ['features' => json_encode($featureArray)]);
     }
     
     public function processMaterialsFile(Request $request)
@@ -362,7 +362,7 @@ class ToolsController extends Controller
     
     public function convertExcel()
     {
-        return view('convert-excel');
+        return view('admin.convert-excel');
     }
     
     public function processExcelToJson(Request $request)
@@ -386,7 +386,7 @@ class ToolsController extends Controller
     
     public function uriLabels()
     {
-        return view('uri-labels');
+        return view('admin.uri-labels');
     }
     
     public function uriLabelsDownload()
@@ -400,7 +400,7 @@ class ToolsController extends Controller
     
     public function filterTree()
     {
-        return view('filter-tree');
+        return view('admin.filter-tree');
     }            
     
     public function filterTreeDownload()
@@ -455,7 +455,7 @@ class ToolsController extends Controller
             return $b - $a;
         });
         
-        return view('unmatched-keywords', ['keywords' => $keywords]);
+        return view('admin.unmatched-keywords', ['keywords' => $keywords]);
     }
     
     public function downloadUnmatchedKeywords()
@@ -531,7 +531,7 @@ class ToolsController extends Controller
         }
                                 
         
-        return view('abstract-matching', ['data' => $data, 'organizations' => $filteredOrganizations, 'selected' => $selected]);
+        return view('admin.abstract-matching', ['data' => $data, 'organizations' => $filteredOrganizations, 'selected' => $selected]);
     }
     
     public function abstractMatchingDownload($dataRepo) 
@@ -581,7 +581,7 @@ class ToolsController extends Controller
             dd(implode(', ', $dois));
         }
         
-        return view('export-dois', ['organizations' => $organizations]);
+        return view('admin.export-dois', ['organizations' => $organizations]);
     }
     
     public function queryGenerator()
@@ -867,7 +867,7 @@ class ToolsController extends Controller
         $query .= implode(',', $terms);
         dd($query);
                         
-        return view('query-generator', ['query' => $query]);
+        return view('admin.query-generator', ['query' => $query]);
     }
     
     private function createKeywordSearchRegex($searchValue) {

@@ -59,7 +59,7 @@ class HomeController extends Controller
         $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
         $organizations = $organizationListResponse->getOrganizations();
         
-        return view('remove-dataset', ['organizations' => $organizations]);
+        return view('admin.remove-dataset', ['organizations' => $organizations]);
     }
     
     public function removeDatasetConfirm(Request $request)
@@ -82,7 +82,7 @@ class HomeController extends Controller
                 $content = json_decode($response->getBody(), true);                
                 $results = $content['result']['results'];
                 
-                return view('remove-dataset-confirm', ['results' => $results]);
+                return view('admin.remove-dataset-confirm', ['results' => $results]);
             } else {
                 
             }
@@ -104,13 +104,13 @@ class HomeController extends Controller
                 $content = json_decode($response->getBody(), true);
                 $results = $content['result']['results'];
                 
-                return view('remove-dataset-confirm', ['results' => $results]);
+                return view('admin.remove-dataset-confirm', ['results' => $results]);
             }
         } else {
             
         }
         
-        return view('remove-dataset-confirm', ['results' => $results]);
+        return view('admin.remove-dataset-confirm', ['results' => $results]);
     }
     
     public function removeDatasetConfirmed(Request $request) 
@@ -135,21 +135,21 @@ class HomeController extends Controller
     {
         $deletes = DatasetDelete::where('response_code', null)->get();
                 
-        return view('queues', ['deletes' => $deletes]);
+        return view('admin.queues', ['deletes' => $deletes]);
     }
     
     public function deleteActions()
     {
         $deletes = DatasetDelete::paginate(50);
         
-        return view('deletes', ['deletes' => $deletes]);
+        return view('admin.deletes', ['deletes' => $deletes]);
     }
     
     public function importers()
     {
         $importers = Importer::all();
         
-        return view('importers', ['importers' => $importers]);
+        return view('admin.importers', ['importers' => $importers]);
     }
     
     public function importerImports($id)
@@ -157,21 +157,21 @@ class HomeController extends Controller
         $imports = Import::where('importer_id', (int)$id)->get();
         $importer = Importer::where('id', $id)->first();
      
-        return view('importer-imports', ['imports' => $imports, 'importer' => $importer]);        
+        return view('admin.importer-imports', ['imports' => $imports, 'importer' => $importer]);        
     }
     
     public function importerImportsFlow($id, $importId)
     {
         $sourceDatasetidentifiers = SourceDatasetIdentifier::where('import_id', $importId)->paginate(50);
         
-        return view('importer-import-flow', ['sourceDatasetIdentifiers' => $sourceDatasetidentifiers, 'importer_id' => $id, 'import_id' => $importId]);
+        return view('admin.importer-import-flow', ['sourceDatasetIdentifiers' => $sourceDatasetidentifiers, 'importer_id' => $id, 'import_id' => $importId]);
     }
     
     public function importerImportsLog($id, $importId)
     {
         $logs = MappingLog::where('import_id', $importId)->paginate(50);
         
-        return view('importer-import-log', ['logs' => $logs, 'importer_id' => $id, 'import_id' => $importId]);
+        return view('admin.importer-import-log', ['logs' => $logs, 'importer_id' => $id, 'import_id' => $importId]);
     }
     
     public function exportImportLog($id, $importId)
@@ -184,7 +184,7 @@ class HomeController extends Controller
         $sourceDatasetIdentifier = SourceDatasetIdentifier::where('id', $sourceDatasetIdentifierId)->first();
         
         if($sourceDatasetIdentifier) {
-            return view('importer-import-detail', ['sourceDatasetIdentifier' => $sourceDatasetIdentifier, 'importer_id' => $importerid, 'import_id' => $importId]);
+            return view('admin.importer-import-detail', ['sourceDatasetIdentifier' => $sourceDatasetIdentifier, 'importer_id' => $importerid, 'import_id' => $importId]);
         }
         
         abort(404, 'Invalid data requested');
@@ -211,21 +211,21 @@ class HomeController extends Controller
     {
         $imports = Import::paginate(50);
         
-        return view('imports', ['imports' => $imports]);
+        return view('admin.imports', ['imports' => $imports]);
     }
     
     public function sourceDatasetIdentifiers()
     {
         $identifiers = SourceDatasetIdentifier::paginate(50);
         
-        return view('source-dataset-identifiers', ['identifiers' => $identifiers]);
+        return view('admin.source-dataset-identifiers', ['identifiers' => $identifiers]);
     }
     
     public function sourceDatasets()
     {
         $sourceDatasets = SourceDataset::paginate(50);
         
-        return view('source-datasets', ['sourceDatasets' => $sourceDatasets]);
+        return view('admin.source-datasets', ['sourceDatasets' => $sourceDatasets]);
     }
     
     public function sourceDataset($id)
@@ -235,7 +235,7 @@ class HomeController extends Controller
         $sourceDataset = SourceDataset::where('id', $sourceDatasetid)->first();
         
         if($sourceDataset) {
-            return view('source-dataset', ['sourceDataset' => $sourceDataset]);
+            return view('admin.source-dataset', ['sourceDataset' => $sourceDataset]);
         }
         
         abort(404, 'SourceDataset not found');
@@ -245,7 +245,7 @@ class HomeController extends Controller
     {
         $createActions = DatasetCreate::paginate(50);
         
-        return view('creates', ['createActions' => $createActions]);
+        return view('admin.creates', ['createActions' => $createActions]);
     }
     
     public function createAction($id)
@@ -255,7 +255,7 @@ class HomeController extends Controller
         $datasetCreate = DatasetCreate::where('id', $createActionId)->first();
         
         if($datasetCreate) {
-            return view('create', ['datasetCreate' => $datasetCreate]);
+            return view('admin.create', ['datasetCreate' => $datasetCreate]);
         }
         
         abort(404, 'DatasetCreate not found');
