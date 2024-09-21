@@ -1060,7 +1060,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.3/igneous_rock_-_extrusive-lava-aa_lava">
     <skos:broader>https://epos-msl.uu.nl/voc/materials/1.3/igneous_rock_-_extrusive-lava</skos:broader>
-    <rdfs:label>A'a lava</rdfs:label>
+    <rdfs:label>A&#039;a lava</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/materials/1.3/igneous_rock_-_extrusive-lava-columnar_lava">

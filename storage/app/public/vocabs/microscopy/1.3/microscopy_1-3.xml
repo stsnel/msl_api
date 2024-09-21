@@ -940,7 +940,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/microscopy/1.3/analyzed_feature-deformation_microstructure-crystal_plastic_microstructure-lattice_dislocation-burgers_vector">
     <skos:broader>https://epos-msl.uu.nl/voc/microscopy/1.3/analyzed_feature-deformation_microstructure-crystal_plastic_microstructure-lattice_dislocation</skos:broader>
-    <rdfs:label>Burger's vector</rdfs:label>
+    <rdfs:label>Burger&#039;s vector</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/microscopy/1.3/analyzed_feature-deformation_microstructure-crystal_plastic_microstructure-lattice_dislocation-glide_plane">

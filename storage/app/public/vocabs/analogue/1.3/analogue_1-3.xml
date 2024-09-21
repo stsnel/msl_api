@@ -3342,7 +3342,7 @@
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/analoguemodelling/1.3/measured_property-elasticity-youngs_modulus">
     <skos:broader>https://epos-msl.uu.nl/voc/analoguemodelling/1.3/measured_property-elasticity</skos:broader>
-    <rdfs:label>Young's modulus</rdfs:label>
+    <rdfs:label>Young&#039;s modulus</rdfs:label>
   </skos:Concept>
 
   <skos:Concept rdf:about="https://epos-msl.uu.nl/voc/analoguemodelling/1.3/measured_property-elasticity-bulk_modulus">
