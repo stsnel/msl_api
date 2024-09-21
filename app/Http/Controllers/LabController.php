@@ -6,7 +6,6 @@ use Illuminate\Http\Request;
 use App\Models\LaboratoryUpdateGroupFast;
 use App\Jobs\ProcessLaboratoryUpdateGroupFast;
 use App\Exports\epos\RegistryExport;
-use App\Models\Laboratory;
 use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryOrganizationUpdateGroupRor;
