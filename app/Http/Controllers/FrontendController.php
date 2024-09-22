@@ -29,7 +29,6 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        echo phpversion();
         return view('frontend.index');
     }
     
