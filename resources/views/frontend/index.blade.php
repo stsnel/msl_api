@@ -1,54 +1,50 @@
-<!doctype html>
-<html>
-<head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  @vite('resources/css/app.css')
-</head>
-<body>
-
-
-  <div class="relative isolate overflow-hidden bg-gray-900 py-24 sm:py-32">
-    <img src="https://images.unsplash.com/photo-1521737604893-d14cc237f11d?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&crop=focalpoint&fp-y=.8&w=2830&h=1500&q=80&blend=111827&sat=-100&exp=15&blend-mode=multiply" alt="" class="absolute inset-0 -z-10 h-full w-full object-cover object-right md:object-center">
-    <div class="hidden sm:absolute sm:-top-10 sm:right-1/2 sm:-z-10 sm:mr-10 sm:block sm:transform-gpu sm:blur-3xl" aria-hidden="true">
-      <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-    </div>
-    <div class="absolute -top-52 left-1/2 -z-10 -translate-x-1/2 transform-gpu blur-3xl sm:top-[-28rem] sm:ml-16 sm:translate-x-0 sm:transform-gpu" aria-hidden="true">
-      <div class="aspect-[1097/845] w-[68.5625rem] bg-gradient-to-tr from-[#ff4694] to-[#776fff] opacity-20" style="clip-path: polygon(74.1% 44.1%, 100% 61.6%, 97.5% 26.9%, 85.5% 0.1%, 80.7% 2%, 72.5% 32.5%, 60.2% 62.4%, 52.4% 68.1%, 47.5% 58.3%, 45.2% 34.5%, 27.5% 76.7%, 0.1% 64.9%, 17.9% 100%, 27.6% 76.8%, 76.1% 97.7%, 74.1% 44.1%)"></div>
-    </div>
-    <div class="mx-auto max-w-7xl px-6 lg:px-8">
-      <div class="mx-auto max-w-2xl lg:mx-0">
-        <h2 class="text-4xl font-bold tracking-tight text-white sm:text-6xl">Work with us</h2>
-        <p class="mt-6 text-lg leading-8 text-gray-300">Anim aute id magna aliqua ad ad non deserunt sunt. Qui irure qui lorem cupidatat commodo. Elit sunt amet fugiat veniam occaecat fugiat aliqua.</p>
-      </div>
-      <div class="mx-auto mt-10 max-w-2xl lg:mx-0 lg:max-w-none">
-        <div class="grid grid-cols-1 gap-x-8 gap-y-6 text-base font-semibold leading-7 text-white sm:grid-cols-2 md:flex lg:gap-x-10">
-          <a href="#">Open roles <span aria-hidden="true">&rarr;</span></a>
-          <a href="#">Internship program <span aria-hidden="true">&rarr;</span></a>
-          <a href="#">Our values <span aria-hidden="true">&rarr;</span></a>
-          <a href="#">Meet our leadership <span aria-hidden="true">&rarr;</span></a>
+<x-layout_main>
+    <div
+    class="hero h-dvh p-10"
+    style="background-image: url('images/heros/7.jpg');">
+      <div class="hero-content text-neutral-content text-center grid w-full">
+        <div class="bg-opacity-80 bg-zinc-900 p-10 rounded-lg max-w-md">
+          <h1 class="mb-5 text-5xl font-bold">Welcome </h1>
+          <p class="mb-5">
+              to the EPOS Multi-Scale Labs data catalogue! This catalogue is the central access point for Earth scientific laboratory data in Europe. 
+              Here you can find data from rock and melt physics, paleomagnetism, geochemistry, microscopy, tomography and analogue modelling of geological processes. 
+          </p>
+          <button class="btn btn-primary">Data Access</button>
         </div>
-        <dl class="mt-16 grid grid-cols-1 gap-8 sm:mt-20 sm:grid-cols-2 lg:grid-cols-4">
-          <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Offices worldwide</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">12</dd>
-          </div>
-          <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Full-time colleagues</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">300+</dd>
-          </div>
-          <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Hours per week</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">40</dd>
-          </div>
-          <div class="flex flex-col-reverse">
-            <dt class="text-base leading-7 text-gray-300">Paid time off</dt>
-            <dd class="text-2xl font-bold leading-9 tracking-tight text-white">Unlimited</dd>
-          </div>
-        </dl>
-      </div>
-    </div>
-  </div>
 
-</body>
-</html>
+        <div class="bg-opacity-80 bg-zinc-900 p-10 rounded-lg max-w-md h-max">
+            <p class="mb-5">
+              2818 datasets
+            </p>
+            <p class="mb-5">
+              86 labs
+            </p>
+            <p class="mb-5">
+              6 data repositories
+            </p>
+        </div>
+
+        {{-- <div class="bg-opacity-80 bg-zinc-900 p-10 rounded-lg max-w-md h-max">
+        <p class="mb-5">
+          Recently added:
+        </p>
+
+          <p class="mb-5">
+            Stewart, G., & Hamilton, J. F. (2021). APHH: Non-methane volatile organic compound emission inventories from burning studies performed as part of the APHH-INDIA project (DelhiFlux).
+
+          </p>
+          <p class="mb-5">
+            Franchi, F., Chirindja, F. J., Pasqualotto, F., Hussey, S., & Comte, J.-C. (2023). Sedimentological data from the Limpopo River Basin dams, southern Africa, 2018-2021
+
+          </p>
+          <p class="">
+            Stüeken, E. E., Fralick, P., & Prave, A. R. (2024). Stoer Group and Sibley Group nitrogen geochemistry in red beds
+
+          </p>
+      </div> --}}
+
+      </div>
+       
+    </div>
+</x-layout_main>
+

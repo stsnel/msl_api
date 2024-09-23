@@ -3,21 +3,6 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Maatwebsite\Excel\Facades\Excel;
-use App\Ckan\Request\PackageSearch;
-use App\Models\DatasetDelete;
-use App\Jobs\ProcessDatasetDelete;
-use App\Models\Importer;
-use App\Models\Import;
-use App\Jobs\ProcessImport;
-use App\Models\SourceDatasetIdentifier;
-use App\Models\SourceDataset;
-use App\Models\DatasetCreate;
-use App\Ckan\Request\OrganizationList;
-use App\Ckan\Response\OrganizationListResponse;
-use App\Models\MappingLog;
-use App\Exports\MappingLogsExport;
-use App\Mappers\BgsMapper;
 
 class FrontendController extends Controller
 {
@@ -31,7 +16,35 @@ class FrontendController extends Controller
     {
         return view('frontend.index');
     }
+
+    public function dataAccess()
+    {
+        return view('frontend.data-access');
+    }
     
-    
+    public function labs()
+    {
+        return view('frontend.labs');
+    }
+
+    public function dataRepositories()
+    {
+        return view('frontend.data-repositories');
+    }
+
+    public function contributeResearcher()
+    {
+        return view('frontend.contribute-researcher');
+    }
+
+    public function contributeRepository()
+    {
+        return view('frontend.contribute-repository');
+    }
+
+    public function about()
+    {
+        return view('frontend.about');
+    }
     
 }
