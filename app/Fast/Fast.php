@@ -1,5 +1,5 @@
 <?php
-namespace App\fast;
+namespace App\Fast;
 
 use Illuminate\Support\Facades\App;
 
