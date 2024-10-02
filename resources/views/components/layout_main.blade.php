@@ -7,13 +7,13 @@
     @vite('resources/css/app.css')
     <title>Document</title>
 </head>
-<body>
+<body class="flex flex-col min-h-screen">
     
     <nav>
         @include('partials._navbar')
     </nav>
 
-    <main>
+    <main class="pb-20">
 
         {{-- @yield('content') --}}
         {{ $slot }}
@@ -21,8 +21,8 @@
     </main>
     
 
-        @include('partials._footer')
-
+    @include('partials._footer')
 
 </body>
+
 </html>

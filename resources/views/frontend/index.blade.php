@@ -3,23 +3,23 @@
     class="hero h-dvh p-10"
     style="background-image: url('images/heros/7.jpg');">
       <div class="hero-content text-neutral-content text-center grid w-full">
-        <div class="bg-opacity-80 bg-zinc-900 p-10 rounded-lg max-w-md">
-          <h1 class="mb-5 text-5xl font-bold">Welcome </h1>
-          <p class="mb-5">
+        <div class="bg-opacity-80 bg-zinc-900 p-6 rounded-lg max-w-md">
+          <h1 class="">Welcome </h1>
+          <p class="">
               to the EPOS Multi-Scale Labs data catalogue! This catalogue is the central access point for Earth scientific laboratory data in Europe. 
               Here you can find data from rock and melt physics, paleomagnetism, geochemistry, microscopy, tomography and analogue modelling of geological processes. 
           </p>
           <button class="btn btn-primary">Data Access</button>
         </div>
 
-        <div class="bg-opacity-80 bg-zinc-900 p-10 rounded-lg max-w-md h-max">
-            <p class="mb-5">
+        <div class="bg-opacity-80 bg-zinc-900 p-6 rounded-lg max-w-md h-max">
+            <p class="">
               2818 datasets
             </p>
-            <p class="mb-5">
+            <p class="">
               86 labs
             </p>
-            <p class="mb-5">
+            <p class="">
               6 data repositories
             </p>
         </div>
