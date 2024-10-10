@@ -95,9 +95,10 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
-Route::get('/data-access', [FrontendController::class, 'dataAccess'])->name('data-access');
+Route::get('/data-access', [FrontendController::class, 'dataPublications'])->name('data-access');
 Route::get('/labs', [FrontendController::class, 'labs'])->name('labs');
 Route::get('/data-repositories', [FrontendController::class, 'dataRepositories'])->name('data-repositories');
 Route::get('/contribute-researcher', [FrontendController::class, 'contributeResearcher'])->name('contribute-researcher');
 Route::get('/contribute-repository', [FrontendController::class, 'contributeRepository'])->name('contribute-repository');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
+Route::get('/data-publication/{id}', [FrontendController::class, 'dataPublication'])->name('data-publication-detail');
