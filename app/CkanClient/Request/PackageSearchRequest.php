@@ -23,14 +23,29 @@ class PackageSearchRequest implements RequestInterface
      */
     private $responseClass = PackageSearchResponse::class;
 
+    /**
+     * @var string query string used in solr
+     */
     public $query;
 
+    /**
+     * @var array filter query parts used to contruct the solr filter query
+     */
     public $filterQueries = [];
 
+    /**
+     * @var int number of rows to request from solr
+     */
     public $rows;
 
+    /**
+     * @var int number to start results from
+     */
     public $start;
 
+    /**
+     * @var array facets used to contruct the facets part of the solr query
+     */
     public $facetFields = [];
 
 
@@ -78,7 +93,7 @@ class PackageSearchRequest implements RequestInterface
 
     public function loadFacetsFromConfig($type)
     {
-        if($type = "data-publications") {
+        if($type == "data-publications") {
             $facets = config('ckan.facets.data-publications');
             foreach($facets as $key => $value) {
                 $this->addFacetField($key);
