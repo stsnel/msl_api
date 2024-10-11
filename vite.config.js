@@ -7,7 +7,11 @@ export default defineConfig({
     plugins: [
         laravel([
             'resources/css/app.css',
+            'resources/css/treejs.css',
             'resources/js/app.js',
+            'resources/js/jstree.js',
+            'resources/js/filters-menu.js',
+            'resources/js/jquery.js'
         ]),
     ],
     server: { 

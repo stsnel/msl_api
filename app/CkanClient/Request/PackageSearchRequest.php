@@ -3,6 +3,7 @@ namespace App\CkanClient\Request;
 
 use App\CkanClient\Response\BaseResponse;
 use App\CkanClient\Response\PackageSearchResponse;
+use App\CkanClient\SolrUtils;
 
 class PackageSearchRequest implements RequestInterface
 {
@@ -24,7 +25,7 @@ class PackageSearchRequest implements RequestInterface
 
     public $query;
 
-    public $filterQuery;
+    public $filterQueries = [];
 
     public $rows;
 
@@ -39,7 +40,7 @@ class PackageSearchRequest implements RequestInterface
         return [
             'query' => [
                 'q' => $this->query,
-                'fq' => $this->filterQuery,
+                'fq' => $this->getFilterQueryQuery(),
                 'rows' => $this->rows,
                 'start' => $this->start,
                 'facet.field' => $this->getFacetFieldQuery()
@@ -47,9 +48,42 @@ class PackageSearchRequest implements RequestInterface
         ];
     }
 
+    public function addFilterQuery($fieldName, $value)
+    {
+        $this->filterQueries[$fieldName][] = SolrUtils::escape($value);
+    }
+
+    private function getFilterQueryQuery()
+    {
+        if(count($this->filterQueries) > 0) {
+            $parts = [];
+            foreach($this->filterQueries as $key => $values) {
+                foreach($values as $value) {
+                    $parts[] = $key . ':' . $value;
+                }
+            }
+
+            $return = implode(' AND ', $parts);
+
+            return $return;
+        }
+
+        return '';
+    }
+
     public function addFacetField($facetField)
     {
         $this->facetFields[] = $facetField;
+    }
+
+    public function loadFacetsFromConfig($type)
+    {
+        if($type = "data-publications") {
+            $facets = config('ckan.facets.data-publications');
+            foreach($facets as $key => $value) {
+                $this->addFacetField($key);
+            }
+        }
     }
 
     private function getFacetFieldQuery()
@@ -83,5 +117,6 @@ class PackageSearchRequest implements RequestInterface
     {
         return $this->endpoint;
     }
+
 
 }

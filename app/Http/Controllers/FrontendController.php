@@ -28,7 +28,7 @@ class FrontendController extends Controller
 
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
-        $SearchRequest->filterQuery = "type:data-publication";
+        $SearchRequest->addFilterQuery("type", "data-publication");        
         $SearchRequest->rows = $resultsPerPage;
         
         $page = $request->page ?? 1;
@@ -36,27 +36,32 @@ class FrontendController extends Controller
 
         $query = $request->query('query') ?? "";
         $SearchRequest->query = $query;
+        
+        $SearchRequest->loadFacetsFromConfig('data-publications');
 
-        $SearchRequest->addFacetField('organization');
-        $SearchRequest->addFacetField('msl_subdomain');
+        $activeFilters = [];
 
-        //dd($SearchRequest);
+        foreach($request->query() as $key => $values) {
+            if(array_key_exists($key, config('ckan.facets.data-publications'))) {
+                foreach($values as $value) {
+                    $activeFilters[$key][] = $value;
+                    $SearchRequest->addFilterQuery($key, $value);
+                }
+            }
+        }
 
         $result = $client->get($SearchRequest);
 
         $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
 
-        //dd($result);
-        //dd($paginator);
-
-        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator]);
+        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
     }
         
     public function labs()
     {
         $client = new Client();
         $request = new PackageSearchRequest();
-        $request->filterQuery = "type:lab";
+        //$request->filterQuery = "type:lab";
 
         $result = $client->get($request);
 

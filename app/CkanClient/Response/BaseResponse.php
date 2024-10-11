@@ -30,6 +30,9 @@ class BaseResponse
         } elseif($responseCode == '404') {
             $this->responseBody = $body;
             $this->ckanSuccess = (bool)$body['success'];
+        } elseif($responseCode == '409') {
+            $this->responseBody = $body;
+            $this->ckanSuccess = (bool)$body['success'];
         }
     }
 

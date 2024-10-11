@@ -34,15 +34,25 @@
 
                         <div>
                             <h1>Filters</h1>
+
+                            <div id="jstree-interpreted"></div>
+                            <div id="jstree-original" style="display: none;"></div>
                         </div>
 
                     </div>
 
-                    <div>
-                        placeholder Filters
+                    <script>
+                    var dataInterpreted = @php echo File::get(base_path('public/interpreted.json')) @endphp;                    
+                    var dataOriginal = @php echo File::get(base_path('public/original.json')) @endphp;
+                    var facets = @php echo json_encode($result->getFacets()); @endphp;
+                    var activeFilters = @php echo json_encode($activeFilters); @endphp;
+                    var activeNodes = [];
+                    </script>
 
-                        {{ json_encode($result->getFacets(), JSON_PRETTY_PRINT) }}
-                    </div>
+                    @push('vite')
+                        @vite(['resources/js/jquery.js', 'resources/js/jstree.js', 'resources/js/filters-menu.js'])
+                    @endpush
+
 
                 </div>
                 
@@ -62,6 +72,9 @@
                         </div>
     
                         <div class="grow flex justify-between p-4">
+                            <div>{{ json_encode($activeFilters) }}</div>
+
+
                             <div><p>{{ $result->getTotalResultsCount() }} data publications found</p></div>
                             <div>
                                 <div class="dropdown">
