@@ -34,7 +34,7 @@ class Client
         $this->ckanApiUrl = config('ckan.ckan_api_url');
     }
 
-    public function get($request): BaseResponse
+    public function get($request): mixed
     {
         try {
             $response = $this->client->request(

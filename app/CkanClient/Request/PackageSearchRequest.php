@@ -30,7 +30,7 @@ class PackageSearchRequest implements RequestInterface
 
     public $start;
 
-    public $facetField;
+    public $facetFields = [];
 
 
 
@@ -42,9 +42,31 @@ class PackageSearchRequest implements RequestInterface
                 'fq' => $this->filterQuery,
                 'rows' => $this->rows,
                 'start' => $this->start,
-                //'facet.field' => "[\"msl_subdomain\"]"
+                'facet.field' => $this->getFacetFieldQuery()
             ]
         ];
+    }
+
+    public function addFacetField($facetField)
+    {
+        $this->facetFields[] = $facetField;
+    }
+
+    private function getFacetFieldQuery()
+    {
+        if(count($this->facetFields) > 0) {
+            $return = '[';
+            $parts = [];
+            foreach($this->facetFields as $facetField) {
+                $parts[] = '"' . $facetField . '"';
+            }
+            $return .= implode(',', $parts);
+            $return .= ']';
+
+            return $return;
+        }
+
+        return '[]';
     }
 
     public function getResponseClass(): string

@@ -54,7 +54,7 @@ class BaseResponse
      * 
      * @return array
      */
-    public function getResults(): array
+    public function getResult(): array
     {
         return $this->responseBody['result'];
     }

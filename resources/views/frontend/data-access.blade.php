@@ -40,6 +40,8 @@
 
                     <div>
                         placeholder Filters
+
+                        {{ json_encode($result->getFacets(), JSON_PRETTY_PRINT) }}
                     </div>
 
                 </div>
@@ -53,17 +55,14 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                 </div>
-                        
-                                <input
-                                class="peer h-full w-full outline-none text-sm pr-2"
-                                type="text"
-                                id="search"
-                                placeholder="Search labs.." /> 
+                                <form method="get" >
+                                    <input class="peer h-full w-full outline-none text-sm pr-2" type="text" id="search" placeholder="Search data-publications.." name="query" /> 
+                                </form>
                             </div>
                         </div>
     
                         <div class="grow flex justify-between p-4">
-                            <div><p>2,818 data publications found</p></div>
+                            <div><p>{{ $result->getTotalResultsCount() }} data publications found</p></div>
                             <div>
                                 <div class="dropdown">
                                     Order by
@@ -83,17 +82,20 @@
                         </div>
     
                         <div>
+                            @foreach ($result->getResults() as $dataPublication)
                             <div class="border-t-2 border-b-2">
-                                <div class="p-4">
-                                    North America during the Lower Cretaceous: new palaeomagnetic constraints from intrusions in New England (Dataset)
-
-                                    Suzanne A. McEnroe; (1996)
-                                    Paleomagnetic, rock magnetic, or geomagnetic data found in the MagIC data repository from a paper titled: Suzanne A. McEnroe (1996). North America during the Lower Cretaceous:...
-                                    
+                                <div class="p-4">                                    
+                                    <a href="{{ route('data-publication-detail', ['id' => $dataPublication['id']]) }}" class="font-bold">{{ $dataPublication['title'] }}</a>
+                                    <p>{{ Str::limit($dataPublication['notes'], 500) }}</p>
                                 </div>
-                            </div>
+                            </div>    
+                            @endforeach                            
                         </div>
                         
+
+                        <div class="self-center join p-4">
+                            {{ $paginator->links() }}
+                        </div>
                         {{-- this will be a dynamic element --}}
                         <div class="self-center join p-4">
                             <button class="join-item btn">«</button>

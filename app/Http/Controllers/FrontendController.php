@@ -7,6 +7,7 @@ use App\CkanClient\Request\OrganizationListRequest;
 use App\CkanClient\Request\PackageSearchRequest;
 use App\CkanClient\Request\PackageShowRequest;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class FrontendController extends Controller
 {
@@ -21,19 +22,36 @@ class FrontendController extends Controller
         return view('frontend.index');
     }
 
-    public function dataPublications()
+    public function dataPublications(Request $request)
     {
-        $client = new Client();
-        $request = new PackageSearchRequest();
-        $request->filterQuery = "type:data-publication";
+        $resultsPerPage = 10;
 
-        $result = $client->get($request);
+        $client = new Client();
+        $SearchRequest = new PackageSearchRequest();
+        $SearchRequest->filterQuery = "type:data-publication";
+        $SearchRequest->rows = $resultsPerPage;
+        
+        $page = $request->page ?? 1;
+        $SearchRequest->start = ($page-1) * $resultsPerPage;
+
+        $query = $request->query('query') ?? "";
+        $SearchRequest->query = $query;
+
+        $SearchRequest->addFacetField('organization');
+        $SearchRequest->addFacetField('msl_subdomain');
+
+        //dd($SearchRequest);
+
+        $result = $client->get($SearchRequest);
+
+        $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
 
         //dd($result);
+        //dd($paginator);
 
-        return view('frontend.data-access');
+        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator]);
     }
-    
+        
     public function labs()
     {
         $client = new Client();
@@ -56,7 +74,7 @@ class FrontendController extends Controller
             abort(404, 'ckan request failed');
         }
 
-        return view('frontend.data-repositories', ['repositories' => $result->getResults()]);
+        return view('frontend.data-repositories', ['repositories' => $result->getResult()]);
     }
 
     public function contributeResearcher()
@@ -86,7 +104,19 @@ class FrontendController extends Controller
             abort(404, 'ckan request failed');
         }
 
-        return view('frontend.data-publication-detail', ['data' => $result->getResults()]);
+        return view('frontend.data-publication-detail', ['data' => $result->getResult()]);
+    }
+
+    private function getPaginator(Request $request, $items, $total, $resultsPerPage)
+    {
+        $page = $request->page ?? 1;
+        $offset = ($page - 1) * $resultsPerPage;
+        $items = array_slice($items, $offset, $resultsPerPage);
+
+        return new LengthAwarePaginator($items, $total, $resultsPerPage, $page, [
+            'path' => $request->url(),
+            'query' => $request->query()
+        ]);
     }
     
 }

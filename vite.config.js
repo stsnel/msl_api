@@ -9,15 +9,6 @@ export default defineConfig({
             'resources/css/app.css',
             'resources/js/app.js',
         ]),
-        // react(),
-        // vue({
-        //     template: {
-        //         transformAssetUrls: {
-        //             base: null,
-        //             includeAbsolute: false,
-        //         },
-        //     },
-        // }),
     ],
     server: { 
         hmr: {
