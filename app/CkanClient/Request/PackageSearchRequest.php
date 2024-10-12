@@ -48,6 +48,11 @@ class PackageSearchRequest implements RequestInterface
      */
     public $facetFields = [];
 
+    /**
+     * string sort results
+     */
+    public $sortField = '';
+
 
 
     public function getPayloadAsArray(): array
@@ -58,7 +63,8 @@ class PackageSearchRequest implements RequestInterface
                 'fq' => $this->getFilterQueryQuery(),
                 'rows' => $this->rows,
                 'start' => $this->start,
-                'facet.field' => $this->getFacetFieldQuery()
+                'facet.field' => $this->getFacetFieldQuery(),
+                'sort' => $this->sortField
             ]
         ];
     }

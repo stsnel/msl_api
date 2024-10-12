@@ -37,6 +37,9 @@ class FrontendController extends Controller
         $query = $request->query('query') ?? "";
         $SearchRequest->query = $query;
         
+        $sort = $request->query('sort') ?? "";
+        $SearchRequest->sortField = $sort;
+
         $SearchRequest->loadFacetsFromConfig('data-publications');
 
         $activeFilters = [];
@@ -54,7 +57,7 @@ class FrontendController extends Controller
 
         $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
 
-        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
+        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'sort' => $sort]);
     }
         
     public function labs()

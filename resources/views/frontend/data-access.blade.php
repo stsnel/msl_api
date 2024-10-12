@@ -76,6 +76,20 @@
 
 
                             <div><p>{{ $result->getTotalResultsCount() }} data publications found</p></div>
+                            
+                            <div>
+                                <form class="max-w-sm mx-auto" method="get" action="">
+                                    <label for="sort" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Order by</label>
+                                    <select id="sort" name="sort" onchange="this.form.submit()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                        <option value="score desc" @if ($sort == 'score desc') {{ 'selected' }} @endif>Relevance</option>
+                                        <option value="msl_citation asc" @if ($sort == 'msl_citation asc') {{ 'selected' }} @endif>Author Ascending</option>
+                                        <option value="msl_citation desc" @if ($sort == 'msl_citation desc') {{ 'selected' }} @endif>Author Descending</option>
+                                        <option value="msl_publication_date desc" @if ($sort == 'msl_publication_date desc') {{ 'selected' }} @endif>Publication date</option>
+                                    </select>
+                                </form>
+                            </div>
+
+
                             <div>
                                 <div class="dropdown">
                                     Order by
