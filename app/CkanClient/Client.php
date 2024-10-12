@@ -2,6 +2,7 @@
 
 namespace App\CkanClient;
 
+use App\CkanClient\Request\RequestInterface;
 use App\CkanClient\Response\BaseResponse;
 use GuzzleHttp\Client as GuzzleClient;
 use GuzzleHttp\Exception\TransferException;
@@ -25,6 +26,11 @@ class Client
     private $ckanApiUrl;
 
     /**
+     * @var bool set http_errors option in Guzzle request
+     */
+    private $httpErrors = false;
+
+    /**
      * Contructs a new CKAN client
      */
     public function __construct()
@@ -34,7 +40,13 @@ class Client
         $this->ckanApiUrl = config('ckan.ckan_api_url');
     }
 
-    public function get($request): mixed
+    /**
+     * Sends the ckan request and returns the associated response object
+     * 
+     * @param RequestInterface $request
+     * @return mixed
+     */
+    public function get(RequestInterface $request): mixed
     {
         try {
             $response = $this->client->request(
@@ -54,13 +66,20 @@ class Client
         return new $responseClassName($body, $statusCode);
     }
 
-    private function getPayload($request) {
+    /**
+     * Returns the payload send in the request to ckan. Combines base payload with request specific payload.
+     * 
+     * @param RequestInterface $request
+     * @return array
+     */
+    private function getPayload(RequestInterface $request): array
+    {
         $basePayload = [
             'headers' => [
                 'Authorization' => $this->apiToken,
                 'Accept'        => 'application/json',
             ],
-            'http_errors' => false
+            'http_errors' => $this->httpErrors
         ];
 
         return array_merge($basePayload, $request->getPayloadAsArray());
