@@ -208,12 +208,12 @@ $(document).ready(function () {
     $("#filterTreeToggleInterpreted").change(function () {
         if(this.checked) {
             localStorage.setItem('interpretedFilters', true);
-            searchParams = new URLSearchParams(window.location.search)
+            let searchParams = new URLSearchParams(window.location.search)
 
             if(searchParams.size > 0) {
                 let text = 'Your currently selected filters will be removed when you switch trees.';
                 if(confirm(text)) {
-                    window.location.href = "../data-publication";
+                    window.location.href = "../data-access";
                 }
             } else {
                 $("#filterTreeToggleOriginal").prop('checked', false);
@@ -222,12 +222,12 @@ $(document).ready(function () {
             }
         } else {
             localStorage.setItem('interpretedFilters', false);
-            searchParams = new URLSearchParams(window.location.search)
+            let searchParams = new URLSearchParams(window.location.search)
 
             if(searchParams.size > 0) {
                 let text = 'Your currently selected filters will be removed when you switch trees.';
                 if(confirm(text)) {
-                    window.location.href = "../data-publication";
+                    window.location.href = "../data-access";
                 }
             } else {
                 $("#filterTreeToggleOriginal").prop('checked', 'checked');
@@ -240,12 +240,12 @@ $(document).ready(function () {
     $("#filterTreeToggleOriginal").change(function () {
         if(this.checked) {
             localStorage.setItem('interpretedFilters', false);
-            searchParams = new URLSearchParams(window.location.search)
+            let searchParams = new URLSearchParams(window.location.search)
 
             if(searchParams.size > 0) {
                 let text = 'Your currently selected filters will be removed when you switch trees.';
                 if(confirm(text)) {
-                    window.location.href = "../data-publication";
+                    window.location.href = "../data-access";
                 }
             } else {
                 $("#filterTreeToggleInterpreted").prop('checked', false);
@@ -254,12 +254,12 @@ $(document).ready(function () {
             }
         } else {
             localStorage.setItem('interpretedFilters', true);
-            searchParams = new URLSearchParams(window.location.search)
+            let searchParams = new URLSearchParams(window.location.search)
 
             if(searchParams.size > 0) {
                 let text = 'Your currently selected filters will be removed when you switch trees.';
                 if(confirm(text)) {
-                    window.location.href = "../data-publication";
+                    window.location.href = "../data-access";
                 }
             } else {
                 $("#filterTreeToggleInterpreted").prop('checked', 'checked');

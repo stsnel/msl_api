@@ -33,6 +33,20 @@
                         </div>
 
                         <div>
+                            <div class="form-control">
+                            <label class="label cursor-pointer">
+                                <input type="checkbox" id="filterTreeToggleInterpreted" checked="checked" class="checkbox" />
+                                <span class="label-text">MSL enriched keywords</span>
+                            </label>
+                            </div>
+
+                            <div class="form-control">
+                            <label class="label cursor-pointer">
+                                <input type="checkbox" id="filterTreeToggleOriginal" class="checkbox" />
+                                <span class="label-text">MSL original keywords</span>
+                            </label>
+                            </div>
+
                             <h2>Filters</h2>
                             {{-- what about the text overflow? --}}
                             {{-- how about making this element wider and set the z-layer behind the results and make it come forward when hovering --}}
