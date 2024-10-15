@@ -33,10 +33,11 @@
                         </div>
 
                         <div>
-                            <h1>Filters</h1>
-
-                            <div id="jstree-interpreted"></div>
-                            <div id="jstree-original" style="display: none;"></div>
+                            <h2>Filters</h2>
+                            {{-- what about the text overflow? --}}
+                            {{-- how about making this element wider and set the z-layer behind the results and make it come forward when hovering --}}
+                            <div id="jstree-interpreted" class="text-wrap"></div>
+                            <div id="jstree-original" class="text-wrap" style="display: none;"></div>
                         </div>
 
                     </div>
@@ -56,8 +57,9 @@
 
                 </div>
                 
-                <div class="bg-base-300  grow">
-                    <div class="w-full flex flex-col">
+                <div class="grow w-full">
+                    <div class="w-full flex flex-col bg-base-100">
+
                         <div class='grow mx-auto p-4 w-full'>
                             <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg overflow-hidden">
                                 <div class="grid place-items-center h-full w-12 ">
@@ -65,22 +67,48 @@
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                 </div>
-                                <form method="get" >
+                                {{-- full or limited width? --}}
+                                <form method="get" class="w-full h-16">
                                     <input class="peer h-full w-full outline-none text-sm pr-2" type="text" id="search" placeholder="Search data-publications.." name="query" /> 
                                 </form>
                             </div>
                         </div>
     
-                        <div class="grow flex justify-between p-4">
-                            <div>{{ json_encode($activeFilters) }}</div>
+                        <div class="grow flex justify-between p-4 px-10">
+                           
+                            <?php /* dd($activeFilters); */?>
+                            
+                            {{-- styling needs some tuning regarding long filter text elements --}}
+                            <div class="flex flex-col max-w-80 text-wrap">
+                                <h5>Applied Filters</h5>
+                                <?php
+                                $filterKeys = collect($activeFilters)->keys();
+
+                                ?>
+                                <ul class="list-disc list-inside"> 
+
+                                    @foreach ( $filterKeys as $key )
+                                        <li>{{ $key }}:
+                                            @foreach ( $activeFilters[$key] as $entry)
+                                                {{ $entry }} 
+                                            @endforeach
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                {{-- {{ json_encode($activeFilters) }} --}}
+                            </div>
 
 
-                            <div><p>{{ $result->getTotalResultsCount() }} data publications found</p></div>
+                            <div>
+                                <h5>{{ $result->getTotalResultsCount() }} data publications found</h5>
+                            </div>
                             
                             <div>
-                                <form class="max-w-sm mx-auto" method="get" action="">
-                                    <label for="sort" class="block mb-2 text-sm font-medium text-gray-900 dark:text-white">Order by</label>
-                                    <select id="sort" name="sort" onchange="this.form.submit()" class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
+                                <form class="min-w-64 mx-auto flex justify-between content-center" method="get" action="">
+                                    <label for="sort" class="self-center text-gray-900 dark:text-white">
+                                       <h5 >Order by</h5>
+                                    </label>
+                                    <select id="sort" name="sort" onchange="this.form.submit()" class="p-2.5 bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500">
                                         <option value="score desc" @if ($sort == 'score desc') {{ 'selected' }} @endif>Relevance</option>
                                         <option value="msl_citation asc" @if ($sort == 'msl_citation asc') {{ 'selected' }} @endif>Author Ascending</option>
                                         <option value="msl_citation desc" @if ($sort == 'msl_citation desc') {{ 'selected' }} @endif>Author Descending</option>
@@ -90,7 +118,7 @@
                             </div>
 
 
-                            <div>
+                            {{-- <div>
                                 <div class="dropdown">
                                     Order by
                                     <div tabindex="0" role="button" class="btn m-1">Relevance
@@ -103,36 +131,60 @@
                                     <li><a>Item 2</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                             
                         </div>
     
-                        <div>
+                        {{-- insert pagination as well here --}}
+
+                        <div class="flex flex-col ">
                             @foreach ($result->getResults() as $dataPublication)
-                            <div class="border-t-2 border-b-2">
+
+
+                            <a
+                            class="self-center w-9/12" 
+                            href="{{ route('data-publication-detail', ['id' => $dataPublication['id']]) }}">
+                                
+                            <div class="border-t border-slate-200/50 hover:bg-secondary ">
                                 <div class="p-4">                                    
-                                    <a href="{{ route('data-publication-detail', ['id' => $dataPublication['id']]) }}" class="font-bold">{{ $dataPublication['title'] }}</a>
-                                    <p>{{ Str::limit($dataPublication['notes'], 500) }}</p>
+                                       <h4 class="text-left">{{ $dataPublication['title'] }}</h4> 
+                                       <h5 class="text-left font-medium pt-4">
+                                            @foreach ( $dataPublication['msl_authors'] as $author )
+                                                {{ $author["msl_author_name"] }} ; {{ $author["msl_author_affiliation"] }}
+                                            @endforeach
+                                        </h5>
+                                       {{-- <p>{{ Str::limit($dataPublication['msl-author'], 100) }}</p> --}}
+                                       <p class="italic ">{{ Str::limit($dataPublication['notes'], 300) }}</p>
+                                    
                                 </div>
                             </div>    
+
+                            </a>
+
                             @endforeach                            
                         </div>
                         
+                        {{-- make component out of this --}}
+                        <div class="self-center join p-4">
+                            
+                            <a href="{{ $paginator->previousPageUrl() }}">
+                                <button class="join-item btn">«</button>
+                            </a>
 
-                        <div class="self-center join p-4">
-                            {{ $paginator->links() }}
+                            @for ($i = 1; $i < $paginator->lastPage() + 1; $i++)
+                                <a href="{{ $paginator->url($i) }}">
+                                    <button 
+                                    class="join-item btn">{{ $i }}</button>
+                                </a>
+                            @endfor
+
+                            <a href="{{ $paginator->nextPageUrl() }}">
+                                <button class="join-item btn">»</button>
+                            </a>
+
                         </div>
-                        {{-- this will be a dynamic element --}}
-                        <div class="self-center join p-4">
-                            <button class="join-item btn">«</button>
-                            <button class="join-item btn">1</button>
-                            <button class="join-item btn">2</button>
-                            <button class="join-item btn btn-disabled">...</button>
-                            <button class="join-item btn">99</button>
-                            <button class="join-item btn">100</button>
-                            <button class="join-item btn">»</button>
-                        </div>
+  
                     </div>
                     
                 </div>

@@ -43,7 +43,7 @@
             class="object-contain h-12">
           </a>
         </div>
-        <div class="navbar-end hidden lg:flex">
+        <div class="navbar-end hidden lg:flex w-full">
           <ul class="menu menu-horizontal px-1 z-10">
             <li><a href="{{ route('data-access') }}">Data Access</a></li>
             <li><a href="{{ route('labs') }}">Labs</a></li>

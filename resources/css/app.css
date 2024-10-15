@@ -2,16 +2,25 @@
 
 @layer base {
     h1 {
-      @apply text-5xl font-bold p-10 text-center;
+      @apply text-5xl font-bold text-center p-10;
     }
 
     h2 {
-      @apply text-xl text-center;
+      @apply text-3xl font-bold text-center;
     }
 
     h3 {
-      @apply text-lg text-center;
+      @apply text-2xl font-bold text-center;
     }
+
+    h4 {
+      @apply text-xl font-bold text-center;
+    }
+
+    h5 {
+      @apply text-lg font-bold text-center;
+    }
+
 
     p {
       @apply pt-2 pb-2 text-justify;
