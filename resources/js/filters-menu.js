@@ -97,6 +97,10 @@
           var url = new URL(window.location.href);
           var urlParams = new URLSearchParams(url.search);
 
+          if(urlParams.has('page')) {
+            urlParams.set('page', '1');
+          }
+
           urlParams.append(data.node.original.extra.filterName + '[]', data.node.original.extra.filterValue);
           url.search = urlParams.toString();
         } else if (e.type == "uncheck_node") {
@@ -151,6 +155,10 @@ $('#jstree-original').jstree({
             if(e.type == "check_node") {
               var url = new URL(window.location.href);
               var urlParams = new URLSearchParams(url.search);
+
+              if(urlParams.has('page')) {
+                urlParams.set('page', '1');
+              }
 
               urlParams.append(data.node.original.extra.filterName, data.node.original.extra.filterValue);
               url.search = urlParams.toString();

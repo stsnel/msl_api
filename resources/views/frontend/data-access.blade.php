@@ -69,6 +69,7 @@
                                 </div>
                                 {{-- full or limited width? --}}
                                 <form method="get" class="w-full h-16">
+                                    <input type="hidden" name="page" value="1" />
                                     <input class="peer h-full w-full outline-none text-sm pr-2" type="text" id="search" placeholder="Search data-publications.." name="query" /> 
                                 </form>
                             </div>
@@ -114,6 +115,7 @@
                                         <option value="msl_citation desc" @if ($sort == 'msl_citation desc') {{ 'selected' }} @endif>Author Descending</option>
                                         <option value="msl_publication_date desc" @if ($sort == 'msl_publication_date desc') {{ 'selected' }} @endif>Publication date</option>
                                     </select>
+                                    <input type="hidden" name="page" value="1" />
                                 </form>
                             </div>
 
