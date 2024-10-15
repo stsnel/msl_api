@@ -37,10 +37,9 @@
 
 
 
-{{-- @foreach ($repositories as $repo)
-  {{ $repo }}
-@endforeach --}}
+<?php /*dd($repositories); */?>
 
+{{-- To Do: image links missing --}}
 
 
     <div class="flex flex-col justify-center items-center p-10">
@@ -60,12 +59,14 @@
                     alt={{ $repo["organization_display_name"] }} />
                 </figure>
                 <div class="card-body p-2">
-                  <h2 class="text-center">
+                  <h5 class="text-center">
                     {{ $repo["organization_display_name"] }}
                     {{-- <div class="badge badge-secondary">NEW</div> --}}
-                  </h2>
+                  </h5>
                 </div>
-                <button class="btn btn-primary">View Datasets</button>
+                <a href="/data-access?organization[]={{ $repo["name"] }}">
+                  <button class="btn btn-primary w-full">View Datasets</button>
+                </a>
 
               </div>
             @endif
