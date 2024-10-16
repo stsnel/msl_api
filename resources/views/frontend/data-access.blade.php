@@ -27,7 +27,7 @@
                             <input
                             class="peer h-full w-full outline-none text-sm pr-2"
                             type="text"
-                            id="search"
+                            id="search-filters-query"
                             placeholder="Search Filters.." /> 
 
                         </div>
