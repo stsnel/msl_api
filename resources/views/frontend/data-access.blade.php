@@ -48,6 +48,15 @@
                             </div>
 
                             <h2>Filters</h2>
+                            <div class="form-control">
+                                <label class="label cursor-pointer">
+                                    <input type="checkbox" class="checkbox checkbox-sm" id="hide_empty_terms" />
+                                    <span class="label-text">Hide empty terms</span>
+
+                                    <a href="#" id="expand_all" title="expand all nodes">expand all</a>
+                                    <a href="#" id="close_all" title="close all nodes">close all</a>
+                                </label>
+                            </div>
                             {{-- what about the text overflow? --}}
                             {{-- how about making this element wider and set the z-layer behind the results and make it come forward when hovering --}}
                             <div id="jstree-interpreted" class="text-wrap"></div>
