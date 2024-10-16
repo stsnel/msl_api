@@ -10,6 +10,7 @@ use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryKeywordUpdateGroup;
+use App\Models\Laboratory;
 
 class LabController extends Controller
 {
@@ -26,6 +27,13 @@ class LabController extends Controller
     public function importLabData()
     {           
         return view('admin.import-labdata');
+    }
+
+    public function viewLabData()
+    {
+        $laboratories = Laboratory::get();
+
+        return view('admin.laboratories', ['laboratories' => $laboratories]);
     }
     
     public function updateFastData(Request $request)

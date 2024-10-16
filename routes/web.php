@@ -78,6 +78,7 @@ Route::prefix('admin')->group(function () {
     Route::get('tools/query-generator', [ToolsController::class, 'queryGenerator'])->name('query-generator');
 
     Route::get('labs/import-labdata', [LabController::class, 'importLabData'])->name('import-labdata');
+    Route::get('labs/laboratories', [LabController::class, 'viewLabData'])->name('view-labdata');
     Route::post('labs/update-fast-data', [LabController::class, 'updateFastData'])->name('update-fast-data');
     Route::get('labs/update-organizations-data', [LabController::class, 'updateLaboratoryOrganizationsByROR'])->name('update-lab-organizations-data');
     Route::get('labs/update-laboratory-keywords', [LabController::class, 'updateLaboratoryKeywords'])->name('update-laboratory-keywords');
