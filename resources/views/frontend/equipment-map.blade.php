@@ -1,7 +1,14 @@
 <x-layout_main>
+    <div class="flex justify-center items-center ">
+        <div role="tablist" class="tabs tabs-lifted">
+            <a role="tab" href="{{ route('labs-map') }}" class="tab">Laboratories map</a>
+            <a role="tab" href="{{ route('labs-list') }}" class="tab">Laboratories list</a>
+            <a role="tab" href="{{ route('equipment-map') }}" class="tab tab-active">Equipment map</a>
+            <a role="tab" href="{{ route('equipment-list') }}" class="tab">Equipment list</a>
+        </div>
+    </div>
 
     <div class="flex justify-center items-center p-10 ">
-
         {{-- a general no small width view notification --}}
         <div class="block md:hidden">
             no mobile yo

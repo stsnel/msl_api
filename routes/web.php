@@ -97,7 +97,10 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/data-access', [FrontendController::class, 'dataPublications'])->name('data-access');
-Route::get('/labs', [FrontendController::class, 'labs'])->name('labs');
+Route::get('/labs/map', [FrontendController::class, 'labsMap'])->name('labs-map');
+Route::get('/labs/list', [FrontendController::class, 'labsList'])->name('labs-list');
+Route::get('/equipment/map', [FrontendController::class, 'equipmentMap'])->name('equipment-map');
+Route::get('/equipment/list', [FrontendController::class, 'equipmentList'])->name('equipment-list');
 Route::get('/data-repositories', [FrontendController::class, 'dataRepositories'])->name('data-repositories');
 Route::get('/contribute-researcher', [FrontendController::class, 'contributeResearcher'])->name('contribute-researcher');
 Route::get('/contribute-repository', [FrontendController::class, 'contributeRepository'])->name('contribute-repository');

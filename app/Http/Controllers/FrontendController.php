@@ -71,11 +71,11 @@ class FrontendController extends Controller
     }
         
     /**
-     * Show the lab page
+     * Show the lab map page
      * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function labs()
+    public function labsMap()
     {
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
@@ -83,8 +83,57 @@ class FrontendController extends Controller
 
         $result = $client->get($SearchRequest);
 
-        return view('frontend.labs');
+        return view('frontend.labs-map');
     }
+
+    /**
+     * Show the lab list page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function labsList()
+    {
+        $client = new Client();
+        $SearchRequest = new PackageSearchRequest();
+        $SearchRequest->addFilterQuery("type", "lab");
+
+        $result = $client->get($SearchRequest);
+
+        return view('frontend.labs-list');
+    }
+
+    /**
+     * Show the equipment map page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function equipmentMap()
+    {
+        $client = new Client();
+        $SearchRequest = new PackageSearchRequest();
+        $SearchRequest->addFilterQuery("type", "lab");
+
+        $result = $client->get($SearchRequest);
+
+        return view('frontend.equipment-map');
+    }
+
+    /**
+     * Show the equipment list page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function equipmentList()
+    {
+        $client = new Client();
+        $SearchRequest = new PackageSearchRequest();
+        $SearchRequest->addFilterQuery("type", "lab");
+
+        $result = $client->get($SearchRequest);
+
+        return view('frontend.equipment-list');
+    }
+
 
     /**
      * Show the data-repositories page
