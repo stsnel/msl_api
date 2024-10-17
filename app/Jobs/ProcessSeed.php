@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\Laboratory;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -58,22 +59,16 @@ class ProcessSeed implements ShouldQueue
                 }
             }
         } elseif ($seeder->type == "lab") {
-            if($seeder->options['type'] == 'fileSeeder') {
-                $filePath = $seeder->options['filePath'];
+            $laboratories = Laboratory::get();
+
+            foreach($laboratories as $laboratory) {
+                $LaboratoryCreate = LaboratoryCreate::create([
+                    'laboratory_type' => 'laboratory',
+                    'laboratory' => $laboratory->toCkanArray(),
+                    'seed_id' => $this->seed->id
+                ]);
                 
-                if(Storage::disk()->exists($filePath)) {
-                    $jsonEntries = json_decode(Storage::get($filePath), true);
-                    
-                    foreach ($jsonEntries as $jsonEntry) {
-                        $LaboratoryCreate = LaboratoryCreate::create([
-                            'laboratory_type' => 'organization',
-                            'laboratory' => $jsonEntry,
-                            'seed_id' => $this->seed->id
-                        ]);
-                        
-                        ProcessLaboratoryCreate::dispatch($LaboratoryCreate);
-                    }
-                }
+                ProcessLaboratoryCreate::dispatch($LaboratoryCreate);
             }
         } else {
             throw new \Exception('Invalid Seeder configuration.');

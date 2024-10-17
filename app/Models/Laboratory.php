@@ -57,4 +57,40 @@ class Laboratory extends Model
     {
         return $this->hasMany(LaboratoryKeyword::class, 'laboratory_id');
     }
+
+    public function toCkanArray()
+    {
+        return [
+            'title' => $this->name,
+            'type' => 'lab',
+            'name' => $this->msl_identifier,
+            'owner_org' => 'epos-multi-scale-laboratories-thematic-core-service',
+            'msl_id' => $this->id,
+            'msl_description' => $this->description,
+            'msl_description_html' => $this->description_html,
+            'msl_website' => $this->website,
+            'msl_address_street_1' => $this->address_street_1,
+            'msl_address_street_2' => $this->address_street_2,
+            'msl_address_postalcode' => $this->address_postalcode,
+            'msl_address_city' => $this->address_city,
+            'msl_msl_address_country_code' => $this->address_country_code,
+            'msl_domain_name' => $this->fast_domain_name,
+            'msl_location' => $this->getPointGeoJson(),
+            'extras' => [
+                ["key" => "spatial", "value" => $this->getPointGeoJson()]
+            ]
+        ];
+    }
+
+    private function getPointGeoJson()
+    {
+        if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {
+            return json_encode([
+                'type' => 'Point',
+                'coordinates' => [(float)$this->longitude, (float)$this->latitude]
+            ]);
+        }
+
+        return '';
+    }
 }
