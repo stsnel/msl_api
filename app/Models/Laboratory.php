@@ -76,6 +76,7 @@ class Laboratory extends Model
             'msl_msl_address_country_code' => $this->address_country_code,
             'msl_domain_name' => $this->fast_domain_name,
             'msl_location' => $this->getPointGeoJson(),
+            'msl_has_spatial_data' => $this->hasSpatialData(),
             'extras' => [
                 ["key" => "spatial", "value" => $this->getPointGeoJson()]
             ]
@@ -92,5 +93,14 @@ class Laboratory extends Model
         }
 
         return '';
+    }
+
+    private function hasSpatialData()
+    {
+        if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {
+            return true;
+        }
+
+        return false;
     }
 }
