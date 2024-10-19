@@ -6,6 +6,7 @@ use App\CkanClient\Client;
 use App\CkanClient\Request\OrganizationListRequest;
 use App\CkanClient\Request\PackageSearchRequest;
 use App\CkanClient\Request\PackageShowRequest;
+use App\Models\Laboratory;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
 
@@ -80,10 +81,23 @@ class FrontendController extends Controller
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
         $SearchRequest->addFilterQuery("type", "lab");
+        $SearchRequest->addFilterQuery("msl_has_spatial_data", "true");
+        $SearchRequest->rows = 200;
 
         $result = $client->get($SearchRequest);
 
-        return view('frontend.labs-map');
+        $locattions = [];
+        foreach($result->getResults() as $result) {
+            $locations[] = json_decode($result['msl_location']);
+        }
+
+        //dd(json_encode($locations));
+
+        //dd($result);
+
+
+
+        return view('frontend.labs-map', ['locations' => $locations]);
     }
 
     /**

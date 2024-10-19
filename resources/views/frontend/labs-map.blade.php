@@ -53,7 +53,35 @@
                 
                 <div class="bg-base-300  grow">
                     <div class="w-full flex flex-col">
-                    <h1>JAJA</h1>
+
+                    <div id="map" style="height: 700px;"></div>
+
+                    <script>
+        				function onEachFeature(feature, layer) {
+                            // does this feature have a property named popupContent?
+                            if (feature.properties && feature.properties.name) {
+                                layer.bindPopup(feature.properties.name);
+                            }
+                        }
+        			
+        				var features = <?php echo json_encode($locations); ?>;
+        				
+        				//console.log(features);        				        				
+        			
+        				var map = L.map('map').setView([51.505, -0.09], 4);
+        				
+        				L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 19,
+                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        }).addTo(map);
+                        
+                        for (feature of features) {
+							L.geoJSON(feature, {
+								onEachFeature: onEachFeature
+							}).addTo(map);        					
+        				}
+                        
+        			</script>
 
                         
                         
