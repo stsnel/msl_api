@@ -76,7 +76,7 @@ class FrontendController extends Controller
      * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function labsMap()
+    public function labsMap(Request $request)
     {
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
@@ -84,6 +84,17 @@ class FrontendController extends Controller
         $SearchRequest->addFilterQuery("msl_has_spatial_data", "true");
         $SearchRequest->loadFacetsFromConfig('laboratories');
         $SearchRequest->rows = 200;
+
+        $activeFilters = [];
+
+        foreach($request->query() as $key => $values) {
+            if(array_key_exists($key, config('ckan.facets.laboratories'))) {
+                foreach($values as $value) {
+                    $activeFilters[$key][] = $value;
+                    $SearchRequest->addFilterQuery($key, $value);
+                }
+            }
+        }
 
         $result = $client->get($SearchRequest);
         //dd($result);
@@ -99,7 +110,7 @@ class FrontendController extends Controller
 
 
 
-        return view('frontend.labs-map', ['locations' => $locations, 'facets' => $result->getFacets()]);
+        return view('frontend.labs-map', ['locations' => $locations, 'result' => $result, 'activeFilters' => $activeFilters]);
     }
 
     /**
