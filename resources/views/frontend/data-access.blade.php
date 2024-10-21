@@ -168,7 +168,7 @@
 
 
                             <a
-                            class="self-center w-9/12" 
+                            class="self-center w-9/12 no-underline" 
                             href="{{ route('data-publication-detail', ['id' => $dataPublication['id']]) }}">
                                 
                             <div class="border-t border-slate-200/50 hover:bg-secondary ">
@@ -194,18 +194,18 @@
                         <div class="self-center join p-4">
                             
                             <a href="{{ $paginator->previousPageUrl() }}">
-                                <button class="join-item btn">«</button>
+                                <button class="join-item btn no-underline">«</button>
                             </a>
 
                             @for ($i = 1; $i < $paginator->lastPage() + 1; $i++)
                                 <a href="{{ $paginator->url($i) }}">
                                     <button 
-                                    class="join-item btn">{{ $i }}</button>
+                                    class="join-item btn no-underline">{{ $i }}</button>
                                 </a>
                             @endfor
 
                             <a href="{{ $paginator->nextPageUrl() }}">
-                                <button class="join-item btn">»</button>
+                                <button class="join-item btn no-underline">»</button>
                             </a>
 
                         </div>

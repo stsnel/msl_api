@@ -24,6 +24,17 @@
             
         </div>
         
+
+        {{-- Vision
+        We strive to create the best earth science laboratory data service to 
+        support Geo-scientists in their scientific endeavor and 
+        to facilitate knowledge exchange between them
+
+        Mission
+        Our mission is to support your research into Earth system behavior, 
+        by providing you with data, models and expertise on 
+        rock properties and processes, building on standards and tools developed with the community. --}}
+
         <img 
             src= {{ asset('images/heros/about.png') }}
             alt="aboutImage"
