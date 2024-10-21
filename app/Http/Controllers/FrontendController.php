@@ -82,13 +82,15 @@ class FrontendController extends Controller
         $SearchRequest = new PackageSearchRequest();
         $SearchRequest->addFilterQuery("type", "lab");
         $SearchRequest->addFilterQuery("msl_has_spatial_data", "true");
+        $SearchRequest->loadFacetsFromConfig('laboratories');
         $SearchRequest->rows = 200;
 
         $result = $client->get($SearchRequest);
+        //dd($result);
 
-        $locattions = [];
-        foreach($result->getResults() as $result) {
-            $locations[] = json_decode($result['msl_location']);
+        $locations = [];
+        foreach($result->getResults() as $labData) {
+            $locations[] = json_decode($labData['msl_location']);
         }
 
         //dd(json_encode($locations));
@@ -97,7 +99,7 @@ class FrontendController extends Controller
 
 
 
-        return view('frontend.labs-map', ['locations' => $locations]);
+        return view('frontend.labs-map', ['locations' => $locations, 'facets' => $result->getFacets()]);
     }
 
     /**

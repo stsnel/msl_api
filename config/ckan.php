@@ -34,6 +34,11 @@ return [
             "msl_has_lab" =>  "Research institute",
             "organization" =>  "Organization",
             "msl_has_organization" => "Data repository"
+        ],
+        "laboratories" => [
+            "msl_domain_name" => "Scientific domain",
+            "msl_address_country_name" => "Country",
+            "msl_organization_name" => "Organization"
         ]
     ]
 ];

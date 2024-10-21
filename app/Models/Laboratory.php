@@ -22,6 +22,7 @@ class Laboratory extends Model
         'address_postalcode',
         'address_city',
         'address_country_code',
+        'address_country_name',
         'latitude',
         'longitude',
         'altitude',
@@ -35,7 +36,7 @@ class Laboratory extends Model
     
     public function laboratoryOrganization()
     {
-        return $this->belongsTo(LaboratoryOrganization::class, 'laboratory_ogranization_id');
+        return $this->belongsTo(LaboratoryOrganization::class, 'laboratory_organization_id');
     }
     
     public function laboratoryContactPerson()
@@ -74,7 +75,9 @@ class Laboratory extends Model
             'msl_address_postalcode' => $this->address_postalcode,
             'msl_address_city' => $this->address_city,
             'msl_msl_address_country_code' => $this->address_country_code,
+            'msl_address_country_name' => $this->address_country_name,
             'msl_domain_name' => $this->fast_domain_name,
+            'msl_organization_name' => $this->laboratoryOrganization->name,
             'msl_location' => $this->getPointGeoJson(),
             'msl_has_spatial_data' => $this->hasSpatialData(),
             'extras' => [

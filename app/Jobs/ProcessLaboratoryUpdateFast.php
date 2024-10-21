@@ -59,6 +59,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
             $lab->address_postalcode = $data['address_postcode'];
             $lab->address_city = $data['address_city'];
             $lab->address_country_code = $data['address_country_code'];
+            $lab->address_country_name = $data['address_country']['name'];
             $lab->latitude = $data['gps_latitude'];
             $lab->longitude = $data['gps_longitude'];
             $lab->altitude = $data['gps_altitude'];

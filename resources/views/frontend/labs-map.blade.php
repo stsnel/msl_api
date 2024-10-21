@@ -46,7 +46,7 @@
                     </div>
 
                     <div>
-                        placeholder Filters
+                        {{ json_encode($facets) }}
                     </div>
 
                 </div>
