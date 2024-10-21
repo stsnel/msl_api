@@ -78,7 +78,7 @@ class Laboratory extends Model
             'msl_address_country_name' => $this->address_country_name,
             'msl_domain_name' => $this->fast_domain_name,
             'msl_organization_name' => $this->laboratoryOrganization->name,
-            'msl_location' => $this->getPointGeoJson(),
+            'msl_location' => $this->getGeoJsonFeature(),
             'msl_has_spatial_data' => $this->hasSpatialData(),
             'extras' => [
                 ["key" => "spatial", "value" => $this->getPointGeoJson()]
@@ -88,10 +88,31 @@ class Laboratory extends Model
 
     private function getPointGeoJson()
     {
-        if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {
+        if($this->hasSpatialData()) {
             return json_encode([
                 'type' => 'Point',
                 'coordinates' => [(float)$this->longitude, (float)$this->latitude]
+            ]);
+        }
+
+        return '';
+    }
+
+    private function getGeoJsonFeature()
+    {
+        if($this->hasSpatialData()) {
+            return json_encode([
+                'type' => 'Feature',
+                'geometry' => [
+                    'type' => 'Point',
+                    'coordinates' => [(float)$this->longitude, (float)$this->latitude]
+                ],
+                'properties' => [
+                    'title' => $this->name,
+                    'name' => $this->msl_identifier,
+                    'msl_id' => $this->id,
+                    'msl_organization_name' => $this->laboratoryOrganization->name                    
+                ]
             ]);
         }
 

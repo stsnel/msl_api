@@ -70,15 +70,14 @@
 
                     <script>
         				function onEachFeature(feature, layer) {
-                            // does this feature have a property named popupContent?
-                            if (feature.properties && feature.properties.name) {
-                                layer.bindPopup(feature.properties.name);
+                            if (feature.properties) {                                
+                                var popupContent = `<h5>${feature.properties.title}</h5><p>${feature.properties.msl_organization_name}</p><a href="">view lab information</a>`;
+
+                                layer.bindPopup(popupContent);
                             }
                         }
         			
-        				var features = <?php echo json_encode($locations); ?>;
-        				
-        				//console.log(features);        				        				
+        				var features = <?php echo json_encode($locations); ?>;        				
         			
         				var map = L.map('map').setView([51.505, -0.09], 4);
         				
