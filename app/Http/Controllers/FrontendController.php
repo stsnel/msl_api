@@ -74,6 +74,7 @@ class FrontendController extends Controller
     /**
      * Show the lab map page
      * 
+     * @param Request $request
      * @return \Illuminate\Contracts\Support\Renderable
      */
     public function labsMap(Request $request)
@@ -97,18 +98,11 @@ class FrontendController extends Controller
         }
 
         $result = $client->get($SearchRequest);
-        //dd($result);
 
         $locations = [];
         foreach($result->getResults() as $labData) {
             $locations[] = json_decode($labData['msl_location']);
         }
-
-        //dd(json_encode($locations));
-
-        //dd($result);
-
-
 
         return view('frontend.labs-map', ['locations' => $locations, 'result' => $result, 'activeFilters' => $activeFilters]);
     }
@@ -116,17 +110,46 @@ class FrontendController extends Controller
     /**
      * Show the lab list page
      * 
+     * @param Request $request
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function labsList()
+    public function labsList(Request $request)
     {
+        $resultsPerPage = 10;
+
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
         $SearchRequest->addFilterQuery("type", "lab");
+        $SearchRequest->rows = $resultsPerPage;
+        $SearchRequest->loadFacetsFromConfig('laboratories');
+
+        $page = $request->page ?? 1;
+        $SearchRequest->start = ($page-1) * $resultsPerPage;
+
+        $query = $request->query('query') ?? "";
+        $SearchRequest->query = $query;
+
+        $activeFilters = [];
+
+        foreach($request->query() as $key => $values) {
+            if(array_key_exists($key, config('ckan.facets.laboratories'))) {
+                foreach($values as $value) {
+                    $activeFilters[$key][] = $value;
+                    $SearchRequest->addFilterQuery($key, $value);
+                }
+            }
+        }
 
         $result = $client->get($SearchRequest);
 
-        return view('frontend.labs-list');
+        $locations = [];
+        foreach($result->getResults() as $labData) {
+            $locations[] = json_decode($labData['msl_location']);
+        }
+
+        $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
+
+        return view('frontend.labs-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
     }
 
     /**

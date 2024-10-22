@@ -40,40 +40,76 @@
                         </div>
 
                         <div>
-                            <h1>Filters</h1>
+                            <h2>Filters</h2>
+                            <div id="jstree-laboratories" class="text-wrap"></div>
                         </div>
 
                     </div>
 
-                    <div>
-                        placeholder Filters
-                    </div>
+                    <script>
+                        var dataLaboratories = @php echo File::get(base_path('public/laboratories.json')) @endphp;
+                        var facets = @php echo json_encode($result->getFacets()); @endphp;
+                        var activeFilters = @php echo json_encode($activeFilters); @endphp;
+                        var activeNodes = [];
+
+                    </script>
+
+                    @push('vite')
+                        @vite(['resources/js/jquery.js', 'resources/js/jstree.js', 'resources/js/filters-menu-labs.js'])
+                    @endpush
 
                 </div>
                 
-                <div class="bg-base-300  grow">
-                    <div class="w-full flex flex-col">
+                <div class="grow w-full">
+                    <div class="w-full flex flex-col bg-base-100">
 
-
-                        <div class='grow mx-auto p-4'>
+                        <div class='grow mx-auto p-4 w-full'>
                             <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg overflow-hidden">
                                 <div class="grid place-items-center h-full w-12 ">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
                                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
                                     </svg>
                                 </div>
-                        
-                                <input
-                                class="peer h-full w-full outline-none text-sm pr-2"
-                                type="text"
-                                id="search"
-                                placeholder="Search labs.." /> 
+                                {{-- full or limited width? --}}
+                                <form method="get" class="w-full h-16">
+                                    <input type="hidden" name="page" value="1" />
+                                    <input class="peer h-full w-full outline-none text-sm pr-2" type="text" id="search" placeholder="Search laboratories.." name="query" /> 
+                                </form>
                             </div>
                         </div>
     
-                        <div class="grow flex justify-between p-4">
-                            <div><p>86 labs found</p></div>
+                        <div class="grow flex justify-between p-4 px-10">
+                           
+                            <?php /* dd($activeFilters); */?>
+                            
+                            {{-- styling needs some tuning regarding long filter text elements --}}
+                            <div class="flex flex-col max-w-80 text-wrap">
+                                <h5>Applied Filters</h5>
+                                <?php
+                                $filterKeys = collect($activeFilters)->keys();
+
+                                ?>
+                                <ul class="list-disc list-inside"> 
+
+                                    @foreach ( $filterKeys as $key )
+                                        <li>{{ $key }}:
+                                            @foreach ( $activeFilters[$key] as $entry)
+                                                {{ $entry }} 
+                                            @endforeach
+                                        </li>
+                                    @endforeach
+                                </ul>
+                                {{-- {{ json_encode($activeFilters) }} --}}
+                            </div>
+
+
                             <div>
+                                <h5>{{ $result->getTotalResultsCount() }} laboratories found</h5>
+                            </div>
+                                                        
+
+
+                            {{-- <div>
                                 <div class="dropdown">
                                     Order by
                                     <div tabindex="0" role="button" class="btn m-1">Relevance
@@ -86,32 +122,58 @@
                                     <li><a>Item 2</a></li>
                                     </ul>
                                 </div>
-                            </div>
+                            </div> --}}
                             
                             
                         </div>
     
-                        <div>
-                            <div class="border-t-2 border-b-2">
-                               Map placeholder
-    
-                               two options: list view and map view
-                            </div>
+                        {{-- insert pagination as well here --}}
+                        
+                        <div class="flex flex-col ">
+                            @foreach ($result->getResults() as $laboratory)
+
+                            <a
+                            class="self-center w-9/12" 
+                            href="">
+                                
+                            <div class="border-t border-slate-200/50 hover:bg-secondary ">
+                                <div class="p-4">                                    
+                                       <h4 class="text-left">{{ $laboratory['title'] }}</h4>
+                                       <span>{{ $laboratory['msl_organization_name'] }}</span>
+                                </div>
+                            </div>    
+
+                            </a>
+
+                            @endforeach                            
                         </div>
                         
-                        {{-- this will be a dynamic element --}}
+                        
+                        {{-- make component out of this --}}
                         <div class="self-center join p-4">
-                            <button class="join-item btn">«</button>
-                            <button class="join-item btn">1</button>
-                            <button class="join-item btn">2</button>
-                            <button class="join-item btn btn-disabled">...</button>
-                            <button class="join-item btn">99</button>
-                            <button class="join-item btn">100</button>
-                            <button class="join-item btn">»</button>
+                            
+                            <a href="{{ $paginator->previousPageUrl() }}">
+                                <button class="join-item btn">«</button>
+                            </a>
+
+                            @for ($i = 1; $i < $paginator->lastPage() + 1; $i++)
+                                <a href="{{ $paginator->url($i) }}">
+                                    <button 
+                                    class="join-item btn">{{ $i }}</button>
+                                </a>
+                            @endfor
+
+                            <a href="{{ $paginator->nextPageUrl() }}">
+                                <button class="join-item btn">»</button>
+                            </a>
+
                         </div>
+  
                     </div>
                     
                 </div>
+
+
             </div>
         </div>
        

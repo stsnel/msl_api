@@ -48,13 +48,13 @@
                     </div>
 
                     
-                        <script>
-                            var dataLaboratories = @php echo File::get(base_path('public/laboratories.json')) @endphp;
-                            var facets = @php echo json_encode($result->getFacets()); @endphp;
-                            var activeFilters = @php echo json_encode($activeFilters); @endphp;
-                            var activeNodes = [];
+                    <script>
+                        var dataLaboratories = @php echo File::get(base_path('public/laboratories.json')) @endphp;
+                        var facets = @php echo json_encode($result->getFacets()); @endphp;
+                        var activeFilters = @php echo json_encode($activeFilters); @endphp;
+                        var activeNodes = [];
 
-                        </script>
+                    </script>
 
                     @push('vite')
                         @vite(['resources/js/jquery.js', 'resources/js/jstree.js', 'resources/js/filters-menu-labs.js'])
