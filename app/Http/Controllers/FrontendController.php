@@ -152,6 +152,23 @@ class FrontendController extends Controller
         return view('frontend.labs-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
     }
 
+    public function lab($id)
+    {
+        $client = new Client();
+        $request = new PackageShowRequest();
+        $request->id = $id;
+
+        $result = $client->get($request);
+
+        if(!$result->isSuccess()) {
+            abort(404, 'ckan request failed');
+        }
+
+        return view('frontend.lab-detail', ['data' => $result->getResult()]);
+
+
+    }
+
     /**
      * Show the equipment map page
      * 
