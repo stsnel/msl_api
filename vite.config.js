@@ -8,9 +8,10 @@ export default defineConfig({
         laravel([
             'resources/css/app.css',
             'resources/css/treejs.css',
+            'resources/css/treejs-custom.css',
             'resources/css/leaflet.css',
             'resources/js/app.js',
-            'resources/js/jstree.js',
+            'resources/js/jstree.js',            
             'resources/js/filters-menu.js',
             'resources/js/leaflet-src.js'
         ]),
