@@ -39,6 +39,12 @@ return [
             "msl_domain_name" => "Scientific domain",
             "msl_address_country_name" => "Country",
             "msl_organization_name" => "Organization"
+        ],
+        "equipment" => [
+            "msl_domain_name" => "Scientific domain",
+            "msl_type_name" => "Equipment type",
+            "msl_group_name" => "Equipment group",
+            "msl_organization_name" => "Organization"
         ]
     ]
 ];

@@ -40,75 +40,61 @@
                         </div>
 
                         <div>
-                            <h1>Filters</h1>
+                            <h2>Filters</h1>
+
+                            <div id="jstree-laboratories" class="text-wrap"></div>
                         </div>
 
                     </div>
 
-                    <div>
-                        placeholder Filters
-                    </div>
+                    <script>
+                        var dataLaboratories = @php echo File::get(base_path('public/equipment.json')) @endphp;
+                        var facets = @php echo json_encode($result->getFacets()); @endphp;
+                        var activeFilters = @php echo json_encode($activeFilters); @endphp;
+                        var activeNodes = [];
+
+                    </script>
+
+                    @push('vite')
+                        @vite(['resources/js/jquery.js', 'resources/js/jstree.js', 'resources/js/filters-menu-labs.js'])
+                    @endpush
 
                 </div>
                 
                 <div class="bg-base-300  grow">
                     <div class="w-full flex flex-col">
 
+                    <div id="map" style="height: 700px;"></div>
 
-                        <div class='grow mx-auto p-4'>
-                            <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg overflow-hidden">
-                                <div class="grid place-items-center h-full w-12 ">
-                                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-6-6m2-5a7 7 0 11-14 0 7 7 0 0114 0z" />
-                                    </svg>
-                                </div>
+                    <script>
+        				function onEachFeature(feature, layer) {
+                            if (feature.properties) {                                
+                                var popupContent = `<h5>${feature.properties.title}</h5><p>${feature.properties.msl_organization_name}</p><a href="/lab/${feature.properties.name}">view lab information</a>`;
+
+                                layer.bindPopup(popupContent);
+                            }
+                        }
+        			
+        				var features = <?php echo json_encode($locations); ?>;        				
+        			
+        				var map = L.map('map').setView([51.505, -0.09], 4);
+        				
+        				L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                            maxZoom: 19,
+                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                        }).addTo(map);
                         
-                                <input
-                                class="peer h-full w-full outline-none text-sm pr-2"
-                                type="text"
-                                id="search"
-                                placeholder="Search labs.." /> 
-                            </div>
-                        </div>
-    
-                        <div class="grow flex justify-between p-4">
-                            <div><p>86 labs found</p></div>
-                            <div>
-                                <div class="dropdown">
-                                    Order by
-                                    <div tabindex="0" role="button" class="btn m-1">Relevance
-                                        <svg class="-mr-1 h-5 w-5 text-gray-400" viewBox="0 0 20 20" fill="currentColor" aria-hidden="true">
-                                            <path fill-rule="evenodd" d="M5.23 7.21a.75.75 0 011.06.02L10 11.168l3.71-3.938a.75.75 0 111.08 1.04l-4.25 4.5a.75.75 0 01-1.08 0l-4.25-4.5a.75.75 0 01.02-1.06z" clip-rule="evenodd" />
-                                        </svg>
-                                    </div>
-                                    <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
-                                    <li><a>Item 1</a></li>
-                                    <li><a>Item 2</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                            
-                            
-                        </div>
-    
-                        <div>
-                            <div class="border-t-2 border-b-2">
-                               Map placeholder
-    
-                               two options: list view and map view
-                            </div>
-                        </div>
+                        for (feature of features) {
+							L.geoJSON(feature, {
+								onEachFeature: onEachFeature
+							}).addTo(map);        					
+        				}
                         
-                        {{-- this will be a dynamic element --}}
-                        <div class="self-center join p-4">
-                            <button class="join-item btn">«</button>
-                            <button class="join-item btn">1</button>
-                            <button class="join-item btn">2</button>
-                            <button class="join-item btn btn-disabled">...</button>
-                            <button class="join-item btn">99</button>
-                            <button class="join-item btn">100</button>
-                            <button class="join-item btn">»</button>
-                        </div>
+        			</script>
+
+                        
+                        
+                        
                     </div>
                     
                 </div>

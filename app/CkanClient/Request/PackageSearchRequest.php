@@ -109,6 +109,11 @@ class PackageSearchRequest implements RequestInterface
             foreach($facets as $key => $value) {
                 $this->addFacetField($key);
             }
+        } elseif($type == 'equipment') {
+            $facets = config('ckan.facets.equipment');
+            foreach($facets as $key => $value) {
+                $this->addFacetField($key);
+            }
         }
     }
 

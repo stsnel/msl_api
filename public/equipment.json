@@ -1,0 +1,74 @@
+[
+    {
+        "text": "Scientific domain",
+        "state": {
+            "opened": false,
+            "disabled": true,
+            "selected": false,
+            "checked": false
+        },
+        "extra": {
+            "type": "filter",
+            "url": "",
+            "filterName": "",
+            "filterValue": "",
+            "includeFacet": true,
+            "facetName": "msl_domain_name"
+        },
+        "children": []
+    },
+    {
+        "text": "Equipment type",
+        "state": {
+            "opened": false,
+            "disabled": true,
+            "selected": false,
+            "checked": false
+        },
+        "extra": {
+            "type": "filter",
+            "url": "",
+            "filterName": "",
+            "filterValue": "",
+            "includeFacet": true,
+            "facetName": "msl_type_name"
+        },
+        "children": []
+    },
+    {
+        "text": "Equipment group",
+        "state": {
+            "opened": false,
+            "disabled": true,
+            "selected": false,
+            "checked": false
+        },
+        "extra": {
+            "type": "filter",
+            "url": "",
+            "filterName": "",
+            "filterValue": "",
+            "includeFacet": true,
+            "facetName": "msl_group_name"
+        },
+        "children": []
+    },
+    {
+        "text": "Organization",
+        "state": {
+            "opened": false,
+            "disabled": true,
+            "selected": false,
+            "checked": false
+        },
+        "extra": {
+            "type": "filter",
+            "url": "",
+            "filterName": "",
+            "filterValue": "",
+            "includeFacet": true,
+            "facetName": "msl_organization_name"
+        },
+        "children": []
+    }
+]

@@ -152,6 +152,11 @@ class FrontendController extends Controller
         return view('frontend.labs-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
     }
 
+    /**
+     * Show the lab detail page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
     public function lab($id)
     {
         $client = new Client();
@@ -174,18 +179,34 @@ class FrontendController extends Controller
      * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function equipmentMap()
+    public function equipmentMap(Request $request)
     {
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
         $SearchRequest->addFilterQuery("msl_has_spatial_data", "true");
         $SearchRequest->addFilterQuery("type", "equipment");
+        $SearchRequest->loadFacetsFromConfig('equipment');
+        $SearchRequest->rows = 200;
+
+        $activeFilters = [];
+
+        foreach($request->query() as $key => $values) {
+            if(array_key_exists($key, config('ckan.facets.equipment'))) {
+                foreach($values as $value) {
+                    $activeFilters[$key][] = $value;
+                    $SearchRequest->addFilterQuery($key, $value);
+                }
+            }
+        }
 
         $result = $client->get($SearchRequest);
 
-        dd($result);
+        $locations = [];
+        foreach($result->getResults() as $labData) {
+            $locations[] = json_decode($labData['msl_location']);
+        }
 
-        return view('frontend.equipment-map');
+        return view('frontend.equipment-map', ['locations' => $locations, 'result' => $result, 'activeFilters' => $activeFilters]);
     }
 
     /**
@@ -193,15 +214,45 @@ class FrontendController extends Controller
      * 
      * @return \Illuminate\Contracts\Support\Renderable
      */
-    public function equipmentList()
+    public function equipmentList(Request $request)
     {
+        $resultsPerPage = 50;
+
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
-        $SearchRequest->addFilterQuery("type", "lab");
+        $SearchRequest->addFilterQuery("type", "equipment");
+        $SearchRequest->rows = $resultsPerPage;
+        $SearchRequest->loadFacetsFromConfig('equipment');
+
+        $page = $request->page ?? 1;
+        $SearchRequest->start = ($page-1) * $resultsPerPage;
+
+        $query = $request->query('query') ?? "";
+        $SearchRequest->query = $query;
+
+        $activeFilters = [];
+
+        foreach($request->query() as $key => $values) {
+            if(array_key_exists($key, config('ckan.facets.equipment'))) {
+                foreach($values as $value) {
+                    $activeFilters[$key][] = $value;
+                    $SearchRequest->addFilterQuery($key, $value);
+                }
+            }
+        }
 
         $result = $client->get($SearchRequest);
 
-        return view('frontend.equipment-list');
+        $locations = [];
+        foreach($result->getResults() as $labData) {
+            $locations[] = json_decode($labData['msl_location']);
+        }
+
+        $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
+
+        $result = $client->get($SearchRequest);
+
+        return view('frontend.equipment-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
     }
 
 
