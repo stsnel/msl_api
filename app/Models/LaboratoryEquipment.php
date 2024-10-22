@@ -22,12 +22,31 @@ class LaboratoryEquipment extends Model
         'latitude',
         'longitude',
         'altitude',
-        'external_identifier'
+        'external_identifier',
+        'name'
     ];
     
     public function laboratory()
     {
         return $this->belongsTo(Laboratory::class);
     }
+
+    public function toCkanArray()
+    {
+        return [
+            'title' => $this->name,
+            'type' => 'lab',
+            'name' => md5($this->fast_id . '-' . $this->laboratory_id),
+            'owner_org' => 'epos-multi-scale-laboratories-thematic-core-service',
+
+
+            
+            'msl_location' => $this->getGeoJsonFeature(),
+            'msl_has_spatial_data' => $this->hasSpatialData(),
+            'extras' => [
+                ["key" => "spatial", "value" => $this->getPointGeoJson()]
+            ]
+        ];
+    }    
     
 }

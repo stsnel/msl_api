@@ -173,6 +173,8 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
                     if(isset($fastEquipment['external_identifier'])) {
                         $equipment->external_identifier = $fastEquipment['external_identifier'];
                     }
+
+                    $equipment->name = $fastEquipment['name']['name'];
                     
                     $equipment->save();
                 }
