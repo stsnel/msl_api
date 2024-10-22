@@ -3,19 +3,18 @@
 namespace App\Jobs;
 
 use Illuminate\Bus\Queueable;
-use Illuminate\Contracts\Queue\ShouldBeUnique;
 use Illuminate\Contracts\Queue\ShouldQueue;
 use Illuminate\Foundation\Bus\Dispatchable;
 use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
-use Illuminate\Support\Facades\Storage;
 use App\Models\Laboratory;
-use App\Models\Seed;
-use App\Models\OrganizationCreate;
-use App\Models\LaboratoryCreate;
 use App\Models\LaboratoryUpdateGroupFast;
-use App\fast\Fast;
 use App\Models\LaboratoryUpdateFast;
+use App\Models\LaboratoryOrganization;
+use App\Models\LaboratoryContactPerson;
+use App\Models\LaboratoryManager;
+use App\Models\LaboratoryEquipment;
+use App\Models\LaboratoryKeyword;
 
 
 class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
@@ -40,7 +39,12 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
      * @return void
      */
     public function handle()
-    {        
+    {
+        LaboratoryOrganization::truncate();
+        LaboratoryContactPerson::truncate();
+        LaboratoryManager::truncate();
+        LaboratoryEquipment::truncate();        
+
         $labs = Laboratory::whereNotNull('fast_id')->get();
         
         foreach ($labs as $lab) {            

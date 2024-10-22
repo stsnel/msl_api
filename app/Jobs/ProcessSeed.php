@@ -2,6 +2,7 @@
 
 namespace App\Jobs;
 
+use App\Models\EquipmentCreate;
 use App\Models\Laboratory;
 use Illuminate\Bus\Queueable;
 use Illuminate\Contracts\Queue\ShouldQueue;
@@ -12,7 +13,7 @@ use Illuminate\Support\Facades\Storage;
 use App\Models\Seed;
 use App\Models\OrganizationCreate;
 use App\Models\LaboratoryCreate;
-
+use App\Models\LaboratoryEquipment;
 
 class ProcessSeed implements ShouldQueue
 {
@@ -69,6 +70,18 @@ class ProcessSeed implements ShouldQueue
                 
                 ProcessLaboratoryCreate::dispatch($LaboratoryCreate);
             }
+        } elseif($seeder->type == "equipment") {
+            $equipmentList = LaboratoryEquipment::get();
+            foreach($equipmentList as $equipment) {
+                $equipmentCreate = EquipmentCreate::create([
+                    'equipment_type' => 'equipment',
+                    'equipment' => $equipment->toCkanArray(),
+                    'seed_id' => $this->seed->id
+                ]);
+
+                ProcessEquipmentCreate::dispatch($equipmentCreate);
+            }
+
         } else {
             throw new \Exception('Invalid Seeder configuration.');
         }

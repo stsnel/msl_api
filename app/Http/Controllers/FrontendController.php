@@ -178,9 +178,12 @@ class FrontendController extends Controller
     {
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
-        $SearchRequest->addFilterQuery("type", "lab");
+        $SearchRequest->addFilterQuery("msl_has_spatial_data", "true");
+        $SearchRequest->addFilterQuery("type", "equipment");
 
         $result = $client->get($SearchRequest);
+
+        dd($result);
 
         return view('frontend.equipment-map');
     }

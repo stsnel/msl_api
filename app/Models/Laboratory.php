@@ -86,7 +86,7 @@ class Laboratory extends Model
         ];
     }
 
-    private function getPointGeoJson()
+    public function getPointGeoJson()
     {
         if($this->hasSpatialData()) {
             return json_encode([
@@ -119,7 +119,7 @@ class Laboratory extends Model
         return '';
     }
 
-    private function hasSpatialData()
+    public function hasSpatialData()
     {
         if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {
             return true;
