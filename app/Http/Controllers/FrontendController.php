@@ -186,7 +186,7 @@ class FrontendController extends Controller
         $SearchRequest->addFilterQuery("msl_has_spatial_data", "true");
         $SearchRequest->addFilterQuery("type", "equipment");
         $SearchRequest->loadFacetsFromConfig('equipment');
-        $SearchRequest->rows = 200;
+        $SearchRequest->rows = 1000;
 
         $activeFilters = [];
 

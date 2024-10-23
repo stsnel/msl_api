@@ -71,7 +71,7 @@ class LaboratoryEquipment extends Model
         return '';
     }
 
-    private function getGeoJsonFeature()
+    public function getGeoJsonFeature()
     {
         if($this->hasSpatialData()) {
             if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {
@@ -106,7 +106,7 @@ class LaboratoryEquipment extends Model
         return '';
     }
 
-    private function hasSpatialData()
+    public function hasSpatialData()
     {
         if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {
             return true;

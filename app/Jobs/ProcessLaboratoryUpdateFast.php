@@ -151,7 +151,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
                     $equipment = new LaboratoryEquipment();
                     
                     $equipment->fast_id = $fastEquipment['id'];
-                    $equipment->laboratory_id = $organization->id;
+                    $equipment->laboratory_id = $lab->id;
                     $equipment->description = $fastEquipment['description'];
                     
                     $equipment->description_html = '';
@@ -179,7 +179,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
                     $equipment->save();
                 }
             }
-                        
+
             $lab->save();
             
             $this->laboratoryUpdateFast->response_code = $result->response_code;
