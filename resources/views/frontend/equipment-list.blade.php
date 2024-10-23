@@ -134,7 +134,7 @@
 
                             <a
                             class="self-center w-9/12" 
-                            href="">
+                            href="{{ route('lab-detail', ['id' => $equipment['msl_lab_ckan_name']]) }}">
                                 
                             <div class="border-t border-slate-200/50 hover:bg-secondary ">
                                 <div class="p-4">                                    

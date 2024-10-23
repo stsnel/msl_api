@@ -45,6 +45,9 @@ class LaboratoryEquipment extends Model
             'msl_domain_name' => $this->domain_name,
             'msl_group_name' => $this->group_name,
             'msl_brand' => $this->brand,
+            'msl_organization_name' => $this->laboratory->laboratoryOrganization->name,
+            'msl_lab_id' => $this->laboratory_id,
+            'msl_lab_ckan_name' => $this->laboratory->msl_identifier,
             'msl_website' => $this->website,
             'msl_location' => $this->getGeoJsonFeature(),
             'msl_has_spatial_data' => $this->hasSpatialData(),
@@ -84,7 +87,8 @@ class LaboratoryEquipment extends Model
                     'properties' => [
                         'title' => $this->name,
                         'name' => md5($this->fast_id . '-' . $this->laboratory_id),
-                        'msl_id' => $this->id
+                        'msl_id' => $this->id,
+                        'msl_lab_ckan_name' => $this->laboratory->msl_identifier
                     ]
                 ]);
             } else {
@@ -97,7 +101,8 @@ class LaboratoryEquipment extends Model
                     'properties' => [
                         'title' => $this->name,
                         'name' => md5($this->fast_id . '-' . $this->laboratory_id),
-                        'msl_id' => $this->id
+                        'msl_id' => $this->id,
+                        'msl_lab_ckan_name' => $this->laboratory->msl_identifier
                     ]
                 ]);
             }

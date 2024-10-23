@@ -69,7 +69,7 @@
                     <script>
         				function onEachFeature(feature, layer) {
                             if (feature.properties) {                                
-                                var popupContent = `<h5>${feature.properties.title}</h5><p>${feature.properties.msl_organization_name}</p><a href="/lab/${feature.properties.name}">view lab information</a>`;
+                                var popupContent = `<h5>${feature.properties.title}</h5><p>${feature.properties.msl_organization_name}</p><a href="/lab/${feature.properties.msl_lab_ckan_name}">view lab information</a>`;
 
                                 layer.bindPopup(popupContent);
                             }
