@@ -3,6 +3,8 @@ import laravel from 'laravel-vite-plugin';
 // import react from '@vitejs/plugin-react';
 // import vue from '@vitejs/plugin-vue';
 
+import tailwindcss from 'tailwindcss'
+
 export default defineConfig({
     plugins: [
         laravel([
@@ -16,7 +18,15 @@ export default defineConfig({
     ],
     server: { 
         hmr: {
-            host: 'localhost',
+            host: 'localhost'
         },
-    }
+        watch: {
+            usePolling: true,
+          },
+          
+    },
+    css: {
+        postcss: {
+          plugins: [tailwindcss()],
+        }}
 });
