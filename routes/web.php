@@ -100,6 +100,7 @@ Route::get('/data-access', [FrontendController::class, 'dataPublications'])->nam
 Route::get('/labs/map', [FrontendController::class, 'labsMap'])->name('labs-map');
 Route::get('/labs/list', [FrontendController::class, 'labsList'])->name('labs-list');
 Route::get('/lab/{id}', [FrontendController::class, 'lab'])->name('lab-detail');
+Route::get('/lab/{id}/equipment', [FrontendController::class, 'labEquipment'])->name('lab-detail-equipment');
 Route::get('/equipment/map', [FrontendController::class, 'equipmentMap'])->name('equipment-map');
 Route::get('/equipment/list', [FrontendController::class, 'equipmentList'])->name('equipment-list');
 Route::get('/data-repositories', [FrontendController::class, 'dataRepositories'])->name('data-repositories');

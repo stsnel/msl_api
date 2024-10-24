@@ -1,4 +1,10 @@
 <x-layout_main>
+<div class="flex justify-center items-center ">
+        <div role="tablist" class="tabs tabs-lifted">
+            <a role="tab" href="{{ route('lab-detail', ['id' => $data['name']]) }}" class="tab">Laboratory</a>
+            <a role="tab" href="{{ route('lab-detail-equipment', ['id' => $data['name']]) }}" class="tab tab-active">Equipment</a>            
+        </div>
+    </div>
 
     <div class="flex justify-center items-center p-10 ">
 
@@ -9,8 +15,6 @@
 
         <div class="hidden md:block grow max-w-screen-2xl">
             <div class="flex w-full justify-center min-h-screen">
-
-                <?php /* dd($data); */ ?>
                 
                 <div class="bg-base-300  grow">
                     <div class="w-full flex flex-col">

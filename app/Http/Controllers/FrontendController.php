@@ -170,8 +170,32 @@ class FrontendController extends Controller
         }
 
         return view('frontend.lab-detail', ['data' => $result->getResult()]);
+    }
 
+    /**
+     * Show the lab equipment detail page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function labEquipment($id)
+    {
+        $client = new Client();
+        $SearchRequest = new PackageSearchRequest();
+        $SearchRequest->addFilterQuery("type", "equipment");
+        $SearchRequest->addFilterQuery("msl_lab_ckan_name", $id);
+        $SearchRequest->rows = 100;
 
+        //dd($SearchRequest);
+
+        $result = $client->get($SearchRequest);
+
+        //dd($result);
+
+        if(!$result->isSuccess()) {
+            abort(404, 'ckan request failed');
+        }
+
+        return view('frontend.lab-detail-equipment', ['data' => $result->getResults(), 'ckanLabName' => $id]);
     }
 
     /**

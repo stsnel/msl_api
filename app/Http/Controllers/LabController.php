@@ -11,6 +11,7 @@ use App\Models\LaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryOrganizationUpdateGroupRor;
 use App\Jobs\ProcessLaboratoryKeywordUpdateGroup;
 use App\Models\Laboratory;
+use App\Models\LaboratoryEquipment;
 
 class LabController extends Controller
 {
