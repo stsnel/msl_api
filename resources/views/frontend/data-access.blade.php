@@ -32,7 +32,7 @@
 
                         </div>
 
-                        <div>
+                        <div class="pt-6">
                             <div class="form-control">
                             <label class="label cursor-pointer">
                                 <input type="checkbox" id="filterTreeToggleInterpreted" checked="checked" class="checkbox" />
@@ -49,12 +49,17 @@
 
                             <h2>Filters</h2>
                             <div class="form-control">
-                                <label class="label cursor-pointer">
-                                    <input type="checkbox" class="checkbox checkbox-sm" id="hide_empty_terms" />
-                                    <span class="label-text">Hide empty terms</span>
+                                <label class="label cursor-pointer flex flex-col">
+                                    <div class="place-content-center">
+                                        <input type="checkbox" class="checkbox checkbox-sm" id="hide_empty_terms" />
+                                        <span class="label-text">Hide empty terms</span>
+                                    </div>
 
-                                    <a href="#" id="expand_all" title="expand all nodes">expand all</a>
-                                    <a href="#" id="close_all" title="close all nodes">close all</a>
+                                    <div>
+                                        <a href="#" id="expand_all" title="expand all nodes">expand all</a>
+                                        <a href="#" id="close_all" title="close all nodes">close all</a>
+                                    </div>
+
                                 </label>
                             </div>
                             {{-- what about the text overflow? --}}

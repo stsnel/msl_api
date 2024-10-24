@@ -38,7 +38,7 @@
           <a href="{{ route('index') }}" class="btn btn-ghost" 
           >
             <img 
-            src= {{ asset('images/logos/multi-scale-laboratories-logo.png') }}
+            src= {{ asset('images/logos/MSL-logo-data-catalogue_1.png') }}
             alt="multi-scale-laboratories-logo"
             class="object-contain h-12">
           </a>
