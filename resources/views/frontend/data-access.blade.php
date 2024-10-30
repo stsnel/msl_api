@@ -13,7 +13,7 @@
             <div class="flex w-full justify-center">
 
 
-                <div class="border-r-2 w-3/12 min-w-64 bg-base-300 flex flex-col place-items-center justify-self-center">
+                <div class="border-r-2 w-3/12 min-w-64 bg-base-300 flex flex-col place-items-center justify-self-center p-4">
 
                     <div class='w-full mx-auto p-4 flex flex-col '>
                         <div class="relative flex items-center w-full h-12 rounded-lg focus-within:shadow-lg overflow-hidden">
@@ -32,35 +32,43 @@
 
                         </div>
 
-                        <div class="pt-6">
-                            <div class="form-control">
-                            <label class="label cursor-pointer">
+                        <div class="pt-6 flex flex-col">
+                            <div class="form-control w-full">
+                            <label class="label cursor-pointer justify-center space-x-2">
                                 <input type="checkbox" id="filterTreeToggleInterpreted" checked="checked" class="checkbox" />
                                 <span class="label-text">MSL enriched keywords</span>
                             </label>
                             </div>
 
-                            <div class="form-control">
-                            <label class="label cursor-pointer">
+                            <div class="form-control w-full">
+                            <label class="label cursor-pointer justify-center space-x-2">
                                 <input type="checkbox" id="filterTreeToggleOriginal" class="checkbox" />
                                 <span class="label-text">MSL original keywords</span>
                             </label>
                             </div>
 
-                            <h2>Filters</h2>
-                            <div class="form-control">
-                                <label class="label cursor-pointer flex flex-col">
-                                    <div class="place-content-center">
+                            <h4 class="p-4">Filters</h4>
+
+                            <div class="form-control w-full">
+                                <label class="label cursor-pointer justify-center space-x-2">
                                         <input type="checkbox" class="checkbox checkbox-sm" id="hide_empty_terms" />
-                                        <span class="label-text">Hide empty terms</span>
-                                    </div>
-
-                                    <div>
-                                        <a href="#" id="expand_all" title="expand all nodes">expand all</a>
-                                        <a href="#" id="close_all" title="close all nodes">close all</a>
-                                    </div>
-
+                                        <span class="label-text place-content-center">Hide empty terms</span>
                                 </label>
+                            </div>
+
+                            <div class="p-2">
+                                <div class="w-full flex place-content-center">
+                                    <a href="#" id="expand_all" title="expand all nodes">
+                                        <button class="btn btn-sm">
+                                            expand all
+                                        </button>
+                                    </a>
+                                    <a href="#" id="close_all" title="close all nodes">
+                                        <button class="btn btn-sm">
+                                            close all
+                                        </button>
+                                    </a>
+                                </div>
                             </div>
                             {{-- what about the text overflow? --}}
                             {{-- how about making this element wider and set the z-layer behind the results and make it come forward when hovering --}}

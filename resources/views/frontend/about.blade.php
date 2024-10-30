@@ -159,9 +159,15 @@
                             </svg>
                         </h5> --}}
                     </div>
-                    <ul tabindex="0" class="dropdown-content menu bg-base-300 rounded-box z-[1] p-2 shadow-xl w-96 ">
+                    {{-- <div tabindex="0" class="dropdown-content menu bg-base-300 rounded-box z-[1] p-2 shadow-xl w-96 ">
                         @foreach ( $infoElement["listItems"] as $listItem)
                             <li class="p-2">{{ $listItem }}</li> 
+                        @endforeach
+                    </div>  --}}
+
+                    <ul tabindex="0" class="dropdown-content menu bg-base-300 rounded-box z-[1] p-2 shadow-xl w-96 list-disc">
+                        @foreach ( $infoElement["listItems"] as $listItem)
+                            <li class="p-1">{{ $listItem }}</li> 
                         @endforeach
                     </ul>
                 </div>

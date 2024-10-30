@@ -35,7 +35,7 @@
                                     
                                 
                                 <div class="w-full pt-5 pb-5">
-                                    <h3 class="text-left">Keywords</h3>
+                                    <h4 class="text-left">Keywords</h4>
 
                                     @if (array_key_exists("tags",$data))
                                     <br>
@@ -95,7 +95,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h5 class="text-left">Source</h5>
+                                        <h4 class="text-left">Source</h4>
 
                                     </div>
                                     <div class="w-full ">
@@ -109,7 +109,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">Source publisher</h3>
+                                        <h4 class="text-left">Source publisher</h4>
 
                                     </div>
                                     <div class="w-full ">
@@ -122,7 +122,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">DOI</h3>
+                                        <h4 class="text-left">DOI</h4>
 
                                     </div>
                                     <div class="w-full ">
@@ -135,7 +135,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">Authors</h3>
+                                        <h4 class="text-left">Authors</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
@@ -154,7 +154,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">Contributers</h3>
+                                        <h4 class="text-left">Contributers</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
@@ -174,7 +174,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">References</h3>
+                                        <h4 class="text-left">References</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4 ">
@@ -195,7 +195,7 @@
                                 <br>
                                     <div class="w-full pt-5 pb-5 flex flex-row">
                                         <div class="w-1/3">
-                                            <h3 class="text-left">Contact</h3>
+                                            <h4 class="text-left">Contact</h4>
 
                                         </div>
                                         <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
@@ -216,7 +216,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">Citiation</h3>
+                                        <h4 class="text-left">Citiation</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
@@ -235,7 +235,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">Collection Period</h3>
+                                        <h4 class="text-left">Collection Period</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
@@ -252,7 +252,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">Geo location(s)</h3>
+                                        <h4 class="text-left">Geo location(s)</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
@@ -269,7 +269,7 @@
                                 {{-- <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h3 class="text-left">Spatial coordinates</h3>
+                                        <h4 class="text-left">Spatial coordinates</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">

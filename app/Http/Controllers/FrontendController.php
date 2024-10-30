@@ -171,5 +171,15 @@ class FrontendController extends Controller
             'query' => $request->query()
         ]);
     }
+
+    /**
+     * Show theme test page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function themeTest()
+    {
+        return view('frontend.themeTest');
+    }
     
 }
