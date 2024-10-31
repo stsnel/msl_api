@@ -80,7 +80,7 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
                 $domainKeyword = $this->createKeyword(null, $fastVocabulary, $domain['name'], $domain['name'], 1);
                 
                 // Create node for equipment type
-                $equipmentTypeNode = $this->createKeyword($domainKeyword->id, $fastVocabulary, 'equipment type', 'Equipment type', 2);                
+                $equipmentTypeNode = $this->createKeyword($domainKeyword->id, $fastVocabulary, 'Equipment', 'Equipment', 2);                
 
                 foreach($domain['equipment_types'] as $equipmentType) {
                     // Add equipment type keywords
@@ -92,13 +92,13 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
 
                         foreach($group['names'] as $name) {
                             // Add equipment name keywords
-                            $equipmentNameKeyword = $this->createKeyword($equipmentGroupKeyword->id, $fastVocabulary, $name['name'], $name['name'], 5);
+                            $this->createKeyword($equipmentGroupKeyword->id, $fastVocabulary, $name['name'], $name['name'], 5);
                         }
                     }
                 }
 
                 // create node for add on type
-                $AddonTypeNode = $this->createKeyword($domainKeyword->id, $fastVocabulary, 'add-on type', 'Add-on type', 2);
+                $AddonTypeNode = $this->createKeyword($domainKeyword->id, $fastVocabulary, 'Add-ons', 'Add-ons', 2);
 
                 foreach($domain['addon_types'] as $addonType) {
                     // Add addon type keywords

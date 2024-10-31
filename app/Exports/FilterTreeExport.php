@@ -6,7 +6,50 @@ use App\Models\Vocabulary;
 
 class FilterTreeExport
 {
-    
+    public function exportEquipment() {
+        $fastVocab = Vocabulary::where('name', 'fast')->where('version', '1.0')->first();
+
+        $tree = [
+            [
+                'text' => 'Equipment',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],            
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => ''
+                ],
+                'children' => $this->getVocabAsFilters($fastVocab->id, 'msl_original_keyword_uri', false, true)
+            ],
+            [
+                'text' => 'Organization',
+                'state' => [
+                    'opened' => false,
+                    'disabled' => false,
+                    'selected' => false,
+                    'checked' => false
+                ],
+                'extra' => [
+                    'type' => 'filter',
+                    'url' => '',
+                    'filterName' => '',
+                    'filterValue' => 'tru',
+                    'includeFacet' => true,
+                    'facetName' => 'msl_organization_name'
+                ],
+                'children' => []
+            ]
+        ];
+
+        return (json_encode($tree, JSON_PRETTY_PRINT));
+    }
+
+
     
     public function exportInterpreted() {
         $vocabVersion = config('vocabularies.vocabularies_current_version');

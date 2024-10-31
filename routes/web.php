@@ -71,6 +71,7 @@ Route::prefix('admin')->group(function () {
     Route::get('tools/filtertree', [ToolsController::class, 'filterTree'])->name('filter-tree');
     Route::get('tools/filtertreedownload', [ToolsController::class, 'filterTreeDownload'])->name('filter-tree-download');
     Route::get('tools/filtertreedownloadoriginal', [ToolsController::class, 'filterTreeDownloadOriginal'])->name('filter-tree-download-original');
+    Route::get('tools/filtertreedownloadEquipment', [ToolsController::class, 'filterTreeDownloadEquipment'])->name('filter-tree-download-equipment');
     Route::get('tools/unmatchedkeywords', [ToolsController::class, 'viewUnmatchedKeywords'])->name('view-unmatched-keywords');
     Route::get('tools/unmatchedkeywordsdownload', [ToolsController::class, 'downloadUnmatchedKeywords'])->name('download-unmatched-keywords');
     Route::get('tools/abstract-matching', [ToolsController::class, 'abstractMatching'])->name('abstract-matching');
