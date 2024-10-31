@@ -23,12 +23,23 @@ class LaboratoryEquipment extends Model
         'longitude',
         'altitude',
         'external_identifier',
-        'name'
+        'name',
+        'keyword_id'                
     ];
     
     public function laboratory()
     {
         return $this->belongsTo(Laboratory::class);
+    }
+
+    public function keyword()
+    {
+        return $this->belongsTo(Keyword::class);
+    }
+
+    public function laboratory_equipment_addons()
+    {
+        return $this->hasMany(LaboratoryEquipmentAddon::class);
     }
 
     public function toCkanArray()

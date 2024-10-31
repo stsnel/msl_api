@@ -9,12 +9,14 @@ use Illuminate\Queue\InteractsWithQueue;
 use Illuminate\Queue\SerializesModels;
 use App\Models\Laboratory;
 use App\fast\Fast;
+use App\Models\Keyword;
 use App\Models\LaboratoryUpdateFast;
 use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryContactPerson;
 use App\Models\LaboratoryManager;
 use App\Models\LaboratoryEquipment;
-
+use App\Models\LaboratoryEquipmentAddon;
+use App\Models\Vocabulary;
 
 class ProcessLaboratoryUpdateFast implements ShouldQueue
 {
@@ -175,8 +177,25 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
                     }
 
                     $equipment->name = $fastEquipment['name']['name'];
+
+                    //create reference to keyword
+                    $equipment->keyword_id = $this->getEquipmentKeyword($equipment);                
                     
                     $equipment->save();
+
+                    // add addons
+                    foreach($fastEquipment['addons'] as $addon) {
+                        $laboratoryEquipmentAddon = new LaboratoryEquipmentAddon();
+                        if(isset($addon['description'])) {
+                            $laboratoryEquipmentAddon->description = $addon['description'];
+                            $laboratoryEquipmentAddon->laboratory_equipment_id = $equipment->id;
+                            $laboratoryEquipmentAddon->type = $addon['type']['name'];
+                            $laboratoryEquipmentAddon->group = $addon['group']['name'];
+                            $laboratoryEquipmentAddon->keyword_id = $this->getAddonKeyword($laboratoryEquipmentAddon, $equipment);
+
+                            $laboratoryEquipmentAddon->save();
+                        }
+                    }
                 }
             }
 
@@ -191,5 +210,61 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
         }
         
 
-    }    
+    }
+
+    private function getEquipmentKeyword($equipment)    
+    {
+        $vocabulary = Vocabulary::where('name', 'fast')->where('version', '1.0')->first();
+
+        $nameKeywords = Keyword::where('vocabulary_id', $vocabulary->id)->where('value', $equipment->name)->get();
+
+        if($nameKeywords->count() == 0) {
+            return null;
+        } elseif($nameKeywords->count() == 1) {
+            return $nameKeywords->first()->id;
+        } else {
+            foreach($nameKeywords as $nameKeyword) {
+                $GroupKeyword = $nameKeyword->parent;
+                if($GroupKeyword->value == $equipment->group_name) {
+                    $typeKeyword = $GroupKeyword->parent;
+                    if($typeKeyword->value == $equipment->type_name) {
+                        $nodeKeyword = $typeKeyword->parent;
+                        if($nodeKeyword->value == 'Equipment') {
+                            $domainKeyword = $nodeKeyword->parent;
+                            if($domainKeyword->value == $equipment->domain_name) {
+                                return $nameKeyword->id;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+
+    private function getAddonKeyword($addon, $equipment) 
+    {
+        $vocabulary = Vocabulary::where('name', 'fast')->where('version', '1.0')->first();
+
+        $groupKeywords = Keyword::where('vocabulary_id', $vocabulary->id)->where('value', $addon->group)->get();
+
+        if($groupKeywords->count() == 0) {
+            return null;
+        } elseif($groupKeywords->count() == 1) {
+            return $groupKeywords->first()->id;
+        } else {
+            foreach($groupKeywords as $groupKeyword) {                
+                $typeKeyword = $groupKeyword->parent;
+                if($typeKeyword->value == $addon->type) {
+                    $nodeKeyword = $typeKeyword->parent;
+                    if($nodeKeyword->value == 'Add-ons') {
+                        $domainKeyword = $nodeKeyword->parent;
+                        if($domainKeyword->value == $equipment->domain_name) {
+                            return $groupKeyword->id;
+                        }
+                    }
+                }
+                
+            }
+        }
+    }
 }

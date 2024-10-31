@@ -16,7 +16,6 @@ use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryContactPerson;
 use App\Models\LaboratoryManager;
 use App\Models\LaboratoryEquipment;
-use App\Models\LaboratoryKeyword;
 use App\Models\Vocabulary;
 use Illuminate\Support\Str;
 
