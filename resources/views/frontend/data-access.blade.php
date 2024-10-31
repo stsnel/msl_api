@@ -184,7 +184,7 @@
                             class="self-center w-9/12 no-underline" 
                             href="{{ route('data-publication-detail', ['id' => $dataPublication['id']]) }}">
                                 
-                            <div class="border-t border-slate-200/50 hover:bg-secondary ">
+                            <div class="border-t border-slate-200/50 hover:bg-secondary-100 ">
                                 <div class="p-4">                                    
                                        <h4 class="text-left">{{ $dataPublication['title'] }}</h4> 
                                        <h5 class="text-left font-medium pt-4">

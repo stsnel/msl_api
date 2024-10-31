@@ -3,7 +3,7 @@
     class="hero h-dvh p-10"
     style="background-image: url('images/heros/7.jpg');">
       <div class="hero-content text-neutral-content text-center grid w-full">
-        <div class="bg-opacity-80 bg-zinc-900 p-6 rounded-lg max-w-md">
+        <div class="bg-neutral bg-opacity-80 p-6 rounded-lg max-w-md">
           <h1 class="">Welcome </h1>
           <p class="">
               to the EPOS Multi-Scale Labs data catalogue! This catalogue is the central access point for Earth scientific laboratory data in Europe. 
@@ -12,7 +12,7 @@
           <button class="btn btn-primary">Data Access</button>
         </div>
 
-        <div class="bg-opacity-80 bg-zinc-900 p-6 rounded-lg max-w-md h-max">
+        <div class="bg-neutral bg-opacity-80 p-6 rounded-lg max-w-md h-max">
             <p class="">
               2818 datasets
             </p>
