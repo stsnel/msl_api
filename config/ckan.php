@@ -41,9 +41,8 @@ return [
             "msl_organization_name" => "Organization"
         ],
         "equipment" => [
-            "msl_domain_name" => "Scientific domain",
-            "msl_type_name" => "Equipment type",
-            "msl_group_name" => "Equipment group",
+            "msl_original_keyword_label" => "Original keyword label",
+            "msl_original_keyword_uri" => "Original keyword uri",
             "msl_organization_name" => "Organization"
         ]
     ]

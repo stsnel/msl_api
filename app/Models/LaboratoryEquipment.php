@@ -105,7 +105,7 @@ class LaboratoryEquipment extends Model
                     'msl_original_keyword_uri' => $parent->uri,
                     'msl_original_keyword_vocab_uri' => $parent->vocabulary->uri
                 ];
-            }
+            }            
         }
 
         $addons = $this->laboratory_equipment_addons;
@@ -129,6 +129,18 @@ class LaboratoryEquipment extends Model
                 }
             }
         }
+
+        // remove duplicates
+        $keywords = [];
+        $uris = [];
+        foreach($originalKeywords as $originalKeyword) {
+            if(!in_array($originalKeyword['msl_original_keyword_uri'], $uris)) {
+                $uris[] = $originalKeyword['msl_original_keyword_uri'];
+                $keywords[] = $originalKeyword;
+            }
+        }
+
+        return $keywords;
     }
 
     private function getPointGeoJson()
