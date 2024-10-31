@@ -16,6 +16,7 @@ use App\Models\LaboratoryOrganization;
 use App\Models\LaboratoryContactPerson;
 use App\Models\LaboratoryManager;
 use App\Models\LaboratoryEquipment;
+use App\Models\LaboratoryEquipmentAddon;
 use App\Models\Vocabulary;
 use Illuminate\Support\Str;
 
@@ -47,6 +48,7 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
         LaboratoryContactPerson::truncate();
         LaboratoryManager::truncate();
         LaboratoryEquipment::truncate();
+        LaboratoryEquipmentAddon::truncate();
 
         // Create a new equipment vocabulary based upon current FAST data
         // Delete current equipment vocabulary

@@ -13,7 +13,8 @@ class Keyword extends Model
         'vocabulary_id',
         'level',
         'hyperlink',
-        'exclude_domain_mapping'
+        'exclude_domain_mapping',
+        'label'
     ];
     
     protected $casts = [

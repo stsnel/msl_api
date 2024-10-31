@@ -60,6 +60,10 @@ class LaboratoryEquipment extends Model
             'msl_lab_id' => $this->laboratory_id,
             'msl_lab_ckan_name' => $this->laboratory->msl_identifier,
             'msl_website' => $this->website,
+            'msl_original_keywords' => $this->getCkanKeywords(),
+            'msl_equipment_keyword_uri' => $this->keyword->uri,
+            'msl_equipment_keyword_label' => $this->keyword->label,
+            'msl_equipment_addons' => $this->getCkanAddons(),
             'msl_location' => $this->getGeoJsonFeature(),
             'msl_has_spatial_data' => $this->hasSpatialData(),
             'extras' => [
@@ -68,6 +72,64 @@ class LaboratoryEquipment extends Model
         ];
     }
 
+    private function getCkanAddons() {
+        $addons = [];
+        foreach($this->laboratory_equipment_addons as $addon) {          
+            $addons[] = [
+                'msl_equipment_addon_description' => $addon->description,
+                'msl_equipment_addon_type' => $addon->type,
+                'msl_equipment_addon_group' => $addon->group,
+                'msl_equipment_addon_keyword_uri' => $addon->keyword->uri,
+                'msl_equipment_addon_keyword_label' => $addon->keyword->label
+            ];
+        }
+
+        return $addons;
+    }
+
+    private function getCkanKeywords() {
+        $originalKeywords = [];
+        $keyword = $this->keyword;
+
+        if($keyword) {
+            $originalKeywords[] = [
+                'msl_original_keyword_label' => $keyword->label,
+                'msl_original_keyword_uri' => $keyword->uri,
+                'msl_original_keyword_vocab_uri' => $keyword->vocabulary->uri
+            ];
+
+            $parents = $keyword->getAncestors();
+            foreach($parents as $parent) {
+                $originalKeywords[] = [
+                    'msl_original_keyword_label' => $parent->label,
+                    'msl_original_keyword_uri' => $parent->uri,
+                    'msl_original_keyword_vocab_uri' => $parent->vocabulary->uri
+                ];
+            }
+        }
+
+        $addons = $this->laboratory_equipment_addons;
+        foreach($addons as $addon) {
+            $keyword = $addon->keyword;
+
+            if($keyword) {
+                $originalKeywords[] = [
+                    'msl_original_keyword_label' => $keyword->label,
+                    'msl_original_keyword_uri' => $keyword->uri,
+                    'msl_original_keyword_vocab_uri' => $keyword->vocabulary->uri
+                ];
+
+                $parents = $keyword->getAncestors();
+                foreach($parents as $parent) {
+                    $originalKeywords[] = [
+                        'msl_original_keyword_label' => $parent->label,
+                        'msl_original_keyword_uri' => $parent->uri,
+                        'msl_original_keyword_vocab_uri' => $parent->vocabulary->uri
+                    ];
+                }
+            }
+        }
+    }
 
     private function getPointGeoJson()
     {
