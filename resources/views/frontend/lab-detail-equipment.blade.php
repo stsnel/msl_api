@@ -56,6 +56,14 @@
                                                 <th>type</th>
                                                 <td>{{ $equipment['msl_type_name'] }}</td>
                                             </tr>
+                                            @if(isset($equipment['msl_equipment_addons']))
+                                                @foreach ($equipment['msl_equipment_addons'] as $addon)
+                                                <tr>
+                                                    <th>Addon</th>
+                                                    <td>{{ $addon['msl_equipment_addon_type'] }} - {{ $addon['msl_equipment_addon_group'] }}<br>{{ $addon['msl_equipment_addon_description'] }}</td>
+                                                </tr>
+                                                @endforeach
+                                            @endif
                                             </tbody>
                                         </table>
                                     </div>
