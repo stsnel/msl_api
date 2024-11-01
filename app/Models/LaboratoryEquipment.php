@@ -39,7 +39,7 @@ class LaboratoryEquipment extends Model
 
     public function laboratory_equipment_addons()
     {
-        return $this->hasMany(LaboratoryEquipmentAddon::class);
+        return $this->hasMany(LaboratoryEquipmentAddon::class, 'laboratory_equipment_id', 'id');
     }
 
     public function toCkanArray()
@@ -109,6 +109,7 @@ class LaboratoryEquipment extends Model
         }
 
         $addons = $this->laboratory_equipment_addons;
+        
         foreach($addons as $addon) {
             $keyword = $addon->keyword;
 

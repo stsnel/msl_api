@@ -49,9 +49,14 @@ class PackageSearchRequest implements RequestInterface
     public $facetFields = [];
 
     /**
-     * string sort results
+     * @var string sort results
      */
     public $sortField = '';
+
+    /**
+     * @var int maximum number of facet values returned by CKAN. Use a negative number for unlimited
+     */
+    private $facetLimit = -1;
 
 
 
@@ -64,6 +69,7 @@ class PackageSearchRequest implements RequestInterface
                 'rows' => $this->rows,
                 'start' => $this->start,
                 'facet.field' => $this->getFacetFieldQuery(),
+                'facet.limit' => $this->facetLimit,
                 'sort' => $this->sortField
             ]
         ];
