@@ -74,6 +74,22 @@
                                     @endif
                                 </div>
 
+                                @if (array_key_exists("msl_subdomains_original",$data))
+                                <br>
+                                <div class="w-full pt-5 pb-5 flex flex-row">
+                                    <div class="w-1/3">
+                                        <h4 class="text-left">MSL original sub domains</h4>
+
+                                    </div>
+                                    <div class="flex flex-col w-full ">
+                                        {{-- hover behaviour: highlights all related tags above --}}
+                                        @foreach ( $data['msl_subdomains_original'] as $keyword)
+                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_subdomain_original']])
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @endif
+
                                 @if (array_key_exists("msl_subdomains",$data))
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
