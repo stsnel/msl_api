@@ -8,6 +8,11 @@ class LaboratoryEquipment extends Model
 {
     protected $table = 'laboratory_equipment';
     
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'fast_id',
         'laboratory_id',
@@ -42,6 +47,11 @@ class LaboratoryEquipment extends Model
         return $this->hasMany(LaboratoryEquipmentAddon::class, 'laboratory_equipment_id', 'id');
     }
 
+    /**
+     * Convert object to CKAN representation
+     * 
+     * @return array
+     */
     public function toCkanArray()
     {
         return [
@@ -72,6 +82,11 @@ class LaboratoryEquipment extends Model
         ];
     }
 
+    /**
+     * Convert addons to ckan representation
+     * 
+     * @return array
+     */
     private function getCkanAddons() {
         $addons = [];
         foreach($this->laboratory_equipment_addons as $addon) {          
@@ -87,6 +102,12 @@ class LaboratoryEquipment extends Model
         return $addons;
     }
 
+    /**
+     * Convert keywords to ckan representation. Includes equipment and addon keywords
+     * including keyword ancestors/parents.
+     * 
+     * @return array
+     */
     private function getCkanKeywords() {
         $originalKeywords = [];
         $keyword = $this->keyword;
@@ -144,6 +165,12 @@ class LaboratoryEquipment extends Model
         return $keywords;
     }
 
+    /**
+     * Create point geojson string using latitude and longitude. Uses laboratory 
+     * location if none is set for equipment.
+     * 
+     * @return string
+     */
     private function getPointGeoJson()
     {
         if($this->hasSpatialData()) {
@@ -160,6 +187,12 @@ class LaboratoryEquipment extends Model
         return '';
     }
 
+    /**
+     * Get geojson feature object string. Uses laboratory location of no equipment 
+     * location is set. 
+     * 
+     * @return string
+     */
     public function getGeoJsonFeature()
     {
         if($this->hasSpatialData()) {
@@ -197,6 +230,11 @@ class LaboratoryEquipment extends Model
         return '';
     }
 
+    /**
+     * check if equipment or laboratory has spatial data
+     * 
+     * @return bool
+     */
     public function hasSpatialData()
     {
         if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {
@@ -207,7 +245,5 @@ class LaboratoryEquipment extends Model
 
         return false;
     }
-
-
-    
+   
 }

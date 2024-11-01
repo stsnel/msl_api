@@ -6,6 +6,11 @@ use Illuminate\Database\Eloquent\Model;
 
 class Laboratory extends Model
 {
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array
+     */
     protected $fillable = [
         'fast_id',
         'msl_identifier',
@@ -59,6 +64,11 @@ class Laboratory extends Model
         return $this->hasMany(LaboratoryKeyword::class, 'laboratory_id');
     }
 
+    /**
+     * Convert object to CKAN representation
+     * 
+     * @return array
+     */
     public function toCkanArray()
     {
         return [
@@ -86,6 +96,11 @@ class Laboratory extends Model
         ];
     }
 
+    /**
+     * Create point geojson string using latitude and longitude.
+     * 
+     * @return string
+     */
     public function getPointGeoJson()
     {
         if($this->hasSpatialData()) {
@@ -98,6 +113,11 @@ class Laboratory extends Model
         return '';
     }
 
+    /**
+     * Get geojson feature object string. 
+     * 
+     * @return string
+     */
     private function getGeoJsonFeature()
     {
         if($this->hasSpatialData()) {
@@ -119,6 +139,11 @@ class Laboratory extends Model
         return '';
     }
 
+    /**
+     * check if laboratory has spatial data
+     * 
+     * @return bool
+     */
     public function hasSpatialData()
     {
         if((strlen($this->latitude) > 0) && (strlen($this->longitude) > 0)) {

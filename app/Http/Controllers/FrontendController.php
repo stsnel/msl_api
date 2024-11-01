@@ -185,11 +185,7 @@ class FrontendController extends Controller
         $SearchRequest->addFilterQuery("msl_lab_ckan_name", $id);
         $SearchRequest->rows = 100;
 
-        //dd($SearchRequest);
-
         $result = $client->get($SearchRequest);
-
-        //dd($result);
 
         if(!$result->isSuccess()) {
             abort(404, 'ckan request failed');

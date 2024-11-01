@@ -69,7 +69,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
             $lab->fast_domain_id = $data['domain']['id'];
             $lab->fast_domain_name = $data['domain']['name'];
             
-            //include affiliation
+            // include affiliation
             if(isset($data['affiliation'])) {
                 $fastAffiliationId = $data['affiliation']['id'];
                 $organization = LaboratoryOrganization::where('fast_id', $fastAffiliationId)->first();
@@ -91,7 +91,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
                 $lab->laboratory_organization_id = $organization->id;
             }
             
-            //include contact person
+            // include contact person
             if(isset($data['contact_person'])) {
                 $fastContactPersonId = $data['contact_person']['id'];
                 $contactPerson = LaboratoryContactPerson::where('fast_id', $fastContactPersonId)->first();
@@ -119,7 +119,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
                 $lab->laboratory_contact_person_id = $contactPerson->id;                
             }
             
-            //include manager
+            // include manager
             if(isset($data['manager'])) {
                 $fastManagerId = $data['manager']['id'];
                 $manager = LaboratoryManager::where('fast_id', $fastManagerId)->first();
@@ -147,7 +147,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
                 $lab->laboratory_manager_id = $manager->id;
             }
             
-            //include equipment
+            // include equipment
             if(isset($data['equipment'])) {
                 foreach ($data['equipment'] as $fastEquipment) {
                     $equipment = new LaboratoryEquipment();
@@ -178,7 +178,7 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
 
                     $equipment->name = $fastEquipment['name']['name'];
 
-                    //create reference to keyword
+                    // create reference to keyword
                     $equipment->keyword_id = $this->getEquipmentKeyword($equipment);                
                     
                     $equipment->save();
@@ -212,12 +212,22 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
 
     }
 
+    /**
+     * Attempt to locate keyword based upon equipment group, type and name
+     * 
+     * @return int|null
+     */
     private function getEquipmentKeyword($equipment)    
     {
         $vocabulary = Vocabulary::where('name', 'fast')->where('version', '1.0')->first();
 
+        // Get keywords that match based on the name value of the equipment
         $nameKeywords = Keyword::where('vocabulary_id', $vocabulary->id)->where('value', $equipment->name)->get();
 
+        /**
+         * If we find 1 match we can assume the correct keyword is found. Otherwise traverse the vocabulary up 
+         * and check parent keywords to see if we found the correct one.
+        */
         if($nameKeywords->count() == 0) {
             return null;
         } elseif($nameKeywords->count() == 1) {
@@ -241,12 +251,22 @@ class ProcessLaboratoryUpdateFast implements ShouldQueue
         }
     }
 
+    /**
+     * Attempt to locate keyword based on received add-on information
+     * 
+     * @return int|null
+     */
     private function getAddonKeyword($addon, $equipment) 
     {
         $vocabulary = Vocabulary::where('name', 'fast')->where('version', '1.0')->first();
 
+        // Get keywords that match based on the group value of the equipment
         $groupKeywords = Keyword::where('vocabulary_id', $vocabulary->id)->where('value', $addon->group)->get();
 
+        /**
+         * If we find 1 match we can assume the correct keyword is found. Otherwise traverse the vocabulary up 
+         * and check parent keywords to see if we found the correct one.
+        */
         if($groupKeywords->count() == 0) {
             return null;
         } elseif($groupKeywords->count() == 1) {

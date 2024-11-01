@@ -68,10 +68,10 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
             'uri' => 'https://epos-msl.uu.nl/voc/fast/1.0/'
         ]);
 
+        // Request data from FAST
         $fastClient = new Fast();
         $response = $fastClient->metaTreeRequest();
-
-        // Request data from FAST
+        
         if($response->response_code == 200) {
             // Build new vocabulary based upon FAST response
             $fastData = $response->response_body['data'];
@@ -115,7 +115,7 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
 
         // Create an update job for each lab that should be present within FAST
         $labs = Laboratory::whereNotNull('fast_id')->get();
-        
+                
         foreach ($labs as $lab) {            
             $laboratoryUpdateFast = LaboratoryUpdateFast::create([
                 'laboratory_update_group_fast_id' => $this->laboratoryUpdateGroupFast->id,
@@ -127,7 +127,13 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
                 
     }    
 
-    private function createKeyword($parentId, $vocabulary, $value, $label, $level) {
+    /**
+     * Create a new keyword
+     * 
+     * @return Keyword
+     */
+    private function createKeyword($parentId, $vocabulary, $value, $label, $level) 
+    {
         $keyword = Keyword::create([
             'parent_id' => $parentId,
             'vocabulary_id' => $vocabulary->id,
@@ -140,16 +146,29 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
             'exclude_domain_mapping' => true
         ]);
 
+        // To generate the uri the model has to be saved first to use its relations
         $this->generateURI($keyword, $vocabulary);
         return $keyword;
     }
 
-    private function generateURI($keyword, $vocabulary) {
+    /**
+     * Generate a URI for keyword and store
+     * 
+     * @return void
+     */
+    private function generateURI($keyword, $vocabulary) 
+    {
         $keyword->uri = $vocabulary->uri . $this->cleanUri($keyword->getFullPath());
         $keyword->save();
     }
 
-    private function cleanUri($string) {
+    /**
+     * Clean string for uri usage
+     * 
+     * @return string
+     */
+    private function cleanUri($string) 
+    {
         //lowercase
         $out = Str::lower($string);
         
@@ -180,7 +199,13 @@ class ProcessLaboratoryUpdateGroupFast implements ShouldQueue
         return $out;
     }
 
-    private function remove_accents($string) {
+    /**
+     * Remove accents from string
+     * 
+     * @return string
+     */
+    private function remove_accents($string) 
+    {
         if ( !preg_match('/[\x80-\xff]/', $string) )
             return $string;
             
