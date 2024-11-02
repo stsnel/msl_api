@@ -61,7 +61,7 @@
                                     </details>
                                     @endif
 
-                                    @if (array_key_exists("msl_enriched_keywords",$data))
+                                    @if (array_key_exists("msl_enriched_keywords", $data))
                                     <br>
                                     <details class="collapse collapse-arrow bg-base-200">
                                     <summary class="collapse-title">Originally assigned keywords</summary>
@@ -74,7 +74,7 @@
                                     @endif
                                 </div>
 
-                                @if (array_key_exists("msl_subdomains_original",$data))
+                                @if (array_key_exists("msl_subdomains_original", $data))
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
