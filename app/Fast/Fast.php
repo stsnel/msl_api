@@ -41,6 +41,30 @@ class Fast
                 
         return $result;
     }
+
+    public function metaTreeRequest()
+    {
+        $result =  new \stdClass();               
+        
+        try {
+            $response = $this->client->request('GET', "https://fast.geo.uu.nl/api/meta_tree", [
+                'headers' => [
+                    'Authorization' => config('fast.fast_api_token'),
+                ],
+            ]);
+        } catch (\Exception $e) {
+            dd($e->getMessage());
+        }
+
+        $result->response_code = $response->getStatusCode();
+        $result->response_body = [];
+        
+        if($result->response_code == 200) {
+            $result->response_body = json_decode($response->getBody(), true);
+        }
+                
+        return $result;
+    }
     
     
 }

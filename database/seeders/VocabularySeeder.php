@@ -4,7 +4,6 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Seeder;
 use Illuminate\Support\Str;
-use App\Models\MaterialKeyword;
 use App\Models\Vocabulary;
 use App\Models\Keyword;
 use App\Models\KeywordSearch;

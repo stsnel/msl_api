@@ -34,6 +34,16 @@ return [
             "msl_has_lab" =>  "Research institute",
             "organization" =>  "Organization",
             "msl_has_organization" => "Data repository"
+        ],
+        "laboratories" => [
+            "msl_domain_name" => "Scientific domain",
+            "msl_address_country_name" => "Country",
+            "msl_organization_name" => "Organization"
+        ],
+        "equipment" => [
+            "msl_original_keyword_label" => "Original keyword label",
+            "msl_original_keyword_uri" => "Original keyword uri",
+            "msl_organization_name" => "Organization"
         ]
     ]
 ];

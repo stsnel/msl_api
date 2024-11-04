@@ -46,7 +46,7 @@
         <div class="navbar-end hidden lg:flex w-full">
           <ul class="menu menu-horizontal px-1 z-10">
             <li><a class="no-underline" href="{{ route('data-access') }}">Data Access</a></li>
-            <li><a class="no-underline" href="{{ route('labs') }}">Labs</a></li>
+            <li><a class="no-underline" href="{{ route('labs-map') }}">Labs</a></li>
             <li><a class="no-underline" href="{{ route('data-repositories') }}">Data Repositories</a></li>
             <li>
               <details>

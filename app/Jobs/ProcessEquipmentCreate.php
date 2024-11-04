@@ -11,22 +11,22 @@ use App\CkanClient\Client;
 use App\CkanClient\Request\PackageCreateRequest;
 use App\CkanClient\Request\PackageShowRequest;
 use App\CkanClient\Request\PackageUpdateRequest;
-use App\Models\LaboratoryCreate;
+use App\Models\EquipmentCreate;
 
-class ProcessLaboratoryCreate implements ShouldQueue
+class ProcessEquipmentCreate implements ShouldQueue
 {
     use Dispatchable, InteractsWithQueue, Queueable, SerializesModels;
     
-    protected $laboratoryCreate;
+    protected $equipmentCreate;
 
     /**
      * Create a new job instance.
      *
      * @return void
      */
-    public function __construct(LaboratoryCreate $laboratoryCreate)
+    public function __construct(EquipmentCreate $equipmentCreate)
     {
-        $this->laboratoryCreate = $laboratoryCreate;
+        $this->equipmentCreate = $equipmentCreate;
     }
             
 
@@ -39,40 +39,40 @@ class ProcessLaboratoryCreate implements ShouldQueue
     {
         $ckanClient = new Client();
         $packageShowRequest = new PackageShowRequest();
-        $packageShowRequest->id = $this->laboratoryCreate->laboratory['name'];
+        $packageShowRequest->id = $this->equipmentCreate->equipment['name'];
 
         $response = $ckanClient->get($packageShowRequest);
 
         if($response->isSuccess()) {
-            $this->updateLaboratory($ckanClient);
+            $this->updateEquipment($ckanClient);
         } else {
-            $this->createLaboratory($ckanClient);
+            $this->createEquipment($ckanClient);
         }                                  
     }
     
-    private function createLaboratory(Client $client)
+    private function createEquipment(Client $client)
     {
         $packageCreateRequest = new PackageCreateRequest();
-        $packageCreateRequest->payload = $this->laboratoryCreate->laboratory;
+        $packageCreateRequest->payload = $this->equipmentCreate->equipment;
         
         $response = $client->get($packageCreateRequest);
 
-        $this->laboratoryCreate->response_code = $response->responseCode;
-        $this->laboratoryCreate->processed_type = 'insert';
-        $this->laboratoryCreate->processed = now();
-        $this->laboratoryCreate->save();
+        $this->equipmentCreate->response_code = $response->responseCode;
+        $this->equipmentCreate->processed_type = 'insert';
+        $this->equipmentCreate->processed = now();
+        $this->equipmentCreate->save();
     }
     
-    private function updateLaboratory(Client $client)
+    private function updateEquipment(Client $client)
     {
         $packageUpdateRequest = new PackageUpdateRequest();
-        $packageUpdateRequest->payload = $this->laboratoryCreate->laboratory;
+        $packageUpdateRequest->payload = $this->equipmentCreate->equipment;
 
         $response = $client->get($packageUpdateRequest);
 
-        $this->laboratoryCreate->response_code = $response->responseCode;
-        $this->laboratoryCreate->processed_type = 'update';
-        $this->laboratoryCreate->processed = now();
-        $this->laboratoryCreate->save();        
+        $this->equipmentCreate->response_code = $response->responseCode;
+        $this->equipmentCreate->processed_type = 'update';
+        $this->equipmentCreate->processed = now();
+        $this->equipmentCreate->save();        
     }
 }
