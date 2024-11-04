@@ -71,6 +71,7 @@ Route::prefix('admin')->group(function () {
     Route::get('tools/filtertree', [ToolsController::class, 'filterTree'])->name('filter-tree');
     Route::get('tools/filtertreedownload', [ToolsController::class, 'filterTreeDownload'])->name('filter-tree-download');
     Route::get('tools/filtertreedownloadoriginal', [ToolsController::class, 'filterTreeDownloadOriginal'])->name('filter-tree-download-original');
+    Route::get('tools/filtertreedownloadEquipment', [ToolsController::class, 'filterTreeDownloadEquipment'])->name('filter-tree-download-equipment');
     Route::get('tools/unmatchedkeywords', [ToolsController::class, 'viewUnmatchedKeywords'])->name('view-unmatched-keywords');
     Route::get('tools/unmatchedkeywordsdownload', [ToolsController::class, 'downloadUnmatchedKeywords'])->name('download-unmatched-keywords');
     Route::get('tools/abstract-matching', [ToolsController::class, 'abstractMatching'])->name('abstract-matching');
@@ -78,6 +79,7 @@ Route::prefix('admin')->group(function () {
     Route::get('tools/query-generator', [ToolsController::class, 'queryGenerator'])->name('query-generator');
 
     Route::get('labs/import-labdata', [LabController::class, 'importLabData'])->name('import-labdata');
+    Route::get('labs/laboratories', [LabController::class, 'viewLabData'])->name('view-labdata');
     Route::post('labs/update-fast-data', [LabController::class, 'updateFastData'])->name('update-fast-data');
     Route::get('labs/update-organizations-data', [LabController::class, 'updateLaboratoryOrganizationsByROR'])->name('update-lab-organizations-data');
     Route::get('labs/update-laboratory-keywords', [LabController::class, 'updateLaboratoryKeywords'])->name('update-laboratory-keywords');
@@ -96,7 +98,12 @@ Route::prefix('admin')->group(function () {
 
 Route::get('/', [FrontendController::class, 'index'])->name('index');
 Route::get('/data-access', [FrontendController::class, 'dataPublications'])->name('data-access');
-Route::get('/labs', [FrontendController::class, 'labs'])->name('labs');
+Route::get('/labs/map', [FrontendController::class, 'labsMap'])->name('labs-map');
+Route::get('/labs/list', [FrontendController::class, 'labsList'])->name('labs-list');
+Route::get('/lab/{id}', [FrontendController::class, 'lab'])->name('lab-detail');
+Route::get('/lab/{id}/equipment', [FrontendController::class, 'labEquipment'])->name('lab-detail-equipment');
+Route::get('/equipment/map', [FrontendController::class, 'equipmentMap'])->name('equipment-map');
+Route::get('/equipment/list', [FrontendController::class, 'equipmentList'])->name('equipment-list');
 Route::get('/data-repositories', [FrontendController::class, 'dataRepositories'])->name('data-repositories');
 Route::get('/contribute-researcher', [FrontendController::class, 'contributeResearcher'])->name('contribute-researcher');
 Route::get('/contribute-repository', [FrontendController::class, 'contributeRepository'])->name('contribute-repository');

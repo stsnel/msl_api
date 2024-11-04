@@ -132,7 +132,10 @@
                                 <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdownActions">
                                     <a class="dropdown-item" href="{{ route('import-labdata') }}">                                                                              
                                         Import labdata
-                                    </a>                                                                        
+                                    </a>
+                                    <a class="dropdown-item" href="{{ route('view-labdata') }}">                                                                              
+                                        View labdata
+                                    </a>
                                 </div>
                             </li>                           
                             

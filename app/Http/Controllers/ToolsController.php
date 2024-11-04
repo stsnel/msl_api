@@ -420,6 +420,15 @@ class ToolsController extends Controller
             echo $exporter->exportOriginal();
         }, 'original.json');
     }
+
+    public function filterTreeDownloadEquipment()
+    {
+        $exporter = new FilterTreeExport();
+        
+        return response()->streamDownload(function () use($exporter) {
+            echo $exporter->exportEquipment();
+        }, 'equipment.json');
+    }
     
     public function viewUnmatchedKeywords()
     {

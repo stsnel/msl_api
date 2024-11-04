@@ -37,43 +37,58 @@
                                 <div class="w-full pt-5 pb-5">
                                     <h4 class="text-left">Keywords</h4>
 
-                                    @if (array_key_exists("tags",$data))
+                                    @if (array_key_exists("tags", $data))
                                     <br>
-                                    <div class="p-4 card bg-base-200">
-                                        <p>Originally assigned keywords</p>
-                                        <div class="card-actions justify-beginning">
-                                            @foreach ( $data['tags'] as $keyword)
-                                                @include('components.micro_components.word_card', ['stringInput' => $keyword['display_name']])
-                                            @endforeach
-                                          </div>
+                                    <details class="collapse collapse-arrow bg-base-200">
+                                    <summary class="collapse-title">Originally assigned keywords</summary>
+                                    <div class="collapse-content">
+                                        @foreach ( $data['tags'] as $keyword)
+                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['display_name']])
+                                        @endforeach
                                     </div>
+                                    </details>
                                     @endif
 
-                                    @if (array_key_exists("msl_original_keywords",$data))
+                                    @if (array_key_exists("msl_original_keywords", $data))
                                     <br>
-                                    <div class="p-4 card bg-base-200">
-                                        <p>Corresponding MSL vocabulary keywords</p>
-                                        <div class="card-actions justify-beginning">
-                                            
-                                            @foreach ( $data['msl_original_keywords'] as $keyword)
-                                                @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_original_keyword_label']])
-                                            @endforeach
-                                        </div>
+                                    <details class="collapse collapse-arrow bg-base-200">
+                                    <summary class="collapse-title">Originally assigned keywords</summary>
+                                    <div class="collapse-content">
+                                        @foreach ( $data['msl_original_keywords'] as $keyword)
+                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_original_keyword_label']])
+                                        @endforeach
                                     </div>
+                                    </details>
                                     @endif
 
-                                    @if (array_key_exists("msl_enriched_keywords",$data))
+                                    @if (array_key_exists("msl_enriched_keywords", $data))
                                     <br>
-                                    <div class="p-4 card bg-base-200">
-                                        <p>MSL enriched keywords</p>
-                                        <div class="card-actions justify-beginning">
-                                            @foreach ( $data['msl_enriched_keywords'] as $keyword)
-                                                @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_enriched_keyword_label']])
-                                            @endforeach
-                                          </div>
+                                    <details class="collapse collapse-arrow bg-base-200">
+                                    <summary class="collapse-title">Originally assigned keywords</summary>
+                                    <div class="collapse-content">
+                                        @foreach ( $data['msl_enriched_keywords'] as $keyword)
+                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_enriched_keyword_label']])
+                                        @endforeach
                                     </div>
+                                    </details>
                                     @endif
                                 </div>
+
+                                @if (array_key_exists("msl_subdomains_original", $data))
+                                <br>
+                                <div class="w-full pt-5 pb-5 flex flex-row">
+                                    <div class="w-1/3">
+                                        <h4 class="text-left">MSL original sub domains</h4>
+
+                                    </div>
+                                    <div class="flex flex-col w-full ">
+                                        {{-- hover behaviour: highlights all related tags above --}}
+                                        @foreach ( $data['msl_subdomains_original'] as $keyword)
+                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_subdomain_original']])
+                                        @endforeach
+                                    </div>
+                                </div>
+                                @endif
 
                                 @if (array_key_exists("msl_subdomains",$data))
                                 <br>

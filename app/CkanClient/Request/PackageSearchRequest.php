@@ -49,9 +49,14 @@ class PackageSearchRequest implements RequestInterface
     public $facetFields = [];
 
     /**
-     * string sort results
+     * @var string sort results
      */
     public $sortField = '';
+
+    /**
+     * @var int maximum number of facet values returned by CKAN. Use a negative number for unlimited
+     */
+    private $facetLimit = -1;
 
 
 
@@ -64,6 +69,7 @@ class PackageSearchRequest implements RequestInterface
                 'rows' => $this->rows,
                 'start' => $this->start,
                 'facet.field' => $this->getFacetFieldQuery(),
+                'facet.limit' => $this->facetLimit,
                 'sort' => $this->sortField
             ]
         ];
@@ -71,7 +77,7 @@ class PackageSearchRequest implements RequestInterface
 
     public function addFilterQuery($fieldName, $value)
     {
-        $this->filterQueries[$fieldName][] = SolrUtils::escape($value);
+        $this->filterQueries[$fieldName][] = '"' .  SolrUtils::escape($value) . '"';
     }
 
     private function getFilterQueryQuery()
@@ -101,6 +107,16 @@ class PackageSearchRequest implements RequestInterface
     {
         if($type == "data-publications") {
             $facets = config('ckan.facets.data-publications');
+            foreach($facets as $key => $value) {
+                $this->addFacetField($key);
+            }
+        } elseif($type == 'laboratories') {
+            $facets = config('ckan.facets.laboratories');
+            foreach($facets as $key => $value) {
+                $this->addFacetField($key);
+            }
+        } elseif($type == 'equipment') {
+            $facets = config('ckan.facets.equipment');
             foreach($facets as $key => $value) {
                 $this->addFacetField($key);
             }
