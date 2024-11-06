@@ -37,40 +37,60 @@
                                 <div class="w-full pt-5 pb-5">
                                     <h4 class="text-left">Keywords</h4>
 
-                                    @if (array_key_exists("tags", $data))
-                                    <br>
-                                    <details class="collapse collapse-arrow bg-base-200">
-                                    <summary class="collapse-title">Originally assigned keywords</summary>
-                                    <div class="collapse-content">
-                                        @foreach ( $data['tags'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['display_name']])
-                                        @endforeach
-                                    </div>
-                                    </details>
+                                    @if (array_key_exists("msl_tags", $data))
+                                        <br>
+                                        <details class="collapse collapse-arrow bg-base-200">
+                                        <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
+                                        <div class="collapse-content">
+                                            @foreach ( $data['msl_tags'] as $keyword)
+                                                @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_tag_string']])
+                                            @endforeach
+                                        </div>
+                                        </details>
+                                        <script>
+                                            tippy('#orginal-keywords-popup', {
+                                                content: "lists only keywords originally assigned by the authors",
+                                                placement: "right"
+                                            });
+                                        </script>
                                     @endif
 
+                                    
+
                                     @if (array_key_exists("msl_original_keywords", $data))
-                                    <br>
-                                    <details class="collapse collapse-arrow bg-base-200">
-                                    <summary class="collapse-title">Originally assigned keywords</summary>
-                                    <div class="collapse-content">
-                                        @foreach ( $data['msl_original_keywords'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_original_keyword_label']])
-                                        @endforeach
-                                    </div>
-                                    </details>
+                                        <br>
+                                        <details class="collapse collapse-arrow bg-base-200">
+                                        <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
+                                        <div class="collapse-content">
+                                            @foreach ( $data['msl_original_keywords'] as $keyword)
+                                                @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_original_keyword_label']])
+                                            @endforeach
+                                        </div>
+                                        </details>
+                                        <script>
+                                            tippy('#corresponding-keywords-popup', {
+                                                content: "lists terms from MSL vocabularies that are the same as, or are interpreted synonymous to the originally assigned keywords",
+                                                placement: "right"
+                                            });
+                                        </script>
                                     @endif
 
                                     @if (array_key_exists("msl_enriched_keywords", $data))
                                     <br>
                                     <details class="collapse collapse-arrow bg-base-200">
-                                    <summary class="collapse-title">Originally assigned keywords</summary>
+                                    <summary class="collapse-title">MSL enriched keywords <i id="enriched-keywords-popup">i</i></summary>
                                     <div class="collapse-content">
                                         @foreach ( $data['msl_enriched_keywords'] as $keyword)
                                             @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_enriched_keyword_label']])
                                         @endforeach
                                     </div>
                                     </details>
+                                    <script>
+                                        tippy('#enriched-keywords-popup', {
+                                            content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
+                                            placement: "right"
+                                        });
+                                    </script>
                                     @endif
                                 </div>
 
@@ -94,7 +114,7 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h4 class="text-left">MSL enriched sub domains</h4>
+                                        <h4 class="text-left">MSL enriched sub domains <i id="enriched-subdomains-popup">i</i></h4>
 
                                     </div>
                                     <div class="flex flex-col w-full ">
@@ -103,6 +123,12 @@
                                             @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_subdomain']])
                                         @endforeach
                                     </div>
+                                    <script>
+                                        tippy('#enriched-subdomains-popup', {
+                                            content: "Based on the MSL enriched keywords, enriched sub domains are added based on the originating vocabularies.",
+                                            placement: "right"
+                                        });
+                                    </script>
                                 </div>
                                 @endif
 
