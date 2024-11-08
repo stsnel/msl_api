@@ -317,21 +317,41 @@
                                 </div>
                                 @endif
 
-                                {{-- make small box with map next to coordinate data --}}
-                                {{-- <br>
+                                @if (array_key_exists("msl_geojson_featurecollection",$data))
+                                <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
                                         <h4 class="text-left">Spatial coordinates</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
-                                            <p class="text-sm p-0 italic">eLong 6.50291</p>
-                                            <p class="text-sm p-0 italic">nLat 46.5512</p>
-                                            <p class="text-sm p-0 italic">sLat 46.0732</p>
-                                            <p class="text-sm p-0 italic">wLong 5.82176</p>
+                                        <div id="map" style="height: 300px;"></div>
 
+                                        <script>
+                                            function onEachFeature(feature, layer) {
+                                                if (feature.properties.name) {                                
+                                                    var popupContent = `<h5>${feature.properties.name}</h5>`;
+
+                                                    layer.bindPopup(popupContent);
+                                                }
+                                            }
+                                        
+                                            var features = <?php echo $data['msl_geojson_featurecollection']; ?>;        				
+                                        
+                                            var map = L.map('map').setView([51.505, -0.09], 4);
+                                            
+                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                                maxZoom: 19,
+                                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                            }).addTo(map);
+                                                                                                                                    
+                                            L.geoJSON(features, {
+                                                onEachFeature: onEachFeature
+                                            }).addTo(map);                                                                                                                                                                                
+                                        </script>
                                     </div>
-                                </div> --}}
+                                </div>
+                                @endif
 
                             </div>
 
