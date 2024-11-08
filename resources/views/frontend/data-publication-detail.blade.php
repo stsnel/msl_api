@@ -18,7 +18,7 @@
                         <div class=" flex flex-col place-items-center">
                             <div class="divide-y divide-slate-700 p-4 flex flex-col place-items-center max-w-screen-lg ">
                                 <div class=" w-full pt-5 pb-5">
-                                    <h1 class="text-lg">{{ $data['title'] }}</h1>
+                                    <h1 class="text-lg">{!! $data['msl_title_annotated'] !!}</h1>
                                     <p class="italic text-center">                                       
                                         @foreach ( $data['msl_authors'] as $author )
                                             {{ $author["msl_author_name"] }}
@@ -39,19 +39,19 @@
 
                                     @if (array_key_exists("msl_tags", $data))
                                         <br>
-                                        <details class="collapse collapse-arrow bg-base-200">
-                                        <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
-                                        <div class="collapse-content">
-                                            @foreach ( $data['msl_tags'] as $keyword)
-                                                <div 
-                                                    class="badge badge-outline hover:bg-slate-500 badge-lg"
-                                                    data-highlight="tag" 
-                                                    data-uri="{{ json_encode($keyword['msl_tag_uris']) }}"
-                                                >
-                                                    {{ $keyword['msl_tag_string'] }}
-                                                </div>
-                                            @endforeach
-                                        </div>
+                                        <details class="collapse collapse-arrow bg-base-200" id="original-keywords-panel">
+                                            <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
+                                            <div class="collapse-content">
+                                                @foreach ( $data['msl_tags'] as $keyword)
+                                                    <div 
+                                                        class="badge badge-outline hover:bg-slate-500 badge-lg"
+                                                        data-highlight="tag" 
+                                                        data-uris='{!! json_encode($keyword['msl_tag_uris']) !!}'
+                                                    >
+                                                        {{ $keyword['msl_tag_string'] }}
+                                                    </div>
+                                                @endforeach
+                                            </div>
                                         </details>
                                         <script>
                                             tippy('#orginal-keywords-popup', {
@@ -65,13 +65,14 @@
 
                                     @if (array_key_exists("msl_original_keywords", $data))
                                         <br>
-                                        <details class="collapse collapse-arrow bg-base-200">
+                                        <details class="collapse collapse-arrow bg-base-200" id="corresponding-keywords-panel">
                                         <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
                                         <div class="collapse-content">
                                             @foreach ( $data['msl_original_keywords'] as $keyword)
                                                 <div 
                                                     class="badge badge-outline hover:bg-slate-500 badge-lg"
                                                     data-uri="{{ $keyword['msl_original_keyword_uri'] }}"
+                                                    data-highlight="text-keyword"
                                                 >
                                                     {{ $keyword['msl_original_keyword_label'] }}
                                                 </div>
@@ -96,6 +97,9 @@
                                                 class="badge badge-outline hover:bg-slate-500 badge-lg" 
                                                 data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
                                                 data-uri="{{ $keyword['msl_enriched_keyword_uri'] }}"
+                                                data-highlight="text-keyword"
+                                                data-matched-child-uris='{!! json_encode($keyword['msl_enriched_keyword_match_child_uris']) !!}'
+                                                data-sources='{!! json_encode($keyword['msl_enriched_keyword_match_locations']) !!}'
                                             >
                                                 {{ $keyword['msl_enriched_keyword_label'] }}
                                             </div>
