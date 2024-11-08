@@ -34,17 +34,29 @@
 
                         <div class="pt-6 flex flex-col">
                             <div class="form-control w-full">
-                            <label class="label cursor-pointer justify-center space-x-2">
-                                <input type="checkbox" id="filterTreeToggleInterpreted" checked="checked" class="checkbox" />
-                                <span class="label-text">MSL enriched keywords</span>
-                            </label>
+                                <label class="label cursor-pointer justify-center space-x-2">
+                                    <input type="checkbox" id="filterTreeToggleInterpreted" checked="checked" class="checkbox" />
+                                    <span class="label-text">MSL enriched keywords <i id="enriched-keywords-popup">i</i></span>
+                                </label>
+                                <script>
+                                    tippy('#enriched-keywords-popup', {
+                                        content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
+                                        placement: "right"
+                                    });
+                                </script>
                             </div>
 
                             <div class="form-control w-full">
-                            <label class="label cursor-pointer justify-center space-x-2">
-                                <input type="checkbox" id="filterTreeToggleOriginal" class="checkbox" />
-                                <span class="label-text">MSL original keywords</span>
-                            </label>
+                                <label class="label cursor-pointer justify-center space-x-2">
+                                    <input type="checkbox" id="filterTreeToggleOriginal" class="checkbox" />
+                                    <span class="label-text">MSL original keywords <i id="original-keywords-popup">i</i></span>
+                                </label>
+                                <script>
+                                    tippy('#original-keywords-popup', {
+                                        content: "Lists only the MSL vocabulary terms corresponding to the keywords originally assigned by the authors.",
+                                        placement: "right"
+                                    });
+                                </script>
                             </div>
 
                             <h4 class="p-4">Filters</h4>
