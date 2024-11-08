@@ -77,7 +77,7 @@
 
                                     @if (array_key_exists("msl_enriched_keywords", $data))
                                     <br>
-                                    <details class="collapse collapse-arrow bg-base-200">
+                                    <details class="collapse collapse-arrow bg-base-200" open>
                                     <summary class="collapse-title">MSL enriched keywords <i id="enriched-keywords-popup">i</i></summary>
                                     <div class="collapse-content">
                                         @foreach ( $data['msl_enriched_keywords'] as $keyword)
