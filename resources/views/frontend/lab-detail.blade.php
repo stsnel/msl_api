@@ -86,7 +86,41 @@
                                     </div>
                                 </div>
                                 
-                                
+                                @if (array_key_exists("msl_location", $data))
+                                <br>
+                                <div class="w-full pt-5 pb-5 flex flex-row">
+                                    <div class="w-1/3">
+                                        <h4 class="text-left">Location</h4>
+
+                                    </div>
+                                    <div class="w-full ">
+                                    <div id="map" style="height: 300px;"></div>
+
+                                    <script>
+                                        function onEachFeature(feature, layer) {
+                                            if (feature.properties) {                                
+                                                var popupContent = `<h5>${feature.properties.title}</h5><p>${feature.properties.msl_organization_name}</p>`;
+
+                                                layer.bindPopup(popupContent);
+                                            }
+                                        }
+
+                                        var features = <?php echo $data['msl_location']; ?>;        				
+
+                                        var map = L.map('map').setView([51.505, -0.09], 4);
+                                        
+                                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            maxZoom: 19,
+                                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                        }).addTo(map);
+                                                                                                                                
+                                        L.geoJSON(features, {
+                                            onEachFeature: onEachFeature
+                                        }).addTo(map);                                                                                                                                                                                
+                                    </script>
+                                    </div>
+                                </div>
+                                @endif
 
                             </div>
 
