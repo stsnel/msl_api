@@ -45,7 +45,7 @@ $(document).ready(function() {
                         tagsMatched = true;
                     }
                 });                                
-            });            
+            });
     
             $("span[data-uris*=\"" + this.dataset.uri + "\"]").addClass("bg-info-300");
     
@@ -74,21 +74,21 @@ $(document).ready(function() {
                         }
     
                         $("span[data-uris*='\"" + childUri + "\"']").addClass("bg-info-300");
-                    });                                        
-
-                    if(tagsMatched) {
-                        if($('#original-keywords-panel').attr('open') !== 'open') {
-                            $('#original-keywords-panel').addClass("bg-info-300");
-                        }
-                    }
-    
-                    if(originalKeywordsMatched) {                        
-                        if($('#corresponding-keywords-panel').attr('open') !== 'open') {
-                            $('#corresponding-keywords-panel').addClass("bg-info-300");
-                        }
-                    }
+                    });
                 }
             }
+                
+            if(tagsMatched) {
+                if($('#original-keywords-panel').attr('open') !== 'open') {
+                    $('#original-keywords-panel').addClass("bg-info-300");
+                }
+            }
+
+            if(originalKeywordsMatched) {                        
+                if($('#corresponding-keywords-panel').attr('open') !== 'open') {
+                    $('#corresponding-keywords-panel').addClass("bg-info-300");
+                }
+            }                            
         }, function() {
             let tagsMatched = false;
             let originalKeywordsMatched = false;
