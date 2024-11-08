@@ -43,7 +43,7 @@
                                         <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
                                         <div class="collapse-content">
                                             @foreach ( $data['msl_tags'] as $keyword)
-                                                @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_tag_string']])
+                                                <div class="badge badge-outline hover:bg-slate-500 badge-lg">{{ $keyword['msl_tag_string'] }}</div>
                                             @endforeach
                                         </div>
                                         </details>
@@ -51,7 +51,7 @@
                                             tippy('#orginal-keywords-popup', {
                                                 content: "lists only keywords originally assigned by the authors",
                                                 placement: "right"
-                                            });
+                                            });                                    
                                         </script>
                                     @endif
 
@@ -63,7 +63,7 @@
                                         <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
                                         <div class="collapse-content">
                                             @foreach ( $data['msl_original_keywords'] as $keyword)
-                                                @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_original_keyword_label']])
+                                                <div class="badge badge-outline hover:bg-slate-500 badge-lg">{{ $keyword['msl_original_keyword_label'] }}</div>
                                             @endforeach
                                         </div>
                                         </details>
@@ -81,7 +81,12 @@
                                     <summary class="collapse-title">MSL enriched keywords <i id="enriched-keywords-popup">i</i></summary>
                                     <div class="collapse-content">
                                         @foreach ( $data['msl_enriched_keywords'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_enriched_keyword_label']])
+                                            <div 
+                                                class="badge badge-outline hover:bg-slate-500 badge-lg" 
+                                                data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
+                                            >
+                                                {{ $keyword['msl_enriched_keyword_label'] }}
+                                            </div>
                                         @endforeach
                                     </div>
                                     </details>
@@ -104,7 +109,7 @@
                                     <div class="flex flex-col w-full ">
                                         {{-- hover behaviour: highlights all related tags above --}}
                                         @foreach ( $data['msl_subdomains_original'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_subdomain_original']])
+                                            <div class="badge badge-outline hover:bg-slate-500 badge-lg">{{ $keyword['msl_subdomain_original'] }}</div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -120,7 +125,13 @@
                                     <div class="flex flex-col w-full ">
                                         {{-- hover behaviour: highlights all related tags above --}}
                                         @foreach ( $data['msl_subdomains'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_subdomain']])
+                                            <div 
+                                                class="badge badge-outline hover:bg-slate-500 badge-lg" 
+                                                data-toggle="domain-highlight"
+                                                data-domain="{{ $keyword['msl_subdomain'] }}"                                                                                        
+                                            >
+                                                {{ $keyword['msl_subdomain'] }}
+                                            </div>
                                         @endforeach
                                     </div>
                                     <script>
@@ -338,7 +349,9 @@
 
     </div>
 
-
+@push('vite')
+    @vite(['resources/js/jquery.js', 'resources/js/tooltip.js'])
+@endpush
 
 
 </x-layout_main>
