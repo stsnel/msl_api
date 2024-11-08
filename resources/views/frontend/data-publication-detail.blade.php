@@ -43,7 +43,13 @@
                                         <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
                                         <div class="collapse-content">
                                             @foreach ( $data['msl_tags'] as $keyword)
-                                                <div class="badge badge-outline hover:bg-slate-500 badge-lg">{{ $keyword['msl_tag_string'] }}</div>
+                                                <div 
+                                                    class="badge badge-outline hover:bg-slate-500 badge-lg"
+                                                    data-highlight="tag" 
+                                                    data-uri="{{ json_encode($keyword['msl_tag_uris']) }}"
+                                                >
+                                                    {{ $keyword['msl_tag_string'] }}
+                                                </div>
                                             @endforeach
                                         </div>
                                         </details>
@@ -63,7 +69,12 @@
                                         <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
                                         <div class="collapse-content">
                                             @foreach ( $data['msl_original_keywords'] as $keyword)
-                                                <div class="badge badge-outline hover:bg-slate-500 badge-lg">{{ $keyword['msl_original_keyword_label'] }}</div>
+                                                <div 
+                                                    class="badge badge-outline hover:bg-slate-500 badge-lg"
+                                                    data-uri="{{ $keyword['msl_original_keyword_uri'] }}"
+                                                >
+                                                    {{ $keyword['msl_original_keyword_label'] }}
+                                                </div>
                                             @endforeach
                                         </div>
                                         </details>
@@ -84,6 +95,7 @@
                                             <div 
                                                 class="badge badge-outline hover:bg-slate-500 badge-lg" 
                                                 data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
+                                                data-uri="{{ $keyword['msl_enriched_keyword_uri'] }}"
                                             >
                                                 {{ $keyword['msl_enriched_keyword_label'] }}
                                             </div>
