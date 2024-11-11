@@ -18,7 +18,7 @@
                         <div class=" flex flex-col place-items-center">
                             <div class="divide-y divide-slate-700 p-4 flex flex-col place-items-center max-w-screen-lg ">
                                 <div class=" w-full pt-5 pb-5">
-                                    <h1 class="text-lg">{{ $data['title'] }}</h1>
+                                    <h1 class="text-lg">{!! $data['msl_title_annotated'] !!}</h1>
                                     <p class="italic text-center">                                       
                                         @foreach ( $data['msl_authors'] as $author )
                                             {{ $author["msl_author_name"] }}
@@ -37,40 +37,147 @@
                                 <div class="w-full pt-5 pb-5">
                                     <h4 class="text-left">Keywords</h4>
 
-                                    @if (array_key_exists("tags", $data))
-                                    <br>
-                                    <details class="collapse collapse-arrow bg-base-200">
-                                    <summary class="collapse-title">Originally assigned keywords</summary>
-                                    <div class="collapse-content">
-                                        @foreach ( $data['tags'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['display_name']])
-                                        @endforeach
-                                    </div>
-                                    </details>
+                                    @if (array_key_exists("msl_tags", $data))
+                                        <br>
+                                        <details class="collapse collapse-arrow bg-base-200" id="original-keywords-panel">
+                                            <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
+                                            <div class="collapse-content">
+                                                @foreach ( $data['msl_tags'] as $keyword)
+                                                    <div 
+                                                        class="badge badge-outline hover:bg-slate-500 badge-lg"
+                                                        data-highlight="tag" 
+                                                        data-uris='{!! json_encode($keyword['msl_tag_uris']) !!}'
+                                                    >
+                                                        {{ $keyword['msl_tag_string'] }}
+                                                    </div>
+                                                @endforeach
+                                            </div>
+                                        </details>
+                                        <script>
+                                            tippy('#orginal-keywords-popup', {
+                                                content: "lists only keywords originally assigned by the authors",
+                                                placement: "right"
+                                            });                                    
+                                        </script>
                                     @endif
 
+                                    
+
                                     @if (array_key_exists("msl_original_keywords", $data))
-                                    <br>
-                                    <details class="collapse collapse-arrow bg-base-200">
-                                    <summary class="collapse-title">Originally assigned keywords</summary>
-                                    <div class="collapse-content">
-                                        @foreach ( $data['msl_original_keywords'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_original_keyword_label']])
-                                        @endforeach
-                                    </div>
-                                    </details>
+                                        <br>
+                                        <details class="collapse collapse-arrow bg-base-200" id="corresponding-keywords-panel">
+                                        <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
+                                        <div class="collapse-content">
+                                            @foreach ( $data['msl_original_keywords'] as $keyword)
+                                                <div 
+                                                    class="badge badge-outline hover:bg-slate-500 badge-lg"
+                                                    data-uri="{{ $keyword['msl_original_keyword_uri'] }}"
+                                                    data-highlight="text-keyword"
+                                                >
+                                                    {{ $keyword['msl_original_keyword_label'] }}
+                                                </div>
+                                            @endforeach
+                                        </div>
+                                        </details>
+                                        <script>
+                                            tippy('#corresponding-keywords-popup', {
+                                                content: "lists terms from MSL vocabularies that are the same as, or are interpreted synonymous to the originally assigned keywords",
+                                                placement: "right"
+                                            });
+                                        </script>
                                     @endif
 
                                     @if (array_key_exists("msl_enriched_keywords", $data))
                                     <br>
-                                    <details class="collapse collapse-arrow bg-base-200">
-                                    <summary class="collapse-title">Originally assigned keywords</summary>
-                                    <div class="collapse-content">
+                                    <details class="collapse collapse-arrow bg-base-200" open>
+                                    <summary class="collapse-title">MSL enriched keywords <i id="enriched-keywords-popup">i</i></summary>
+                                    <div class="collapse-content" id="enriched-keywords-container">
                                         @foreach ( $data['msl_enriched_keywords'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_enriched_keyword_label']])
+                                            <div 
+                                                class="badge badge-outline hover:bg-slate-500 badge-lg" 
+                                                data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
+                                                data-uri="{{ $keyword['msl_enriched_keyword_uri'] }}"
+                                                data-highlight="text-keyword"
+                                                data-matched-child-uris='{!! json_encode($keyword['msl_enriched_keyword_match_child_uris']) !!}'
+                                                data-sources='{!! json_encode($keyword['msl_enriched_keyword_match_locations']) !!}'
+                                            >
+                                                {{ $keyword['msl_enriched_keyword_label'] }}
+                                            </div>
                                         @endforeach
                                     </div>
                                     </details>
+                                    <script>
+                                        tippy('#enriched-keywords-popup', {
+                                            content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
+                                            placement: "right"
+                                        });
+
+                                        tippy.delegate('#enriched-keywords-container', {
+                                            target: '.badge',
+                                            trigger: 'click',
+                                            placement: 'right',
+                                            interactive: true,
+                                            allowHTML: true,
+                                            appendTo: document.body,
+                                            onShow(instance) {
+                                                if (instance.state.ajax === undefined) {
+                                                    instance.state.ajax = {
+                                                        isFetching: false,
+                                                        canFetch: true,
+                                                    }
+                                                }
+
+                                                if (instance.state.ajax.isFetching || !instance.state.ajax.canFetch) {
+                                                    return
+                                                }
+
+                                                $.ajax({
+                                                    url: '/api/vocabularies' + "/term?uri=" + instance.reference.dataset.uri,
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                    dataset: instance.reference.dataset,
+                                                    async: true,
+                                                    beforeSend: function () {
+                                                        instance.state.ajax.isFetching = true;
+                                                    },
+                                                    success: function(res) {                                                        
+                                                        content = "<table>";
+                                                        content += "<tr><td class=\"\">name</td><td>" + res.name + "</td></tr>";
+                                                        content += "<tr><td class=\"\">indicators</td><td>";
+                                                        res.synonyms.forEach((synonym) => {
+                                                        content += '"' + synonym.name + '" ';
+                                                        });
+                                                        content += "</td></tr>";
+                                                        content += "<tr><td class=\"\">parent term</td><td>";
+                                                        if(res.parent) {
+                                                        content += res.parent.name;
+                                                        } else {
+                                                        content += 'none';
+                                                        }
+                                                        content += "</td></tr>";
+                                                        content += "<tr><td class=\"\">occurs in vocabulary</td><td>" + res.vocabulary.display_name + "</td></tr>";
+                                                        content += "<tr><td class=\"\">uri</td><td>" + res.uri + "</td></tr>";
+
+                                                        if(this.dataset.sources) {
+                                                            matchSources = JSON.parse(this.dataset.sources);
+                                                            if(matchSources.length > 0) {
+                                                                content += "<tr><td class=\"\">sources</td><td>" + matchSources.join(", ") + "</td></tr>";
+                                                            }
+                                                        }
+
+                                                        content += "</table>";
+
+                                                        instance.setContent(content);
+                                                        instance.state.ajax.isFetching = false;
+                                                    }
+                                                });
+                                            },
+                                            onHidden(instance) {
+                                                instance.setContent('Loading...')
+                                                instance.state.ajax.canFetch = true
+                                            },
+                                        });
+                                    </script>
                                     @endif
                                 </div>
 
@@ -84,7 +191,7 @@
                                     <div class="flex flex-col w-full ">
                                         {{-- hover behaviour: highlights all related tags above --}}
                                         @foreach ( $data['msl_subdomains_original'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_subdomain_original']])
+                                            <div class="badge badge-outline hover:bg-slate-500 badge-lg">{{ $keyword['msl_subdomain_original'] }}</div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -94,15 +201,27 @@
                                 <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
-                                        <h4 class="text-left">MSL enriched sub domains</h4>
+                                        <h4 class="text-left">MSL enriched sub domains <i id="enriched-subdomains-popup">i</i></h4>
 
                                     </div>
                                     <div class="flex flex-col w-full ">
                                         {{-- hover behaviour: highlights all related tags above --}}
                                         @foreach ( $data['msl_subdomains'] as $keyword)
-                                            @include('components.micro_components.word_card', ['stringInput' => $keyword['msl_subdomain']])
+                                            <div 
+                                                class="badge badge-outline hover:bg-slate-500 badge-lg" 
+                                                data-toggle="domain-highlight"
+                                                data-domain="{{ $keyword['msl_subdomain'] }}"                                                                                        
+                                            >
+                                                {{ $keyword['msl_subdomain'] }}
+                                            </div>
                                         @endforeach
                                     </div>
+                                    <script>
+                                        tippy('#enriched-subdomains-popup', {
+                                            content: "Based on the MSL enriched keywords, enriched sub domains are added based on the originating vocabularies.",
+                                            placement: "right"
+                                        });
+                                    </script>
                                 </div>
                                 @endif
 
@@ -280,21 +399,41 @@
                                 </div>
                                 @endif
 
-                                {{-- make small box with map next to coordinate data --}}
-                                {{-- <br>
+                                @if (array_key_exists("msl_geojson_featurecollection",$data))
+                                <br>
                                 <div class="w-full pt-5 pb-5 flex flex-row">
                                     <div class="w-1/3">
                                         <h4 class="text-left">Spatial coordinates</h4>
 
                                     </div>
                                     <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
-                                            <p class="text-sm p-0 italic">eLong 6.50291</p>
-                                            <p class="text-sm p-0 italic">nLat 46.5512</p>
-                                            <p class="text-sm p-0 italic">sLat 46.0732</p>
-                                            <p class="text-sm p-0 italic">wLong 5.82176</p>
+                                        <div id="map" style="height: 300px;"></div>
 
+                                        <script>
+                                            function onEachFeature(feature, layer) {
+                                                if (feature.properties.name) {                                
+                                                    var popupContent = `<h5>${feature.properties.name}</h5>`;
+
+                                                    layer.bindPopup(popupContent);
+                                                }
+                                            }
+                                        
+                                            var features = <?php echo $data['msl_geojson_featurecollection']; ?>;        				
+                                        
+                                            var map = L.map('map').setView([51.505, -0.09], 4);
+                                            
+                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                                maxZoom: 19,
+                                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                            }).addTo(map);
+                                                                                                                                    
+                                            L.geoJSON(features, {
+                                                onEachFeature: onEachFeature
+                                            }).addTo(map);                                                                                                                                                                                
+                                        </script>
                                     </div>
-                                </div> --}}
+                                </div>
+                                @endif
 
                             </div>
 
@@ -312,7 +451,9 @@
 
     </div>
 
-
+@push('vite')
+    @vite(['resources/js/jquery.js', 'resources/js/tooltip.js'])
+@endpush
 
 
 </x-layout_main>
