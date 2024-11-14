@@ -17,7 +17,7 @@
                             'List'  => route("labs-list")
                     ),
                 ])
-                @include('components.micro_components.tabLinks',[
+                @include('components.tabLinks',[
                     'categoryName'  => 'Equipment',
                     'routes'        => array(
                             'Map'   => route("equipment-map"),
