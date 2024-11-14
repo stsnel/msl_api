@@ -1,57 +1,58 @@
 <x-layout_main>
-<div class="flex justify-center items-center ">
-        <div role="tablist" class="tabs tabs-lifted">
-            <a role="tab" href="{{ route('lab-detail', ['id' => $data['name']]) }}" class="tab">Laboratory</a>
-            <a role="tab" href="{{ route('lab-detail-equipment', ['id' => $data['name']]) }}" class="tab tab-active">Equipment</a>            
-        </div>
-    </div>
 
-    <div class="flex justify-center items-center p-10 ">
+    <div class="mainContentDiv">
 
         {{-- a general no small width view notification --}}
-        <div class="block md:hidden">
-            no mobile yo
-        </div>
+        @include('components.no_mobile_view')
 
-        <div class="hidden md:block grow max-w-screen-2xl">
-            <div class="flex w-full justify-center min-h-screen">
+        <div class="noMobileView_wideScreenDiv">
+
+            <div class="tabLinksParent">
+
+                @include('components.tabLinks',[
+                    // 'categoryName'  => $data['title'],
+                    'routes'        => array(
+                            'Laboratory'   => route('lab-detail', ['id' => $data['name']]),
+                            'Equipment'  => route('lab-detail-equipment', ['id' => $data['name']])
+                    ),
+                    'routeActive'   => route('lab-detail', ['id' => $data['name']])
+                ])
+            </div>
+
+                <div class="listMapDetailDivParent">
                 
-                <div class="bg-base-300  grow">
-                    <div class="w-full flex flex-col">
-    
-                        <div class=" flex flex-col place-items-center">
-                            <div class="divide-y divide-slate-700 p-4 flex flex-col place-items-center max-w-screen-lg ">
-                                <div class=" w-full pt-5 pb-5">
+                    <div class="detailDiv dividers">
+                                <div class="detailEntryDiv">
+                                    <h2 class="">Laboratory Details</h2>
                                     <h1 class="text-lg">{{ $data['title'] }}</h1>                                    
                                 </div>
                                 
-                                <div class=" w-full pt-5 pb-5">                                    
-                                    <p>
-                                        {!! $data['msl_description_html'] !!}
-                                    </p>
-                                </div >
-                                
+                                @if (array_key_exists("msl_description_html", $data))
+                                    @if (strlen($data['msl_description_html']) > 0)
+                                        <div class="detailEntryDiv">                                    
+                                                {!! $data['msl_description_html'] !!}
+                                        </div>
+                                    @else
+                                        <p class="italic text-center">no description found</p>
+                                    @endif
+                                @endif
+
+                                {{-- report dead link? --}}
                                 @if (array_key_exists("msl_website", $data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Website</h4>
-
-                                    </div>
-                                    <div class="w-full ">
-                                        <p>{{ $data['msl_website'] }}</p>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Website</h4>
+                                    <div class="detailEntrySub2">
+                                        <a href="{{ $data['msl_website'] }}">{{ $data['msl_website'] }}</a>
                                     </div>
                                 </div>
                                 @endif
 
                                 @if (array_key_exists("msl_domain_name", $data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Domain</h4>
-
-                                    </div>
-                                    <div class="w-full ">
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Domain</h4>
+                                    <div class="detailEntrySub2">
                                         <p>{{ $data['msl_domain_name'] }}</p>
                                     </div>
                                 </div>
@@ -59,23 +60,16 @@
 
                                 @if (array_key_exists("msl_organization_name", $data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Organization name</h4>
-
-                                    </div>
-                                    <div class="w-full ">
-                                        <p>{{ $data['msl_organization_name'] }}</p>
-                                    </div>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Organization name</h4>
+                                    <p class="detailEntrySub2">{{ $data['msl_organization_name'] }}</p>
                                 </div>
                                 @endif
 
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Address</h4>                            
-                                    </div>
-                                    <div class="w-full ">
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Address</h4>                            
+                                    <div class="detailEntrySub2">
                                         <p>
                                             @if ($data['msl_address_street_1'] !== "") {{ $data['msl_address_street_1'] }}<br> @endif
                                             @if ($data['msl_address_street_2'] !== "") {{ $data['msl_address_street_2'] }}<br> @endif
@@ -88,12 +82,9 @@
                                 
                                 @if (array_key_exists("msl_location", $data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Location</h4>
-
-                                    </div>
-                                    <div class="w-full ">
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Location</h4>
+                                    <div class="detailEntrySub2">
                                     <div id="map" style="height: 300px;"></div>
 
                                     <script>
@@ -122,23 +113,10 @@
                                 </div>
                                 @endif
 
-                            </div>
 
-                        </div>
-                        
-
-                    </div>
-                    
                 </div>
-            </div>
         </div>
        
-        
-
-
     </div>
-
-
-
 
 </x-layout_main>

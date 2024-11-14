@@ -1,51 +1,50 @@
 <x-layout_main>
 
-    <div class="flex justify-center items-center p-10 ">
+    <div class="mainContentDiv">
 
         {{-- a general no small width view notification --}}
-        <div class="block md:hidden">
-            no mobile yo
-        </div>
+        @include('components.no_mobile_view')
 
-        <div class="hidden md:block grow max-w-screen-2xl">
-            <div class="flex w-full justify-center min-h-screen">
+        <div class="noMobileView_wideScreenDiv">
 
-                <?php /* dd($data); */ ?>
+            <div class="listMapDetailDivParent">
                 
-                <div class="bg-base-300  grow">
-                    <div class="w-full flex flex-col">
-    
-                        <div class=" flex flex-col place-items-center">
-                            <div class="divide-y divide-slate-700 p-4 flex flex-col place-items-center max-w-screen-lg ">
-                                <div class=" w-full pt-5 pb-5">
+                    <div class="detailDiv dividers">
+
+                                <div class="detailEntryDiv">
+                                    <h2 class="">Data Publication</h2>
                                     <h1 class="text-lg">{!! $data['msl_title_annotated'] !!}</h1>
                                     <p class="italic text-center">                                       
                                         @foreach ( $data['msl_authors'] as $author )
-                                            {{ $author["msl_author_name"] }}
+                                            {{ $author["msl_author_name"] }} 
+                                            {{-- a little divider between names --}}
+                                                @if (sizeof($data['msl_authors']) -1 != array_search($author, $data['msl_authors']) )
+                                                    |
+                                                @endif
                                         @endforeach 
                                     </p>
                                 </div>
                                 
-                                <div class=" w-full pt-5 pb-5">
+                                <div class="detailEntryDiv">
                                     <p class="">{{ $data['msl_publisher'] }} ({{ $data['msl_publication_year'] }})</p>
                                     <p>
                                         {!! $data['msl_notes_annotated'] !!}
                                     </p>
                                 </div >
-                                    
+
                                 
-                                <div class="w-full pt-5 pb-5">
+                                <div class="detailEntryDiv">
                                     <h4 class="text-left">Keywords</h4>
 
                                     @if (array_key_exists("msl_tags", $data))
                                         <br>
-                                        <details class="collapse collapse-arrow bg-base-200" id="original-keywords-panel">
+                                        <details class="collapse collapse-arrow wordCardCollapser" id="original-keywords-panel">
                                             <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
-                                            <div class="collapse-content">
+                                            <div class="collapse-content wordCardParent">
                                                 @foreach ( $data['msl_tags'] as $keyword)
                                                     <div 
-                                                        class="badge badge-outline hover:bg-slate-500 badge-lg"
-                                                        data-highlight="tag" 
+                                                        class="wordCard"
+                                                        data-highlight="tag"
                                                         data-uris='{!! json_encode($keyword['msl_tag_uris']) !!}'
                                                     >
                                                         {{ $keyword['msl_tag_string'] }}
@@ -61,16 +60,15 @@
                                         </script>
                                     @endif
 
-                                    
 
                                     @if (array_key_exists("msl_original_keywords", $data))
                                         <br>
-                                        <details class="collapse collapse-arrow bg-base-200" id="corresponding-keywords-panel">
+                                        <details class="collapse collapse-arrow wordCardCollapser" id="corresponding-keywords-panel">
                                         <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
-                                        <div class="collapse-content">
+                                        <div class="collapse-content wordCardParent">
                                             @foreach ( $data['msl_original_keywords'] as $keyword)
                                                 <div 
-                                                    class="badge badge-outline hover:bg-slate-500 badge-lg"
+                                                    class="wordCard"
                                                     data-uri="{{ $keyword['msl_original_keyword_uri'] }}"
                                                     data-highlight="text-keyword"
                                                 >
@@ -89,12 +87,12 @@
 
                                     @if (array_key_exists("msl_enriched_keywords", $data))
                                     <br>
-                                    <details class="collapse collapse-arrow bg-base-200" open>
-                                    <summary class="collapse-title">MSL enriched keywords <i id="enriched-keywords-popup">i</i></summary>
-                                    <div class="collapse-content" id="enriched-keywords-container">
+                                    <details class="collapse collapse-arrow wordCardCollapser" open>
+                                    <summary class="collapse-title">MSL enriched keywords <i id="enriched-keywords-popup" class="bg-info-200 p-2 rounded-xl">i</i></summary>
+                                    <div class="collapse-content wordCardParent" id="enriched-keywords-container">
                                         @foreach ( $data['msl_enriched_keywords'] as $keyword)
-                                            <div 
-                                                class="badge badge-outline hover:bg-slate-500 badge-lg" 
+                                            <div
+                                                class="wordCard" 
                                                 data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
                                                 data-uri="{{ $keyword['msl_enriched_keyword_uri'] }}"
                                                 data-highlight="text-keyword"
@@ -183,15 +181,12 @@
 
                                 @if (array_key_exists("msl_subdomains_original", $data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">MSL original sub domains</h4>
-
-                                    </div>
-                                    <div class="flex flex-col w-full ">
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">MSL original sub domains</h4>
+                                    <div class="wordCardParent">
                                         {{-- hover behaviour: highlights all related tags above --}}
                                         @foreach ( $data['msl_subdomains_original'] as $keyword)
-                                            <div class="badge badge-outline hover:bg-slate-500 badge-lg">{{ $keyword['msl_subdomain_original'] }}</div>
+                                            <div class="wordCard">{{ $keyword['msl_subdomain_original'] }}</div>
                                         @endforeach
                                     </div>
                                 </div>
@@ -199,16 +194,13 @@
 
                                 @if (array_key_exists("msl_subdomains",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">MSL enriched sub domains <i id="enriched-subdomains-popup">i</i></h4>
-
-                                    </div>
-                                    <div class="flex flex-col w-full ">
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">MSL enriched sub domains <i id="enriched-subdomains-popup">i</i></h4>
+                                    <div class="wordCardParent">
                                         {{-- hover behaviour: highlights all related tags above --}}
                                         @foreach ( $data['msl_subdomains'] as $keyword)
                                             <div 
-                                                class="badge badge-outline hover:bg-slate-500 badge-lg" 
+                                                class="wordCard" 
                                                 data-toggle="domain-highlight"
                                                 data-domain="{{ $keyword['msl_subdomain'] }}"                                                                                        
                                             >
@@ -227,52 +219,33 @@
 
                                 @if (array_key_exists("msl_source",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Source</h4>
-
-                                    </div>
-                                    <div class="w-full ">
-                                        <a href="{{ $data['msl_source'] }}">{{ $data['msl_source'] }}</a>
-                                        
-                                    </div>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Source</h4>
+                                    <a class="detailEntrySub2" href="{{ $data['msl_source'] }}">{{ $data['msl_source'] }}</a>
                                 </div>
                                 @endif
 
                                 @if (array_key_exists("msl_publisher",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Source publisher</h4>
-
-                                    </div>
-                                    <div class="w-full ">
-                                        <p>{{ $data['msl_publisher'] }}</p>
-                                    </div>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Source publisher</h4>
+                                    <p class="detailEntrySub2">{{ $data['msl_publisher'] }}</p>
                                 </div>
                                 @endif
 
                                 @if (array_key_exists("msl_doi",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">DOI</h4>
-
-                                    </div>
-                                    <div class="w-full ">
-                                        <p>{{ $data['msl_doi'] }}</p>
-                                    </div>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">DOI</h4>
+                                    <p class="detailEntrySub2">{{ $data['msl_doi'] }}</p>
                                 </div>
                                 @endif
 
                                 @if (array_key_exists("msl_authors",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Authors</h4>
-
-                                    </div>
-                                    <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Authors</h4>
+                                    <div class="detailEntrySub2 dividers flex flex-col gap-4">
                                         @foreach ( $data['msl_authors'] as $keyword)
                                             <div>
                                                 <p class="text-sm p-0">{{ $keyword['msl_author_name'] }}</p>
@@ -286,12 +259,9 @@
 
                                 @if (array_key_exists("msl_contributors",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Contributers</h4>
-
-                                    </div>
-                                    <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Contributers</h4>
+                                    <div class="detailEntrySub2 dividers flex flex-col gap-4">
                                         @foreach ( $data['msl_contributors'] as $keyword)
                                             <div>
                                                 <p class="text-sm p-0">{{ $keyword['msl_contributor_name'] }}</p>
@@ -306,13 +276,9 @@
 
                                 @if (array_key_exists("msl_references",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">References</h4>
-
-                                    </div>
-                                    <div class="w-full flex flex-col divide-y divide-slate-700 gap-4 ">
-
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">References</h4>
+                                    <div class="detailEntrySub2 dividers flex flex-col gap-4">
                                         @foreach ( $data['msl_references'] as $keyword)
                                             <div>
                                                 <p class="text-sm p-0">{{ $keyword['msl_reference_title'] }}</p>
@@ -327,12 +293,9 @@
 
                                 @if (array_key_exists("msl_points_of_contact",$data))
                                 <br>
-                                    <div class="w-full pt-5 pb-5 flex flex-row">
-                                        <div class="w-1/3">
-                                            <h4 class="text-left">Contact</h4>
-
-                                        </div>
-                                        <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
+                                    <div class="detailEntryDiv flex flex-row">
+                                        <h4 class="detailEntrySub1">Contact</h4>
+                                        <div class="detailEntrySub2 dividers flex flex-col gap-4">
                                             {{-- hover behaviour: highlights all related tags above --}}
                                             @foreach ( $data['msl_points_of_contact'] as $keyword)
                                                 <div>
@@ -348,101 +311,73 @@
                                 
                                 @if (array_key_exists("msl_citation",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Citiation</h4>
-
-                                    </div>
-                                    <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
-                                        {{-- hover behaviour: highlights all related tags above --}}
-                                        <div>
-                                            <p class="text-sm p-0">{{ $data['msl_citation'] }}</p>
-
-                                        </div>
-
-                                    </div>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Citiation</h4>
+                                    <p class="detailEntrySub2 text-sm">{!! $data['msl_citation'] !!}</p>
                                 </div>
                                 @endif
 
 
                                 @if (array_key_exists("msl_collection_period",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Collection Period</h4>
-
-                                    </div>
-                                    <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
-                                        <div>
-                                            @foreach ( $data['msl_collection_period'] as $keyword)
-                                                <p class="text-sm p-0">{{ $keyword["msl_collection_start_date"] }} - {{ $keyword["msl_collection_end_date"] }}</p>
-                                            @endforeach
-                                        </div>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Collection Period</h4>
+                                    <div class="detailEntrySub2 flex flex-row">
+                                        @foreach ( $data['msl_collection_period'] as $keyword)
+                                            <p class="text-sm p-0">{{ $keyword["msl_collection_start_date"] }} - {{ $keyword["msl_collection_end_date"] }}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                                 @endif
 
                                 @if (array_key_exists("msl_geolocations",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Geo location(s)</h4>
-
-                                    </div>
-                                    <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
-                                        <div>
-                                            @foreach ( $data['msl_geolocations'] as $keyword)
-                                                <p class="text-sm p-0">{{ $keyword['msl_geolocation_place'] }}</p>
-                                            @endforeach
-                                        </div>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Geo location(s)</h4>
+                                    <div class="detailEntrySub2 flex flex-col">
+                                        @foreach ( $data['msl_geolocations'] as $keyword)
+                                            <p class="text-sm">{{ $keyword['msl_geolocation_place'] }}</p>
+                                        @endforeach
                                     </div>
                                 </div>
                                 @endif
 
                                 @if (array_key_exists("msl_geojson_featurecollection",$data))
                                 <br>
-                                <div class="w-full pt-5 pb-5 flex flex-row">
-                                    <div class="w-1/3">
-                                        <h4 class="text-left">Spatial coordinates</h4>
+                                <div class="detailEntryDiv flex flex-row">
+                                    <h4 class="detailEntrySub1">Spatial coordinates</h4>
+                                    <div id="map" style="height: 300px;"></div>
 
-                                    </div>
-                                    <div class="w-full flex flex-col divide-y divide-slate-700 gap-4">
-                                        <div id="map" style="height: 300px;"></div>
+                                    <script>
+                                        function onEachFeature(feature, layer) {
+                                            if (feature.properties.name) {                                
+                                                var popupContent = `<h5>${feature.properties.name}</h5>`;
 
-                                        <script>
-                                            function onEachFeature(feature, layer) {
-                                                if (feature.properties.name) {                                
-                                                    var popupContent = `<h5>${feature.properties.name}</h5>`;
-
-                                                    layer.bindPopup(popupContent);
-                                                }
+                                                layer.bindPopup(popupContent);
                                             }
+                                        }
+                                    
+                                        var features = <?php echo $data['msl_geojson_featurecollection']; ?>;        				
+                                    
+                                        var map = L.map('map').setView([51.505, -0.09], 4);
                                         
-                                            var features = <?php echo $data['msl_geojson_featurecollection']; ?>;        				
-                                        
-                                            var map = L.map('map').setView([51.505, -0.09], 4);
-                                            
-                                            L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
-                                                maxZoom: 19,
-                                                attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
-                                            }).addTo(map);
-                                                                                                                                    
-                                            L.geoJSON(features, {
-                                                onEachFeature: onEachFeature
-                                            }).addTo(map);                                                                                                                                                                                
-                                        </script>
-                                    </div>
+                                        L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
+                                            maxZoom: 19,
+                                            attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
+                                        }).addTo(map);
+                                                                                                                                
+                                        L.geoJSON(features, {
+                                            onEachFeature: onEachFeature
+                                        }).addTo(map);                                                                                                                                                                                
+                                    </script>
                                 </div>
                                 @endif
 
-                            </div>
 
-                        </div>
                         
 
                     </div>
                     
-                </div>
             </div>
         </div>
        

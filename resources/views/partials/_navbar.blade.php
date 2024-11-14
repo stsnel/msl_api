@@ -25,7 +25,7 @@
               <li>
                 <details>
                   <summary>How to contribute</summary>
-                  <ul class="bg-base-100 rounded-t-none p-2">
+                  <ul class="bg-base-100 rounded-t-none p-2 z-20">
                     <li><a class="no-underline">As a researcher</a></li>
                     <li><a class="no-underline">As a repository</a></li>
                   </ul>
@@ -51,7 +51,7 @@
             <li>
               <details>
                 <summary>How to contribute</summary>
-                <ul class="bg-base-100 rounded-t-none p-2">
+                <ul class="bg-base-100 rounded-t-none p-2 z-20">
                   <li><a class="no-underline" href="{{ route('contribute-researcher') }}">As a researcher</a></li>
                   <li><a class="no-underline" href="{{ route('contribute-repository') }}">As a repository</a></li>
                 </ul>

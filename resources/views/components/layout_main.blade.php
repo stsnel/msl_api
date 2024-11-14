@@ -17,7 +17,8 @@
         @include('partials._navbar')
     </nav>
 
-    <main class="pb-20">
+    {{-- no general class attached due to landing page --}}
+    <main class="pb-20 ">
 
         {{-- @yield('content') --}}
         {{ $slot }}

@@ -12,7 +12,8 @@ use Illuminate\Pagination\LengthAwarePaginator;
 
 class FrontendController extends Controller
 {
-    
+
+
     /**
      * Show the Index page.
      *
@@ -191,7 +192,19 @@ class FrontendController extends Controller
             abort(404, 'ckan request failed');
         }
 
-        return view('frontend.lab-detail-equipment', ['data' => $result->getResults(), 'ckanLabName' => $id]);
+
+        // get the name of lab
+        $client2 = new Client();
+        $request2 = new PackageShowRequest();
+        $request2->id = $id;
+
+        $result2 = $client2->get($request2);
+
+        if(!$result2->isSuccess()) {
+            abort(404, 'ckan request failed for request 2');
+        }
+
+        return view('frontend.lab-detail-equipment', ['data' => $result->getResults(), 'ckanLabName' => $id, 'data2' => $result2->getResult()]);
     }
 
     /**
@@ -372,4 +385,15 @@ class FrontendController extends Controller
         return view('frontend.themeTest');
     }
     
+        /**
+     * Show lab data test page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function labs_layout()
+    {
+        return view('frontend.labs_layout');
+    }
+    
 }
+
