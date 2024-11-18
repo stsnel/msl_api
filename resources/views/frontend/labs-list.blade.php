@@ -10,7 +10,7 @@
 
 
             <div class="tabLinksParent">
-                @include('components.micro_components.tabLinks',[
+                @include('components.tabLinks',[
                     'categoryName'  => 'Laboratories',
                     'routes'        => array(
                             'Map'   => route("labs-map"),
