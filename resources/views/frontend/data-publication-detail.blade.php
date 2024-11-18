@@ -111,7 +111,7 @@
                                         });
 
                                         tippy.delegate('#enriched-keywords-container', {
-                                            target: '.badge',
+                                            target: '.wordCard',
                                             trigger: 'click',
                                             placement: 'right',
                                             interactive: true,
