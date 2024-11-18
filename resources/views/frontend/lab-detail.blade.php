@@ -96,9 +96,14 @@
                                             }
                                         }
 
-                                        var features = <?php echo $data['msl_location']; ?>;        				
+                                        var features = <?php echo $data['msl_location']; ?>;
 
-                                        var map = L.map('map').setView([51.505, -0.09], 4);
+                                        if(features.geometry.coordinates) {
+                                            var map = L.map('map').setView([features.geometry.coordinates[1], features.geometry.coordinates[0]], 4);    
+                                        }
+                                        else {
+                                            var map = L.map('map').setView([51.505, -0.09], 4);
+                                        }                                        
                                         
                                         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                             maxZoom: 19,
