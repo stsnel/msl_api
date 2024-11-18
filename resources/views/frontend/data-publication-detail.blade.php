@@ -346,7 +346,9 @@
                                 <br>
                                 <div class="detailEntryDiv flex flex-row">
                                     <h4 class="detailEntrySub1">Spatial coordinates</h4>
-                                    <div id="map" style="height: 300px;"></div>
+                                    <div class="detailEntrySub2 flex flex-col">
+                                        <div id="map" style="height: 300px;"></div>
+                                    </div>
 
                                     <script>
                                         function onEachFeature(feature, layer) {
