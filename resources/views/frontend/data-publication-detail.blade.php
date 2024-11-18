@@ -361,7 +361,7 @@
                                     
                                         var features = <?php echo $data['msl_geojson_featurecollection']; ?>;        				
                                     
-                                        var map = L.map('map').setView([51.505, -0.09], 4);
+                                        var map = L.map('map').setView([0, 0], 1);
                                         
                                         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                             maxZoom: 19,
