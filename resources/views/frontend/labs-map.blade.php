@@ -51,7 +51,7 @@
                     <div class="listView">
 
                         {{-- loop list content --}}
-                        @include('components.map-view')
+                        @include('components.lab-map-view')
                         
                         
                     </div>

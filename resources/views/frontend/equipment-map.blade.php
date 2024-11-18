@@ -49,7 +49,7 @@
                     <div class="listView">
 
                         {{-- loop list content --}}
-                        @include('components.map-view')
+                        @include('components.equipment-map-view')
                         
                         
                     </div>
