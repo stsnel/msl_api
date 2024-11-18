@@ -357,6 +357,26 @@ class FrontendController extends Controller
     }
 
     /**
+     * Show the data-publication-files page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function dataPublicationFiles($id)
+    {
+        $client = new Client();
+        $request = new PackageShowRequest();
+        $request->id = $id;
+
+        $result = $client->get($request);
+
+        if(!$result->isSuccess()) {
+            abort(404, 'ckan request failed');
+        }
+
+        return view('frontend.data-publication-detail-files', ['data' => $result->getResult()]);
+    }
+
+    /**
      * Get a paginator object
      * 
      * @return LengthAwarePaginator
