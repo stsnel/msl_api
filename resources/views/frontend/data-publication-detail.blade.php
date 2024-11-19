@@ -75,12 +75,13 @@
                                         <br>
                                         <details class="collapse collapse-arrow wordCardCollapser" id="corresponding-keywords-panel">
                                         <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
-                                        <div class="collapse-content wordCardParent">
+                                        <div class="collapse-content wordCardParent" id="corresponding-keywords-container">
                                             @foreach ( $data['msl_original_keywords'] as $keyword)
                                                 <div 
                                                     class="wordCard"
                                                     data-uri="{{ $keyword['msl_original_keyword_uri'] }}"
                                                     data-highlight="text-keyword"
+                                                    data-filter-link="/data-access?msl_enriched_keyword_uri[]={{ $keyword['msl_original_keyword_uri'] }}"
                                                 >
                                                     {{ $keyword['msl_original_keyword_label'] }}
                                                 </div>
@@ -92,6 +93,76 @@
                                                 content: "lists terms from MSL vocabularies that are the same as, or are interpreted synonymous to the originally assigned keywords",
                                                 placement: "right"
                                             });
+
+                                            tippy.delegate('#corresponding-keywords-container', {
+                                            target: '.wordCard',
+                                            trigger: 'click',
+                                            placement: 'right',
+                                            interactive: true,
+                                            allowHTML: true,
+                                            appendTo: document.body,
+                                            maxWidth: 600,
+                                            onShow(instance) {
+                                                if (instance.state.ajax === undefined) {
+                                                    instance.state.ajax = {
+                                                        isFetching: false,
+                                                        canFetch: true,
+                                                    }
+                                                }
+
+                                                if (instance.state.ajax.isFetching || !instance.state.ajax.canFetch) {
+                                                    return
+                                                }
+
+                                                $.ajax({
+                                                    url: '/api/vocabularies' + "/term?uri=" + instance.reference.dataset.uri,
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                    dataset: instance.reference.dataset,
+                                                    async: true,
+                                                    beforeSend: function () {
+                                                        instance.state.ajax.isFetching = true;
+                                                    },
+                                                    success: function(res) {        
+                                                        content = "<div>";
+                                                        content += "<table>";
+                                                        content += "<tr><td class=\"\">name</td><td>" + res.name + "</td></tr>";
+                                                        content += "<tr><td class=\"\">indicators</td><td>";
+                                                        res.synonyms.forEach((synonym) => {
+                                                        content += '"' + synonym.name + '" ';
+                                                        });
+                                                        content += "</td></tr>";
+                                                        content += "<tr><td class=\"\">parent term</td><td>";
+                                                        if(res.parent) {
+                                                        content += res.parent.name;
+                                                        } else {
+                                                        content += 'none';
+                                                        }
+                                                        content += "</td></tr>";
+                                                        content += "<tr><td class=\"\">occurs in vocabulary</td><td>" + res.vocabulary.display_name + "</td></tr>";
+                                                        content += "<tr><td class=\"\">uri</td><td>" + res.uri + "</td></tr>";
+
+                                                        if(this.dataset.sources) {
+                                                            matchSources = JSON.parse(this.dataset.sources);
+                                                            if(matchSources.length > 0) {
+                                                                content += "<tr><td class=\"\">sources</td><td>" + matchSources.join(", ") + "</td></tr>";
+                                                            }
+                                                        }
+
+                                                        content += "</table>";
+                                                        content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
+                                                        content += "</div>";
+
+                                                        instance.setContent(content);
+                                                        instance.state.ajax.isFetching = false;
+                                                    }
+                                                });
+                                            },
+                                            onHidden(instance) {
+                                                instance.setContent('Loading...')
+                                                instance.state.ajax.canFetch = true
+                                            },
+                                        });
                                         </script>
                                     @endif
 
@@ -151,7 +222,7 @@
                                                         instance.state.ajax.isFetching = true;
                                                     },
                                                     success: function(res) {        
-                                                        content = "<div>"
+                                                        content = "<div>";
                                                         content += "<table>";
                                                         content += "<tr><td class=\"\">name</td><td>" + res.name + "</td></tr>";
                                                         content += "<tr><td class=\"\">indicators</td><td>";
@@ -178,7 +249,7 @@
 
                                                         content += "</table>";
                                                         content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
-                                                        content += "</div>"
+                                                        content += "</div>";
 
                                                         instance.setContent(content);
                                                         instance.state.ajax.isFetching = false;
