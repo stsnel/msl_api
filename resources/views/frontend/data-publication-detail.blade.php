@@ -105,6 +105,7 @@
                                                 class="wordCard" 
                                                 data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
                                                 data-uri="{{ $keyword['msl_enriched_keyword_uri'] }}"
+                                                data-filter-link="/data-access?msl_enriched_keyword_uri[]={{ $keyword['msl_enriched_keyword_uri'] }}"
                                                 data-highlight="text-keyword"
                                                 data-matched-child-uris='{!! json_encode($keyword['msl_enriched_keyword_match_child_uris']) !!}'
                                                 data-sources='{!! json_encode($keyword['msl_enriched_keyword_match_locations']) !!}'
@@ -127,6 +128,7 @@
                                             interactive: true,
                                             allowHTML: true,
                                             appendTo: document.body,
+                                            maxWidth: 600,
                                             onShow(instance) {
                                                 if (instance.state.ajax === undefined) {
                                                     instance.state.ajax = {
@@ -148,8 +150,9 @@
                                                     beforeSend: function () {
                                                         instance.state.ajax.isFetching = true;
                                                     },
-                                                    success: function(res) {                                                        
-                                                        content = "<table>";
+                                                    success: function(res) {        
+                                                        content = "<div>"
+                                                        content += "<table>";
                                                         content += "<tr><td class=\"\">name</td><td>" + res.name + "</td></tr>";
                                                         content += "<tr><td class=\"\">indicators</td><td>";
                                                         res.synonyms.forEach((synonym) => {
@@ -174,6 +177,10 @@
                                                         }
 
                                                         content += "</table>";
+                                                        content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
+                                                        content += "</div>"
+
+                                                        //console.log(this.dataset);
 
                                                         instance.setContent(content);
                                                         instance.state.ajax.isFetching = false;
