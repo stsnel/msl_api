@@ -58,7 +58,6 @@ class Client
             $body = json_decode($response->getBody(), true);
             $statusCode = $response->getStatusCode();
         } catch (TransferException $e) {
-
             dd($e->getMessage());
         }
         
