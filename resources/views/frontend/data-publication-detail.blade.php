@@ -180,8 +180,6 @@
                                                         content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
                                                         content += "</div>"
 
-                                                        //console.log(this.dataset);
-
                                                         instance.setContent(content);
                                                         instance.state.ajax.isFetching = false;
                                                     }
