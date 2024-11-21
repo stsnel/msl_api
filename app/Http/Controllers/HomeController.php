@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Ckan\Request\PackageSearch;
 use App\Models\DatasetDelete;
 use App\Jobs\ProcessDatasetDelete;
 use App\Models\Importer;
@@ -15,6 +14,8 @@ use App\Models\SourceDataset;
 use App\Models\DatasetCreate;
 use App\Ckan\Request\OrganizationList;
 use App\Ckan\Response\OrganizationListResponse;
+use App\CkanClient\Client;
+use App\CkanClient\Request\PackageSearchRequest;
 use App\Models\MappingLog;
 use App\Exports\MappingLogsExport;
 use App\Mappers\BgsMapper;
@@ -68,20 +69,15 @@ class HomeController extends Controller
         
         if($request->has('datasetId')) {
             $datasetId = $request->query('datasetId');
-            if($datasetId) {                
-                $client = new \GuzzleHttp\Client();
-                
-                $searchRequest = new PackageSearch();                
+            if($datasetId) {
+                $client = new Client();
+                $searchRequest = new PackageSearchRequest();
                 $searchRequest->query = 'name:' . $datasetId;
-                try {
-                    $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
-                } catch (\Exception $e) {
-                    
-                }
-                
-                $content = json_decode($response->getBody(), true);                
-                $results = $content['result']['results'];
-                
+                $searchRequest->rows = 1000;
+
+                $result = $client->get($searchRequest);
+                $results = $result->getResults();
+                                
                 return view('admin.remove-dataset-confirm', ['results' => $results]);
             } else {
                 
@@ -90,19 +86,13 @@ class HomeController extends Controller
             $datasetSource = $request->query('datasetSource');
             
             if($datasetSource) {                
-                $client = new \GuzzleHttp\Client();
-                
-                $searchRequest = new PackageSearch();
-                $searchRequest->rows = 1000;
+                $client = new Client();
+                $searchRequest = new PackageSearchRequest();
                 $searchRequest->query = 'owner_org:' . $datasetSource;
-                try {
-                    $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
-                } catch (\Exception $e) {
-                    
-                }
-                
-                $content = json_decode($response->getBody(), true);
-                $results = $content['result']['results'];
+                $searchRequest->rows = 1000;
+
+                $result = $client->get($searchRequest);
+                $results = $result->getResults();
                 
                 return view('admin.remove-dataset-confirm', ['results' => $results]);
             }
