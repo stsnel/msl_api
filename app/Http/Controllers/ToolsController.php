@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Ckan\Request\PackageSearch;
 use App\Ckan\Request\OrganizationList;
 use App\Ckan\Response\OrganizationListResponse;
 use App\CkanClient\Client;
@@ -402,21 +401,14 @@ class ToolsController extends Controller
     
     public function viewUnmatchedKeywords()
     {
-        $client = new \GuzzleHttp\Client();
-        
-        $searchRequest = new PackageSearch();
+        $client = new Client();
+        $searchRequest = new PackageSearchRequest();
+        $searchRequest->query = 'type:data-publication';
         $searchRequest->rows = 1000;
-        $searchRequest->query = 'type: data-publication';
-        
-        try {
-            $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
-        } catch (\Exception $e) {
-            
-        }
-        
-        $content = json_decode($response->getBody(), true);
-        $results = $content['result']['results'];                
-                                
+
+        $result = $client->get($searchRequest);
+        $results = $result->getResults();
+                                             
         $keywords = [];
         foreach ($results as $result) {
             if(count($result['tags']) > 0) {
@@ -471,26 +463,19 @@ class ToolsController extends Controller
         $data = [];
         $selected = '';
         
-        if ($request->has('datasetSource')) {
+        if ($request->has('datasetSource')) {            
             $datasetSource = $request->query('datasetSource');
             $selected = $datasetSource;
-            
-            $searchRequest = new PackageSearch();
-            $searchRequest->rows = 10;
+
+            $client = new Client();
+            $searchRequest = new PackageSearchRequest();
             $searchRequest->query = 'type:data-publication';
-            $searchRequest->filterQuery =  'owner_org:' . $datasetSource;            
-            
-            try {
-                $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
-            } catch (\Exception $e) {
-                
-            }
-            
-            $content = json_decode($response->getBody(), true);
-            $results = $content['result']['results'];
-            
-            //dd($content);
-            
+            $searchRequest->addFilterQuery('owner_org', $datasetSource);
+            $searchRequest->rows = 10;
+
+            $result = $client->get($searchRequest);
+            $results = $result->getResults();
+                        
             $keywordHelper = new KeywordHelper();
                     
             foreach ($results as $result) {
@@ -536,20 +521,15 @@ class ToolsController extends Controller
         
         if ($request->has('organization')) {
             $OrganizationId = $request->query('organization');
-            
-            $client = new \GuzzleHttp\Client();
-            
-            $searchRequest = new PackageSearch();
-            $searchRequest->query = 'owner_org:' . $OrganizationId;
+
+            $client = new Client();
+            $searchRequest = new PackageSearchRequest();
+            $searchRequest->query = 'type:data-publication';
+            $searchRequest->addFilterQuery('owner_org', $OrganizationId);
             $searchRequest->rows = 200;
-            try {
-                $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
-            } catch (\Exception $e) {
-                
-            }
-            
-            $content = json_decode($response->getBody(), true);
-            $results = $content['result']['results'];
+
+            $result = $client->get($searchRequest);
+            $results = $result->getResults();
             
             $dois = [];
             
