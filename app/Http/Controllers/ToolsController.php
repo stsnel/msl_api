@@ -4,9 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Maatwebsite\Excel\Facades\Excel;
-use App\Ckan\Request\OrganizationList;
-use App\Ckan\Response\OrganizationListResponse;
 use App\CkanClient\Client;
+use App\CkanClient\Request\OrganizationListRequest;
 use App\CkanClient\Request\PackageSearchRequest;
 use App\Converters\MaterialsConverter;
 use App\Converters\RockPhysicsConverter;
@@ -436,20 +435,11 @@ class ToolsController extends Controller
     
     public function abstractMatching(Request $request)
     {
-        $client = new \GuzzleHttp\Client();
-        
-        $OrganizationListrequest = new OrganizationList();
-        
-        try {
-            $response = $client->request($OrganizationListrequest->method,
-                $OrganizationListrequest->endPoint,
-                $OrganizationListrequest->getPayloadAsArray());
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
-        
-        $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
-        $organizations = $organizationListResponse->getOrganizations();
+        $client = new Client();
+        $organizationListRequest = new OrganizationListRequest();
+
+        $result = $client->get($organizationListRequest);
+        $organizations = $result->getResult();
         
         $filteredOrganizations = [];
         
@@ -505,19 +495,11 @@ class ToolsController extends Controller
     
     public function doiExport(Request $request)
     {
-        $client = new \GuzzleHttp\Client();
-        $OrganizationListrequest = new OrganizationList();
-        
-        try {
-            $response = $client->request($OrganizationListrequest->method,
-                $OrganizationListrequest->endPoint,
-                $OrganizationListrequest->getPayloadAsArray());
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
-        
-        $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
-        $organizations = $organizationListResponse->getOrganizations();
+        $client = new Client();
+        $organizationListRequest = new OrganizationListRequest();
+
+        $result = $client->get($organizationListRequest);
+        $organizations = $result->getResult();        
         
         if ($request->has('organization')) {
             $OrganizationId = $request->query('organization');
