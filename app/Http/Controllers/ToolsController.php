@@ -7,6 +7,8 @@ use Maatwebsite\Excel\Facades\Excel;
 use App\Ckan\Request\PackageSearch;
 use App\Ckan\Request\OrganizationList;
 use App\Ckan\Response\OrganizationListResponse;
+use App\CkanClient\Client;
+use App\CkanClient\Request\PackageSearchRequest;
 use App\Converters\MaterialsConverter;
 use App\Converters\RockPhysicsConverter;
 use App\Converters\ExcelToJsonConverter;
@@ -47,20 +49,13 @@ class ToolsController extends Controller
     
     public function geoview()
     {
-        $client = new \GuzzleHttp\Client();
-        
-        $searchRequest = new PackageSearch();
+        $client = new Client();
+        $searchRequest = new PackageSearchRequest();
         $searchRequest->query = 'type:data-publication msl_surface_area:[0 TO 500]';
         $searchRequest->rows = 1000;
-        try {
-            $response = $client->request($searchRequest->method, $searchRequest->endPoint, $searchRequest->getAsQueryArray());
-        } catch (\Exception $e) {
-            
-        }
-        
-        $content = json_decode($response->getBody(), true);
-        $results = $content['result']['results'];
-        
+
+        $result = $client->get($searchRequest);
+        $results = $result->getResults();
         
         $featureArray = [];
         $featureArrayPoints = [];
@@ -71,15 +66,7 @@ class ToolsController extends Controller
                     $featureArray[] = $result['msl_geojson_featurecollection'];
                 }
             }
-            
-            /*
-            if(isset($result['msl_geojson_featurecollection_points'])) {
-                if(strlen($result['msl_geojson_featurecollection_points']) > 0) {
-                    $featureArrayPoints[] = $result['msl_geojson_featurecollection_points'];
-                }
-            }
-            */
-            
+                                    
             //include extra data in point features for map testing
             if(isset($result['msl_geojson_featurecollection_points'])) {
                 if(strlen($result['msl_geojson_featurecollection_points']) > 0) {
@@ -100,23 +87,11 @@ class ToolsController extends Controller
                     $pointFeature = json_encode($pointFeature);
                     
                     $featureArrayPoints[] = $pointFeature;
-                    
-                    //dd($pointFeature);
-                    
-                    
-                    //$featureArrayPoints[] = $result['msl_geojson_featurecollection_points'];
                 }
             }
             
             
         }
-        
-        
-        
-        //dd($results);
-        //dd(json_encode($featureArray));
-        //dd(json_decode($featureArrayPoints[0]));
-        //dd(json_encode($featureArrayPoints));
         
         return view('admin.geoview', ['features' => json_encode($featureArray), 'featuresPoints' => json_encode($featureArrayPoints)]);
     }
@@ -125,7 +100,6 @@ class ToolsController extends Controller
     {
         $labs = Laboratory::where('latitude', '<>', '')->get();
         
-        //dd($labs);
         $featureArray = [];
         
         foreach ($labs as $lab) {
@@ -141,11 +115,7 @@ class ToolsController extends Controller
             ];
             
             $featureArray[] = $feature;
-        }
-        
-        //dd(json_encode($featureArray));
-        //dd(htmlspecialchars(json_encode($featureArray), ENT_QUOTES, 'UTF-8'));
-        
+        }        
         
         return view('admin.geoview-labs', ['features' => json_encode($featureArray)]);
     }
