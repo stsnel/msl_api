@@ -1,3 +1,4 @@
+@section('title', 'Data access')
 <x-layout_main>
 
     <div class="mainContentDiv">

@@ -1,3 +1,4 @@
+@section('title', 'Contribute as a repository')
 <x-layout_main>
 
     <ul class="steps steps-vertical">

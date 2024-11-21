@@ -1,3 +1,4 @@
+@section('title', 'Laboratory')
 <x-layout_main>
 
     <div class="mainContentDiv">

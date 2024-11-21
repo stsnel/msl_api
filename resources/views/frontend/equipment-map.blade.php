@@ -1,3 +1,4 @@
+@section('title', 'Equipment map')
 <x-layout_main>
 
     <div class="mainContentDiv">
