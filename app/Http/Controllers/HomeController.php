@@ -12,9 +12,8 @@ use App\Jobs\ProcessImport;
 use App\Models\SourceDatasetIdentifier;
 use App\Models\SourceDataset;
 use App\Models\DatasetCreate;
-use App\Ckan\Request\OrganizationList;
-use App\Ckan\Response\OrganizationListResponse;
 use App\CkanClient\Client;
+use App\CkanClient\Request\OrganizationListRequest;
 use App\CkanClient\Request\PackageSearchRequest;
 use App\Models\MappingLog;
 use App\Exports\MappingLogsExport;
@@ -46,20 +45,12 @@ class HomeController extends Controller
     
     public function removeDataset()
     {
-        $client = new \GuzzleHttp\Client();
-        $OrganizationListrequest = new OrganizationList();
-        
-        try {
-            $response = $client->request($OrganizationListrequest->method,
-                $OrganizationListrequest->endPoint,
-                $OrganizationListrequest->getPayloadAsArray());
-        } catch (\Exception $e) {
-            dd($e->getMessage());
-        }
-        
-        $organizationListResponse = new OrganizationListResponse(json_decode($response->getBody(), true), $response->getStatusCode());
-        $organizations = $organizationListResponse->getOrganizations();
-        
+        $client = new Client();
+        $organizationListRequest = new OrganizationListRequest();
+
+        $result = $client->get($organizationListRequest);
+        $organizations = $result->getResult();
+                
         return view('admin.remove-dataset', ['organizations' => $organizations]);
     }
     
