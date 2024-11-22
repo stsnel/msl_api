@@ -297,7 +297,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary, null, false, false, true, true);
+            $this->processNode($topNode, $vocabulary, null, false, false, false, false);
         }
         
         
