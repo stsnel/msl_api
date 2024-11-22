@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('laboratory_equipment_addons', function (Blueprint $table) {
             $table->id();
-            $table->string('description');
+            $table->text('description');
             $table->unsignedBigInteger('laboratory_equipment_id');
             $table->unsignedBigInteger('keyword_id')->nullable();
             $table->string('type');
