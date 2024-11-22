@@ -113,6 +113,14 @@ class BaseDataset
 
     public $msl_has_microscopy_original = false;
 
+    public $msl_has_subsurface = false;
+
+    public $msl_has_subsurface_original = false;
+
+    public $msl_has_geoenergy = false;
+
+    public $msl_has_geoenergy_original = false;
+
     public $msl_enriched_keywords = [];
 
     public $msl_original_keywords = [];
@@ -261,6 +269,27 @@ class BaseDataset
                     if (! $this->hasInterpretedSubDomain($subDomain)) {
                         $this->msl_subdomains_interpreted[] = [
                             'msl_subdomain_interpreted' => 'geochemistry'
+                        ];
+                    }
+                }
+                break;
+
+            case "geo-energy test beds":
+                if (! $this->hasSubDomain($subDomain)) {
+                    $this->msl_subdomains[] = [
+                        'msl_subdomain' => 'geo-energy test beds'
+                    ];
+                }
+                if ($original) {
+                    if (! $this->hasOriginalSubDomain($subDomain)) {
+                        $this->msl_subdomains_original[] = [
+                            'msl_subdomain_original' => 'geo-energy test beds'
+                        ];
+                    }
+                } else {
+                    if (! $this->hasInterpretedSubDomain($subDomain)) {
+                        $this->msl_subdomains_interpreted[] = [
+                            'msl_subdomain_interpreted' => 'geo-energy test beds'
                         ];
                     }
                 }
@@ -425,6 +454,14 @@ class BaseDataset
                     $this->msl_has_microscopy = true;
                     break;
 
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/subsurface'):
+                    $this->msl_has_subsurface = true;
+                    break;
+
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/testbeds'):
+                    $this->msl_has_geoenergy = true;
+                    break;
+
                 default:
                     throw new \Exception('invalid keyword type added');
             }
@@ -464,6 +501,14 @@ class BaseDataset
 
                 case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/microscopy'):
                     $this->msl_has_microscopy_original = true;
+                    break;
+
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/subsurface'):
+                    $this->msl_has_subsurface_original = true;
+                    break;
+
+                case str_starts_with($vocabUri, 'https://epos-msl.uu.nl/voc/testbeds'):
+                    $this->msl_has_geoenergy_original = true;
                     break;
 
                 default:
