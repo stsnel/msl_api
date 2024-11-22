@@ -196,7 +196,7 @@ $(document).ready(function () {
         }
     }
 
-    $("#search-filters-query").keyup(function () {
+    $("#search-filters").keyup(function () {
         var searchString = $(this).val();
         if($("#filterTreeToggleInterpreted").is(':checked')) {
             $('#jstree-interpreted').jstree('search', searchString);

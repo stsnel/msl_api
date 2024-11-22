@@ -23,7 +23,7 @@ tabLinks:     array: [category[]'labs-map', 'labs-list', 'equipment-map', 'equip
             <input
             class="peer h-full w-full outline-none text-sm pr-2 pl-2"
             type="text"
-            id="search"
+            id="search-filters"
             placeholder="Search Filters.." /> 
 
         </div>
