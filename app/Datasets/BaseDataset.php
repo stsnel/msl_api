@@ -274,26 +274,26 @@ class BaseDataset
                 }
                 break;
 
-                case "geo-energy test beds":
-                    if (! $this->hasSubDomain($subDomain)) {
-                        $this->msl_subdomains[] = [
-                            'msl_subdomain' => 'geo-energy test beds'
+            case "geo-energy test beds":
+                if (! $this->hasSubDomain($subDomain)) {
+                    $this->msl_subdomains[] = [
+                        'msl_subdomain' => 'geo-energy test beds'
+                    ];
+                }
+                if ($original) {
+                    if (! $this->hasOriginalSubDomain($subDomain)) {
+                        $this->msl_subdomains_original[] = [
+                            'msl_subdomain_original' => 'geo-energy test beds'
                         ];
                     }
-                    if ($original) {
-                        if (! $this->hasOriginalSubDomain($subDomain)) {
-                            $this->msl_subdomains_original[] = [
-                                'msl_subdomain_original' => 'geo-energy test beds'
-                            ];
-                        }
-                    } else {
-                        if (! $this->hasInterpretedSubDomain($subDomain)) {
-                            $this->msl_subdomains_interpreted[] = [
-                                'msl_subdomain_interpreted' => 'geo-energy test beds'
-                            ];
-                        }
+                } else {
+                    if (! $this->hasInterpretedSubDomain($subDomain)) {
+                        $this->msl_subdomains_interpreted[] = [
+                            'msl_subdomain_interpreted' => 'geo-energy test beds'
+                        ];
                     }
-                    break;
+                }
+                break;
 
             default:
                 throw new \Exception('attempt to add invalid subdomain');
