@@ -114,6 +114,12 @@ URLSearchParams.prototype.remove = function(key, value) {
       }
     });
 
+    $("#search-filters").keyup(function () {
+      var searchString = $(this).val();
+          $('#jstree-laboratories').jstree('search', searchString);
+      }
+    );
+
   }).bind('ready.jstree', function (event, data) {
     for (let i = 0; i < activeNodes.length; i++) {
       data.instance._open_to(activeNodes[i]);

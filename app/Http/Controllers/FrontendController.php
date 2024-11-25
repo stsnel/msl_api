@@ -198,19 +198,17 @@ class FrontendController extends Controller
             abort(404, 'ckan request failed');
         }
 
-
         // get the name of lab
-        $client2 = new Client();
-        $request2 = new PackageShowRequest();
-        $request2->id = $id;
+        $Labrequest = new PackageShowRequest();
+        $Labrequest->id = $id;
 
-        $result2 = $client2->get($request2);
+        $Labresult = $client->get($Labrequest);
 
-        if(!$result2->isSuccess()) {
+        if(!$Labresult->isSuccess()) {
             abort(404, 'ckan request failed for request 2');
         }
 
-        return view('frontend.lab-detail-equipment', ['data' => $result->getResults(), 'ckanLabName' => $id, 'data2' => $result2->getResult()]);
+        return view('frontend.lab-detail-equipment', ['data' => $result->getResults(), 'ckanLabName' => $id, 'data2' => $Labresult->getResult()]);
     }
 
     /**
@@ -362,6 +360,26 @@ class FrontendController extends Controller
         }
 
         return view('frontend.data-publication-detail', ['data' => $result->getResult()]);
+    }
+
+    /**
+     * Show the data-publication-files page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function dataPublicationFiles($id)
+    {
+        $client = new Client();
+        $request = new PackageShowRequest();
+        $request->id = $id;
+
+        $result = $client->get($request);
+
+        if(!$result->isSuccess()) {
+            abort(404, 'ckan request failed');
+        }
+
+        return view('frontend.data-publication-detail-files', ['data' => $result->getResult()]);
     }
 
     /**

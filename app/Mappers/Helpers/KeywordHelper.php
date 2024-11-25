@@ -13,7 +13,8 @@ class KeywordHelper
         'analogue' => 'analogue modelling of geologic processes',
         'paleomagnetism' => 'paleomagnetism',
         'geochemistry' => 'geochemistry',
-        'microscopy' => 'microscopy and tomography'
+        'microscopy' => 'microscopy and tomography',
+        'testbeds' => 'geo-energy test beds'
     ];       
     
     
@@ -222,7 +223,7 @@ class KeywordHelper
     public function extractFromText($text, $domainVocabulariesOnly = false)
     {        
         if($domainVocabulariesOnly) {
-            $vocabularies = Vocabulary::where('version', config('vocabularies.vocabularies_current_version'))->whereIn('name', ['rockphysics', 'analogue', 'paleomagnetism', 'geochemistry', 'microscopy'])->get();
+            $vocabularies = Vocabulary::where('version', config('vocabularies.vocabularies_current_version'))->whereIn('name', ['rockphysics', 'analogue', 'paleomagnetism', 'geochemistry', 'microscopy', 'testbeds'])->get();
             $searchKeywords = collect([]);
             foreach ($vocabularies as $vocabulary) {
                 $searchKeywords = $searchKeywords->merge($vocabulary->search_keywords()->where('exclude_abstract_mapping', false)->get());

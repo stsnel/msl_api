@@ -1,3 +1,4 @@
+@section('title', 'Data publication')
 <x-layout_main>
 
     <div class="mainContentDiv">
@@ -7,8 +8,18 @@
 
         <div class="noMobileView_wideScreenDiv">
 
+        <div class="tabLinksParent">
+            @include('components.tabLinks',[
+                'categoryName'  => 'Sections',
+                'routes'        => array(
+                        'Metadata'   => route("data-publication-detail", ['id' => $data['name']]),
+                        'Files'  => route("data-publication-detail-files", ['id' => $data['name']])
+                ),
+                'routeActive'   => route("data-publication-detail", ['id' => $data['name']])
+            ])
+        </div>
+
             <div class="listMapDetailDivParent">
-                
                     <div class="detailDiv dividers">
 
                                 <div class="detailEntryDiv">
@@ -66,15 +77,17 @@
                                     @if (array_key_exists("msl_original_keywords", $data))
                                         <br>
                                         <details class="collapse collapse-arrow wordCardCollapser" id="corresponding-keywords-panel">
+
                                         <summary class="collapse-title">Corresponding MSL vocabulary keywords 
                                             <x-ri-information-line id="corresponding-keywords-popup" class="info-icon"/>
                                         </summary>
-                                        <div class="collapse-content wordCardParent">
+                                        <div class="collapse-content wordCardParent" id="corresponding-keywords-container">
                                             @foreach ( $data['msl_original_keywords'] as $keyword)
                                                 <div 
                                                     class="wordCard"
                                                     data-uri="{{ $keyword['msl_original_keyword_uri'] }}"
                                                     data-highlight="text-keyword"
+                                                    data-filter-link="/data-access?msl_enriched_keyword_uri[]={{ $keyword['msl_original_keyword_uri'] }}"
                                                 >
                                                     {{ $keyword['msl_original_keyword_label'] }}
                                                 </div>
@@ -86,44 +99,15 @@
                                                 content: "lists terms from MSL vocabularies that are the same as, or are interpreted synonymous to the originally assigned keywords",
                                                 placement: "right"
                                             });
-                                        </script>
-                                    @endif
 
-                                    @if (array_key_exists("msl_enriched_keywords", $data))
-                                    <br>
-                                    <details class="collapse collapse-arrow wordCardCollapser" open>
-                                    <summary class="collapse-title">MSL enriched keywords 
-                                        <x-ri-information-line id="enriched-keywords-popup" class="info-icon"/>
-                                    </summary>
-                                    <div class="collapse-content wordCardParent" id="enriched-keywords-container">
-                                        @foreach ( $data['msl_enriched_keywords'] as $keyword)
-                                            <div
-                                                class="wordCard" 
-                                                data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
-                                                data-uri="{{ $keyword['msl_enriched_keyword_uri'] }}"
-                                                data-highlight="text-keyword"
-                                                data-matched-child-uris='{!! json_encode($keyword['msl_enriched_keyword_match_child_uris']) !!}'
-                                                data-sources='{!! json_encode($keyword['msl_enriched_keyword_match_locations']) !!}'
-                                            >
-                                                {{ $keyword['msl_enriched_keyword_label'] }}
-                                            </div>
-                                        @endforeach
-                                    </div>
-                                    </details>
-                                    <script>
-                                        // import 'tippy.js/themes/light.css';
-                                        tippy('#enriched-keywords-popup', {
-                                            content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
-                                            placement: "right"
-                                        });
-
-                                        tippy.delegate('#enriched-keywords-container', {
+                                            tippy.delegate('#corresponding-keywords-container', {
                                             target: '.wordCard',
                                             trigger: 'click',
                                             placement: 'right',
                                             interactive: true,
                                             allowHTML: true,
                                             appendTo: document.body,
+                                            maxWidth: 600,
                                             onShow(instance) {
                                                 if (instance.state.ajax === undefined) {
                                                     instance.state.ajax = {
@@ -145,8 +129,9 @@
                                                     beforeSend: function () {
                                                         instance.state.ajax.isFetching = true;
                                                     },
-                                                    success: function(res) {                                                        
-                                                        content = "<table>";
+                                                    success: function(res) {        
+                                                        content = "<div>";
+                                                        content += "<table>";
                                                         content += "<tr><td class=\"\">name</td><td>" + res.name + "</td></tr>";
                                                         content += "<tr><td class=\"\">indicators</td><td>";
                                                         res.synonyms.forEach((synonym) => {
@@ -171,6 +156,109 @@
                                                         }
 
                                                         content += "</table>";
+                                                        content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
+                                                        content += "</div>";
+
+                                                        instance.setContent(content);
+                                                        instance.state.ajax.isFetching = false;
+                                                    }
+                                                });
+                                            },
+                                            onHidden(instance) {
+                                                instance.setContent('Loading...')
+                                                instance.state.ajax.canFetch = true
+                                            },
+                                        });
+                                        </script>
+                                    @endif
+
+                                    @if (array_key_exists("msl_enriched_keywords", $data))
+                                    <br>
+                                    <details class="collapse collapse-arrow wordCardCollapser" open>
+                                    <summary class="collapse-title">MSL enriched keywords 
+                                        <x-ri-information-line id="enriched-keywords-popup" class="info-icon"/>
+                                    </summary>
+                                    <div class="collapse-content wordCardParent" id="enriched-keywords-container">
+                                        @foreach ( $data['msl_enriched_keywords'] as $keyword)
+                                            <div
+                                                class="wordCard" 
+                                                data-associated-subdomains='["{{ implode(', ', $keyword['msl_enriched_keyword_associated_subdomains']) }}"]'
+                                                data-uri="{{ $keyword['msl_enriched_keyword_uri'] }}"
+                                                data-filter-link="/data-access?msl_enriched_keyword_uri[]={{ $keyword['msl_enriched_keyword_uri'] }}"
+                                                data-highlight="text-keyword"
+                                                data-matched-child-uris='{!! json_encode($keyword['msl_enriched_keyword_match_child_uris']) !!}'
+                                                data-sources='{!! json_encode($keyword['msl_enriched_keyword_match_locations']) !!}'
+                                            >
+                                                {{ $keyword['msl_enriched_keyword_label'] }}
+                                            </div>
+                                        @endforeach
+                                    </div>
+                                    </details>
+                                    <script>
+                                        // import 'tippy.js/themes/light.css';
+                                        tippy('#enriched-keywords-popup', {
+                                            content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
+                                            placement: "right"
+                                        });
+
+                                        tippy.delegate('#enriched-keywords-container', {
+                                            target: '.wordCard',
+                                            trigger: 'click',
+                                            placement: 'right',
+                                            interactive: true,
+                                            allowHTML: true,
+                                            appendTo: document.body,
+                                            maxWidth: 600,
+                                            onShow(instance) {
+                                                if (instance.state.ajax === undefined) {
+                                                    instance.state.ajax = {
+                                                        isFetching: false,
+                                                        canFetch: true,
+                                                    }
+                                                }
+
+                                                if (instance.state.ajax.isFetching || !instance.state.ajax.canFetch) {
+                                                    return
+                                                }
+
+                                                $.ajax({
+                                                    url: '/api/vocabularies' + "/term?uri=" + instance.reference.dataset.uri,
+                                                    type: 'GET',
+                                                    dataType: 'json',
+                                                    dataset: instance.reference.dataset,
+                                                    async: true,
+                                                    beforeSend: function () {
+                                                        instance.state.ajax.isFetching = true;
+                                                    },
+                                                    success: function(res) {        
+                                                        content = "<div>";
+                                                        content += "<table>";
+                                                        content += "<tr><td class=\"\">name</td><td>" + res.name + "</td></tr>";
+                                                        content += "<tr><td class=\"\">indicators</td><td>";
+                                                        res.synonyms.forEach((synonym) => {
+                                                        content += '"' + synonym.name + '" ';
+                                                        });
+                                                        content += "</td></tr>";
+                                                        content += "<tr><td class=\"\">parent term</td><td>";
+                                                        if(res.parent) {
+                                                        content += res.parent.name;
+                                                        } else {
+                                                        content += 'none';
+                                                        }
+                                                        content += "</td></tr>";
+                                                        content += "<tr><td class=\"\">occurs in vocabulary</td><td>" + res.vocabulary.display_name + "</td></tr>";
+                                                        content += "<tr><td class=\"\">uri</td><td>" + res.uri + "</td></tr>";
+
+                                                        if(this.dataset.sources) {
+                                                            matchSources = JSON.parse(this.dataset.sources);
+                                                            if(matchSources.length > 0) {
+                                                                content += "<tr><td class=\"\">sources</td><td>" + matchSources.join(", ") + "</td></tr>";
+                                                            }
+                                                        }
+
+                                                        content += "</table>";
+                                                        content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
+                                                        content += "</div>";
 
                                                         instance.setContent(content);
                                                         instance.state.ajax.isFetching = false;
@@ -353,7 +441,9 @@
                                 <br>
                                 <div class="detailEntryDiv flex flex-row">
                                     <h4 class="detailEntrySub1">Spatial coordinates</h4>
-                                    <div id="map" style="height: 300px;"></div>
+                                    <div class="detailEntrySub2 flex flex-col">
+                                        <div id="map" style="height: 300px;"></div>
+                                    </div>
 
                                     <script>
                                         function onEachFeature(feature, layer) {
@@ -366,7 +456,7 @@
                                     
                                         var features = <?php echo $data['msl_geojson_featurecollection']; ?>;        				
                                     
-                                        var map = L.map('map').setView([51.505, -0.09], 4);
+                                        var map = L.map('map').setView([0, 0], 1);
                                         
                                         L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', {
                                             maxZoom: 19,

@@ -1,3 +1,4 @@
+@section('title', 'Laboratory map')
 <x-layout_main>
 
     <div class="mainContentDiv">
@@ -51,7 +52,7 @@
                     <div class="listView">
 
                         {{-- loop list content --}}
-                        @include('components.map-view')
+                        @include('components.lab-map-view')
                         
                         
                     </div>

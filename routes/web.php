@@ -109,5 +109,6 @@ Route::get('/contribute-researcher', [FrontendController::class, 'contributeRese
 Route::get('/contribute-repository', [FrontendController::class, 'contributeRepository'])->name('contribute-repository');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/data-publication/{id}', [FrontendController::class, 'dataPublication'])->name('data-publication-detail');
+Route::get('/data-publication/{id}/files', [FrontendController::class, 'dataPublicationFiles'])->name('data-publication-detail-files');
 Route::get('/themeTest', [FrontendController::class, 'themeTest'])->name('themeTest');
 Route::get('/lablayout', [FrontendController::class, 'labs_layout'])->name('labs_layout');

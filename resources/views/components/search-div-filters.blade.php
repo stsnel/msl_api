@@ -22,7 +22,7 @@ filterDataPath:  (string) the path to the file which contains the data for the f
             <input
             class="peer h-full w-full outline-none text-sm pr-2 pl-2"
             type="text"
-            id="search"
+            id="search-filters"
             placeholder="Search Filters.." /> 
 
         </div>

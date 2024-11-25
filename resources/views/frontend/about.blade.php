@@ -1,3 +1,4 @@
+@section('title', 'About')
 <x-layout_main >
     <div class="mainContentDiv flex-col">
         <h1 class="pt-20">About MSL</h1>

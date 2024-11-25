@@ -1,3 +1,4 @@
+@section('title', 'Home')
 <x-layout_main>
     <div
     class="hero h-dvh"
