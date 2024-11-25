@@ -4,7 +4,6 @@
 Variables
 
 filterDataPath:  (string) the path to the file which contains the data for the filtertree
-tabLinks:     array: [category[]'labs-map', 'labs-list', 'equipment-map', 'equipment-list']
 
 
 --}}

@@ -39,7 +39,9 @@
                                     @if (array_key_exists("msl_tags", $data))
                                         <br>
                                         <details class="collapse collapse-arrow wordCardCollapser" id="original-keywords-panel">
-                                            <summary class="collapse-title">Originally assigned keywords <i id="orginal-keywords-popup">i</i></summary>
+                                            <summary class="collapse-title">Originally assigned keywords 
+                                                <x-ri-information-line id="orginal-keywords-popup" class="info-icon"/>
+                                            </summary>
                                             <div class="collapse-content wordCardParent">
                                                 @foreach ( $data['msl_tags'] as $keyword)
                                                     <div 
@@ -64,7 +66,9 @@
                                     @if (array_key_exists("msl_original_keywords", $data))
                                         <br>
                                         <details class="collapse collapse-arrow wordCardCollapser" id="corresponding-keywords-panel">
-                                        <summary class="collapse-title">Corresponding MSL vocabulary keywords <i id="corresponding-keywords-popup">i</i></summary>
+                                        <summary class="collapse-title">Corresponding MSL vocabulary keywords 
+                                            <x-ri-information-line id="corresponding-keywords-popup" class="info-icon"/>
+                                        </summary>
                                         <div class="collapse-content wordCardParent">
                                             @foreach ( $data['msl_original_keywords'] as $keyword)
                                                 <div 
@@ -88,7 +92,9 @@
                                     @if (array_key_exists("msl_enriched_keywords", $data))
                                     <br>
                                     <details class="collapse collapse-arrow wordCardCollapser" open>
-                                    <summary class="collapse-title">MSL enriched keywords <i id="enriched-keywords-popup" class="bg-info-200 p-2 rounded-xl">i</i></summary>
+                                    <summary class="collapse-title">MSL enriched keywords 
+                                        <x-ri-information-line id="enriched-keywords-popup" class="info-icon"/>
+                                    </summary>
                                     <div class="collapse-content wordCardParent" id="enriched-keywords-container">
                                         @foreach ( $data['msl_enriched_keywords'] as $keyword)
                                             <div
@@ -105,6 +111,7 @@
                                     </div>
                                     </details>
                                     <script>
+                                        // import 'tippy.js/themes/light.css';
                                         tippy('#enriched-keywords-popup', {
                                             content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
                                             placement: "right"

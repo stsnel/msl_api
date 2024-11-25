@@ -35,9 +35,9 @@
 
 @endphp
 
+ 
 
-
-<?php /*dd($repositories); */?>
+<?php /*dd($repositories);*/ ?>
 
 {{-- To Do: image links missing --}}
 
@@ -49,18 +49,18 @@
             <p class="max-w-screen-md pb-10">EPOS MSL currently provides access to data at the data repositories shown on this page. 
               The fastest route to make your data discoverable by MSL, is to publish your data at one of these. Note that some of these are only accessible for 
               researchers affiliated to the hosting institutes. Would you like to publish elsewhere? Let us know! We can then start working towards including data from your repository too.</p>
-        
+              
           
         <div class="flex flex-wrap justify-center gap-4 max-w-screen-lg">
 
           @foreach ($repositories as $repo)
             @if ($repo["hide"] == "false")
 
-              <div class="card bg-base-300 w-64 h-64 shadow-xl flex justify-between flex-col p-2">
+              <div class="card bg-base-300 size-80 shadow-xl flex justify-between flex-col p-2">
                 <figure>
                   <img
                   class="h-48 object-contain"
-                  src= {{ asset( $repo["image_url"]) }}
+                  src= {{ asset( 'images/'.str_replace(' ', '', $repo["image_url"]) )}}
                     alt={{ $repo["organization_display_name"] }} />
                 </figure>
                 <div class="card-body p-2">

@@ -21,7 +21,13 @@ class FrontendController extends Controller
      */
     public function index()
     {
-        return view('frontend.index');
+        $client = new Client();
+        $SearchRequest = new PackageSearchRequest();
+        $SearchRequest->addFilterQuery("type", "data-publication");
+
+        $result = $client->get($SearchRequest);
+
+        return view('frontend.index', ['result' => $result]);
     }
 
     /**

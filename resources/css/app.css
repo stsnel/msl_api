@@ -105,6 +105,9 @@
     .wordCardCollapser{
       @apply bg-primary-300 shadow-lg
     }
+    .wordCardHighlighted{
+      @apply bg-secondary-200 text-secondary-900
+    }
 
     /*###############
       general elements
@@ -122,7 +125,25 @@
       @apply w-full
     }
 
+    /*###############
+      icons
+      ###############*/
+    .info-icon{
+      @apply w-8 h-8 p-1 fill-info-700  rounded-full inline
+    }
+
+
+    /*###############
+    various
+    ###############*/
+    .index-opacity-parent{
+      @apply bg-primary-200 text-primary-900 opacity-90 p-8 rounded-lg max-w-md
+    }
+    .index-opacity-child{
+      @apply opacity-100
+    }
 }
 
 @tailwind components;
 @tailwind utilities;
+

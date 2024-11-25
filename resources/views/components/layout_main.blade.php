@@ -18,7 +18,7 @@
     </nav>
 
     {{-- no general class attached due to landing page --}}
-    <main class="pb-20 ">
+    <main class="">
 
         {{-- @yield('content') --}}
         {{ $slot }}

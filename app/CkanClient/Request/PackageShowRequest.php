@@ -1,5 +1,5 @@
 <?php
-namespace App\CkanClient\Request;
+namespace App\CkanClient\Request; 
 
 use App\CkanClient\Response\BaseResponse;
 
