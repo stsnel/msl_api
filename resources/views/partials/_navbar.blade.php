@@ -57,6 +57,14 @@
                 </ul>
               </details>
             </li>
+            <li>
+              <details>
+                <summary>Vocabularies</summary>
+                <ul class="bg-base-100 rounded-t-none p-2 z-20">
+                  <li><a class="no-underline" href="{{ route('keyword-selector') }}">Keyword selector</a></li>
+                </ul>
+              </details>
+            </li>
             <li><a class="no-underline" href="{{ route('about') }}">About MSL</a></li>
             <li><a class="no-underline">EPOS central data portal</a></li>
           </ul>
