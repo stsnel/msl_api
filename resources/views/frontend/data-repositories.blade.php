@@ -1,4 +1,5 @@
 @section('title', 'Data repositories')
+
 <x-layout_main >
   @php
   $repos = [

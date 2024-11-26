@@ -20,6 +20,16 @@ export default {
           "primary-900": "var(--primary-900)",
 
 
+          // "primary-100": "hsl(var(--primary-100  / <alpha-value>))",
+          // "primary-200": "hsl(var(--primary-200  / <alpha-value>))",
+          // "primary-300": "hsl(var(--primary-300  / <alpha-value>))",
+          // "primary-400": "hsl(var(--primary-400  / <alpha-value>))",
+          // "primary-500": "var(--primary-500  / <alpha-value>)",
+          // "primary-600": "hsl(var(--primary-600  / <alpha-value>))",
+          // "primary-700": "hsl(var(--primary-700  / <alpha-value>))",
+          // "primary-800": "hsl(var(--primary-800  / <alpha-value>))",
+          // "primary-900": "hsl(var(--primary-900  / <alpha-value>))",
+
           "base-400": "var(--base-400)",
           "base-500": "var(--base-500)",
           "base-600": "var(--base-600)",
@@ -104,6 +114,20 @@ export default {
     themes: [
       {
         theme1: {
+          // "primary": "#e1ae62",
+          // "--primary-100": "#f7f4ef",
+          // "--primary-200": "#ede3d4",
+          // "--primary-300": "#eed3ad",
+          // "--primary-400": "#f0c380",
+          // "--primary-500": "#e1ae62",
+          // "--primary-600": "#c38a33",
+          // "--primary-700": "#956521",
+          // "--primary-800": "#583706",
+          // "--primary-900": "#160f04",
+          // "primary-content": "#000000",
+
+          // e1ae62
+          // "primary": "225 174 98",
           "primary": "#e1ae62",
           "--primary-100": "#f7f4ef",
           "--primary-200": "#ede3d4",

@@ -25,22 +25,48 @@
         <?php /* dd($activeFilters); */?>
         
         {{-- styling needs some tuning regarding long filter text elements --}}
-        <div class="flex flex-col max-w-80 text-wrap">
-            <h5>Applied Filters</h5>
+        <div class="flex flex-col text-wrap">
             <?php
             $filterKeys = collect($activeFilters)->keys();
+            ?>            
 
-            ?>
-            <ul class="list-disc list-inside"> 
+                <h5 class="pb-2">Applied Filters  
+                    @if ( sizeof($filterKeys) > 0 )
+                        <a href="{{ route('data-access') }}">
+                            <x-ri-delete-bin-2-line 
+                            class="remove-all-icon"
+                            id="remove-all-popup"/>
+                            <script>
+                                tippy('#remove-all-popup', {
+                                    content: "remove all filters",
+                                    placement: "right"
+                                });
+                            </script>
+                        </a>
+                    @endif
+                </h5>
 
-                @foreach ( $filterKeys as $key )
-                    <li>{{ $key }}:
+            @if ( sizeof($filterKeys) > 0 )
+                <div class="wordCardParent"> 
+
+                    @foreach ( $filterKeys as $key )
                         @foreach ( $activeFilters[$key] as $entry)
-                            {{ $entry }} 
+                            <div class="wordCard" id="remove-filter-popup">
+                                <x-ri-close-line 
+                                class="close-icon"/>
+                                {{ $entry }}
+                            </div>
                         @endforeach
-                    </li>
-                @endforeach
-            </ul>
+                    @endforeach
+                    <script>
+                        tippy('#remove-filter-popup', {
+                            content: "click to remove filter",
+                            placement: "right"
+                        });
+                    </script>
+                </div>
+            @endif
+
         </div>
 
 

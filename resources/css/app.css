@@ -68,9 +68,10 @@
     .listMapDiv{
       @apply w-full flex flex-col
     }
+     
     /* List view div */
     .listView{
-      @apply flex flex-col
+      @apply flex flex-col dividers
     }
 
     /*###############
@@ -131,6 +132,15 @@
     .info-icon{
       @apply w-8 h-8 p-1 fill-info-700  rounded-full inline
     }
+
+    .close-icon{
+      @apply w-6 h-6 fill-error-600  rounded-full inline
+    }
+
+    .remove-all-icon{
+      @apply w-6 h-6 fill-error-600  rounded-full inline
+    }
+
 
 
     /*###############

@@ -41,7 +41,8 @@
                                 'href'          => route('data-publication-detail', ['id' => $dataPublication['id']]),
                                 'title'         => $dataPublication['title'],
                                 'description'   => $dataPublication['notes'],
-                                'authors'       => $dataPublication['msl_authors']
+                                'authors'       => $dataPublication['msl_authors'],
+                                'date'          => $dataPublication['msl_publication_year']
                                 ])
 
                         @endforeach         

@@ -24,10 +24,23 @@ class FrontendController extends Controller
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
         $SearchRequest->addFilterQuery("type", "data-publication");
+        $datasetCount = $client->get($SearchRequest)->getTotalResultsCount();
 
-        $result = $client->get($SearchRequest);
+        $SearchRequest = new PackageSearchRequest();
+        $SearchRequest->addFilterQuery("type", "lab");
+        $labCount = $client->get($SearchRequest)->getTotalResultsCount();
 
-        return view('frontend.index', ['result' => $result]);
+        $request = new OrganizationListRequest();
+        $reposArray = $client->get($request)->getResult();
+        $reposCount = 0;
+        foreach($reposArray as $entry){
+            if($entry['hide'] == "false"){
+                $reposCount++;
+            }
+        }
+
+
+        return view('frontend.index', ['datasetsCount' => $datasetCount, 'labCount' => $labCount, 'reposCount' => $reposCount]);
     }
 
     /**
