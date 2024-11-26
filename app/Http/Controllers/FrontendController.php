@@ -396,6 +396,64 @@ class FrontendController extends Controller
     }
 
     /**
+     * Show the keyword selector page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function keywordSelector()
+    {
+        return view('frontend.keyword-selector');
+    }
+
+    /**
+     * Create CSV file based on keyword selector input
+     * 
+     * @return voic
+     */
+    public function keywordExport(Request $request)
+    {
+        if ($request->has(['sampleKeywordsText', 'sampleKeywordsUri', 'sampleKeywordsVocabUri'])) {        
+            $texts = $request->input('sampleKeywordsText');;
+            $uris = $request->input('sampleKeywordsUri');
+            $vocabUris = $request->input('sampleKeywordsVocabUri');
+            $lines = [];
+            
+            
+            if(count($texts) === count($uris) && count($texts) === count($vocabUris)) {
+                for ($x = 0; $x < count($uris); $x++) {
+                    $lines[] = [
+                        'text' => $texts[$x],
+                        'uri' => $uris[$x],
+                        'vocabUri' => $vocabUris[$x]
+                    ];
+                }
+            }
+
+            $headers = [
+                'Cache-Control'       => 'must-revalidate, post-check=0, pre-check=0'
+            ,   'Content-type'        => 'text/csv'
+            ,   'Content-Disposition' => 'attachment; filename=keywords.csv'
+            ,   'Expires'             => '0'
+            ,   'Pragma'              => 'public'
+            ];
+
+            array_unshift($lines, array_keys($lines[0]));
+
+            $callback = function() use ($lines) 
+            {
+                $FH = fopen('php://output', 'w');
+                foreach ($lines as $line) { 
+                    fputcsv($FH, $line);
+                }
+                fclose($FH);
+            };
+
+            return response()->stream($callback, 200, $headers);
+        }
+        return back();
+    }
+
+    /**
      * Get a paginator object
      * 
      * @return LengthAwarePaginator
@@ -422,7 +480,7 @@ class FrontendController extends Controller
         return view('frontend.themeTest');
     }
     
-        /**
+    /**
      * Show lab data test page
      * 
      * @return \Illuminate\Contracts\Support\Renderable
