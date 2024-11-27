@@ -107,7 +107,7 @@
       @apply bg-primary-300 shadow-lg
     }
     .wordCardHighlighted{
-      @apply bg-secondary-200 text-secondary-900
+      @apply bg-secondary-100 text-secondary-900
     }
 
     /*###############
