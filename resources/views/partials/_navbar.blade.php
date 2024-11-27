@@ -54,6 +54,7 @@
                 <ul class="bg-base-100 rounded-t-none p-2 z-20">
                   <li><a class="no-underline" href="{{ route('contribute-researcher') }}">As a researcher</a></li>
                   <li><a class="no-underline" href="{{ route('contribute-repository') }}">As a repository</a></li>
+                  <li><a class="no-underline" href="{{ route('contribute-laboratory') }}">As a laboratory</a></li>
                 </ul>
               </details>
             </li>
@@ -66,7 +67,7 @@
               </details>
             </li>
             <li><a class="no-underline" href="{{ route('about') }}">About MSL</a></li>
-            <li><a class="no-underline">EPOS central data portal</a></li>
+            <li><a class="no-underline" href="https://www.epos-eu.org/dataportal" target="_blank">EPOS central data portal</a></li>
           </ul>
         </div>
       </div>

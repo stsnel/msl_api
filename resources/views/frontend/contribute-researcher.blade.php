@@ -7,7 +7,7 @@
 
         <div class="flex justify-center items-center flex-col px-4">
             <p>
-                Would you like to share Earth scientific laboratory data, or models, from one of the Multi-Scale Laboratories disciplines? Xyz
+                Would you like to share Earth scientific laboratory data, or models, from one of the Multi-Scale Laboratories disciplines?
             </p>
             <p>
                 And are you looking to make these discoverable in this catalogue, and in the EPOS data portal?
@@ -17,75 +17,83 @@
             </p>
         </div>
 
+
         <ul class="timeline p-20">
             <li>
-            <div class="timeline-start timeline-box">At which repository will you publish your data?</div>
-            <div class="timeline-middle">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5">
-                <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                    clip-rule="evenodd" />
+              <div class="timeline-start timeline-box">At which repository will you publish your data?</div>
+              <div class="timeline-middle">
+                <svg 
+                viewBox="0 0 24 24"
+                class="h-8 w-8 p-1"
+                fill="currentColor">
+                    <path 
+                        d="M12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20ZM12 22C6.47715 22 2 17.5228 2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22ZM12 14C10.8954 14 10 13.1046 10 12C10 10.8954 10.8954 10 12 10C13.1046 10 14 10.8954 14 12C14 13.1046 13.1046 14 12 14Z">
+                    </path>
                 </svg>
-            </div>
-            <hr />
+
+              </div>
+              <hr class="bg-primary" />
             </li>
             <li>
-            <hr />
-            <div class="timeline-middle">
-                <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5">
-                <path
-                    fill-rule="evenodd"
-                    d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                    clip-rule="evenodd" />
+              <hr class="bg-primary" />
+              <div class="timeline-middle">
+                
+                <svg 
+                viewBox="0 0 24 24" 
+                class="h-10 w-10 p-2"
+
+                fill="currentColor">
+                    <path 
+                        d="M2 3H21.1384C21.4146 3 21.6385 3.22386 21.6385 3.5C21.6385 3.58701 21.6157 3.67252 21.5725 3.74807L18 10L21.5725 16.2519C21.7095 16.4917 21.6262 16.7971 21.3865 16.9341C21.3109 16.9773 21.2254 17 21.1384 17H4V22H2V3Z">
+                    </path>
                 </svg>
+
+              </div>
+              <div class="timeline-end timeline-box">Check data formatting requirements
             </div>
-            <div class="timeline-end timeline-box">Check data formatting requirements</div>
-            <hr />
+              <hr class="bg-primary" />
             </li>
             <li>
-            <hr />
-            <div class="timeline-start timeline-box">Enrich your work with MSL vocab</div>
-            <div class="timeline-middle">
+              <hr class="bg-primary" />
+              <div class="timeline-start timeline-box">Enrich your work with MSL vocab
+            </div>
+              <div class="timeline-middle">
                 <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5">
-                <path
+                  {{-- xmlns="http://www.w3.org/2000/svg" --}}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-5 w-5">
+                  <path
                     fill-rule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
                     clip-rule="evenodd" />
                 </svg>
-            </div>
-            <hr />
+              </div>
+              <hr class="bg-primary" />
             </li>
             <li>
-            <hr />
-            <div class="timeline-middle">
+              <hr class="bg-primary" />
+              <div class="timeline-start timeline-box">Publish your work
+            </div>
+              <div class="timeline-middle">
                 <svg
-                xmlns="http://www.w3.org/2000/svg"
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5">
-                <path
+                  {{-- xmlns="http://www.w3.org/2000/svg" --}}
+                  viewBox="0 0 20 20"
+                  fill="currentColor"
+                  class="h-5 w-5">
+                  <path
                     fill-rule="evenodd"
                     d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
                     clip-rule="evenodd" />
                 </svg>
-            </div>
-            <div class="timeline-end timeline-box">Publish your work</div>
-            <hr />
+              </div>
             </li>
-        </ul>
+          </ul>
+
+        
+
+
+
 
         <div class="max-w-screen-md px-4">
             <h2 class="pt-10 pb-4">Step 1: Which repo will you submit your data? 
@@ -98,7 +106,7 @@
                 We can then start working towards including data from your repository too. 
             </p>
     
-            <h2 class="pt-10 pb-4">Step 2: prepare your data
+            <h2 class="pt-10 pb-4">Step 2: Prepare your data
             </h2>
             <p>Some repositories have specific requirements or data formats/templates to take into account. 
                 Check whether this is relevant for your work → better to know this before you start publishing.</p>
@@ -106,17 +114,17 @@
                 There may also be best practices available for specific research disciplines within MSL → see the list below. 
                 These can help you optimize the re-usability of your data by others, and therefore increase the impact of your data publication.
             </p>
-            <p>
+            <p class="pb-8">
                 Do you know about a best practice relevant for MSL data and models, not listed here? Let us know!
             </p>
     
-    
-            <div role="tablist" class="tabs tabs-lifted ">
-                <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Microscopy" />
-                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 min-h-28">
+
+
+            <div role="tablist" class="tabs tabs-lifted tabs-lg p-4 rounded-xl bg-primary-200">
+                <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Microscopy"/>
+                <div role="tabpanel" class="tab-content tabs-div bg-primary-100 border-primary-300 rounded-box">
                     Structure 2D micrographs using StraboMicro, 
                     and include the exported .smz file in your data publication <a href="Strabospot.org/whatisStrabomicro">Strabospot.org/whatisStrabomicro</a>
-                    
                 </div>
               
                 <input
@@ -126,12 +134,12 @@
                   class="tab"
                   aria-label="Paleomagnetism"
                   checked="checked" />
-                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 min-h-28">
+                <div role="tabpanel" class="tab-content tabs-div bg-primary-100 border-primary-300 rounded-box">
                     For paleomagnetic data, publish your data at MagIC, and use their data standards <a href="www2.earthref.org/MagIC">www2.earthref.org/MagIC</a>
                 </div>
               
                 <input type="radio" name="my_tabs_2" role="tab" class="tab" aria-label="Geochemistry" />
-                <div role="tabpanel" class="tab-content bg-base-100 border-base-300 rounded-box p-6 min-h-28">
+                <div role="tabpanel" class="tab-content tabs-div bg-primary-100 border-primary-300 rounded-box">
                     Geochemistry: For Geochemistry data, publish your data at EarthChem, and follow their data standards: <a href="https://www.earthchem.org/ecl/submission-guidelines/">https://www.earthchem.org/ecl/submission-guidelines/</a>
                 </div>
               </div>
@@ -145,12 +153,16 @@
                 When you’re done, you can export the keywords you selected, so you know which words to assign when you’re making your next data publication.
             </p>
 
-            ########Placeholder keyword selector###########
+            <div class="flex w-full place-content-center p-4">
+                <a href="{{ route('keyword-selector') }}">
+                    <button class="btn btn-primary btn-lg btn-wide ">Keyword Selector</button>
+                </a>
+            </div>
 
             <p>Would you like to embed MSL vocabularies, or the above keyword selector in the data repository you’re affiliated to? You can - it’s all open access and open source. 
                 Have a look here on how to approach this (link to: how to contribute as a data repository → and include a few instructions on how to embed the keyword selector there). </p>
             
-            <h2 class="pt-10 pb-4">Step 4: publish
+            <h2 class="pt-10 pb-4">Step 4: Publish
             </h2>
             <p>When you publish your data, make sure you do so with an open access license (e.g. <a href="https://creativecommons.org/licenses/by/4.0/deed.en">CC BY 4.0</a> ). 
                 Most repositories provide clear guidance on which licenses are useful to provide your data openly, and promote citing. 

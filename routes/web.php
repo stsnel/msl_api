@@ -107,6 +107,7 @@ Route::get('/equipment/list', [FrontendController::class, 'equipmentList'])->nam
 Route::get('/data-repositories', [FrontendController::class, 'dataRepositories'])->name('data-repositories');
 Route::get('/contribute-researcher', [FrontendController::class, 'contributeResearcher'])->name('contribute-researcher');
 Route::get('/contribute-repository', [FrontendController::class, 'contributeRepository'])->name('contribute-repository');
+Route::get('/contribute-laboratory', [FrontendController::class, 'contributeLaboratory'])->name('contribute-laboratory');
 Route::get('/about', [FrontendController::class, 'about'])->name('about');
 Route::get('/data-publication/{id}', [FrontendController::class, 'dataPublication'])->name('data-publication-detail');
 Route::get('/data-publication/{id}/files', [FrontendController::class, 'dataPublicationFiles'])->name('data-publication-detail-files');
@@ -114,3 +115,4 @@ Route::get('/keyword-selector', [FrontendController::class, 'keywordSelector'])-
 Route::post('/keyword-export', [FrontendController::class, 'keywordExport'])->name('keyword-export');
 Route::get('/themeTest', [FrontendController::class, 'themeTest'])->name('themeTest');
 Route::get('/lablayout', [FrontendController::class, 'labs_layout'])->name('labs_layout');
+Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');

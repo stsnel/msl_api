@@ -346,6 +346,26 @@ class FrontendController extends Controller
     }
 
     /**
+     * Show the contribute as laboratory page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function contributeLaboratory()
+    {
+        return view('frontend.contribute-laboratory');
+    }
+
+    /**
+     * Show the contribute as laboratory page
+     * 
+     * @return \Illuminate\Contracts\Support\Renderable
+     */
+    public function contactUs()
+    {
+        return view('frontend.contact-us');
+    }
+
+    /**
      * Show the about page
      * 
      * @return \Illuminate\Contracts\Support\Renderable
