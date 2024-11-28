@@ -9,7 +9,8 @@ use App\Models\User;
 use App\Http\Controllers\ToolsController;
 use App\Http\Controllers\SeederController;
 use App\Http\Controllers\LabController;
-
+use App\Http\Controllers\ContactFormController;
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,4 +116,7 @@ Route::get('/keyword-selector', [FrontendController::class, 'keywordSelector'])-
 Route::post('/keyword-export', [FrontendController::class, 'keywordExport'])->name('keyword-export');
 Route::get('/themeTest', [FrontendController::class, 'themeTest'])->name('themeTest');
 Route::get('/lablayout', [FrontendController::class, 'labs_layout'])->name('labs_layout');
-Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
+// Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
+
+Route::get('/contact-us/create', [ContactFormController::class, 'create'])->name('contact-us');
+Route::post('/contact-us', [ContactFormController::class, 'store'])->name('contact-us');
