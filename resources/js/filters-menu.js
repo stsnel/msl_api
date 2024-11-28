@@ -8,7 +8,7 @@
   function processNodes(nodes, original = false) {
     for(var i = nodes.length - 1; i >= 0; i--) {
         var node = nodes[i];
-        if(node.extra.type == 'filter') {
+        if(node.extra.type == 'filter') {          
           if(node.extra.filterName in activeFilters) {
             if(activeFilters[node.extra.filterName].includes(node.extra.filterValue)) {
               node.state.checked = true;
