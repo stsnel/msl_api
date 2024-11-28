@@ -181,7 +181,7 @@ class FrontendController extends Controller
      */
     public function labsList(Request $request)
     {
-        $resultsPerPage = 10;
+        $resultsPerPage = 20;
 
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
@@ -357,7 +357,7 @@ class FrontendController extends Controller
      */
     public function equipmentList(Request $request)
     {
-        $resultsPerPage = 50;
+        $resultsPerPage = 20;
 
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
