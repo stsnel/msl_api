@@ -23,11 +23,24 @@
         maxZoom: 19,
         attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a>'
     }).addTo(map);
+
+    var markers = L.markerClusterGroup({
+        zoomToBoundsOnClick: true,
+        showCoverageOnHover: false
+    });
+    
+    var geoJsonLayer = L.layerGroup();
+    
+    var extraPopupLayer = L.layerGroup();
     
     for (feature of features) {
         L.geoJSON(feature, {
             onEachFeature: onEachFeature
-        }).addTo(map);        					
+        }).addTo(geoJsonLayer);        					        
     }
+
+    markers.addLayer(geoJsonLayer);
+        				
+    map.addLayer(markers);
     
 </script>
