@@ -9,7 +9,7 @@
             Type: ${feature.properties.msl_type_name}<br>
             Group: ${feature.properties.msl_group_name}
             </p>
-            <a href="/lab/${feature.properties.msl_lab_ckan_name}">view lab information</a>`;
+            <a href="/lab/${feature.properties.msl_lab_ckan_name}"><button class="btn btn-primary btn-sm">view lab information</button></a>`;
 
             layer.bindPopup(popupContent);
         }
