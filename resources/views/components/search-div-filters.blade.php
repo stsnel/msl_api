@@ -37,7 +37,8 @@ filterDataPath:  (string) the path to the file which contains the data for the f
                             <script>
                                 tippy('#enriched-keywords-popup', {
                                     content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
-                                    placement: "right"
+                                    placement: "right",
+                                    theme: "msl"
                                 });
                             </script>
                         </div>
@@ -50,7 +51,8 @@ filterDataPath:  (string) the path to the file which contains the data for the f
                             <script>
                                 tippy('#original-keywords-popup', {
                                     content: "Lists only the MSL vocabulary terms corresponding to the keywords originally assigned by the authors.",
-                                    placement: "right"
+                                    placement: "right",
+                                    theme: "msl"
                                 });
                             </script>
                         </div>

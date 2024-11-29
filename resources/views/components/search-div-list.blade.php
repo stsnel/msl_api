@@ -32,7 +32,8 @@
                             <script>
                                 tippy('#remove-all-popup', {
                                     content: "remove all filters",
-                                    placement: "right"
+                                    placement: "right",
+                                    theme: "msl"
                                 });
                             </script>
                         </a>
@@ -51,6 +52,7 @@
                         tippy.delegate('#active-filter-container', {
                             target: '.wordCard',
                             content: "click to remove filter",
+                            theme: "msl",
                             placement: "right"
                         });
                     </script>
