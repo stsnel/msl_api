@@ -15,7 +15,10 @@ export default defineConfig({
             'resources/js/app.js',
             'resources/js/jstree.js',            
             'resources/js/filters-menu.js',
-            'resources/js/leaflet-src.js'
+            'resources/js/leaflet-src.js',
+            'resources/js/jquery.js',
+            'resources/js/tooltip.js',
+            'resources/js/filters-menu-labs.js'
         ]),
     ],
     server: { 
