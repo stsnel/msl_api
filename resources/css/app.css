@@ -156,7 +156,18 @@
     .tabs-div{
       @apply   p-6 min-h-28
     }
+    
+
 }
+
+/*###############
+tippy theme
+###############*/
+    
+.tippy-box[data-theme~='msl'] {
+  @apply bg-info-300
+}
+      
 
 @tailwind components;
 @tailwind utilities;

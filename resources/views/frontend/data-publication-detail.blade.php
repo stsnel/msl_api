@@ -68,7 +68,8 @@
                                         <script>
                                             tippy('#orginal-keywords-popup', {
                                                 content: "lists only keywords originally assigned by the authors",
-                                                placement: "right"
+                                                placement: "right",
+                                                theme: "msl"
                                             });                                    
                                         </script>
                                     @endif
@@ -97,12 +98,14 @@
                                         <script>
                                             tippy('#corresponding-keywords-popup', {
                                                 content: "lists terms from MSL vocabularies that are the same as, or are interpreted synonymous to the originally assigned keywords",
-                                                placement: "right"
+                                                placement: "right",
+                                                theme: "msl"
                                             });
 
                                             tippy.delegate('#corresponding-keywords-container', {
                                             target: '.wordCard',
                                             trigger: 'click',
+                                            theme: "msl",
                                             placement: 'right',
                                             interactive: true,
                                             allowHTML: true,
@@ -156,7 +159,7 @@
                                                         }
 
                                                         content += "</table>";
-                                                        content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
+                                                        content += "<a href=\"" + this.dataset.filterLink + "\"><button class=\"btn btn-primary\">view data publications with keyword</button</a>";
                                                         content += "</div>";
 
                                                         instance.setContent(content);
@@ -198,12 +201,14 @@
                                         // import 'tippy.js/themes/light.css';
                                         tippy('#enriched-keywords-popup', {
                                             content: "MSL enriched keywords include MSL vocabulary terms corresponding to the keywords originally assigned by the authors, parent terms, and MSL vocabulary terms corresponding to words used in the data publication title and abstract. In enriching keyword sets like this, MSL strives to make datasets more findable. See anything odd? Contact us at epos.msl.data@uu.nl. MSL vocabularies available on GitHub - see top tab ‘vocabularies'.",
-                                            placement: "right"
+                                            placement: "right",
+                                            theme: "msl"
                                         });
 
                                         tippy.delegate('#enriched-keywords-container', {
                                             target: '.wordCard',
                                             trigger: 'click',
+                                            theme: 'msl',
                                             placement: 'right',
                                             interactive: true,
                                             allowHTML: true,
@@ -257,7 +262,7 @@
                                                         }
 
                                                         content += "</table>";
-                                                        content += "<a href=\"" + this.dataset.filterLink + "\">view data publications with keyword</a>";
+                                                        content += "<a href=\"" + this.dataset.filterLink + "\"><button class=\"btn btn-primary\">view data publications with keyword</button</a>";
                                                         content += "</div>";
 
                                                         instance.setContent(content);
