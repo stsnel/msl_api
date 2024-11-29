@@ -3,7 +3,13 @@
 <script>
     function onEachFeature(feature, layer) {
         if (feature.properties) {                                
-            var popupContent = `<h5>${feature.properties.title}</h5><p>${feature.properties.msl_organization_name}</p><a href="/lab/${feature.properties.msl_lab_ckan_name}">view lab information</a>`;
+            var popupContent = `<h5>${feature.properties.title}</h5>
+            <p>${feature.properties.msl_lab_name}</p>
+            <p>Domain: ${feature.properties.msl_domain_name}<br>
+            Type: ${feature.properties.msl_type_name}<br>
+            Group: ${feature.properties.msl_group_name}
+            </p>
+            <a href="/lab/${feature.properties.msl_lab_ckan_name}">view lab information</a>`;
 
             layer.bindPopup(popupContent);
         }
