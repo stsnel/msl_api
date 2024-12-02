@@ -28,12 +28,14 @@ class ContactFormController extends Controller
             'email' => ['required', 'email'],
             'name' => ['required'],
             'subject' => ['required'],
-            'message' => ['required'],
+            'message' => ['required', 'min:50'],
         ]);
 
 
         // create the contact message to handler
+        
 
+        // when submitting, maybe a way to stay on the page and foret all the old values?
         return redirect('/')->with('success', 'contact request sent. You will receive a confirmation email soon, please check your spam as well');
 
         // $post = /** ... */
