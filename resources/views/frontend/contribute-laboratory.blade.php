@@ -157,7 +157,11 @@
               </ul>
             </div>
     
-
+            <div class="flex place-content-center p-20">
+              <a href="{{ route('laboratory-intake') }}">
+                <button class="btn btn-primary btn-lg btn-wide ">Laboratory intake form</button>
+              </a>
+            </div>
 
         </div>
         
