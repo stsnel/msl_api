@@ -1,4 +1,4 @@
-@section('title', 'Contact Us')
+@section('title', 'Laboratory intake form')
 <x-layout_main>
 
     <section class="">

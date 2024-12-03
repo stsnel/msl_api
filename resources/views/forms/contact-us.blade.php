@@ -9,82 +9,61 @@
             @csrf
             
 
-            <div>
 
-                <label for="email" class="block mb-2 ">Email</label>
-                <input 
-                type="email" id="email" name="email" 
-                class="form-field-text @error('email') error-highlight-input @enderror" 
-                placeholder="GraniteusRockwell@coolRock.edu"
-                value="{{ old('email') }}">
+            <div  class="flex flex-col w-full gap-4">
 
-                @error('email')
-                    <p class="error-highlight"> {{ $message }} </p>
-                @enderror
+                <div class="flex flex-row w-full gap-4">
+                    @include('forms.components.freeText',[
+                        'sectionName'   => 'email',
+                        'title'         => 'Email *',
+                        'placeholder'   => 'email@address.edu',
+                    ])
+                </div>
 
+                <div class="flex flex-row w-full gap-4">
+                    @include('forms.components.freeText',[
+                        'sectionName'   => 'firstName',
+                        'title'         => 'First Name *',
+                        'placeholder'   => 'First Name',
+                    ])
+    
+                    @include('forms.components.freeText',[
+                        'sectionName'   => 'lastName',
+                        'title'         => 'Last Name *',
+                        'placeholder'   => 'Last Name',
+                    ])
+                </div>
+
+    
+                <div class="flex flex-row w-full gap-4">
+                    @include('forms.components.freeText',[
+                        'sectionName'   => 'affiliation',
+                        'title'         => 'Affiliation',
+                        'placeholder'   => 'e.g. research institute, university',
+                    ])
+                </div>
+    
             </div>
 
-            <div>
-                
-                <label for="name" class="block mb-2 ">Name</label>
-                <input type="name" id="name" name="name" 
-                class="form-field-text @error('name') error-highlight-input @enderror" 
-                placeholder="Graniteus Rockwell"
-                value="{{ old('name') }}"
-                >
-
-                @error('name')
-                    <p class="error-highlight"> {{ $message }} </p>
-                @enderror
-
-            </div>
-
-            <div>
-
-                @php
-                    $subjects = [
-                        'Request the laboratory intake form',
+            <div class="w-full py-4">
+                @include('forms.components.dropDownSelect',[
+                    'sectionName'   => 'subject',
+                    'title'         => 'Subject *',
+                    'placeholder'   => 'Select subject',
+                    'ElementsArray' =>    array(
                         'Report a bug or feedback',
                         'Contribute as a repository',
-                    ]
-                @endphp
-
-                <label for="subject" class="block mb-2 ">Subject</label>
-                <select 
-                name="subject"
-                id="subject"
-                class="select form-field-text focus:select-secondary @error('subject') error-highlight-input bg-error-300 @else bg-white @enderror">
-                    <option disabled selected>Select the subject</option>
-                    {{-- from https://laravel.com/docs/11.x/blade#additional-attributes --}}
-                    @foreach ($subjects as $subject)
-                        <option value="{{ $subject }}" @selected(old('subject') == $subject)>
-                            {{ $subject }}
-                        </option>
-                    @endforeach
-                </select>
-
-                @error('subject')
-                    <p class="error-highlight"> {{ $message }} </p>
-                @enderror
-
+                    )
+                ])
             </div>
-            
-            <div class="">
 
-                <label for="message" class="block mb-2 ">Message</label>
-                <textarea 
-                id="message" 
-                name="message"
-                rows="6" 
-                class="h-96 form-field-text @error('message') error-highlight-input @enderror" 
-                {{-- class="block p-3 w-full text-sm rounded-lg "  --}}
-                value="{{ old('email') }}"
-                placeholder="Your message"></textarea>
-
-                @error('message')
-                    <p class="error-highlight"> {{ $message }} </p>
-                @enderror
-
+            <div class="w-full">
+                @include('forms.components.freeText',[
+                    'sectionName'   => 'message',
+                    'title'         => 'Message *',
+                    'placeholder'   => 'Your message',
+                    'textBlock'     => true
+                ])
             </div>
 
             <div class="w-full flex place-content-center">

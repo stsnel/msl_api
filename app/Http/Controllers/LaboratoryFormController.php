@@ -28,27 +28,27 @@ class LaboratoryFormController extends Controller
 
         //  in order of appearance
         $formFields = $request->validate([
-            'lab-name' => ['required'],
-            'street' => ['required'],
-            'street-no' => ['required'],
-            'street-detail' => ['required'],
-            'postalCode' => ['required'],
-            'city' => ['required'],
-            'state' => ['required'],
-            'country' => ['required'],
+            'lab-name'              => ['required'],
+            'street'                => ['required'],
+            'street-no'             => ['required'],
+            'street-detail'         => ['nullable'],
+            'postalCode'            => ['required'],
+            'city'                  => ['required'],
+            'state'                 => ['required'],
+            'country'               => ['required'],
+                
+            'url'                   => ['required', 'url'],
+                
+            "description"           => ['required','min:10','max:4000'],
+            "dataSharing"           => ['nullable'],
+            "facilityAccess"        => ['nullable'],
+                
+            'subdomain'             => ['required'],
 
-            'url' => ['required', 'url'],
-
-            "description" => ['required','min:10','max:4000'],
-            "dataSharing" => ['nullable'],
-            "facilityAccess" => ['nullable'],
-
-            'subdomain' => ['required'],
-
-            "contact-firstName" => ['required'],
-            "contact-lastName" => ['required'],
-            "contact-email" => ['required', 'email'],
-            "contact-affiliation" => ['required'],
+            "contact-firstName"     => ['required'],
+            "contact-lastName"      => ['required'],
+            "contact-email"         => ['required', 'email'],
+            "contact-affiliation"   => ['required'],
 
             // 'email' => ['required', 'email'],
             // 'subject' => ['required'],

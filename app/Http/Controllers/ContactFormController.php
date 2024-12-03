@@ -25,10 +25,12 @@ class ContactFormController extends Controller
         // dd($request->all());
 
         $formFields = $request->validate([
-            'email' => ['required', 'email'],
-            'name' => ['required'],
-            'subject' => ['required'],
-            'message' => ['required', 'min:50'],
+            'email'         => ['required', 'email'],
+            'firstName'     => ['required'],
+            'lastName'      => ['required'],
+            'affiliation'   => ['required'],
+            'subject'       => ['required'],
+            'message'       => ['required', 'min:50'],
         ]);
 
 
