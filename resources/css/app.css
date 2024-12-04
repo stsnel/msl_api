@@ -187,14 +187,6 @@
       focus:ring-error-400
     }
 
-
-
-    /* notifications */
-    .success-general{
-      @apply bg-success-200 text-success-900
-    }
-
-
 }
 
 

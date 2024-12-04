@@ -55,11 +55,13 @@ class LaboratoryFormController extends Controller
 
         // create the contact message to handler
         
-        return redirect('/')->with('modals', [
+
+        // I dont like that the highlighted one is always on top of the page right under the edge
+        return redirect('/contribute-laboratory#nextStep')->with('modals', [
             'type'      => 'success', 
             'message'   => 'contact request sent. You will receive a confirmation email soon, please check your spam as well']
          );
-         
+
         // $post = /** ... */
  
         // return to_route('post.show', ['post' => $post->id]);
