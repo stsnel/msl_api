@@ -106,7 +106,9 @@
                         (please select one or two options)
                     </p>
                     <div class="flex flex-col gap-4 py-4">
+                        
                         <div class="flex flex-row gap-10 bg-white rounded-md p-4">
+
                             <div class="w-1/3">
                                 @include('forms.components.checkBox',[
                                     'sectionName'   => 'dataSharing',
@@ -147,6 +149,10 @@
         
                         </div>
                     </div>
+                        {{-- custom error message --}}
+                    @if ($errors->has('dataSharing') && $errors->has('facilityAccess'))
+                        <p class="error-highlight bg-error-300 text-error-700 rounded-md"> Select at least one of the two options above </p>
+                    @endif
             </div>
             
             <h2 class="pt-20">Laboratory contact person </h2>

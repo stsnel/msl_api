@@ -36,12 +36,13 @@ class LaboratoryFormController extends Controller
             'city'                => ['required'],
             'state'               => ['required'],
             'country'             => ['required'],
-     
             'url'                 => ['required', 'url'],
      
             "description"         => ['required','min:10','max:4000'],
-            "dataSharing"         => ['nullable'],
-            "facilityAccess"      => ['nullable'],
+
+            // custom error message in the intake form eblow the checkboxes
+            "dataSharing"         => ['required_without:facilityAccess', 'nullable'],
+            "facilityAccess"      => ['required_without:dataSharing', 'nullable'],
      
             'subdomain'           => ['required'],
      
@@ -49,19 +50,16 @@ class LaboratoryFormController extends Controller
             "contact-lastName"    => ['required'],
             "contact-email"       => ['required', 'email'],
             "contact-affiliation" => ['required'],
-
-            // 'email' => ['required', 'email'],
-            // 'subject' => ['required'],
-            // 'message' => ['required', 'min:50'],
         ]);
 
 
         // create the contact message to handler
         
-
-        // when submitting, maybe a way to stay on the page and foret all the old values?
-        return redirect('/')->with('success', 'contact request sent. You will receive a confirmation email soon, please check your spam as well');
-
+        return redirect('/')->with('modals', [
+            'type'      => 'success', 
+            'message'   => 'contact request sent. You will receive a confirmation email soon, please check your spam as well']
+         );
+         
         // $post = /** ... */
  
         // return to_route('post.show', ['post' => $post->id]);

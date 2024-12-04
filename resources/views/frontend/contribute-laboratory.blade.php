@@ -14,39 +14,7 @@
 
         <ul class="timeline timeline-vertical py-20 max-w-2xl">
           <li>
-            <div class="timeline-start timeline-box">Contact Us</div>
-            <div class="timeline-middle">
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                  clip-rule="evenodd" />
-              </svg>
-            </div>
-            <hr />
-          </li>
-          <li>
-            <hr />
-            <div class="timeline-middle">
-              <svg
-                viewBox="0 0 20 20"
-                fill="currentColor"
-                class="h-5 w-5">
-                <path
-                  fill-rule="evenodd"
-                  d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.857-9.809a.75.75 0 00-1.214-.882l-3.483 4.79-1.88-1.88a.75.75 0 10-1.06 1.061l2.5 2.5a.75.75 0 001.137-.089l4-5.5z"
-                  clip-rule="evenodd" />
-              </svg>
-            </div>
-            <div class="timeline-end timeline-box">Complete and sign the received application form</div>
-            <hr />
-          </li>
-          <li>
-            <hr />
-            <div class="timeline-start timeline-box">Send the application form by email to your national MSL contact</div>
+            <div id='nextStep' class="timeline-start timeline-box">Fill out the online form about your laboratory to start the process</div>
             <div class="timeline-middle">
               <svg
                 viewBox="0 0 20 20"

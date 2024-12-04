@@ -37,8 +37,11 @@ class ContactFormController extends Controller
         // create the contact message to handler
         
 
-        // when submitting, maybe a way to stay on the page and foret all the old values?
-        return redirect('/')->with('success', 'contact request sent. You will receive a confirmation email soon, please check your spam as well');
+        // redirects to with the additonal elements located in components/notifications/
+        return redirect('/')->with('modals', [
+            'type'      => 'success', 
+            'message'   => 'Contact request sent. You will receive a confirmation email soon, please check your spam as well']
+         );
 
         // $post = /** ... */
  
