@@ -14,8 +14,10 @@
 
         $rangeShown = $RangeUnilateral*2 + 1;
 
-        $count = $paginator->lastPage();
-        $currentPage = $paginator->currentPage();
+        // $count = $paginator->lastPage();
+        // $currentPage = $paginator->currentPage();
+        $count = 20;
+        $currentPage =16;
 
         $lowerRange= $currentPage - $RangeUnilateral;
         $upperRange= $currentPage + $RangeUnilateral;
@@ -54,7 +56,8 @@
 
         {{-- show the range --}}
         @for ($i = $lowerRange; $i < $upperRange + 1; $i++)
-
+            {{-- if the count is not equal or over or under the first and last page then show 
+            (because we substract and add to a number over/undercount will be the case)--}}
             @if ( !($i <= 1) && !($i >= $count))
                 <a href="{{ $paginator->url($i) }}">
                     <button 
