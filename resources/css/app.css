@@ -141,6 +141,10 @@
       @apply w-6 h-6 fill-error-600  rounded-full inline
     }
 
+    .chevron-icon {
+      @apply size-5 fill-primary-800  rounded-full inline
+    }
+
 
 
     /*###############
