@@ -6,6 +6,9 @@ import laravel from 'laravel-vite-plugin';
 import tailwindcss from 'tailwindcss'
 
 export default defineConfig({
+    build: {
+        modulePreload: false
+    },
     plugins: [
         laravel([
             'resources/css/app.css',
@@ -13,11 +16,11 @@ export default defineConfig({
             'resources/css/treejs-custom.css',
             'resources/css/leaflet.css',
             'resources/js/app.js',
-            'resources/js/jstree.js',            
-            'resources/js/filters-menu.js',
             'resources/js/leaflet-src.js',
             'resources/js/jquery.js',
             'resources/js/tooltip.js',
+            'resources/js/jstree.js',
+            'resources/js/filters-menu.js',
             'resources/js/filters-menu-labs.js'
         ]),
     ],
@@ -33,5 +36,6 @@ export default defineConfig({
     css: {
         postcss: {
           plugins: [tailwindcss()],
-        }}
+        }
+    }    
 });
