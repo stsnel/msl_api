@@ -277,13 +277,13 @@
         "synonyms": [],
         "subTerms": [
             {
-                "value": "geoenergy testbed",
+                "value": "geo-energy testbed",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "geo-energy testbed",
+                    "geoenergy testbed",
                     "geoenergy test bed",
                     "geo-energy test bed",
                     "Krafla",
@@ -303,7 +303,11 @@
                     "underground laboratory",
                     "subsurface laboratory",
                     "subsurface infrastructure",
-                    "bedrottolab"
+                    "bedrottolab",
+                    "insitu lab",
+                    "in situ lab",
+                    "nsitu laboratory",
+                    "in situ laboratory"
                 ],
                 "subTerms": []
             },
@@ -313,7 +317,11 @@
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
-                "synonyms": [],
+                "synonyms": [
+                    "full-scale testing laboratory",
+                    "full scale testing laboratory",
+                    "testing at full-scale"
+                ],
                 "subTerms": []
             },
             {
@@ -330,25 +338,14 @@
                 "subTerms": []
             },
             {
-                "value": "full-scale testing laboratory",
-                "level": 2,
-                "hyperlink": "",
-                "vocabUri": "",
-                "uri": "",
-                "synonyms": [
-                    "full scale testing laboratory",
-                    "testing at full-scale"
-                ],
-                "subTerms": []
-            },
-            {
                 "value": "monitoring borehole",
                 "level": 2,
                 "hyperlink": "",
                 "vocabUri": "",
                 "uri": "",
                 "synonyms": [
-                    "monitoring wellbore"
+                    "monitoring wellbore",
+                    "monitoring well"
                 ],
                 "subTerms": []
             }
@@ -381,7 +378,9 @@
                         "uri": "",
                         "synonyms": [
                             "seismic borehole",
-                            "seismic monitoring borehole"
+                            "seismic monitoring borehole",
+                            "three-component seismometer",
+                            "three component seismometer"
                         ],
                         "subTerms": []
                     },
@@ -394,7 +393,8 @@
                         "synonyms": [
                             "tilt gauge",
                             "tiltmeter",
-                            "tilt meter"
+                            "tilt meter",
+                            "tilt-strain gauge"
                         ],
                         "subTerms": []
                     }
@@ -481,7 +481,10 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "downhole geophone",
+                            "Borehole Triaxial Geophone"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -490,7 +493,19 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "downhole electromagnetic sensors",
+                            "borehole electromagnetic sensing",
+                            "borehole electromagnetic sensor",
+                            "downhole EM sensing",
+                            "downhole EM sensors",
+                            "borehole EM sensing",
+                            "borehole EM sensor",
+                            "downhole magnetoelastic sensing",
+                            "borehole magnetoelastic sensing",
+                            "downhole magnetoelastic sensor",
+                            "borehole magnetoelastic sensor"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -499,7 +514,19 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "downhole electric conductivity sensor",
+                            "borehole electric conductivity sensing",
+                            "borehole electric conductivity sensor",
+                            "downhole specific conductance sensing",
+                            "downhole specific conductance sensor",
+                            "borehole specific conductance sensing",
+                            "borehole specific conductance sensor",
+                            "downhole EC sensing",
+                            "downhole EC sensor",
+                            "borehole EC sensing",
+                            "borehole EC sensor"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -508,7 +535,13 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "downhole soil gas monitoring",
+                            "downhole soil gas sensor",
+                            "borehole soil gas probe",
+                            "borehole soil gas monitoring",
+                            "borehole soil gas sensor"
+                        ],
                         "subTerms": []
                     }
                 ]
@@ -562,7 +595,15 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "(ISE)"
+                            "(ISE)",
+                            "intervention and stimulation solutions",
+                            "intervention and stimulation solution",
+                            "well intervention",
+                            "well stimulation",
+                            "borehole ntervention",
+                            "borehole stimulation",
+                            "wellbore ntervention",
+                            "wellbore stimulation"
                         ],
                         "subTerms": []
                     },
@@ -573,7 +614,9 @@
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "(PPS)"
+                            "(PPS)",
+                            "Pressure transient testing",
+                            "pressure performance"
                         ],
                         "subTerms": []
                     },
@@ -638,7 +681,12 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "mud logger",
+                            "mud log",
+                            "mudlog",
+                            "mudlogging"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -647,7 +695,11 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "drill test rig",
+                            "drill testrig",
+                            "drilling testrig"
+                        ],
                         "subTerms": []
                     },
                     {
@@ -656,20 +708,27 @@
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
-                        "synonyms": [],
+                        "synonyms": [
+                            "borehole simulator",
+                            "geofluid simulator"
+                        ],
                         "subTerms": []
                     },
                     {
-                        "value": "rock samples",
+                        "value": "drill core",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
                         "uri": "",
                         "synonyms": [
-                            "drill core",
-                            "core",
                             "drilling cuttings",
-                            "reservoir water"
+                            "core scanning",
+                            "cutting samples",
+                            "drillcore",
+                            "core samples",
+                            "downhole coring",
+                            "wellbore coring",
+                            "well coring"
                         ],
                         "subTerms": []
                     }
@@ -688,7 +747,7 @@
                 ],
                 "subTerms": [
                     {
-                        "value": "open-hole logging",
+                        "value": "open hole logging",
                         "level": 3,
                         "hyperlink": "",
                         "vocabUri": "",
@@ -696,36 +755,9 @@
                         "synonyms": [
                             "cased-hole logging",
                             "cased hole logging",
-                            "sidewall coring"
+                            "sidewall coring",
+                            "open-hole logging"
                         ],
-                        "subTerms": []
-                    }
-                ]
-            },
-            {
-                "value": "geothermal heating and cooling",
-                "level": 2,
-                "hyperlink": "",
-                "vocabUri": "",
-                "uri": "",
-                "synonyms": [],
-                "subTerms": [
-                    {
-                        "value": "heat pump test rig",
-                        "level": 3,
-                        "hyperlink": "",
-                        "vocabUri": "",
-                        "uri": "",
-                        "synonyms": [],
-                        "subTerms": []
-                    },
-                    {
-                        "value": "heat pump mobile unit",
-                        "level": 3,
-                        "hyperlink": "",
-                        "vocabUri": "",
-                        "uri": "",
-                        "synonyms": [],
                         "subTerms": []
                     }
                 ]
