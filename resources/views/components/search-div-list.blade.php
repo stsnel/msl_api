@@ -7,16 +7,23 @@
             </svg>
         </div>
         
-        <form method="get" class="w-full h-16">
-
+        <form method="get" action="{{ request()->fullUrl() }}" class="w-full h-16">
             <input type="hidden" name="page" value="1" />
             <input 
                 class="peer search-bar pl-2" 
                 type="text" 
                 id="search" 
                 placeholder="Search {{ $searchFor }}.." 
-                name="query" />
-
+                name="query[]" />
+                @if(true)
+                @foreach($queryParams as $param => $values)
+                    @if (is_array($values))
+                        @foreach ($values as $value)
+                        <input type="hidden" name="{{ $param }}[]" value="{{ $value }}">    
+                        @endforeach
+                    @endif
+                @endforeach
+                @endif
         </form>
     </div>
 

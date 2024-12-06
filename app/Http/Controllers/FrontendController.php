@@ -62,7 +62,12 @@ class FrontendController extends Controller
         $page = $request->page ?? 1;
         $SearchRequest->start = ($page-1) * $resultsPerPage;
 
-        $query = $request->query('query') ?? "";
+        $query = $query = "";
+        if($request->query('query')) {
+            if(count($request->query('query')) > 0) {
+                $query = implode(" ", $request->query('query'));
+            }
+        }
         $SearchRequest->query = $query;
         
         $sort = $request->query('sort') ?? "";
@@ -77,7 +82,7 @@ class FrontendController extends Controller
         $activeFiltersFrontend = [];
 
         foreach($request->query() as $key => $values) {
-            if(array_key_exists($key, config('ckan.facets.data-publications'))) {
+            if(array_key_exists($key, config('ckan.facets.data-publications')) || $key === "query") {
                 foreach($values as $value) {
                     $activeFilters[$key][] = $value;
 
@@ -91,6 +96,8 @@ class FrontendController extends Controller
                         } else {
                             $label = '';
                         }
+                    } elseif($key === "query") {
+                        $label = "Search: " . $value;
                     } else {
                         $label = $value;
                     }
@@ -121,7 +128,9 @@ class FrontendController extends Controller
                         'removeUrl' => $removeUrl
                     ];
 
-                    $SearchRequest->addFilterQuery($key, $value);
+                    if($key !== "query") {
+                        $SearchRequest->addFilterQuery($key, $value);
+                    }
                 }
             }
         }
@@ -134,7 +143,7 @@ class FrontendController extends Controller
 
         $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
 
-        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend, 'sort' => $sort]);
+        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend, 'sort' => $sort, 'queryParams' => $request->query()]);
     }
         
     /**
@@ -192,7 +201,12 @@ class FrontendController extends Controller
         $page = $request->page ?? 1;
         $SearchRequest->start = ($page-1) * $resultsPerPage;
 
-        $query = $request->query('query') ?? "";
+        $query = $query = "";
+        if($request->query('query')) {
+            if(count($request->query('query')) > 0) {
+                $query = implode(" ", $request->query('query'));
+            }
+        }
         $SearchRequest->query = $query;
 
         // used by js filtertrees
@@ -202,7 +216,7 @@ class FrontendController extends Controller
         $activeFiltersFrontend = [];
 
         foreach($request->query() as $key => $values) {
-            if(array_key_exists($key, config('ckan.facets.laboratories'))) {
+            if(array_key_exists($key, config('ckan.facets.laboratories')) || $key === "query") {
                 foreach($values as $value) {
                     $activeFilters[$key][] = $value;
 
@@ -216,6 +230,8 @@ class FrontendController extends Controller
                         } else {
                             $label = '';
                         }
+                    } elseif($key === "query") {
+                        $label = "Search: " . $value;
                     } else {
                         $label = $value;
                     }
@@ -246,7 +262,9 @@ class FrontendController extends Controller
                         'removeUrl' => $removeUrl
                     ];
 
-                    $SearchRequest->addFilterQuery($key, $value);
+                    if($key !== "query") {
+                        $SearchRequest->addFilterQuery($key, $value);
+                    }
                 }
             }
         }
@@ -260,7 +278,7 @@ class FrontendController extends Controller
 
         $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
 
-        return view('frontend.labs-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend]);
+        return view('frontend.labs-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend, 'queryParams' => $request->query()]);
     }
 
     /**
@@ -368,7 +386,12 @@ class FrontendController extends Controller
         $page = $request->page ?? 1;
         $SearchRequest->start = ($page-1) * $resultsPerPage;
 
-        $query = $request->query('query') ?? "";
+        $query = $query = "";
+        if($request->query('query')) {
+            if(count($request->query('query')) > 0) {
+                $query = implode(" ", $request->query('query'));
+            }
+        }
         $SearchRequest->query = $query;
 
         // used by js filtertrees
@@ -378,7 +401,7 @@ class FrontendController extends Controller
         $activeFiltersFrontend = [];
 
         foreach($request->query() as $key => $values) {
-            if(array_key_exists($key, config('ckan.facets.equipment'))) {
+            if(array_key_exists($key, config('ckan.facets.equipment')) || $key === "query") {
                 foreach($values as $value) {
                     $activeFilters[$key][] = $value;
 
@@ -392,6 +415,8 @@ class FrontendController extends Controller
                         } else {
                             $label = '';
                         }
+                    } elseif($key === "query") {
+                        $label = "Search: " . $value;
                     } else {
                         $label = $value;
                     }
@@ -422,7 +447,9 @@ class FrontendController extends Controller
                         'removeUrl' => $removeUrl
                     ];
 
-                    $SearchRequest->addFilterQuery($key, $value);
+                    if($key !== "query") {
+                        $SearchRequest->addFilterQuery($key, $value);
+                    }
                 }
             }
         }
@@ -438,7 +465,7 @@ class FrontendController extends Controller
 
         $result = $client->get($SearchRequest);
 
-        return view('frontend.equipment-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend]);
+        return view('frontend.equipment-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend, 'queryParams' => $request->query()]);
     }
 
 
