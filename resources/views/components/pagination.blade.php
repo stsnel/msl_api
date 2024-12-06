@@ -14,10 +14,8 @@
 
         $rangeShown = $RangeUnilateral*2 + 1;
 
-        // $count = $paginator->lastPage();
-        // $currentPage = $paginator->currentPage();
-        $count = 20;
-        $currentPage =16;
+        $count = $paginator->lastPage();
+        $currentPage = $paginator->currentPage();
 
         $lowerRange= $currentPage - $RangeUnilateral;
         $upperRange= $currentPage + $RangeUnilateral;
