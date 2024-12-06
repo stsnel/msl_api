@@ -20,12 +20,14 @@
 
         <div class="max-w-screen-md px-4">
             <h2 class="pt-10 pb-4">Relevant data publications</h2>
-            <p>First step is to locate the set of data publications that are relevant to the MSL (sub)domains. Depending on your repository one of the following options might work best:</p>
+            <p>First we need to be able to locate which data publications you want to make discoverable within this catalogue. We currently support the following options:</p>
             <ul class="list-disc pt-6 pb-6 pl-10 pr-10">
                 <li>DataCite query</li>
                 <li>OAI-PMH service(s)</li>
                 <li>Full repository</li>
+                <li>Custom API integration</i>
             </ul>
+            <p>It might not be possible to exclusively filter upon MSL relevant data publications. In that case we can filter the retrieved DOIs for relevancy by checking the metadata for the existence at least one term for geological material or setting and one term specific for lab research.</p>
 
             <h2 class="pt-5 pb-4">Import process</h2>
             <ol class="list-decimal pt-6 pb-6 pl-10 pr-10">
