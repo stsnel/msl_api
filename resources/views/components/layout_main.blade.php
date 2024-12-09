@@ -12,6 +12,7 @@
     <title>{{ config('app.name') }} - @yield('title')</title>
 </head>
 <body class="flex flex-col min-h-screen">
+    
     <x-notifications.modals/>
 
     {{-- @include('notifications.flash-messages') --}}
