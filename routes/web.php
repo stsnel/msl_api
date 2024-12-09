@@ -1,15 +1,18 @@
 <?php
 
+use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\FrontendController;
+use App\Http\Controllers\HomeController;
+use App\Http\Controllers\LabController;
+use App\Http\Controllers\FormController;
+use App\Http\Controllers\SeederController;
+use App\Http\Controllers\ToolsController;
+use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\HomeController;
-use App\Models\User;
-use App\Http\Controllers\ToolsController;
-use App\Http\Controllers\SeederController;
-use App\Http\Controllers\LabController;
 
+ 
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -115,4 +118,10 @@ Route::get('/keyword-selector', [FrontendController::class, 'keywordSelector'])-
 Route::post('/keyword-export', [FrontendController::class, 'keywordExport'])->name('keyword-export');
 Route::get('/themeTest', [FrontendController::class, 'themeTest'])->name('themeTest');
 Route::get('/lablayout', [FrontendController::class, 'labs_layout'])->name('labs_layout');
-Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
+// Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
+
+Route::get('/contact-us', [FormController::class, 'contactCreate'])->name('contact-us');
+Route::post('/contact-us', [FormController::class, 'contactStore'])->name('contact-us');
+
+Route::get('/laboratory-intake', [FormController::class, 'labCreate'])->name('laboratory-intake');
+Route::post('/laboratory-intake', [FormController::class, 'labStore'])->name('laboratory-intake');

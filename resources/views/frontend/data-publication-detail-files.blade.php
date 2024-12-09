@@ -20,7 +20,7 @@
         </div>
 
         <div class="listMapDetailDivParent">
-            <div class="detailDiv dividers">
+            <div class="detailDiv">
                 <div class="detailEntryDiv">
                     <h2>Files</h2>
                 </div>
