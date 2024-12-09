@@ -21,9 +21,8 @@ $title => title for the text-field
             error-highlight-input
         @endif" 
         placeholder="{{ $placeholder }}"
-        value="{{ old($sectionName) }}"
         rows="6" 
-        ></textarea>
+        >{{ old($sectionName) }}</textarea>
     @else
         <input type="{{ $sectionName  }}" id="{{ $sectionName  }}" name="{{ $sectionName  }}" 
         class="

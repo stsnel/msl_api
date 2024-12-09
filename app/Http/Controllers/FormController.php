@@ -5,14 +5,42 @@ namespace App\Http\Controllers;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
- 
 
-class LaboratoryFormController extends Controller
+class FormController extends Controller
 {
+    public function contactCreate(): View
+    {
+        return view('forms.contact-us');
+    }
+ 
     /**
-     * Show the form to create a new blog post.
+     * Store a new blog post.
      */
-    public function create(): View
+    public function contactStore(Request $request): RedirectResponse
+    {
+
+        $formFields = $request->validate([
+            'email'         => ['required', 'email'],
+            'firstName'     => ['required'],
+            'lastName'      => ['required'],
+            'affiliation'   => ['required'],
+            'subject'       => ['required'],
+            'message'       => ['required', 'min:50'],
+        ]);
+
+
+        // redirects to with the additonal elements located in components/notifications/
+        return redirect('/')->with('modals', [
+            'type'      => 'success', 
+            'message'   => 'Contact request sent. You will receive a confirmation email soon, please check your spam as well']
+         );
+    }
+
+    /////////////////////////////////////////////
+    /////////////////////////////////////////////
+    /////////////////////////////////////////////
+
+    public function labCreate(): View
     {
         return view('forms.laboratory-intake');
     }
@@ -20,12 +48,8 @@ class LaboratoryFormController extends Controller
     /**
      * Store a new blog post.
      */
-    public function store(Request $request): RedirectResponse
+    public function labStore(Request $request): RedirectResponse
     {
-        // Validate and store the blog post...
-        // dd($request->all());
-
-
         //  in order of appearance
         $formFields = $request->validate([
             'lab-name'            => ['required'],
@@ -40,7 +64,7 @@ class LaboratoryFormController extends Controller
      
             "description"         => ['required','min:10','max:4000'],
 
-            // custom error message in the intake form eblow the checkboxes
+            // custom error message in the intake form below the checkboxes
             "dataSharing"         => ['required_without:facilityAccess', 'nullable'],
             "facilityAccess"      => ['required_without:dataSharing', 'nullable'],
      
@@ -52,18 +76,16 @@ class LaboratoryFormController extends Controller
             "contact-affiliation" => ['required'],
         ]);
 
-
-        // create the contact message to handler
-        
-
         // I dont like that the highlighted one is always on top of the page right under the edge
         return redirect('/contribute-laboratory#nextStep')->with('modals', [
             'type'      => 'success', 
             'message'   => 'contact request sent. You will receive a confirmation email soon, please check your spam as well']
          );
-
-        // $post = /** ... */
- 
-        // return to_route('post.show', ['post' => $post->id]);
     }
+
+    /////////////////////////////////////////////
+    /////////////////////////////////////////////
+    /////////////////////////////////////////////
+
+
 }

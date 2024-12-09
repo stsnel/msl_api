@@ -4,7 +4,7 @@ use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabController;
-use App\Http\Controllers\LaboratoryFormController;
+use App\Http\Controllers\FormController;
 use App\Http\Controllers\SeederController;
 use App\Http\Controllers\ToolsController;
 use App\Models\User;
@@ -120,8 +120,8 @@ Route::get('/themeTest', [FrontendController::class, 'themeTest'])->name('themeT
 Route::get('/lablayout', [FrontendController::class, 'labs_layout'])->name('labs_layout');
 // Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 
-Route::get('/contact-us', [ContactFormController::class, 'create'])->name('contact-us');
-Route::post('/contact-us', [ContactFormController::class, 'store'])->name('contact-us');
+Route::get('/contact-us', [FormController::class, 'contactCreate'])->name('contact-us');
+Route::post('/contact-us', [FormController::class, 'contactStore'])->name('contact-us');
 
-Route::get('/laboratory-intake', [LaboratoryFormController::class, 'create'])->name('laboratory-intake');
-Route::post('/laboratory-intake', [LaboratoryFormController::class, 'store'])->name('laboratory-intake');
+Route::get('/laboratory-intake', [FormController::class, 'labCreate'])->name('laboratory-intake');
+Route::post('/laboratory-intake', [FormController::class, 'labStore'])->name('laboratory-intake');
