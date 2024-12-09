@@ -6,6 +6,7 @@ use App\CkanClient\Client;
 use App\CkanClient\Request\OrganizationListRequest;
 use App\CkanClient\Request\PackageSearchRequest;
 use App\CkanClient\Request\PackageShowRequest;
+use App\Models\Keyword;
 use App\Models\Laboratory;
 use Illuminate\Http\Request;
 use Illuminate\Pagination\LengthAwarePaginator;
@@ -61,7 +62,12 @@ class FrontendController extends Controller
         $page = $request->page ?? 1;
         $SearchRequest->start = ($page-1) * $resultsPerPage;
 
-        $query = $request->query('query') ?? "";
+        $query = $query = "";
+        if($request->query('query')) {
+            if(count($request->query('query')) > 0) {
+                $query = implode(" ", $request->query('query'));
+            }
+        }
         $SearchRequest->query = $query;
         
         $sort = $request->query('sort') ?? "";
@@ -69,13 +75,62 @@ class FrontendController extends Controller
 
         $SearchRequest->loadFacetsFromConfig('data-publications');
 
+        // used by js filtertrees
         $activeFilters = [];
 
+        // used to generate active filters in the template
+        $activeFiltersFrontend = [];
+
         foreach($request->query() as $key => $values) {
-            if(array_key_exists($key, config('ckan.facets.data-publications'))) {
+            if(array_key_exists($key, config('ckan.facets.data-publications')) || $key === "query") {
                 foreach($values as $value) {
                     $activeFilters[$key][] = $value;
-                    $SearchRequest->addFilterQuery($key, $value);
+
+                    // Attach labels to the filters based upon the type
+                    if($value === 'true') {
+                        $label = config('ckan.facets.data-publications')[$key];
+                    } elseif(str_starts_with($value, 'https://epos-msl.uu.nl/voc/')) {
+                        $keyword = Keyword::where('uri', $value)->first();
+                        if($keyword) {
+                            $label = $keyword->label;
+                        } else {
+                            $label = '';
+                        }
+                    } elseif($key === "query") {
+                        $label = "Search: " . $value;
+                    } else {
+                        $label = $value;
+                    }
+
+                    // Add links without the filter                    
+                    $query = request()->query();
+                    
+                    // Loop over query parameters and remove current active filter for remove link
+                    foreach($query as $param => $paramValues) {
+                        if($param == $key) {
+                            if(count($query[$param]) > 1) {
+                                foreach($paramValues as $paramKey => $paramValue) {
+                                    if($paramValue == $value) {
+                                        $query[$param][$paramKey] = null;
+                                    }
+                                }
+                            } else {
+                                unset($query[$param]);
+                            }
+                        }
+                    }                    
+
+                    $removeUrl = $query ? url()->current() . '?' . http_build_query($query) : url()->current();
+
+                    $activeFiltersFrontend[] = [
+                        'value' => $value,
+                        'label' => $label,
+                        'removeUrl' => $removeUrl
+                    ];
+
+                    if($key !== "query") {
+                        $SearchRequest->addFilterQuery($key, $value);
+                    }
                 }
             }
         }
@@ -88,7 +143,7 @@ class FrontendController extends Controller
 
         $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
 
-        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'sort' => $sort]);
+        return view('frontend.data-access', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend, 'sort' => $sort, 'queryParams' => $request->query()]);
     }
         
     /**
@@ -135,7 +190,7 @@ class FrontendController extends Controller
      */
     public function labsList(Request $request)
     {
-        $resultsPerPage = 10;
+        $resultsPerPage = 20;
 
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
@@ -146,16 +201,70 @@ class FrontendController extends Controller
         $page = $request->page ?? 1;
         $SearchRequest->start = ($page-1) * $resultsPerPage;
 
-        $query = $request->query('query') ?? "";
+        $query = $query = "";
+        if($request->query('query')) {
+            if(count($request->query('query')) > 0) {
+                $query = implode(" ", $request->query('query'));
+            }
+        }
         $SearchRequest->query = $query;
 
+        // used by js filtertrees
         $activeFilters = [];
 
+        // used to generate active filters in the template
+        $activeFiltersFrontend = [];
+
         foreach($request->query() as $key => $values) {
-            if(array_key_exists($key, config('ckan.facets.laboratories'))) {
+            if(array_key_exists($key, config('ckan.facets.laboratories')) || $key === "query") {
                 foreach($values as $value) {
                     $activeFilters[$key][] = $value;
-                    $SearchRequest->addFilterQuery($key, $value);
+
+                    // Attach labels to the filters based upon the type
+                    if($value === 'true') {
+                        $label = config('ckan.facets.laboratories')[$key];
+                    } elseif(str_starts_with($value, 'https://epos-msl.uu.nl/voc/')) {
+                        $keyword = Keyword::where('uri', $value)->first();
+                        if($keyword) {
+                            $label = $keyword->label;
+                        } else {
+                            $label = '';
+                        }
+                    } elseif($key === "query") {
+                        $label = "Search: " . $value;
+                    } else {
+                        $label = $value;
+                    }
+
+                    // Add links without the filter                    
+                    $query = request()->query();
+                    
+                    // Loop over query parameters and remove current active filter for remove link
+                    foreach($query as $param => $paramValues) {
+                        if($param == $key) {
+                            if(count($query[$param]) > 1) {
+                                foreach($paramValues as $paramKey => $paramValue) {
+                                    if($paramValue == $value) {
+                                        $query[$param][$paramKey] = null;
+                                    }
+                                }
+                            } else {
+                                unset($query[$param]);
+                            }
+                        }
+                    }                    
+
+                    $removeUrl = $query ? url()->current() . '?' . http_build_query($query) : url()->current();
+
+                    $activeFiltersFrontend[] = [
+                        'value' => $value,
+                        'label' => $label,
+                        'removeUrl' => $removeUrl
+                    ];
+
+                    if($key !== "query") {
+                        $SearchRequest->addFilterQuery($key, $value);
+                    }
                 }
             }
         }
@@ -169,7 +278,7 @@ class FrontendController extends Controller
 
         $paginator = $this->getPaginator($request, [], $result->getTotalResultsCount(), $resultsPerPage);
 
-        return view('frontend.labs-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
+        return view('frontend.labs-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend, 'queryParams' => $request->query()]);
     }
 
     /**
@@ -266,7 +375,7 @@ class FrontendController extends Controller
      */
     public function equipmentList(Request $request)
     {
-        $resultsPerPage = 50;
+        $resultsPerPage = 20;
 
         $client = new Client();
         $SearchRequest = new PackageSearchRequest();
@@ -277,16 +386,70 @@ class FrontendController extends Controller
         $page = $request->page ?? 1;
         $SearchRequest->start = ($page-1) * $resultsPerPage;
 
-        $query = $request->query('query') ?? "";
+        $query = $query = "";
+        if($request->query('query')) {
+            if(count($request->query('query')) > 0) {
+                $query = implode(" ", $request->query('query'));
+            }
+        }
         $SearchRequest->query = $query;
 
+        // used by js filtertrees
         $activeFilters = [];
 
+        // used to generate active filters in the template
+        $activeFiltersFrontend = [];
+
         foreach($request->query() as $key => $values) {
-            if(array_key_exists($key, config('ckan.facets.equipment'))) {
+            if(array_key_exists($key, config('ckan.facets.equipment')) || $key === "query") {
                 foreach($values as $value) {
                     $activeFilters[$key][] = $value;
-                    $SearchRequest->addFilterQuery($key, $value);
+
+                    // Attach labels to the filters based upon the type
+                    if($value === 'true') {
+                        $label = config('ckan.facets.equipment')[$key];
+                    } elseif(str_starts_with($value, 'https://epos-msl.uu.nl/voc/')) {
+                        $keyword = Keyword::where('uri', $value)->first();
+                        if($keyword) {
+                            $label = $keyword->label;
+                        } else {
+                            $label = '';
+                        }
+                    } elseif($key === "query") {
+                        $label = "Search: " . $value;
+                    } else {
+                        $label = $value;
+                    }
+
+                    // Add links without the filter                    
+                    $query = request()->query();
+                    
+                    // Loop over query parameters and remove current active filter for remove link
+                    foreach($query as $param => $paramValues) {
+                        if($param == $key) {
+                            if(count($query[$param]) > 1) {
+                                foreach($paramValues as $paramKey => $paramValue) {
+                                    if($paramValue == $value) {
+                                        $query[$param][$paramKey] = null;
+                                    }
+                                }
+                            } else {
+                                unset($query[$param]);
+                            }
+                        }
+                    }                    
+
+                    $removeUrl = $query ? url()->current() . '?' . http_build_query($query) : url()->current();
+
+                    $activeFiltersFrontend[] = [
+                        'value' => $value,
+                        'label' => $label,
+                        'removeUrl' => $removeUrl
+                    ];
+
+                    if($key !== "query") {
+                        $SearchRequest->addFilterQuery($key, $value);
+                    }
                 }
             }
         }
@@ -302,7 +465,7 @@ class FrontendController extends Controller
 
         $result = $client->get($SearchRequest);
 
-        return view('frontend.equipment-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters]);
+        return view('frontend.equipment-list', ['result' => $result, 'paginator' => $paginator, 'activeFilters' => $activeFilters, 'activeFiltersFrontend' => $activeFiltersFrontend, 'queryParams' => $request->query()]);
     }
 
 

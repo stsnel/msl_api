@@ -7,60 +7,59 @@
             </svg>
         </div>
         
-        <form method="get" class="w-full h-16">
-
+        <form method="get" action="{{ request()->fullUrl() }}" class="w-full h-16">
             <input type="hidden" name="page" value="1" />
             <input 
                 class="peer search-bar pl-2" 
                 type="text" 
                 id="search" 
                 placeholder="Search {{ $searchFor }}.." 
-                name="query" />
-
+                name="query[]" />
+                @if(true)
+                @foreach($queryParams as $param => $values)
+                    @if (is_array($values))
+                        @foreach ($values as $value)
+                        <input type="hidden" name="{{ $param }}[]" value="{{ $value }}">    
+                        @endforeach
+                    @endif
+                @endforeach
+                @endif
         </form>
     </div>
 
     <div class="flex justify-between p-4 px-10">
-                           
-        <?php /* dd($activeFilters); */?>
-        
+                                   
         {{-- styling needs some tuning regarding long filter text elements --}}
-        <div class="flex flex-col text-wrap">
-            <?php
-            $filterKeys = collect($activeFilters)->keys();
-            ?>            
+        <div class="flex flex-col text-wrap">            
 
                 <h5 class="pb-2">Applied Filters  
-                    @if ( sizeof($filterKeys) > 0 )
+                    @if ( sizeof($activeFiltersFrontend) > 0 )
                         <a href="{{ route('data-access') }}">
-                            <x-ri-delete-bin-2-line 
-                            class="remove-all-icon"
-                            id="remove-all-popup"/>
+                            <x-ri-delete-bin-2-line  class="remove-all-icon" id="remove-all-popup"/>
                             <script>
                                 tippy('#remove-all-popup', {
                                     content: "remove all filters",
-                                    placement: "right"
+                                    placement: "right",
+                                    theme: "msl"
                                 });
                             </script>
                         </a>
                     @endif
                 </h5>
 
-            @if ( sizeof($filterKeys) > 0 )
-                <div class="wordCardParent"> 
-
-                    @foreach ( $filterKeys as $key )
-                        @foreach ( $activeFilters[$key] as $entry)
-                            <div class="wordCard" id="remove-filter-popup">
-                                <x-ri-close-line 
-                                class="close-icon"/>
-                                {{ $entry }}
-                            </div>
-                        @endforeach
+            @if ( sizeof($activeFiltersFrontend) > 0 )
+                <div class="wordCardParent" id="active-filter-container"> 
+                    @foreach ( $activeFiltersFrontend as $filter )
+                        <a href="{{ $filter['removeUrl'] }}" class="wordCard no-underline">
+                            <x-ri-close-line class="close-icon"/>
+                            {{ $filter['label'] }}
+                        </a>
                     @endforeach
                     <script>
-                        tippy('#remove-filter-popup', {
+                        tippy.delegate('#active-filter-container', {
+                            target: '.wordCard',
                             content: "click to remove filter",
+                            theme: "msl",
                             placement: "right"
                         });
                     </script>

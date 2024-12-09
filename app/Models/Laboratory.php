@@ -131,7 +131,8 @@ class Laboratory extends Model
                     'title' => $this->name,
                     'name' => $this->msl_identifier,
                     'msl_id' => $this->id,
-                    'msl_organization_name' => $this->laboratoryOrganization->name                    
+                    'msl_organization_name' => $this->laboratoryOrganization->name,
+                    'msl_domain_name' => $this->fast_domain_name
                 ]
             ]);
         }

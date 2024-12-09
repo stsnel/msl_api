@@ -36757,25 +36757,8 @@
                         "children": []
                     },
                     {
-                        "id": "msl_original_keyword_uri2903",
-                        "text": "full-scale testing laboratory",
-                        "state": {
-                            "opened": false,
-                            "disabled": true,
-                            "selected": false,
-                            "checked": false
-                        },
-                        "extra": {
-                            "type": "filter",
-                            "url": "",
-                            "filterName": "msl_original_keyword_uri",
-                            "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/facility_types-full-scale_testing_laboratory"
-                        },
-                        "children": []
-                    },
-                    {
                         "id": "msl_original_keyword_uri2899",
-                        "text": "geoenergy testbed",
+                        "text": "geo-energy testbed",
                         "state": {
                             "opened": false,
                             "disabled": true,
@@ -36786,7 +36769,7 @@
                             "type": "filter",
                             "url": "",
                             "filterName": "msl_original_keyword_uri",
-                            "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/facility_types-geoenergy_testbed"
+                            "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/facility_types-geo-energy_testbed"
                         },
                         "children": []
                     },
@@ -36808,7 +36791,7 @@
                         "children": []
                     },
                     {
-                        "id": "msl_original_keyword_uri2904",
+                        "id": "msl_original_keyword_uri2903",
                         "text": "monitoring borehole",
                         "state": {
                             "opened": false,
@@ -36827,7 +36810,7 @@
                 ]
             },
             {
-                "id": "msl_original_keyword_uri2905",
+                "id": "msl_original_keyword_uri2904",
                 "text": "Equipment",
                 "state": {
                     "opened": false,
@@ -36843,7 +36826,7 @@
                 },
                 "children": [
                     {
-                        "id": "msl_original_keyword_uri2928",
+                        "id": "msl_original_keyword_uri2927",
                         "text": "borehole drilling",
                         "state": {
                             "opened": false,
@@ -36859,7 +36842,7 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2932",
+                                "id": "msl_original_keyword_uri2931",
                                 "text": "borehole and geofluid simulator",
                                 "state": {
                                     "opened": false,
@@ -36876,7 +36859,24 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2931",
+                                "id": "msl_original_keyword_uri2932",
+                                "text": "drill core",
+                                "state": {
+                                    "opened": false,
+                                    "disabled": true,
+                                    "selected": false,
+                                    "checked": false
+                                },
+                                "extra": {
+                                    "type": "filter",
+                                    "url": "",
+                                    "filterName": "msl_original_keyword_uri",
+                                    "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-borehole_drilling-drill_core"
+                                },
+                                "children": []
+                            },
+                            {
+                                "id": "msl_original_keyword_uri2930",
                                 "text": "drilling test rig",
                                 "state": {
                                     "opened": false,
@@ -36893,7 +36893,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2929",
+                                "id": "msl_original_keyword_uri2928",
                                 "text": "measurement while drilling",
                                 "state": {
                                     "opened": false,
@@ -36910,7 +36910,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2930",
+                                "id": "msl_original_keyword_uri2929",
                                 "text": "mud logging",
                                 "state": {
                                     "opened": false,
@@ -36925,28 +36925,11 @@
                                     "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-borehole_drilling-mud_logging"
                                 },
                                 "children": []
-                            },
-                            {
-                                "id": "msl_original_keyword_uri2933",
-                                "text": "rock samples",
-                                "state": {
-                                    "opened": false,
-                                    "disabled": true,
-                                    "selected": false,
-                                    "checked": false
-                                },
-                                "extra": {
-                                    "type": "filter",
-                                    "url": "",
-                                    "filterName": "msl_original_keyword_uri",
-                                    "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-borehole_drilling-rock_samples"
-                                },
-                                "children": []
                             }
                         ]
                     },
                     {
-                        "id": "msl_original_keyword_uri2934",
+                        "id": "msl_original_keyword_uri2933",
                         "text": "borehole logging",
                         "state": {
                             "opened": false,
@@ -36962,8 +36945,8 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2935",
-                                "text": "open-hole logging",
+                                "id": "msl_original_keyword_uri2934",
+                                "text": "open hole logging",
                                 "state": {
                                     "opened": false,
                                     "disabled": true,
@@ -36974,14 +36957,14 @@
                                     "type": "filter",
                                     "url": "",
                                     "filterName": "msl_original_keyword_uri",
-                                    "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-borehole_logging-open-hole_logging"
+                                    "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-borehole_logging-open_hole_logging"
                                 },
                                 "children": []
                             }
                         ]
                     },
                     {
-                        "id": "msl_original_keyword_uri2914",
+                        "id": "msl_original_keyword_uri2913",
                         "text": "borehole monitoring",
                         "state": {
                             "opened": false,
@@ -36997,7 +36980,7 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2915",
+                                "id": "msl_original_keyword_uri2914",
                                 "text": "borehole geophone",
                                 "state": {
                                     "opened": false,
@@ -37014,7 +36997,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2917",
+                                "id": "msl_original_keyword_uri2916",
                                 "text": "downhole electric conductivity sensing",
                                 "state": {
                                     "opened": false,
@@ -37031,7 +37014,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2916",
+                                "id": "msl_original_keyword_uri2915",
                                 "text": "downhole electromagnetic sensing",
                                 "state": {
                                     "opened": false,
@@ -37048,7 +37031,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2918",
+                                "id": "msl_original_keyword_uri2917",
                                 "text": "downhole soil gas probe",
                                 "state": {
                                     "opened": false,
@@ -37067,7 +37050,7 @@
                         ]
                     },
                     {
-                        "id": "msl_original_keyword_uri2919",
+                        "id": "msl_original_keyword_uri2918",
                         "text": "borehole testing",
                         "state": {
                             "opened": false,
@@ -37083,7 +37066,7 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2920",
+                                "id": "msl_original_keyword_uri2919",
                                 "text": "formation integrity test",
                                 "state": {
                                     "opened": false,
@@ -37100,7 +37083,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2926",
+                                "id": "msl_original_keyword_uri2925",
                                 "text": "heat pump mobile unit",
                                 "state": {
                                     "opened": false,
@@ -37117,7 +37100,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2925",
+                                "id": "msl_original_keyword_uri2924",
                                 "text": "heat pump test rig",
                                 "state": {
                                     "opened": false,
@@ -37134,7 +37117,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2922",
+                                "id": "msl_original_keyword_uri2921",
                                 "text": "injection testing",
                                 "state": {
                                     "opened": false,
@@ -37151,7 +37134,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2923",
+                                "id": "msl_original_keyword_uri2922",
                                 "text": "intervention and stimulation equipment",
                                 "state": {
                                     "opened": false,
@@ -37168,7 +37151,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2924",
+                                "id": "msl_original_keyword_uri2923",
                                 "text": "pressure performance system",
                                 "state": {
                                     "opened": false,
@@ -37185,7 +37168,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2921",
+                                "id": "msl_original_keyword_uri2920",
                                 "text": "production testing",
                                 "state": {
                                     "opened": false,
@@ -37202,7 +37185,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2927",
+                                "id": "msl_original_keyword_uri2926",
                                 "text": "thermal response testing",
                                 "state": {
                                     "opened": false,
@@ -37221,7 +37204,7 @@
                         ]
                     },
                     {
-                        "id": "msl_original_keyword_uri2909",
+                        "id": "msl_original_keyword_uri2908",
                         "text": "distributed fibre optic sensing",
                         "state": {
                             "opened": false,
@@ -37237,7 +37220,7 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2910",
+                                "id": "msl_original_keyword_uri2909",
                                 "text": "distributed acoustic sensing",
                                 "state": {
                                     "opened": false,
@@ -37254,7 +37237,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2913",
+                                "id": "msl_original_keyword_uri2912",
                                 "text": "distributed pressure sensing",
                                 "state": {
                                     "opened": false,
@@ -37271,7 +37254,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2911",
+                                "id": "msl_original_keyword_uri2910",
                                 "text": "distributed strain sensing",
                                 "state": {
                                     "opened": false,
@@ -37288,7 +37271,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2912",
+                                "id": "msl_original_keyword_uri2911",
                                 "text": "distributed temperature sensing",
                                 "state": {
                                     "opened": false,
@@ -37307,59 +37290,7 @@
                         ]
                     },
                     {
-                        "id": "msl_original_keyword_uri2936",
-                        "text": "geothermal heating and cooling",
-                        "state": {
-                            "opened": false,
-                            "disabled": true,
-                            "selected": false,
-                            "checked": false
-                        },
-                        "extra": {
-                            "type": "filter",
-                            "url": "",
-                            "filterName": "msl_original_keyword_uri",
-                            "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-geothermal_heating_and_cooling"
-                        },
-                        "children": [
-                            {
-                                "id": "msl_original_keyword_uri2938",
-                                "text": "heat pump mobile unit",
-                                "state": {
-                                    "opened": false,
-                                    "disabled": true,
-                                    "selected": false,
-                                    "checked": false
-                                },
-                                "extra": {
-                                    "type": "filter",
-                                    "url": "",
-                                    "filterName": "msl_original_keyword_uri",
-                                    "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-geothermal_heating_and_cooling-heat_pump_mobile_unit"
-                                },
-                                "children": []
-                            },
-                            {
-                                "id": "msl_original_keyword_uri2937",
-                                "text": "heat pump test rig",
-                                "state": {
-                                    "opened": false,
-                                    "disabled": true,
-                                    "selected": false,
-                                    "checked": false
-                                },
-                                "extra": {
-                                    "type": "filter",
-                                    "url": "",
-                                    "filterName": "msl_original_keyword_uri",
-                                    "filterValue": "https:\/\/epos-msl.uu.nl\/voc\/testbeds\/1.3\/equipment-geothermal_heating_and_cooling-heat_pump_test_rig"
-                                },
-                                "children": []
-                            }
-                        ]
-                    },
-                    {
-                        "id": "msl_original_keyword_uri2906",
+                        "id": "msl_original_keyword_uri2905",
                         "text": "seismic monitoring",
                         "state": {
                             "opened": false,
@@ -37375,7 +37306,7 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2907",
+                                "id": "msl_original_keyword_uri2906",
                                 "text": "three-component seismic station",
                                 "state": {
                                     "opened": false,
@@ -37392,7 +37323,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2908",
+                                "id": "msl_original_keyword_uri2907",
                                 "text": "tilt strain gauge",
                                 "state": {
                                     "opened": false,
@@ -37413,7 +37344,7 @@
                 ]
             },
             {
-                "id": "msl_original_keyword_uri2939",
+                "id": "msl_original_keyword_uri2935",
                 "text": "Models",
                 "state": {
                     "opened": false,
@@ -37429,7 +37360,7 @@
                 },
                 "children": [
                     {
-                        "id": "msl_original_keyword_uri2953",
+                        "id": "msl_original_keyword_uri2949",
                         "text": "field system model",
                         "state": {
                             "opened": false,
@@ -37445,7 +37376,7 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2961",
+                                "id": "msl_original_keyword_uri2957",
                                 "text": "borehole heat exchanger model",
                                 "state": {
                                     "opened": false,
@@ -37462,7 +37393,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2959",
+                                "id": "msl_original_keyword_uri2955",
                                 "text": "chemical model",
                                 "state": {
                                     "opened": false,
@@ -37479,7 +37410,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2956",
+                                "id": "msl_original_keyword_uri2952",
                                 "text": "coupled thermo-hydraulic-mechanical model",
                                 "state": {
                                     "opened": false,
@@ -37496,7 +37427,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2955",
+                                "id": "msl_original_keyword_uri2951",
                                 "text": "flow and thermal transport model",
                                 "state": {
                                     "opened": false,
@@ -37513,7 +37444,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2954",
+                                "id": "msl_original_keyword_uri2950",
                                 "text": "flow model",
                                 "state": {
                                     "opened": false,
@@ -37530,7 +37461,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2962",
+                                "id": "msl_original_keyword_uri2958",
                                 "text": "geothermal reservoir simulation",
                                 "state": {
                                     "opened": false,
@@ -37547,7 +37478,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2967",
+                                "id": "msl_original_keyword_uri2963",
                                 "text": "geothermal well model",
                                 "state": {
                                     "opened": false,
@@ -37564,7 +37495,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2963",
+                                "id": "msl_original_keyword_uri2959",
                                 "text": "hydrocarbon reservoir simulation",
                                 "state": {
                                     "opened": false,
@@ -37581,7 +37512,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2964",
+                                "id": "msl_original_keyword_uri2960",
                                 "text": "hydrogen reservoir simulation",
                                 "state": {
                                     "opened": false,
@@ -37598,7 +37529,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2966",
+                                "id": "msl_original_keyword_uri2962",
                                 "text": "induced seismicity model",
                                 "state": {
                                     "opened": false,
@@ -37615,7 +37546,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2957",
+                                "id": "msl_original_keyword_uri2953",
                                 "text": "pore pressure diffusion model",
                                 "state": {
                                     "opened": false,
@@ -37632,7 +37563,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2960",
+                                "id": "msl_original_keyword_uri2956",
                                 "text": "reactive transport model",
                                 "state": {
                                     "opened": false,
@@ -37649,7 +37580,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2965",
+                                "id": "msl_original_keyword_uri2961",
                                 "text": "storage model",
                                 "state": {
                                     "opened": false,
@@ -37666,7 +37597,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2958",
+                                "id": "msl_original_keyword_uri2954",
                                 "text": "thermal transport model",
                                 "state": {
                                     "opened": false,
@@ -37685,7 +37616,7 @@
                         ]
                     },
                     {
-                        "id": "msl_original_keyword_uri2940",
+                        "id": "msl_original_keyword_uri2936",
                         "text": "subsurface digital twin",
                         "state": {
                             "opened": false,
@@ -37702,7 +37633,7 @@
                         "children": []
                     },
                     {
-                        "id": "msl_original_keyword_uri2941",
+                        "id": "msl_original_keyword_uri2937",
                         "text": "subsurface property modelling",
                         "state": {
                             "opened": false,
@@ -37718,7 +37649,7 @@
                         },
                         "children": [
                             {
-                                "id": "msl_original_keyword_uri2945",
+                                "id": "msl_original_keyword_uri2941",
                                 "text": "fluid composition field model",
                                 "state": {
                                     "opened": false,
@@ -37735,7 +37666,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2948",
+                                "id": "msl_original_keyword_uri2944",
                                 "text": "formation stress model",
                                 "state": {
                                     "opened": false,
@@ -37752,7 +37683,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2952",
+                                "id": "msl_original_keyword_uri2948",
                                 "text": "geochemistry field model",
                                 "state": {
                                     "opened": false,
@@ -37769,7 +37700,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2951",
+                                "id": "msl_original_keyword_uri2947",
                                 "text": "geomechanical property field model",
                                 "state": {
                                     "opened": false,
@@ -37786,7 +37717,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2946",
+                                "id": "msl_original_keyword_uri2942",
                                 "text": "gravity field model",
                                 "state": {
                                     "opened": false,
@@ -37803,7 +37734,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2947",
+                                "id": "msl_original_keyword_uri2943",
                                 "text": "magnetic field model",
                                 "state": {
                                     "opened": false,
@@ -37820,7 +37751,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2944",
+                                "id": "msl_original_keyword_uri2940",
                                 "text": "pore pressure field model",
                                 "state": {
                                     "opened": false,
@@ -37837,7 +37768,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2950",
+                                "id": "msl_original_keyword_uri2946",
                                 "text": "porosity-permeability field model",
                                 "state": {
                                     "opened": false,
@@ -37854,7 +37785,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2942",
+                                "id": "msl_original_keyword_uri2938",
                                 "text": "reservoir structural model",
                                 "state": {
                                     "opened": false,
@@ -37871,7 +37802,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2949",
+                                "id": "msl_original_keyword_uri2945",
                                 "text": "seismic velocity field model",
                                 "state": {
                                     "opened": false,
@@ -37888,7 +37819,7 @@
                                 "children": []
                             },
                             {
-                                "id": "msl_original_keyword_uri2943",
+                                "id": "msl_original_keyword_uri2939",
                                 "text": "temperature field model",
                                 "state": {
                                     "opened": false,

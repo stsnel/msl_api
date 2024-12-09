@@ -141,6 +141,10 @@
       @apply w-6 h-6 fill-error-600  rounded-full inline
     }
 
+    .chevron-icon {
+      @apply size-5 fill-primary-800  rounded-full inline
+    }
+
 
 
     /*###############
@@ -156,7 +160,6 @@
     .tabs-div{
       @apply   p-6 min-h-28
     }
-
 
     /*###############
     forms
@@ -186,8 +189,18 @@
       focus:ring-2
       focus:ring-error-400
     }
+    
 
 }
+
+/*###############
+tippy theme
+###############*/
+    
+.tippy-box[data-theme~='msl'] {
+  @apply bg-info-300
+}
+      
 
 
 @tailwind components;

@@ -188,7 +188,7 @@ class LaboratoryEquipment extends Model
     }
 
     /**
-     * Get geojson feature object string. Uses laboratory location of no equipment 
+     * Get geojson feature object string. Uses laboratory location if no equipment 
      * location is set. 
      * 
      * @return string
@@ -207,7 +207,11 @@ class LaboratoryEquipment extends Model
                         'title' => $this->name,
                         'name' => md5($this->fast_id . '-' . $this->laboratory_id),
                         'msl_id' => $this->id,
-                        'msl_lab_ckan_name' => $this->laboratory->msl_identifier
+                        'msl_lab_ckan_name' => $this->laboratory->msl_identifier,
+                        'msl_lab_name' => $this->laboratory->name,
+                        'msl_domain_name' => $this->domain_name,
+                        'msl_group_name' => $this->group_name,
+                        'msl_type_name' => $this->type_name
                     ]
                 ]);
             } else {
@@ -221,7 +225,11 @@ class LaboratoryEquipment extends Model
                         'title' => $this->name,
                         'name' => md5($this->fast_id . '-' . $this->laboratory_id),
                         'msl_id' => $this->id,
-                        'msl_lab_ckan_name' => $this->laboratory->msl_identifier
+                        'msl_lab_ckan_name' => $this->laboratory->msl_identifier,
+                        'msl_lab_name' => $this->laboratory->name,
+                        'msl_domain_name' => $this->domain_name,
+                        'msl_group_name' => $this->group_name,
+                        'msl_type_name' => $this->type_name
                     ]
                 ]);
             }
