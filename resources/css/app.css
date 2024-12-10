@@ -130,15 +130,15 @@
       icons
       ###############*/
     .info-icon{
-      @apply w-8 h-8 p-1 fill-info-700  rounded-full inline
+      @apply size-8 p-1 fill-info-700  rounded-full inline
     }
 
     .close-icon{
-      @apply w-6 h-6 fill-error-600  rounded-full inline
+      @apply size-6 fill-error-600  rounded-full inline
     }
 
     .remove-all-icon{
-      @apply w-6 h-6 fill-error-600  rounded-full inline
+      @apply size-6 fill-error-600  rounded-full inline
     }
 
     .chevron-icon {
@@ -194,7 +194,12 @@
       focus:ring-error-400
     }
     
-
+    /*###############
+    footer
+    ###############*/
+    .link-list-item{
+      @apply flex flex-col gap-2 w-32
+    }
 }
 
 /*###############

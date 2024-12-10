@@ -23,6 +23,7 @@
             <div class="detailDiv">
                 <div class="detailEntryDiv">
                     <h2>Files</h2>
+                    <p class="text-center">(click to download)</p>
                 </div>
                     
                 <div class="detailEntryDiv"> 
@@ -36,10 +37,15 @@
 
                                     <a href="{!! $download['msl_download_link'] !!}" title="download file"
                                     class="no-underline"
+                                    id=""
                                     >
                                         <x-ri-file-3-fill class="file-icon"/>
                                         &nbsp;
-                                        <p class="inline underline">{{ $download['msl_file_name'] }}.{{ $download['msl_extension'] }}</p>
+                                        &nbsp;
+                                        &nbsp;
+                                        <p class="inline underline">
+                                            {{ $download['msl_file_name'] }}.{{ $download['msl_extension'] }}
+                                        </p>
                                     </a>
                                 </div>
                             @endforeach
