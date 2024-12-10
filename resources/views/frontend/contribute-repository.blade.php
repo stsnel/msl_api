@@ -8,11 +8,11 @@
 
         <div class="flex justify-center items-center flex-col px-4">
             <p>
-                Would you like to share Earth scientific laboratory data, or models, from one of the Multi-Scale Laboratories disciplines?
+                Do you work at a data repository?
             </p>
             <p>
-                And are you looking to make these discoverable in this catalogue, and in the EPOS data portal?
-            </p>
+                Would you like to make sure that data or models from the EPOS Multi-Scale Laboratories research domains can be found on this catalogue, and on the EPOS data portal, alongside other European solid Earth scientific data? 
+            </p>            
             <p>
                 Find out how to do this here.
             </p>
@@ -20,14 +20,19 @@
 
         <div class="max-w-screen-md px-4">
             <h2 class="pt-10 pb-4">Relevant data publications</h2>
-            <p>First we need to be able to locate which data publications you want to make discoverable within this catalogue. We currently support the following options:</p>
+            <p>First, we need to be able to locate which data publications you want to make discoverable within this catalogue. We currently support the following options:</p>
             <ul class="list-disc pt-6 pb-6 pl-10 pr-10">
                 <li>DataCite query</li>
                 <li>OAI-PMH service(s)</li>
                 <li>Full repository</li>
                 <li>Custom API integration</i>
             </ul>
-            <p>It might not be possible to exclusively filter upon MSL relevant data publications. In that case we can filter the retrieved DOIs for relevancy by checking the metadata for the existence at least one term for geological material or setting and one term specific for lab research.</p>
+            <p>It might not be possible for us to exclusively filter your repository on MSL-relevant data publications. In that case we can filter the retrieved DOIs for MSL-relevancy by checking the metadata, as follows:</p>
+            <ul class="list-disc pt-6 pb-6 pl-10 pr-10">
+                <li>either the metadata of a data publication contains A) one term reflecting Earth scientific research (e.g. Earth material, or geological setting) and B) a term reflecting laboratory research (e.g. lab apparatus; measured/modeled properties or behavior).</li>
+                <li>or the metadata of a data publication contains the name of a geo-energy test bed facility that is part of the <a href="{{ route('labs-map') }}">EPOS MSL community</a>.</li>
+            </ul>
+            <p>With that in mind, you make it a lot easier for us to find MSL-relevant data, if researchers publishing at your repository know what terms to add, to optimize data findability. See the below metadata recommendations on how to possibly go about that.</p>
 
             <h2 class="pt-5 pb-4">Import process</h2>
             <ol class="list-decimal pt-6 pb-6 pl-10 pr-10">
