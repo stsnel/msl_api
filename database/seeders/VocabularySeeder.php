@@ -94,7 +94,7 @@ class VocabularySeeder extends Seeder
             }
             else
             {
-                $this->processNode($topNode, $vocabulary, null, true);
+                $this->processNode($topNode, $vocabulary, null, true, false, true);
             }
         }
         
@@ -119,17 +119,17 @@ class VocabularySeeder extends Seeder
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
             if($topNode->value == "Modeled structure") {
-                $this->processNode($topNode, $vocabulary, null, true, true);
+                $this->processNode($topNode, $vocabulary, null, true, true, true);
             }
             elseif ($topNode->value == "Modeled geomorphological feature") {
-                $this->processNode($topNode, $vocabulary, null, true, true);
+                $this->processNode($topNode, $vocabulary, null, true, true, true);
             }
             elseif ($topNode->value == "Ancillary equipment") {
                 $this->processNode($topNode, $vocabulary, null, true, false, true, true);
             }
             else
             {
-                $this->processNode($topNode, $vocabulary, null, true);
+                $this->processNode($topNode, $vocabulary, null, true, false, true);
             }
         }
         
@@ -199,7 +199,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary, null, true);
+            $this->processNode($topNode, $vocabulary, null, true, false, true);
         }
         
         //create geochemistry settting vocabulary
@@ -222,7 +222,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary, null, false);
+            $this->processNode($topNode, $vocabulary, null, true, false, true);
         }
         
         //create microscopy vocabulary
@@ -250,7 +250,7 @@ class VocabularySeeder extends Seeder
             }
             else
             {
-                $this->processNode($topNode, $vocabulary, null, true);
+                $this->processNode($topNode, $vocabulary, null, true, false, true);
             }
         }
         
@@ -297,7 +297,7 @@ class VocabularySeeder extends Seeder
         
         //loop over top nodes and add sub-nodes
         foreach ($vocabData as $topNode) {
-            $this->processNode($topNode, $vocabulary, null, false, false, false, false);
+            $this->processNode($topNode, $vocabulary, null, true, false, true, false);
         }
         
         
