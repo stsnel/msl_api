@@ -125,3 +125,6 @@ Route::post('/contact-us', [FormController::class, 'contactStore'])->name('conta
 
 Route::get('/laboratory-intake', [FormController::class, 'labCreate'])->name('laboratory-intake');
 Route::post('/laboratory-intake', [FormController::class, 'labStore'])->name('laboratory-intake');
+
+Route::get('/laboratory-contact-person', [FormController::class, 'labContactPersonCreate'])->name('laboratory-contact-person');
+Route::post('/laboratory-contact-person', [FormController::class, 'labContactPersonStore'])->name('laboratory-contact-person');

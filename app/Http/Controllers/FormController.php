@@ -87,5 +87,31 @@ class FormController extends Controller
     /////////////////////////////////////////////
     /////////////////////////////////////////////
 
+    public function labContactPersonCreate(Request $request): View
+    {
+        return view('forms.laboratory-contact-person',['request' => $request]);
+    }
+ 
+    /**
+     * Store a new blog post.
+     */
+    public function labContactPersonStore(Request $request): RedirectResponse
+    {
+        //  in order of appearance
+        $formFields = $request->validate([
+            'email'         => ['required', 'email'],
+            'firstName'     => ['required'],
+            'lastName'      => ['required'],
+            'affiliation'   => ['required'],
+            'subject'       => ['required'],
+            'message'       => ['required', 'min:50'],
+        ]);
+
+        // I dont like that the highlighted one is always on top of the page right under the edge
+        return redirect('/contribute-laboratory#nextStep')->with('modals', [
+            'type'      => 'success', 
+            'message'   => 'contact request sent. You will receive a confirmation email soon, please check your spam as well']
+         );
+    }
 
 }
