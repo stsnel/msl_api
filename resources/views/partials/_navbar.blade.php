@@ -1,7 +1,7 @@
 <navbar>
     <div class="navbar bg-base-200">
         <div class="navbar-start">
-          <div class="dropdown">
+          <div class="dropdown dropdown-hover">
             <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
               <svg
                 xmlns="http://www.w3.org/2000/svg"
@@ -44,31 +44,48 @@
           </a>
         </div>
         <div class="navbar-end hidden lg:flex w-full">
-          <ul class="menu menu-horizontal px-1 z-10">
-            <li><a class="no-underline" href="{{ route('data-access') }}">Data Access</a></li>
-            <li><a class="no-underline" href="{{ route('labs-map') }}">Labs</a></li>
-            <li><a class="no-underline" href="{{ route('data-repositories') }}">Data Repositories</a></li>
-            <li>
-              <details>
-                <summary>How to contribute</summary>
-                <ul class="bg-base-100 rounded-t-none p-2 z-20">
+
+          <div class="flex flex-1 justify-end px-2">
+            <div class="flex items-stretch">
+
+              <a class="btn btn-ghost rounded-btn " href="{{ route('data-access') }}">Data Access</a>
+              <a class="btn btn-ghost rounded-btn " href="{{ route('labs-map') }}">Labs</a>
+              <a class="btn btn-ghost rounded-btn " href="{{ route('data-repositories') }}">Data Repositories</a>
+
+              <div class="dropdown dropdown-hover">
+                <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+                  How to Contribute
+                  <x-ri-arrow-down-s-line class="chevron-icon"/>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                   <li><a class="no-underline" href="{{ route('contribute-researcher') }}">As a researcher</a></li>
                   <li><a class="no-underline" href="{{ route('contribute-repository') }}">As a repository</a></li>
                   <li><a class="no-underline" href="{{ route('contribute-laboratory') }}">As a laboratory</a></li>
                 </ul>
-              </details>
-            </li>
-            <li>
-              <details>
-                <summary>Vocabularies</summary>
-                <ul class="bg-base-100 rounded-t-none p-2 z-20">
+              </div>
+
+              <div class="dropdown dropdown-hover">
+                <div tabindex="0" role="button" class="btn btn-ghost rounded-btn">
+                  Vocabularies
+                  <x-ri-arrow-down-s-line class="chevron-icon"/>
+                </div>
+                <ul
+                  tabindex="0"
+                  class="menu dropdown-content bg-base-100 rounded-box z-[1] w-52 p-2 shadow">
                   <li><a class="no-underline" href="{{ route('keyword-selector') }}">Keyword selector</a></li>
+
                 </ul>
-              </details>
-            </li>
-            <li><a class="no-underline" href="{{ route('about') }}">About MSL</a></li>
-            <li><a class="no-underline" href="https://www.epos-eu.org/dataportal" target="_blank">EPOS central data portal</a></li>
-          </ul>
+              </div>
+
+              <a class="btn btn-ghost rounded-btn " href="{{ route('about') }}">About MSL</a>
+              <a class="btn btn-ghost rounded-btn " href="https://www.epos-eu.org/dataportal">EPOS central data portal</a>
+
+
+            </div>
+          </div>
+
         </div>
       </div>
 </navbar>
