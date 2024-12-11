@@ -489,7 +489,7 @@
     </div>
 
 @push('vite')
-    @vite(['resources/js/jquery.js', 'resources/js/tooltip.js'])
+    @vite(['resources/js/tooltip.js'])
 @endpush
 
 
