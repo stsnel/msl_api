@@ -38,6 +38,6 @@
 
 </div>
 @push('vite')
-    @vite(['resources/js/jquery.js', 'resources/js/jstree.js', 'resources/js/keyword-form.js'])
+    @vite(['resources/js/jstree.js', 'resources/js/keyword-form.js'])
 @endpush
 </x-layout_main>

@@ -104,7 +104,7 @@ filterDataPath:  (string) the path to the file which contains the data for the f
                     var activeNodes = [];
                 </script>
                 @push('vite')
-                    @vite(['resources/js/jquery.js', 'resources/js/jstree.js', 'resources/js/filters-menu.js'])
+                    @vite(['resources/js/jstree.js', 'resources/js/filters-menu.js'])
                 @endpush
             @else
                 <div id="jstree-laboratories" class="text-wrap pt-4"></div>
@@ -116,7 +116,7 @@ filterDataPath:  (string) the path to the file which contains the data for the f
             
                 </script>
                 @push('vite')
-                    @vite(['resources/js/jquery.js', 'resources/js/jstree.js', 'resources/js/filters-menu-labs.js'])
+                    @vite(['resources/js/jstree.js', 'resources/js/filters-menu-labs.js'])
                 @endpush
             @endif
 
