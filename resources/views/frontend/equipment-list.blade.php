@@ -53,7 +53,7 @@
 
 
                             @include('components.list-view', [
-                                'href'          => route('lab-detail', ['id' => $equipment['msl_lab_ckan_name'] . '/equipment'] ),
+                                'href'          => route('lab-detail-equipment', ['id' => $equipment['msl_lab_ckan_name']] ),
                                 'title'         => $equipment['title'],
                                 'description'   => $equipment['msl_description']
                                 ])
