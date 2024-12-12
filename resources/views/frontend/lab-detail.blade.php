@@ -1,6 +1,5 @@
 @section('title', 'Laboratory')
 <x-layout_main>
-
     <div class="mainContentDiv">
 
         {{-- a general no small width view notification --}}
@@ -121,8 +120,7 @@
 
                             <div class="p-20 w-full flex justify-around">
                                 <a href="{{ route('laboratory-contact-person', [
-                                    'labName'          => $data['title'] ,
-                                    'labAffiliation'   => $data['msl_organization_name'] 
+                                    'id'          => $data['name']
                                 ]) }}">
                                     <button class="btn btn-primary btn-lg btn-wide ">Contact Laboratory</button>
                                 </a>

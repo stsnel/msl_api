@@ -1,7 +1,14 @@
 <?php
 
 namespace App\Http\Controllers;
- 
+use App\CkanClient\Client;
+
+use App\CkanClient\Request\OrganizationListRequest;
+use App\CkanClient\Request\PackageSearchRequest;
+use App\CkanClient\Request\PackageShowRequest;
+use App\Models\Keyword;
+use App\Models\Laboratory;
+use Illuminate\Pagination\LengthAwarePaginator;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 use Illuminate\View\View;
@@ -87,9 +94,19 @@ class FormController extends Controller
     /////////////////////////////////////////////
     /////////////////////////////////////////////
 
-    public function labContactPersonCreate(Request $request): View
+    public function labContactPersonCreate($id): View
     {
-        return view('forms.laboratory-contact-person',['request' => $request]);
+
+        $client = new Client();
+        $request = new PackageShowRequest();
+        $request->id = $id;
+
+        $result = $client->get($request);
+
+        if(!$result->isSuccess()) {
+            abort(404, 'ckan request failed');
+        }
+        return view('forms.laboratory-contact-person',['data' => $result->getResult()]);
     }
  
     /**

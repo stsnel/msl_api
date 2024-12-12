@@ -20,8 +20,8 @@
                 <p class="text-center">You are reaching out to</p>
 
                 <div class="flex flex-col px-20 gap-4 bg-primary-200 p-4 rounded-lg">
-                    <h5>{{ $request['labName'] }}</h5>
-                    <h5>{{ $request['labAffiliation'] }}</h5>
+                    <h5>{{ $data['title'] }}</h5>
+                    <h5>{{ $data['msl_organization_name'] }}</h5>
                 </div>
             </div>
 
