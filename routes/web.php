@@ -118,13 +118,10 @@ Route::get('/keyword-selector', [FrontendController::class, 'keywordSelector'])-
 Route::post('/keyword-export', [FrontendController::class, 'keywordExport'])->name('keyword-export');
 Route::get('/themeTest', [FrontendController::class, 'themeTest'])->name('themeTest');
 Route::get('/lablayout', [FrontendController::class, 'labs_layout'])->name('labs_layout');
-// Route::get('/contact-us', [FrontendController::class, 'contactUs'])->name('contact-us');
 
 Route::get('/contact-us', [FormController::class, 'contactCreate'])->name('contact-us');
-Route::post('/contact-us', [FormController::class, 'contactStore'])->name('contact-us');
-
+Route::post('/contact-us', [FormController::class, 'contactStore'])->name('contact-us-process');
 Route::get('/laboratory-intake', [FormController::class, 'labCreate'])->name('laboratory-intake');
-Route::post('/laboratory-intake', [FormController::class, 'labStore'])->name('laboratory-intake');
-
+Route::post('/laboratory-intake', [FormController::class, 'labStore'])->name('laboratory-intake-process');
 Route::get('/laboratory-contact-person/{id}', [FormController::class, 'labContactPersonCreate'])->name('laboratory-contact-person');
-Route::post('/laboratory-contact-person/{id}', [FormController::class, 'labContactPersonStore'])->name('laboratory-contact-person');
+Route::post('/laboratory-contact-person', [FormController::class, 'labContactPersonStore'])->name('laboratory-contact-person-process');

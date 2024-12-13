@@ -5,15 +5,15 @@
     <div class="px-4 mx-auto max-w-screen-md">
         <h1 class="">Laboratory intake form</h1>
         <p class="mb-8 lg:mb-16 text-center">  </p>
-        <form method="POST" action="/laboratory-intake" class="space-y-4" novalidate>
+        <form method="POST" action="{{ route('laboratory-intake-process') }}" class="space-y-4" novalidate>
             @csrf
 
             <h2> Contact details </h2>
             @include('forms.components.freeText',[
                 'sectionName'   => 'lab-name',
                 'title'         => 'The name of your laboratory',
-                'placeholder'   => 'Cave of the Coal Chronicles',
-                'errors'        =>$errors
+                'placeholder'   => 'Laboratory name',
+                'errors'        => $errors
             ])
 
 
