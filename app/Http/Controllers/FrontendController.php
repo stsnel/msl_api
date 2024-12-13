@@ -489,11 +489,13 @@ class FrontendController extends Controller
         $client = new Client();
         $request = new OrganizationListRequest();
 
+        $request->sortField = "name asc";
+
         $result = $client->get($request);
 
         if(!$result->isSuccess()) {
             abort(404, 'ckan request failed');
-        }
+        }        
 
         return view('frontend.data-repositories', ['repositories' => $result->getResult()]);
     }
