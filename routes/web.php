@@ -1,15 +1,12 @@
 <?php
 
-use App\Http\Controllers\ContactFormController;
 use App\Http\Controllers\FrontendController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LabController;
 use App\Http\Controllers\FormController;
 use App\Http\Controllers\SeederController;
 use App\Http\Controllers\ToolsController;
-use App\Models\User;
 use Illuminate\Support\Facades\Auth;
-use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Route;
 
  
