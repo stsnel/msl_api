@@ -322,6 +322,12 @@ class FrontendController extends Controller
             abort(404, 'ckan request failed');
         }
 
+        // group results for display purposes
+        $groupedResults = [];
+        foreach($result->getResults() as $result) {
+            $groupedResults[$result['msl_domain_name']][] = $result;            
+        }
+
         // get the name of lab
         $Labrequest = new PackageShowRequest();
         $Labrequest->id = $id;
@@ -329,10 +335,10 @@ class FrontendController extends Controller
         $Labresult = $client->get($Labrequest);
 
         if(!$Labresult->isSuccess()) {
-            abort(404, 'ckan request failed for request 2');
+            abort(404, 'ckan request failed');
         }
 
-        return view('frontend.lab-detail-equipment', ['data' => $result->getResults(), 'ckanLabName' => $id, 'data2' => $Labresult->getResult()]);
+        return view('frontend.lab-detail-equipment', ['data' => $groupedResults, 'ckanLabName' => $id, 'data2' => $Labresult->getResult()]);
     }
 
     /**
