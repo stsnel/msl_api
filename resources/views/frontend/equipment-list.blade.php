@@ -51,13 +51,9 @@
                         {{-- loop list content --}}
                         @foreach ($result->getResults() as $equipment)
 
-
-                            @include('components.list-view', [
-                                'href'          => route('lab-detail-equipment', ['id' => $equipment['msl_lab_ckan_name']] ),
-                                'title'         => $equipment['title'],
-                                'description'   => $equipment['msl_description']
-                                ])
-
+                            @include('components.list-views.equipment', [
+                                'data' => $equipment
+                            ])
 
                         @endforeach         
                         

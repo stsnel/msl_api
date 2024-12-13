@@ -18,7 +18,7 @@
                 @include('components.search-div-filters',[
                     'filterDataPath' => 'public/interpreted.json',
                     'pbDetail' =>   true
-                    ])
+                ])
 
                 {{-- main field --}}
                 <div class="listMapDiv">
@@ -37,17 +37,11 @@
                         {{-- loop list content --}}
                         @foreach ($result->getResults() as $dataPublication)
 
-                            @include('components.list-view', [
-                                'href'          => route('data-publication-detail', ['id' => $dataPublication['id']]),
-                                'title'         => $dataPublication['title'],
-                                'description'   => $dataPublication['notes'],
-                                'authors'       => $dataPublication['msl_authors'],
-                                'date'          => $dataPublication['msl_publication_year']
-                                ])
+                            @include('components.list-views.data-publication', [
+                                'data' => $dataPublication
+                            ])
 
-                        @endforeach         
-                        
-                        
+                        @endforeach                                                
                     </div>
                     
                     {{-- bottom pagination of list --}}
