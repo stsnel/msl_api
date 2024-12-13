@@ -137,6 +137,9 @@ class FrontendController extends Controller
 
         $result = $client->get($SearchRequest);
 
+        // store current url for linking back to search results from detail pages
+        $request->session()->put('data_publication_active_search', $request->fullUrl());        
+
         if(!$result->isSuccess()) {
             abort(404, 'ckan request failed');
         }

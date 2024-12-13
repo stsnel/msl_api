@@ -9,6 +9,14 @@
         <div class="noMobileView_wideScreenDiv">
 
         <div class="tabLinksParent">
+            @session('data_publication_active_search')
+                @include('components.tabLinks',[
+                    'categoryName'  => 'Results',
+                    'routes'        => array(
+                            'Back to search results'   => $value,
+                    )
+                ])
+            @endsession
             @include('components.tabLinks',[
                 'categoryName'  => 'Sections',
                 'routes'        => array(
