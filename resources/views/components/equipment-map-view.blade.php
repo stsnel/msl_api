@@ -19,7 +19,7 @@
                 <td>${feature.properties.msl_group_name}</td>
             </tr>
             </table>            
-            <a href="/lab/${feature.properties.msl_lab_ckan_name}"><button class="btn btn-primary btn-sm font-medium">View lab information</button></a>`;
+            <a href="/lab/${feature.properties.msl_lab_ckan_name}/equipment"><button class="btn btn-primary btn-sm font-medium">View lab information</button></a>`;
 
             layer.bindPopup(popupContent);
         }
