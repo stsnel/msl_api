@@ -396,6 +396,8 @@ class FrontendController extends Controller
         }
         $SearchRequest->query = $query;
 
+        $SearchRequest->sortField = 'title_string asc';
+
         // used by js filtertrees
         $activeFilters = [];
 
