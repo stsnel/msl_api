@@ -675,15 +675,5 @@ class FrontendController extends Controller
         return view('frontend.themeTest');
     }
     
-    /**
-     * Show lab data test page
-     * 
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function labs_layout()
-    {
-        return view('frontend.labs_layout');
-    }
-    
 }
 

@@ -114,7 +114,6 @@ Route::get('/data-publication/{id}/files', [FrontendController::class, 'dataPubl
 Route::get('/keyword-selector', [FrontendController::class, 'keywordSelector'])->name('keyword-selector');
 Route::post('/keyword-export', [FrontendController::class, 'keywordExport'])->name('keyword-export');
 Route::get('/themeTest', [FrontendController::class, 'themeTest'])->name('themeTest');
-Route::get('/lablayout', [FrontendController::class, 'labs_layout'])->name('labs_layout');
 
 Route::get('/contact-us', [FormController::class, 'contactCreate'])->name('contact-us');
 Route::post('/contact-us', [FormController::class, 'contactStore'])->name('contact-us-process');
