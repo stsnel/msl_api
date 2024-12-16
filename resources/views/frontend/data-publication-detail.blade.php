@@ -12,8 +12,8 @@
             @include('components.tabLinks',[
                 'categoryName'  => 'Sections',
                 'routes'        => array(
-                        'Metadata'   => route("data-publication-detail", ['id' => $data['name']]),
-                        'Files'  => route("data-publication-detail-files", ['id' => $data['name']])
+                        'Metadata'  => route("data-publication-detail", ['id' => $data['name']]),
+                        'Files'     => route("data-publication-detail-files", ['id' => $data['name']])
                 ),
                 'routeActive'   => route("data-publication-detail", ['id' => $data['name']])
             ])
