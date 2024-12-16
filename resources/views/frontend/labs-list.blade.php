@@ -36,7 +36,7 @@
                 {{-- side bar --}}
                 @include('components.search-div-filters',[
                     'filterDataPath' => 'public/laboratories.json'
-                    ])
+                ])
 
                 {{-- main field --}}
                 <div class="listMapDiv">
@@ -54,13 +54,9 @@
                         {{-- loop list content --}}
                         @foreach ($result->getResults() as $laboratory)
 
-
-                            @include('components.list-view', [
-                                'href'          => route('lab-detail', ['id' => $laboratory['name']]),
-                                'title'         => $laboratory['title'],
-                                'description'   => $laboratory['msl_organization_name']
-                                ])
-
+                            @include('components.list-views.lab', [
+                                'data' => $laboratory,
+                            ])
                             
                         @endforeach         
                         
@@ -70,9 +66,7 @@
                     {{-- bottom pagination of list --}}
                     @include('components.pagination')
 
-
                 </div>
-
 
             </div>
 

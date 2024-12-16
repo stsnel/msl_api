@@ -137,6 +137,9 @@ class FrontendController extends Controller
 
         $result = $client->get($SearchRequest);
 
+        // store current url for linking back to search results from detail pages
+        $request->session()->put('data_publication_active_search', $request->fullUrl());        
+
         if(!$result->isSuccess()) {
             abort(404, 'ckan request failed');
         }
@@ -208,6 +211,8 @@ class FrontendController extends Controller
             }
         }
         $SearchRequest->query = $query;
+
+        $SearchRequest->sortField = 'title_string asc';
 
         // used by js filtertrees
         $activeFilters = [];
@@ -320,6 +325,12 @@ class FrontendController extends Controller
             abort(404, 'ckan request failed');
         }
 
+        // group results for display purposes
+        $groupedResults = [];
+        foreach($result->getResults() as $result) {
+            $groupedResults[$result['msl_domain_name']][] = $result;            
+        }
+
         // get the name of lab
         $Labrequest = new PackageShowRequest();
         $Labrequest->id = $id;
@@ -327,10 +338,10 @@ class FrontendController extends Controller
         $Labresult = $client->get($Labrequest);
 
         if(!$Labresult->isSuccess()) {
-            abort(404, 'ckan request failed for request 2');
+            abort(404, 'ckan request failed');
         }
 
-        return view('frontend.lab-detail-equipment', ['data' => $result->getResults(), 'ckanLabName' => $id, 'data2' => $Labresult->getResult()]);
+        return view('frontend.lab-detail-equipment', ['data' => $groupedResults, 'ckanLabName' => $id, 'data2' => $Labresult->getResult()]);
     }
 
     /**
@@ -393,6 +404,8 @@ class FrontendController extends Controller
             }
         }
         $SearchRequest->query = $query;
+
+        $SearchRequest->sortField = 'title_string asc';
 
         // used by js filtertrees
         $activeFilters = [];
@@ -479,11 +492,13 @@ class FrontendController extends Controller
         $client = new Client();
         $request = new OrganizationListRequest();
 
+        $request->sortField = "name asc";
+
         $result = $client->get($request);
 
         if(!$result->isSuccess()) {
             abort(404, 'ckan request failed');
-        }
+        }        
 
         return view('frontend.data-repositories', ['repositories' => $result->getResult()]);
     }
@@ -661,16 +676,6 @@ class FrontendController extends Controller
     public function themeTest()
     {
         return view('frontend.themeTest');
-    }
-    
-    /**
-     * Show lab data test page
-     * 
-     * @return \Illuminate\Contracts\Support\Renderable
-     */
-    public function labs_layout()
-    {
-        return view('frontend.labs_layout');
     }
     
 }

@@ -30,6 +30,11 @@ class OrganizationListRequest implements RequestInterface
      */
     private $includeExtras = true;
 
+    /**
+     * @var string sort results
+     */
+    public $sortField = '';
+
     
     public function getPayloadAsArray(): array
     {
@@ -37,6 +42,7 @@ class OrganizationListRequest implements RequestInterface
             'query' => [
                 'all_fields' => $this->allFields,
                 'include_extras' => $this->includeExtras,
+                'sort' => $this->sortField
             ]
         ];
     }

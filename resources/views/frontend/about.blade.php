@@ -3,25 +3,12 @@
     <div class="mainContentDiv flex-col">
         <h1 class="pt-20">About MSL</h1>
 
-            <div class="max-w-screen-lg flex flex-col md:flex-row p-10 gap-6 justify-center" 
-            >
-                <div class="w-full card bg-base-300 shadow-xl p-4 flex flex-col justify-center md:w-2/3">
-                    <h4>EPOS central data portal</h4>
-                    <p class="pr-10 pl-10">MSL data can be found in the MSL data catalogue on this dedicated website, and in the <a href="https://www.epos-eu.org/dataportal">EPOS data portal</a>, 
-                        where these can be explored alongside other solid Earth scientific data, 
-                        from seismology, geology, volcanology, satellite observations and other disciplines. </p>
-                </div>
-            
-            </div>
-        
-
         <img 
             src= {{ asset('images/heros/about.png') }}
             alt="aboutImage"
             class="object-contain max-w-lg p-10">
 
-            <div class="max-w-screen-lg flex flex-col md:flex-row p-10 gap-6" 
-            >
+            <div class="max-w-screen-lg flex flex-col md:flex-row p-10 gap-6">
                 <div class="w-full card bg-base-300 shadow-xl p-4 flex flex-col justify-start ">
                     <h4>Our Vision</h4>
                     <p class="pr-10 pl-10">We strive to create the best earth science laboratory data service to 
@@ -59,13 +46,7 @@
                 EPOS MSL collects and harmonizes available and emerging laboratory (meta)data, aiming to generate data products that are easily Findable, Accessible, 
                 Interoperable and Re-usable (FAIR) for future research, notably into Geo-resources, 
                 Geo-storage, Geo-hazards and Earth System Evolution. Data emerging from MSL labs can be categorized as below, following the six major sub-domains below. 
-            </p>
-
-
-          
-
-
-            
+            </p>            
         </div>
 
         @php
@@ -137,6 +118,15 @@
                 </div>
             @endforeach
         
+        </div>
+
+        <div class="max-w-screen-lg flex flex-col md:flex-row p-10 gap-6 justify-center">
+            <div class="w-full card bg-base-300 shadow-xl p-4 flex flex-col justify-center md:w-2/3">
+                <h4>EPOS central data portal</h4>
+                <p class="pr-10 pl-10">MSL data can be found in the MSL data catalogue on this dedicated website, and in the <a href="https://www.epos-eu.org/dataportal">EPOS data portal</a>, 
+                    where these can be explored alongside other solid Earth scientific data, 
+                    from seismology, geology, volcanology, satellite observations and other disciplines. </p>
+            </div>            
         </div>
 
     </div>

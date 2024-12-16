@@ -1,63 +1,21 @@
 @section('title', 'Data repositories')
 
-<x-layout_main >
-  @php
-  $repos = [
-    array(
-      "name"=>"MagIC", 
-      "imageLink"=>'images/repositories/Magic.png',
-      "repoLink"=>''
-    ),
-    array(
-      "name"=>"British Geological Survey - National Geoscience Data Centre (UKRI/NERC)", 
-      "imageLink"=>'images/repositories/BGS.png',
-      "repoLink"=>''
-    ),
-    array(
-      "name"=>"4TU.ResearchData", 
-      "imageLink"=>'images/repositories/4tu-logo.png',
-      "repoLink"=>''
-    ),
-    array(
-      "name"=>"Digital.CSIC", 
-      "imageLink"=>'images/repositories/CSIC.jpg',
-      "repoLink"=>''
-    ),
-    array(
-      "name"=>"GFZ data services", 
-      "imageLink"=>'images/repositories/GFZ-Data-Services-logo.png',
-      "repoLink"=>''
-    ),
-    array(
-      "name"=>"Yoda data services", 
-      "imageLink"=>'images/repositories/YodaUU.png',
-      "repoLink"=>''
-    )  
-  ]
-
-@endphp
-
- 
-
-<?php /*dd($repositories);*/ ?>
-
-{{-- To Do: image links missing --}}
-
-
+<x-layout_main>
     <div class="flex flex-col justify-center items-center p-10 ">
         <h1 class="p-20">
             Data repositories</h1>
 
-            <p class="max-w-screen-md pb-10">EPOS MSL currently provides access to data at the data repositories shown on this page. 
+            <p class="max-w-screen-md pb-10">
+              EPOS MSL currently provides access to MSL relevant data at the data repositories shown on this page. 
               The fastest route to make your data discoverable by MSL, is to publish your data at one of these. Note that some of these are only accessible for 
-              researchers affiliated to the hosting institutes. Would you like to publish elsewhere? Let us know! We can then start working towards including data from your repository too.</p>
-              
+              researchers affiliated to the hosting institutes. Would you like to publish elsewhere? <a href="{{ route('contact-us') }}" title="Contact us">Let us know</a>! 
+              We can then start working towards including data from your repository too.
+            </p>              
           
         <div class="flex flex-wrap justify-center gap-4 max-w-screen-lg">
 
           @foreach ($repositories as $repo)
             @if ($repo["hide"] == "false")
-
               <div class="card bg-base-300 size-80 shadow-xl flex justify-between flex-col p-2">
                 <figure>
                   <img
@@ -74,16 +32,9 @@
                 <a href="/data-access?organization[]={{ $repo["name"] }}">
                   <button class="btn btn-primary w-full">View Datasets</button>
                 </a>
-
               </div>
-            @endif
-            
+            @endif            
           @endforeach
-        </div>
-        
-
-    </div>
-    
-
-
+        </div>        
+    </div>    
 </x-layout_main>
