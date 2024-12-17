@@ -72,15 +72,19 @@ class FormController extends Controller
             "description"         => ['required','min:10','max:4000'],
 
             // custom error message in the intake form below the checkboxes
-            "dataSharing"         => ['required_without:facilityAccess', 'nullable'],
-            "facilityAccess"      => ['required_without:dataSharing', 'nullable'],
+            "dataSharing-facilityAccess" => ['required'],
+            // "facilityAccess"      => ['required_without:dataSharing', 'nullable'],
      
             'subdomain'           => ['required'],
      
             "contact-firstName"   => ['required'],
             "contact-lastName"    => ['required'],
+            "contact-nationality" => ['required'],
+            "contact-gender"      => ['required'],
             "contact-email"       => ['required', 'email'],
             "contact-affiliation" => ['required'],
+            "contact-affiliation-country" => ['required'],
+
         ]);
 
         // I dont like that the highlighted one is always on top of the page right under the edge
