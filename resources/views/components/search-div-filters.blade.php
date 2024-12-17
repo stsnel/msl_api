@@ -34,8 +34,7 @@ filterDataPath:  (string) the path to the file which contains the data for the f
                                 <input type="checkbox" id="filterTreeToggleInterpreted" checked="checked" class="checkbox" />
 
                                 <span class="label-text">MSL enriched keywords 
-                                    {{-- <x-ri-information-line id="enriched-keywords-popup" class="info-icon"/> --}}
-                                    {{-- <i id="enriched-keywords-popup">i</i> --}}
+                                    <x-ri-information-line id="enriched-keywords-popup" class="info-icon"/>
                                 </span>
                             </label>
                             <script>
@@ -50,7 +49,9 @@ filterDataPath:  (string) the path to the file which contains the data for the f
                         <div class="form-control w-full">
                             <label class="label cursor-pointer justify-center space-x-2">
                                 <input type="checkbox" id="filterTreeToggleOriginal" class="checkbox" />
-                                <span class="label-text">MSL original keywords <i id="original-keywords-popup">i</i></span>
+                                <span class="label-text">MSL original keywords 
+                                    <x-ri-information-line id="original-keywords-popup" class="info-icon"/>
+                                </span>
                             </label>
                             <script>
                                 tippy('#original-keywords-popup', {

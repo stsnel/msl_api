@@ -20,7 +20,7 @@
             href="https://www.epos-eu.org/">
               
               <img 
-              src={{ asset( 'images/logos/eposLarge.jpg')}} 
+              src={{ asset( 'images/logos/EPOScolour.png')}} 
               alt="MSL-logo"
               class="w-48">
             </a>

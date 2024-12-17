@@ -149,6 +149,16 @@
       @apply size-8 fill-primary-800  rounded-full inline
     }
 
+    .goBack-icon{
+      @apply size-8 fill-secondary-600  rounded-full inline
+    }
+
+    .warning-icon{
+      @apply size-10 fill-warning-900  rounded-full inline
+    }
+
+
+
 
 
     /*###############
@@ -200,6 +210,16 @@
     .link-list-item{
       @apply flex flex-col gap-2 w-32
     }
+
+
+    /*###############
+    other
+    ###############*/
+    .timeline-line-element{
+      @apply py-5
+    }
+
+
 }
 
 /*###############

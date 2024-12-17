@@ -80,7 +80,7 @@
               </div>
 
               <a class="btn btn-ghost rounded-btn " href="{{ route('about') }}">About MSL</a>
-              <a class="btn btn-ghost rounded-btn " href="https://www.epos-eu.org/dataportal">EPOS central data portal</a>
+              <a class="btn btn-ghost rounded-btn " href="https://www.epos-eu.org/dataportal" target="_blank">EPOS central data portal</a>
 
 
             </div>
